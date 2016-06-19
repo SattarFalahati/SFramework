@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'SFramework_Example' do
+  pod 'SFramework', :path => '../'
+
+  target 'SFramework_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  pod 'FBSnapshotTestCase'
+  end
+end
