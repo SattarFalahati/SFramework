@@ -1,0 +1,6 @@
+framework module SFramework {
+  umbrella header "SFramework-umbrella.h"
+
+  export *
+  module * { export * }
+}

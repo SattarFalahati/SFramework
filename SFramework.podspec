@@ -7,36 +7,33 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'SFramework'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of SFramework.'
+s.name             = 'SFramework'
+s.version          = '0.0.1'
+s.summary          = 'Sattar personal framework.'
+s.description      = <<-DESC
+This framework will be used as a helper to help us make projects faster and easier.
+DESC
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+s.homepage         = 'https://github.com/SattarFalahati/SFramework'
+s.license          = { :type => 'MIT', :file => 'LICENSE' }
+s.author           = { 'Sattar Falahati' => 'sattar.falahati@gmail.com' }
+s.source           = { :git => 'https://github.com/SattarFalahati/SFramework.git', :tag => s.version.to_s }
+s.ios.deployment_target = '8.0'
+s.source_files = 'SFramework/**/**/*'
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+s.preserve_paths = 'SFramework'
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/SFramework'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'sattar_falahati' => 'sattar.falahati@gmail.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/SFramework.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+# s.frameworks = 'UIKit'
+s.dependency 'AFNetworking', '~> 2.6.3'
+s.dependency 'MBProgressHUD', '~> 0.9.2'
 
-  s.ios.deployment_target = '8.0'
 
-  s.source_files = 'SFramework/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'SFramework' => ['SFramework/Assets/*.png']
-  # }
+# s.resource_bundles = {
+#   'SFramework' => ['SFramework/Assets/*.png']
+# }
+# s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+# s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+# s.public_header_files = 'Pod/Classes/**/*.h'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+
 end

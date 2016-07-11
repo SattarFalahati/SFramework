@@ -17,12 +17,12 @@ SFramework is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod "SFramework"
+pod "SFramework" '~> 0.0.1'
 ```
 
 ## Author
 
-sattar_falahati, sattar.falahati@gmail.com
+Sattar Falahati, sattar.falahati@gmail.com
 
 ## License
 
