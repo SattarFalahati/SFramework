@@ -6,6 +6,12 @@
 
 #import "SFUtils.h"
 
+// Helpers
+#import "SFImports.h"
+
+// External Fameworks
+#import "AFNetworking.h"
+
 #define kBarButtonSide          44.0 // For navigation bar (normally its 44)
 #define kRightBarButtons        44.0 // For navigation bar (normally its 44)
 
@@ -31,57 +37,57 @@
     return ![self isNotEmpty:obj];
 }
 
-//+(BOOL)isNotEmpty:(NSObject *)obj
-//{
-//    if(obj && ![obj isKindOfClass:[NSNull class]] && (NSNull *)obj!=[NSNull null]){
-//        if([obj isKindOfClass:[NSString class]]){
-//            return ![(NSString *)obj isEmpty];
-//        }
-//        if([obj isKindOfClass:[NSArray class]]){
-//            NSArray *arr = (NSArray *)obj;
-//            if(arr && [arr count]>0){
-//                return YES;
-//            }
-//        }
-//        if([obj isKindOfClass:[NSMutableArray class]]){
-//            NSMutableArray *arr = (NSMutableArray *)obj;
-//            if(arr && [arr count]>0){
-//                return YES;
-//            }
-//        }
-//        if([obj isKindOfClass:[NSDictionary class]]){
-//            NSDictionary *dic = (NSDictionary *)obj;
-//            if(dic && [dic count]>0 && [[dic allKeys] count]>0){
-//                return YES;
-//            }
-//        }
-//        if([obj isKindOfClass:[NSMutableDictionary class]]){
-//            NSMutableDictionary *dic = (NSMutableDictionary *)obj;
-//            if(dic && [dic count]>0 && [[dic allKeys] count]>0){
-//                return YES;
-//            }
-//        }
-//        if([obj isKindOfClass:[NSURL class]]){
-//            NSURL *url = (NSURL *)obj;
-//            if(url && [url absoluteString] && ![[url absoluteString] isEmpty]){
-//                return YES;
-//            }
-//        }
-//        if([obj isKindOfClass:[NSNumber class]]){
-//            NSNumber *num = (NSNumber *)obj;
-//            if(num){
-//                return YES;
-//            }
-//        }
-//        if([obj isKindOfClass:[NSData class]]){
-//            NSData *data = (NSData *)obj;
-//            if(data && [data length]>0){
-//                return YES;
-//            }
-//        }
-//    }
-//    return NO;
-//}
++(BOOL)isNotEmpty:(NSObject *)obj
+{
+    if(obj && ![obj isKindOfClass:[NSNull class]] && (NSNull *)obj!=[NSNull null]){
+        if([obj isKindOfClass:[NSString class]]){
+            return ![(NSString *)obj isEmpty];
+        }
+        if([obj isKindOfClass:[NSArray class]]){
+            NSArray *arr = (NSArray *)obj;
+            if(arr && [arr count]>0){
+                return YES;
+            }
+        }
+        if([obj isKindOfClass:[NSMutableArray class]]){
+            NSMutableArray *arr = (NSMutableArray *)obj;
+            if(arr && [arr count]>0){
+                return YES;
+            }
+        }
+        if([obj isKindOfClass:[NSDictionary class]]){
+            NSDictionary *dic = (NSDictionary *)obj;
+            if(dic && [dic count]>0 && [[dic allKeys] count]>0){
+                return YES;
+            }
+        }
+        if([obj isKindOfClass:[NSMutableDictionary class]]){
+            NSMutableDictionary *dic = (NSMutableDictionary *)obj;
+            if(dic && [dic count]>0 && [[dic allKeys] count]>0){
+                return YES;
+            }
+        }
+        if([obj isKindOfClass:[NSURL class]]){
+            NSURL *url = (NSURL *)obj;
+            if(url && [url absoluteString] && ![[url absoluteString] isEmpty]){
+                return YES;
+            }
+        }
+        if([obj isKindOfClass:[NSNumber class]]){
+            NSNumber *num = (NSNumber *)obj;
+            if(num){
+                return YES;
+            }
+        }
+        if([obj isKindOfClass:[NSData class]]){
+            NSData *data = (NSData *)obj;
+            if(data && [data length]>0){
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
 
 #pragma mark - Arrays
 
@@ -141,22 +147,22 @@
     btn.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
     [self setImageButton:btn andImage:btnImage forState:state];
     if(transparent){
-//        [btn setBackgroundColor:clearC];
+        [btn setBackgroundColor:clearC];
     }
 }
 
 #pragma mark - Network
 
-//+(BOOL)isNetworkStatusActive
-//{
-//    if([AFNetworkReachabilityManager sharedManager].reachable){
-//        return YES;
-//    }
-//    if([self NetworkStatus] == YES){
-//        return YES;
-//    }
-//    return [self isHostReachable:ReachabilityURL];
-//}
++(BOOL)isNetworkStatusActive
+{
+    if([AFNetworkReachabilityManager sharedManager].reachable){
+        return YES;
+    }
+    if([self NetworkStatus] == YES){
+        return YES;
+    }
+    return [self isHostReachable:ReachabilityURL];
+}
 
 + (BOOL)isReachableWithoutRequiringConnection:(SCNetworkReachabilityFlags)flags
 {
@@ -213,50 +219,50 @@
     return NO;
 }
 
-//+ (void)getNetworkConnectionStatuse
-//{
-//    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-//        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
-//        switch (status) {
-//            case AFNetworkReachabilityStatusUnknown:
-//                NSLog(@"The reachability status is Unknown");
-//                // Do sth
-//                break;
-//            case AFNetworkReachabilityStatusNotReachable:
-//                NSLog(@"The reachability status is not reachable");
-//                // Do sth
-//                break;
-//            case AFNetworkReachabilityStatusReachableViaWWAN:
-//                NSLog(@"The reachability status is reachable via WWAN");
-//                // Do sth
-//                break;
-//            case AFNetworkReachabilityStatusReachableViaWiFi:
-//                NSLog(@"The reachability status is reachable via WiFi");
-//                // Do sth
-//                break;
-//            default:
-//                NSLog(@"The reachability status is not found");
-//                // Do sth
-//                break;
-//        }
-//    }];
-//}
++ (void)getNetworkConnectionStatuse
+{
+    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
+        switch (status) {
+            case AFNetworkReachabilityStatusUnknown:
+                NSLog(@"The reachability status is Unknown");
+                // Do sth
+                break;
+            case AFNetworkReachabilityStatusNotReachable:
+                NSLog(@"The reachability status is not reachable");
+                // Do sth
+                break;
+            case AFNetworkReachabilityStatusReachableViaWWAN:
+                NSLog(@"The reachability status is reachable via WWAN");
+                // Do sth
+                break;
+            case AFNetworkReachabilityStatusReachableViaWiFi:
+                NSLog(@"The reachability status is reachable via WiFi");
+                // Do sth
+                break;
+            default:
+                NSLog(@"The reachability status is not found");
+                // Do sth
+                break;
+        }
+    }];
+}
 
 #pragma mark - Text
 
-//+(CGSize)heightText:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
-//{
-//    if(IS_IOS7_AND_UP){
-//        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys: font, NSFontAttributeName, nil];
-//        CGRect frame = [text boundingRectWithSize:size options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:attributesDictionary context:nil];
-//        return frame.size;
-//    }else{
-//#pragma clang diagnostic push
-//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-//        return [text sizeWithFont:font constrainedToSize:size];
-//#pragma clang diagnostic pop
-//    }
-//}
++(CGSize)heightText:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
+{
+    if(IS_IOS7_AND_UP){
+        NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys: font, NSFontAttributeName, nil];
+        CGRect frame = [text boundingRectWithSize:size options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading) attributes:attributesDictionary context:nil];
+        return frame.size;
+    }else{
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        return [text sizeWithFont:font constrainedToSize:size];
+#pragma clang diagnostic pop
+    }
+}
 
 #pragma mark - Table
 
@@ -399,12 +405,12 @@
  *************************/
 + (void)setImageForNavigationItem:(UINavigationItem *)navItem forTarget:(id)target
 {
-//    [target setNeedsStatusBarAppearanceUpdate];
-//    UIImageView *imgLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, kBarButtonSide)];
-//    [imgLogo setBackgroundColor:clearC];
-//    [imgLogo setImage:[UIImage imageNamed:@"navLogo"]];
-//    [imgLogo setContentMode:UIViewContentModeScaleAspectFit];
-//    navItem.titleView = imgLogo;
+    [target setNeedsStatusBarAppearanceUpdate];
+    UIImageView *imgLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, kBarButtonSide)];
+    [imgLogo setBackgroundColor:clearC];
+    [imgLogo setImage:[UIImage imageNamed:@"navLogo"]];
+    [imgLogo setContentMode:UIViewContentModeScaleAspectFit];
+    navItem.titleView = imgLogo;
 }
 
 #pragma mark - Segments
@@ -616,6 +622,18 @@
     return NO;
 }
 
++ (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day fromDate:(NSDate *)date
+{
+
+    NSDateComponents *components = [CURRENT_CALENDAR components:DATE_COMPONENTS fromDate:date];
+
+    [components setDay:day];
+    [components setMonth:month];
+    [components setYear:year];
+
+    return [CURRENT_CALENDAR dateFromComponents:components];
+}
+
 #pragma mark - CAMERA & SCREEN
 
 + (BOOL)hasCamera
@@ -639,17 +657,17 @@
         message = @"";
     
     // SetUp Progress bar
-//    MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:WINDOW animated:YES];
-//    
-//    [progress.label setText:message];
-//    progress.animationType = MBProgressHUDAnimationZoom;
-//    progress.mode = MBProgressHUDModeIndeterminate;
-//    [progress showAnimated:YES];
+    MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:WINDOW animated:YES];
+
+    progress.labelText = message;
+    progress.animationType = MBProgressHUDAnimationZoom;
+    progress.mode = MBProgressHUDModeIndeterminate;
+    [progress show:YES];
 }
 
 + (void)stopProgressHUD
 {
-//    [MBProgressHUD hideHUDForView:WINDOW animated:YES];
+    [MBProgressHUD hideHUDForView:WINDOW animated:YES];
 }
 
 #pragma mark - Border && Radius

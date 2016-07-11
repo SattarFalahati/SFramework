@@ -11,6 +11,7 @@
 
 // External frameworks
 #import "AFNetworking.h"
+#import "MBProgressHUD.h"
 
 // Helpers
 #import "SFAlertView.h"

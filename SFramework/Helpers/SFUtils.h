@@ -99,19 +99,8 @@
 + (NSDate *)getDate:(NSDate *)fromDate addDays:(NSUInteger)days addHours:(NSUInteger)hours;
 + (BOOL)date:(NSDate *)date is:(BOOL)before otherDate:(NSDate *)otherDate;
 
-
-// FIxMe
-
-//- (NSDate *)returnDateForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day {
-//    
-//    NSDateComponents *components = [CURRENT_CALENDAR components:DATE_COMPONENTS fromDate:date];
-//    
-//    [components setDay:day];
-//    [components setMonth:month];
-//    [components setYear:year];
-//    
-//    return [CURRENT_CALENDAR dateFromComponents:components];
-//}
+/// USE TO GET FIRST OR LAST DATE OF A MONTH EXAMPLE : FIRST DAY :[self returnDateForMonth:components.month year:components.year day:2 withDate:date] last DAY :  [self returnDateForMonth:components.month+1 year:components.year day:1 withDate:date];
++ (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day fromDate:(NSDate *)date;
 
 #pragma mark - CAMERA & SCREEN
 
