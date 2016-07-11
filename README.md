@@ -1,15 +1,17 @@
 # SFramework
 
-[![CI Status](http://img.shields.io/travis/sattar_falahati/SFramework.svg?style=flat)](https://travis-ci.org/sattar_falahati/SFramework)
+<!--[![CI Status](http://img.shields.io/travis/sattar_falahati/SFramework.svg?style=flat)](https://travis-ci.org/sattar_falahati/SFramework)-->
 [![Version](https://img.shields.io/cocoapods/v/SFramework.svg?style=flat)](http://cocoapods.org/pods/SFramework)
 [![License](https://img.shields.io/cocoapods/l/SFramework.svg?style=flat)](http://cocoapods.org/pods/SFramework)
 [![Platform](https://img.shields.io/cocoapods/p/SFramework.svg?style=flat)](http://cocoapods.org/pods/SFramework)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
+<!--## Example-->
+<!---->
+<!--To run the example project, clone the repo, and run `pod install` from the Example directory first.-->
+<!---->
 ## Requirements
+SFramwork works on iOS 8+
+
 
 ## Installation
 
