@@ -6,7 +6,10 @@
 #import "SFDictionary.h"
 #import "SFImports.h"
 #import "SFLabel.h"
+#import "SFNetworking.h"
+#import "SFObject.h"
 #import "SFString.h"
+#import "SFTableView.h"
 #import "SFUtils.h"
 
 FOUNDATION_EXPORT double SFrameworkVersionNumber;

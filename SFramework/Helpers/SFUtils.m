@@ -12,16 +12,14 @@
 // External Fameworks
 #import "AFNetworking.h"
 
-#define kBarButtonSide          44.0 // For navigation bar (normally its 44)
-#define kRightBarButtons        44.0 // For navigation bar (normally its 44)
-
 
 @interface SFUtils ()
 @end
 
 @implementation SFUtils
 
-+ (id)sharedManager{
++ (id)sharedManager
+{
     static id sharedManager;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -30,68 +28,9 @@
     return sharedManager;
 }
 
-#pragma mark - Objects
-
-+ (BOOL)isEmpty:(NSObject *)obj
-{
-    return ![self isNotEmpty:obj];
-}
-
-+(BOOL)isNotEmpty:(NSObject *)obj
-{
-    if(obj && ![obj isKindOfClass:[NSNull class]] && (NSNull *)obj!=[NSNull null]){
-        if([obj isKindOfClass:[NSString class]]){
-            return ![(NSString *)obj isEmpty];
-        }
-        if([obj isKindOfClass:[NSArray class]]){
-            NSArray *arr = (NSArray *)obj;
-            if(arr && [arr count]>0){
-                return YES;
-            }
-        }
-        if([obj isKindOfClass:[NSMutableArray class]]){
-            NSMutableArray *arr = (NSMutableArray *)obj;
-            if(arr && [arr count]>0){
-                return YES;
-            }
-        }
-        if([obj isKindOfClass:[NSDictionary class]]){
-            NSDictionary *dic = (NSDictionary *)obj;
-            if(dic && [dic count]>0 && [[dic allKeys] count]>0){
-                return YES;
-            }
-        }
-        if([obj isKindOfClass:[NSMutableDictionary class]]){
-            NSMutableDictionary *dic = (NSMutableDictionary *)obj;
-            if(dic && [dic count]>0 && [[dic allKeys] count]>0){
-                return YES;
-            }
-        }
-        if([obj isKindOfClass:[NSURL class]]){
-            NSURL *url = (NSURL *)obj;
-            if(url && [url absoluteString] && ![[url absoluteString] isEmpty]){
-                return YES;
-            }
-        }
-        if([obj isKindOfClass:[NSNumber class]]){
-            NSNumber *num = (NSNumber *)obj;
-            if(num){
-                return YES;
-            }
-        }
-        if([obj isKindOfClass:[NSData class]]){
-            NSData *data = (NSData *)obj;
-            if(data && [data length]>0){
-                return YES;
-            }
-        }
-    }
-    return NO;
-}
-
 #pragma mark - Arrays
 
-+(NSMutableArray *) generateRandomArray:(int) max
++ (NSMutableArray *)generateRandomArray:(int) max
 {
     NSMutableArray *randArray = [NSMutableArray new];
     for (int k = 0; k < max; k++) {
@@ -107,7 +46,7 @@
 
 #pragma mark - Buttons
 
-+(void)roundetBottomCornerView:(UIView *)view onCorner:(UIRectCorner)rectCorner andRadius:(CGFloat)radius andBackgroundColor:(UIColor *)bColor
++ (void)roundetBottomCornerView:(UIView *)view onCorner:(UIRectCorner)rectCorner andRadius:(CGFloat)radius andBackgroundColor:(UIColor *)bColor
 {
     if(bColor){
         [view setBackgroundColor:bColor];
@@ -119,17 +58,17 @@
     view.layer.mask = maskLayerEditPP;
 }
 
-+(void)setTextButton:(UIButton *)btn andText:(NSString *)text forState:(UIControlState)state
++ (void)setTextButton:(UIButton *)btn andText:(NSString *)text forState:(UIControlState)state
 {
     [btn setTitle:text forState:state];
 }
 
-+(void)setImageButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state
++ (void)setImageButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state
 {
     [btn setImage:btnImage forState:state];
 }
 
-+(void)setImageBackgroundButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state
++ (void)setImageBackgroundButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state
 {
     [btn setBackgroundImage:btnImage forState:state];
 }
@@ -140,112 +79,15 @@
 }
 
 
-+(void)setImageButtonWithoutText:(UIButton *)btn andImage:(UIImage *)btnImage transparent:(BOOL)transparent forState:(UIControlState)state
++ (void)setImageButtonWithoutText:(UIButton *)btn andImage:(UIImage *)btnImage transparent:(BOOL)transparent forState:(UIControlState)state
 {
     [self setTextButton:btn andText:@"" forState:state];
     btn.contentMode = UIViewContentModeScaleAspectFit;
     btn.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
     [self setImageButton:btn andImage:btnImage forState:state];
     if(transparent){
-        [btn setBackgroundColor:clearC];
+        [btn setBackgroundColor:CClear];
     }
-}
-
-#pragma mark - Network
-
-+(BOOL)isNetworkStatusActive
-{
-    if([AFNetworkReachabilityManager sharedManager].reachable){
-        return YES;
-    }
-    if([self NetworkStatus] == YES){
-        return YES;
-    }
-    return [self isHostReachable:ReachabilityURL];
-}
-
-+ (BOOL)isReachableWithoutRequiringConnection:(SCNetworkReachabilityFlags)flags
-{
-    BOOL isReachable = flags & kSCNetworkReachabilityFlagsReachable;
-    BOOL noConnectionRequired = !(flags & kSCNetworkReachabilityFlagsConnectionRequired);
-    if ((flags & kSCNetworkReachabilityFlagsIsWWAN)) {
-        noConnectionRequired = YES;
-    }
-    return (isReachable && noConnectionRequired) ? YES : NO;
-}
-
-+ (BOOL)isHostReachable:(NSString *)host
-{
-    if (!host || ![host length]) {
-        return NO;
-    }
-    SCNetworkReachabilityFlags flags;
-    SCNetworkReachabilityRef reachability =  SCNetworkReachabilityCreateWithName(NULL, [host UTF8String]);
-    BOOL gotFlags = SCNetworkReachabilityGetFlags(reachability, &flags);
-    CFRelease(reachability);
-    if (!gotFlags) {
-        return NO;
-    }
-    return [self isReachableWithoutRequiringConnection:flags];
-}
-
-+(BOOL)NetworkStatus
-{
-    struct sockaddr_in zeroAddress;
-    bzero(&zeroAddress, sizeof(zeroAddress));
-    zeroAddress.sin_len = sizeof(zeroAddress);
-    zeroAddress.sin_family = AF_INET;
-    SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, (const struct sockaddr*)&zeroAddress);
-    if(reachability != NULL) {
-        SCNetworkReachabilityFlags flags;
-        if (SCNetworkReachabilityGetFlags(reachability, &flags)) {
-            if ((flags & kSCNetworkReachabilityFlagsReachable) == 0){
-                return NO;
-            }
-            if ((flags & kSCNetworkReachabilityFlagsConnectionRequired) == 0){
-                return YES;
-            }
-            if ((((flags & kSCNetworkReachabilityFlagsConnectionOnDemand ) != 0) ||
-                 (flags & kSCNetworkReachabilityFlagsConnectionOnTraffic) != 0)){
-                if ((flags & kSCNetworkReachabilityFlagsInterventionRequired) == 0){
-                    return YES;
-                }
-            }
-            if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN){
-                return YES;
-            }
-        }
-    }
-    return NO;
-}
-
-+ (void)getNetworkConnectionStatuse
-{
-    [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
-        NSLog(@"Reachability: %@", AFStringFromNetworkReachabilityStatus(status));
-        switch (status) {
-            case AFNetworkReachabilityStatusUnknown:
-                NSLog(@"The reachability status is Unknown");
-                // Do sth
-                break;
-            case AFNetworkReachabilityStatusNotReachable:
-                NSLog(@"The reachability status is not reachable");
-                // Do sth
-                break;
-            case AFNetworkReachabilityStatusReachableViaWWAN:
-                NSLog(@"The reachability status is reachable via WWAN");
-                // Do sth
-                break;
-            case AFNetworkReachabilityStatusReachableViaWiFi:
-                NSLog(@"The reachability status is reachable via WiFi");
-                // Do sth
-                break;
-            default:
-                NSLog(@"The reachability status is not found");
-                // Do sth
-                break;
-        }
-    }];
 }
 
 #pragma mark - Text
@@ -262,20 +104,6 @@
         return [text sizeWithFont:font constrainedToSize:size];
 #pragma clang diagnostic pop
     }
-}
-
-#pragma mark - Table
-
-+(void)refreshWithTableView:(UITableView *)table
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [UIView transitionWithView:table
-                          duration:0.35f
-                           options:UIViewAnimationOptionTransitionCrossDissolve
-                        animations:^(void) {
-                            [table reloadData];
-                        } completion:NULL];
-    });
 }
 
 #pragma mark - Unic ID
@@ -407,7 +235,7 @@
 {
     [target setNeedsStatusBarAppearanceUpdate];
     UIImageView *imgLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, kBarButtonSide)];
-    [imgLogo setBackgroundColor:clearC];
+    [imgLogo setBackgroundColor:CClear];
     [imgLogo setImage:[UIImage imageNamed:@"navLogo"]];
     [imgLogo setContentMode:UIViewContentModeScaleAspectFit];
     navItem.titleView = imgLogo;
@@ -508,7 +336,7 @@
             NSRange range ;
             // FIXME :
             /// This is temprory solution : To avoid read, readed number have to change the number in original string into something else ... (#)
-            if ([self isNotEmpty:newStrFromOrginalStr]) {
+            if ([newStrFromOrginalStr isNotEmpty]) {
                 range = [newStrFromOrginalStr rangeOfString:numbString];
             }
             else {
@@ -524,7 +352,7 @@
                 NSRange finalRange =  NSMakeRange(range.location, range.location + range.length);
                 
                 /// This is temprory solution : To avoid read, readed number have to change the number in original string into something else ... (#)
-                if ([self isNotEmpty:newStrFromOrginalStr]) {
+                if ([newStrFromOrginalStr isNotEmpty]) {
                     newStrFromOrginalStr = [newStrFromOrginalStr stringByReplacingCharactersInRange: NSMakeRange(range.location ,range.length) withString:@"#"];
                 }
                 else {
@@ -624,13 +452,13 @@
 
 + (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day fromDate:(NSDate *)date
 {
-
+    
     NSDateComponents *components = [CURRENT_CALENDAR components:DATE_COMPONENTS fromDate:date];
-
+    
     [components setDay:day];
     [components setMonth:month];
     [components setYear:year];
-
+    
     return [CURRENT_CALENDAR dateFromComponents:components];
 }
 
@@ -653,12 +481,12 @@
 + (void)showProgressHUDWithMessage:(NSString *)message
 {
     // SetUp Message
-    if ([self isEmpty:message])
+    if ([message isEmpty])
         message = @"";
     
     // SetUp Progress bar
     MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:WINDOW animated:YES];
-
+    
     progress.labelText = message;
     progress.animationType = MBProgressHUDAnimationZoom;
     progress.mode = MBProgressHUDModeIndeterminate;
@@ -703,7 +531,7 @@
         
         [view.layer addSublayer:shapeLayerForBorder];
     }
-
+    
 }
 
 + (void)roundTopCornersRadius:(CGFloat)radius onView:(UIView *)view withBorder:(BOOL)border andBorderColor:(UIColor *)color
@@ -715,6 +543,16 @@
 {
     [SFUtils roundCorners:(UIRectCornerBottomLeft|UIRectCornerBottomRight) onView:view radius:radius withBorder:border andBorderColor:color];
 }
+
++ (void)addBorderOnView:(UIView *)view withRadius:(CGFloat)radius andBorderColor:(UIColor *)color andBorderWidth:(CGFloat)width
+{
+    view.layer.cornerRadius = radius;
+    view.layer.masksToBounds = YES;
+    view.layer.borderWidth = width;
+    view.layer.borderColor = (__bridge CGColorRef _Nullable)(color);
+}
+
+
 
 
 @end

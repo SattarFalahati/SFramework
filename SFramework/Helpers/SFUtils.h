@@ -17,11 +17,6 @@
 
 + (id)sharedManager;
 
-#pragma mark - Objects
-
-+ (BOOL)isEmpty:(NSObject *)obj;
-+ (BOOL)isNotEmpty:(NSObject *)obj;
-
 #pragma mark - Arrays
 
 + (NSMutableArray *)generateRandomArray:(int)max;
@@ -35,21 +30,9 @@
 + (void)setImageBackgroundButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state;
 + (void)setTextColorButton:(UIButton *)btn andColor:(UIColor *)textColor forState:(UIControlState)state;
 
-#pragma mark - Network
-
-+ (BOOL)isNetworkStatusActive;
-+ (BOOL)isReachableWithoutRequiringConnection:(SCNetworkReachabilityFlags)flags;
-+ (BOOL)isHostReachable:(NSString *)host;
-+ (BOOL)NetworkStatus;
-+ (void)getNetworkConnectionStatuse;
-
 #pragma mark - Text
 
 + (CGSize)heightText:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
-
-#pragma mark - Table
-
-+ (void)refreshWithTableView:(UITableView *)table;
 
 #pragma mark - Unic ID
 
@@ -99,7 +82,7 @@
 + (NSDate *)getDate:(NSDate *)fromDate addDays:(NSUInteger)days addHours:(NSUInteger)hours;
 + (BOOL)date:(NSDate *)date is:(BOOL)before otherDate:(NSDate *)otherDate;
 
-/// USE TO GET FIRST OR LAST DATE OF A MONTH EXAMPLE : FIRST DAY :[self returnDateForMonth:components.month year:components.year day:2 withDate:date] last DAY :  [self returnDateForMonth:components.month+1 year:components.year day:1 withDate:date];
+/// USE TO GET FIRST OR LAST DATE OF A MONTH *** EXAMPLE : FIRST DAY :[self returnDateForMonth:components.month year:components.year day:2 withDate:date] last DAY :  [self returnDateForMonth:components.month+1 year:components.year day:1 withDate:date];
 + (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day fromDate:(NSDate *)date;
 
 #pragma mark - CAMERA & SCREEN
@@ -117,5 +100,8 @@
 + (void)roundCorners:(UIRectCorner)corners onView:(UIView *)view radius:(CGFloat)radius withBorder:(BOOL)border andBorderColor:(UIColor *)color;
 + (void)roundTopCornersRadius:(CGFloat)radius onView:(UIView *)view withBorder:(BOOL)border andBorderColor:(UIColor *)color;
 + (void)roundBottomCornersRadius:(CGFloat)radius onView:(UIView *)view withBorder:(BOOL)border andBorderColor:(UIColor *)color;
+
+/// add border on a view *** if you don't want to have corner radius send radius nil
++ (void)addBorderOnView:(UIView *)view withRadius:(CGFloat)radius andBorderColor:(UIColor *)color andBorderWidth:(CGFloat)width;
 
 @end

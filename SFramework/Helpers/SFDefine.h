@@ -4,7 +4,8 @@
 //  Copyright (c) 2016 Sattar Falahati (SFramework). All rights reserved.
 //
 
-#define kBarButtonSide                          44.0
+#define kBarButtonSide          44.0 // For navigation bar (normally its 44)
+#define kRightBarButtons        44.0 // For navigation bar (normally its 44)
 
 #define GAI_EVENT(category,action,label)   dispatch_async(dispatch_get_main_queue(),^{ [NOTIFICATION_CENTER postNotificationName:kAnalytics_EVENT object:@{kGAI_CATEGORY:category,kGAI_ACTION:action, kGAI_LABEL:label}]; })
 
@@ -56,7 +57,6 @@
 #define CURRENT_CALENDAR                                    [NSCalendar currentCalendar]
 #define DATE_COMPONENTS                                     (NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekCalendarUnit |  NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSWeekdayCalendarUnit | NSWeekdayOrdinalCalendarUnit)
 
-#define APPLICATION_DELEGATE                                ((Roma10AppDelegate *)[[UIApplication sharedApplication] delegate])
 #define NOTIFICATION_CENTER                                 [NSNotificationCenter defaultCenter]
 #define SHARED_APPLICATION                                  [UIApplication sharedApplication]
 #define DEFAULT_MANAGER                                     [NSFileManager defaultManager]
@@ -84,16 +84,13 @@
 #define SHOW_NETWORK_ACTIVITY_INDICATOR()                   [UIApplication sharedApplication].networkActivityIndicatorVisible = YES
 #define HIDE_NETWORK_ACTIVITY_INDICATOR()                   [UIApplication sharedApplication].networkActivityIndicatorVisible = NO
 
-
-#define NSLogRect(rect)                                     NSLog(@"%@", NSStringFromCGRect(rect))
-#define NSLogSize(size)                                     NSLog(@"%@", NSStringFromCGSize(size))
-#define NSLogPoint(point)                                   NSLog(@"%@", NSStringFromCGPoint(point))
-
+#define SFLogRect(rect)                                     NSLog(@"%@", NSStringFromCGRect(rect))
+#define SFLogSize(size)                                     NSLog(@"%@", NSStringFromCGSize(size))
+#define SFLogPoint(point)                                   NSLog(@"%@", NSStringFromCGPoint(point))
 
 #define NUM_INT(int)                                        [NSNumber numberWithInt:int]
 #define NUM_FLOAT(float)                                    [NSNumber numberWithFloat:float]
 #define NUM_BOOL(bool)                                      [NSNumber numberWithBool:bool]
-
 
 #define CENTER_VERTICALLY(parent,child)                     floor((parent.frame.size.height - child.frame.size.height) / 2)
 #define CENTER_HORIZONTALLY(parent,child)                   floor((parent.frame.size.width - child.frame.size.width) / 2)

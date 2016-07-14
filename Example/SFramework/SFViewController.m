@@ -19,8 +19,13 @@
 {
     [super viewDidLoad];
 	
-    // Do any additional setup after loading the view, typically from a nib.
-    [self.view setBackgroundColor:blackC];
+    [self.view setBackgroundColor:CBlack]; // Collor test
+    
+    NSString *strURL = @"http://jsonplaceholder.typicode.com/todos";
+    
+    [SFNetworking networkConnectionWithType:@"GET" withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:nil forMultiPartRequest:nil completionBlock:^(ErrorCode errorCode, id  _Nullable responseObject, NSError * _Nullable error) {
+        NSLog(@"%@",responseObject);
+    }];
     
 }
 

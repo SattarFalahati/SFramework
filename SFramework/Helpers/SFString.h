@@ -10,27 +10,27 @@
 
 @interface NSString (SFString)
 
-- (NSString *) reverse;
-- (NSString *) URLEncode;
-- (NSString *) URLDecode;
-- (NSString *) stringByStrippingWhitespace;
-- (NSString *) substringFrom:(NSInteger)from to:(NSInteger)to;
-- (NSString *) CapitalizeFirst:(NSString *)source;
-- (NSString *) UnderscoresToCamelCase:(NSString*)underscores;
-- (NSString *) CamelCaseToUnderscores:(NSString *)input;
-- (NSUInteger) countWords;
-- (BOOL) contains:(NSString *)string;
-- (BOOL) isEmpty;
-- (BOOL) isAlphaNumeric;
-- (BOOL) isISOLatin;
-- (BOOL) isOnlyNumeric;
-- (BOOL) isNumeric;
-- (BOOL) isValidEmailFormat;
-- (BOOL) isValidNumeroMobile;
-- (BOOL) isValidNumeroFisso;
-- (NSArray *) urlDetector:(NSString *)text;
-- (NSArray *) phoneNumberDetector:(NSString *)text;
-- (NSString *) replaceDetector;
-- (NSString *) specialCharactersConversion;
+- (NSString *)reverse;
+- (NSString *)URLEncode;
+- (NSString *)URLDecode;
+- (NSString *)stringByStrippingWhitespace;
+- (NSString *)substringFrom:(NSInteger)from to:(NSInteger)to;
+- (NSString *)capitalizeFirst:(NSString *)source;
+- (NSString *)underscoresToCamelCase:(NSString*)underscores;
+- (NSString *)camelCaseToUnderscores:(NSString *)input;
+- (NSUInteger)countWords;
+- (BOOL)contains:(NSString *)string;
+- (BOOL)isEmpty;
+- (BOOL)isAlphaNumeric;
+- (BOOL)isISOLatin;
+- (BOOL)isOnlyNumeric;
+- (BOOL)isNumeric;
+- (BOOL)isValidEmailFormat;
+- (BOOL)isValidNumeroMobile;
+- (BOOL)isValidNumeroFisso;
+- (NSArray *)URLDetector:(NSString *)text;
+- (NSArray *)phoneNumberDetector:(NSString *)text;
+- (NSString *)replaceDetector;
+- (NSString *)specialCharactersConversion;
 - (NSString *)convertHTML;
 @end

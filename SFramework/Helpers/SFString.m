@@ -70,7 +70,7 @@
 
 
 
--(NSString *)CamelCaseToUnderscores:(NSString *)input {
+-(NSString *)camelCaseToUnderscores:(NSString *)input {
     NSMutableString *output = [NSMutableString string];
     NSCharacterSet *uppercase = [NSCharacterSet uppercaseLetterCharacterSet];
     for (NSInteger idx = 0; idx < [input length]; idx += 1) {
@@ -84,7 +84,7 @@
     return output;
 }
 
--(NSString *)UnderscoresToCamelCase:(NSString*)underscores {
+-(NSString *)underscoresToCamelCase:(NSString*)underscores {
     NSMutableString *output = [NSMutableString string];
     BOOL makeNextCharacterUpperCase = NO;
     for (NSInteger idx = 0; idx < [underscores length]; idx += 1) {
@@ -101,7 +101,7 @@
     return output;
 }
 
--(NSString *)CapitalizeFirst:(NSString *)source {
+-(NSString *)capitalizeFirst:(NSString *)source {
     if ([source length] == 0) {
         return source;
     }
@@ -302,7 +302,7 @@
 	return string;
 }
 
--(NSArray *)urlDetector:(NSString *)text{
+-(NSArray *)URLDetector:(NSString *)text{
 	NSMutableArray *mutex = [NSMutableArray array];
 	NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
 	NSArray *matches = [detector matchesInString:text options:0 range:NSMakeRange(0, [text length])];
@@ -330,7 +330,7 @@
 
 -(NSString *)replaceDetector{
 	NSString *result = self;
-	NSArray *arrayLink = [self urlDetector:result];
+	NSArray *arrayLink = [self URLDetector:result];
 	NSArray *arrayPhone = [self phoneNumberDetector:result];
 	if(arrayLink && [arrayLink count]>0){
 		for(NSString *str in arrayLink){
