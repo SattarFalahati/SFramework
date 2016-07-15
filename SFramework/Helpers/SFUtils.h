@@ -92,8 +92,10 @@
 
 #pragma mark - progress bar
 
++ (void)showProgressHUDWithMessage:(NSString *)message onView:(id)view;
++ (void)hideProgressHUDFromView:(id)view;
 + (void)showProgressHUDWithMessage:(NSString *)message;
-+ (void)stopProgressHUD;
++ (void)hideProgressHUD;
 
 #pragma mark - Border && Radius
 

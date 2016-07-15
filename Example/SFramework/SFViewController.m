@@ -19,14 +19,34 @@
 {
     [super viewDidLoad];
 	
-    [self.view setBackgroundColor:CBlack]; // Collor test
+    [self.view setBackgroundColor:CRed]; // Collor test
+    
+    [self testNetworkConnection];
+}
+
+
+- (void)testNetworkConnection
+{
+    if (![SFNetworking isNetworkStatusActive]) {
+        [SFAlertView showAlertWithOTwoButtonsOnTarget:self withTitle:@"sss" withMessage:@"ddddd" withFirstButtonTitle:@"11" withBlock:^{
+            NSLog(@"1");
+            [self testNetworkConnection];
+        } withSecondButtonTitle:@"22" withBlock:^{
+           NSLog(@"2");
+            [self testNetworkConnection];
+        }];
+        return;
+    }
+    
+    [SFUtils showProgressHUDWithMessage:@"Loading ..." onView:self.view];
     
     NSString *strURL = @"http://jsonplaceholder.typicode.com/todos";
     
     [SFNetworking networkConnectionWithType:@"GET" withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:nil forMultiPartRequest:nil completionBlock:^(ErrorCode errorCode, id  _Nullable responseObject, NSError * _Nullable error) {
         NSLog(@"%@",responseObject);
+        
+        [SFUtils hideProgressHUDFromView:self.view];
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning

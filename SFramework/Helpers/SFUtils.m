@@ -478,24 +478,36 @@
     } else NSLog(@"Screen Always ON: NO");
 }
 
+#pragma mark - progress bar
+
 + (void)showProgressHUDWithMessage:(NSString *)message
+{
+    [self showProgressHUDWithMessage:message onView:WINDOW];
+}
+
++ (void)hideProgressHUD
+{
+    [self hideProgressHUDFromView:WINDOW];
+}
+
++ (void)showProgressHUDWithMessage:(NSString *)message onView:(id)view
 {
     // SetUp Message
     if ([message isEmpty])
         message = @"";
     
     // SetUp Progress bar
-    MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:WINDOW animated:YES];
+    MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:view animated:YES];
     
     progress.labelText = message;
-    progress.animationType = MBProgressHUDAnimationZoom;
+    progress.animationType = MBProgressHUDAnimationFade;
     progress.mode = MBProgressHUDModeIndeterminate;
     [progress show:YES];
 }
 
-+ (void)stopProgressHUD
++ (void)hideProgressHUDFromView:(id)view
 {
-    [MBProgressHUD hideHUDForView:WINDOW animated:YES];
+    [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
 #pragma mark - Border && Radius

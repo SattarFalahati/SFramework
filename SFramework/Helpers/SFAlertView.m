@@ -25,7 +25,10 @@
     [alertController addAction:button];
     
     // Present alert (show)
-    [target presentViewController:alertController animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [target presentViewController:alertController animated:YES completion:nil];
+    });
+    
 }
 
 /// Alert view with TWO Buttons
@@ -48,7 +51,10 @@
     [alertController addAction:firstBtn];
     [alertController addAction:secondBtn];
     
-    [target presentViewController:alertController animated:YES completion:nil];
+    // Present alert (show)
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [target presentViewController:alertController animated:YES completion:nil];
+    });
     
 }
 
