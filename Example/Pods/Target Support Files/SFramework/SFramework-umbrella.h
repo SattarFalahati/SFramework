@@ -1,11 +1,13 @@
 #import <UIKit/UIKit.h>
 
 #import "SFAlertView.h"
+#import "SFColor.h"
 #import "SFConstants.h"
 #import "SFDefine.h"
 #import "SFDictionary.h"
 #import "SFImports.h"
 #import "SFLabel.h"
+#import "SFLocalization.h"
 #import "SFNetworking.h"
 #import "SFObject.h"
 #import "SFString.h"

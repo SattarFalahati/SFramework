@@ -63,10 +63,6 @@
 
 + (void)setSegmentFont:(UIFont *)font andColor:(UIColor *)color forState:(UIControlState)state;
 
-#pragma mark - Color with HEX
-
-+ (UIColor *)colorWithHexString:(NSString *)HexSting;
-
 #pragma mark - STRING
 
 + (NSArray *)findRangeNumbrsInStringWithOriginalString:(NSString *)originalString;

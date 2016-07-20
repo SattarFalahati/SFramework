@@ -7,6 +7,8 @@
 //
 #import "SFAlertView.h"
 
+#import "SFLocalization.h"
+
 @implementation SFAlertView
 
 
@@ -34,6 +36,9 @@
 /// Alert view with TWO Buttons
 + (void)showAlertWithOTwoButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertViewCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertViewCompletionBlock)secondBtnTouchEventBlock
 {
+
+    NSString *str = [SFLocalization internalFrameworkLocalizedStringForKey:@"SFAlert.NoInternet.Title" withDefault:@"SFAlert.NoInternet.Title"];
+    
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction *firstBtn = [UIAlertAction actionWithTitle:firstBtnTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
@@ -55,7 +60,43 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [target presentViewController:alertController animated:YES completion:nil];
     });
-    
 }
+
+
+/// Locolized alert view For Network is not connect
++ (void)showAlertNetworkIsNotConnectOnTarget:(id)target withRetryBlock:(SFAlertViewCompletionBlock)retryBtnTouchEventBlock withCancelBlock:(SFAlertViewCompletionBlock)cancelBtnTouchEventBlock
+{
+    NSString *title = [SFLocalization internalFrameworkLocalizedStringForKey:@"SFAlert.NoInternet.Title" withDefault:@"SFAlert.NoInternet.Title"];
+    NSString *message = [SFLocalization internalFrameworkLocalizedStringForKey:@"SFAlert.NoInternet.Message" withDefault:@"SFAlert.NoInternet.Message"];
+    NSString *retryBtnTitle = [SFLocalization internalFrameworkLocalizedStringForKey:@"SFAlert.NoInternet.BTNRetry" withDefault:@"SFAlert.NoInternet.BTNRetry"];
+    NSString *cancelBtnTitle = [SFLocalization internalFrameworkLocalizedStringForKey:@"SFAlert.NoInternet.BTNCencel" withDefault:@"SFAlert.NoInternet.BTNCencel"];
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction *firstBtn = [UIAlertAction actionWithTitle:retryBtnTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            retryBtnTouchEventBlock();
+        });
+    }];
+    
+    UIAlertAction *secondBtn = [UIAlertAction actionWithTitle:cancelBtnTitle style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cancelBtnTouchEventBlock();
+        });
+    }];
+    
+    [alertController addAction:firstBtn];
+    [alertController addAction:secondBtn];
+    
+    // Present alert (show)
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [target presentViewController:alertController animated:YES completion:nil];
+    });
+}
+
+
+
+
+
 
 @end

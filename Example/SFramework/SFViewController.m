@@ -18,8 +18,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    [self.view setBackgroundColor:CRed]; // Collor test
+    
+    // Collor test
+     [self.view setBackgroundColor:RGB(151, 127, 45)];
+    // [self.view setBackgroundColor:[UIColor colorWithHexString:@"#afeeee"]];
     
     [self testNetworkConnection];
 }
@@ -27,13 +29,11 @@
 
 - (void)testNetworkConnection
 {
-    if (![SFNetworking isNetworkStatusActive]) {
-        [SFAlertView showAlertWithOTwoButtonsOnTarget:self withTitle:@"sss" withMessage:@"ddddd" withFirstButtonTitle:@"11" withBlock:^{
-            NSLog(@"1");
+    if ([SFNetworking isNetworkStatusActive]) {
+        [SFAlertView showAlertNetworkIsNotConnectOnTarget:self withRetryBlock:^{
             [self testNetworkConnection];
-        } withSecondButtonTitle:@"22" withBlock:^{
-           NSLog(@"2");
-            [self testNetworkConnection];
+        } withCancelBlock:^{
+            // Do sth if needed
         }];
         return;
     }

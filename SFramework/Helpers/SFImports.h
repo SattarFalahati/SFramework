@@ -25,5 +25,6 @@
 #import "SFTableView.h"
 #import "SFObject.h"
 #import "SFNetworking.h"
+#import "SFColor.h" 
 
 #endif /* SFImports_h */

@@ -11,7 +11,7 @@
 
 @interface SFAlertView : NSObject
 
-// Block
+/// SFAlertView Completion Block
 typedef void (^SFAlertViewCompletionBlock)();
 
 /// Alert view with ONE Button
@@ -19,5 +19,8 @@ typedef void (^SFAlertViewCompletionBlock)();
 
 /// Alert view with TWO Buttons
 + (void)showAlertWithOTwoButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertViewCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertViewCompletionBlock)secondBtnTouchEventBlock;
+
+/// Locolized alert view For Network is not connect
++ (void)showAlertNetworkIsNotConnectOnTarget:(id)target withRetryBlock:(SFAlertViewCompletionBlock)retryBtnTouchEventBlock withCancelBlock:(SFAlertViewCompletionBlock)cancelBtnTouchEventBlock;
 
 @end
