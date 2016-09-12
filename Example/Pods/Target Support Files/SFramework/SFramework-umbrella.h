@@ -9,6 +9,7 @@
 #import "SFImports.h"
 #import "SFLabel.h"
 #import "SFLocalization.h"
+#import "SFLocationManager.h"
 #import "SFNetworking.h"
 #import "SFObject.h"
 #import "SFString.h"

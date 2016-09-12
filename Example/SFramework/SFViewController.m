@@ -26,7 +26,17 @@
     [self testNetworkConnection];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    [SFLocationManager initGeoLocationManagerWithCompletitionBlock:^(CLLocationCoordinate2D currentLocation) {
+        NSLog(@"OK");
+        
+        [SFLocationManager stopGeoLocationManager];
+    }];
 
+}
 - (void)testNetworkConnection
 {
     if (![SFNetworking isNetworkStatusActive]) {

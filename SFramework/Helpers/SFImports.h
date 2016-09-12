@@ -28,5 +28,6 @@
 #import "SFColor.h" 
 #import "SFImage.h"
 #import "SFView.h"
+#import "SFLocationManager.h"
 
 #endif /* SFImports_h */
