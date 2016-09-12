@@ -46,16 +46,17 @@
 
 #pragma mark - Buttons
 
-+ (void)roundetBottomCornerView:(UIView *)view onCorner:(UIRectCorner)rectCorner andRadius:(CGFloat)radius andBackgroundColor:(UIColor *)bColor
++ (void)setTitleForButton:(UIButton *)btn withText:(NSString *)text andColor:(UIColor *)color forState:(UIControlState)state
 {
-    if(bColor){
-        [view setBackgroundColor:bColor];
-    }
-    UIBezierPath *maskPathEditPP = [UIBezierPath bezierPathWithRoundedRect:view.bounds byRoundingCorners:rectCorner cornerRadii:CGSizeMake(radius, radius)];
-    CAShapeLayer *maskLayerEditPP = [[CAShapeLayer alloc] init];
-    maskLayerEditPP.frame = view.bounds;
-    maskLayerEditPP.path = maskPathEditPP.CGPath;
-    view.layer.mask = maskLayerEditPP;
+    if ([text isEmpty] || [color isEmpty] ) return;
+    
+    [btn setTitleColor:color forState:state];
+    [btn setTitle:text forState:state];
+}
+
++ (void)setTextColorButton:(UIButton *)btn andColor:(UIColor *)textColor forState:(UIControlState)state
+{
+    [btn setTitleColor:textColor forState:state];
 }
 
 + (void)setTextButton:(UIButton *)btn andText:(NSString *)text forState:(UIControlState)state
@@ -73,12 +74,6 @@
     [btn setBackgroundImage:btnImage forState:state];
 }
 
-+ (void)setTextColorButton:(UIButton *)btn andColor:(UIColor *)textColor forState:(UIControlState)state
-{
-    [btn setTitleColor:textColor forState:state];
-}
-
-
 + (void)setImageButtonWithoutText:(UIButton *)btn andImage:(UIImage *)btnImage transparent:(BOOL)transparent forState:(UIControlState)state
 {
     [self setTextButton:btn andText:@"" forState:state];
@@ -86,7 +81,7 @@
     btn.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
     [self setImageButton:btn andImage:btnImage forState:state];
     if(transparent){
-        [btn setBackgroundColor:CClear];
+        [btn setBackgroundColor:kCClear];
     }
 }
 
@@ -133,45 +128,14 @@
     return [languages objectAtIndex:0];
 }
 
-#pragma mark - Images
-
-+(UIImage *)imageWithColor:(UIColor *)color
-{
-    CGRect rect = CGRectMake(0, 0, 1, 1);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-    [color setFill];
-    UIRectFill(rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
-}
-
-+(UIImage *)scaleToWidth:(CGFloat)width andOrginalImage:(UIImage *)orginalImage
-{
-    UIImage *scaledImage = orginalImage;
-    if (scaledImage.size.width != width) {
-        CGFloat height = floorf(scaledImage.size.height * (width / scaledImage.size.width));
-        CGSize size = CGSizeMake(width, height);
-        
-        // Create an image context
-        UIGraphicsBeginImageContext(size);
-        
-        // Draw the scaled image
-        [scaledImage drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
-        
-        // Create a new image from context
-        scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-        
-        // Pop the current context from the stack
-        UIGraphicsEndImageContext();
-    }
-    // Return the new scaled image
-    return scaledImage;
-}
-
 #pragma mark - Text fields
 
-+(void)setPlaceholderForTextField:(UITextField *)txtFld withText:(NSString *)text withColor:(UIColor *)color andFont:(UIFont *)font{
++(void)setPlaceholderForTextField:(UITextField *)txtFld withText:(NSString *)text withColor:(UIColor *)color andFont:(UIFont *)font
+{
+    if ([font isEmpty]) {
+        NSLog(@"Placeholder font is empty \n system font with size of 13 substituted");
+        font = [UIFont systemFontOfSize:13.0f];
+    }
     txtFld.attributedPlaceholder = [[NSAttributedString alloc] initWithString:text attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : font}];
 }
 
@@ -204,7 +168,7 @@
                                                            NSFontAttributeName:font
                                                            }];
     // Set Background color
-    UIImage *image = [self imageWithColor:bgColor];
+    UIImage *image = [SFImage imageWithColor:bgColor];
     [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
 }
 
@@ -216,7 +180,7 @@
 {
     [target setNeedsStatusBarAppearanceUpdate];
     [navigationBar setNavigationBarHidden:NO];
-    UIImage *image = [self imageWithColor:bgColor];
+    UIImage *image = [SFImage imageWithColor:bgColor];
     [navigationBar.navigationBar setTranslucent:NO];
     [navigationBar.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
     [navigationBar.navigationBar setBarStyle:UIBarStyleDefault];
@@ -235,7 +199,7 @@
 {
     [target setNeedsStatusBarAppearanceUpdate];
     UIImageView *imgLogo = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH/2, kBarButtonSide)];
-    [imgLogo setBackgroundColor:CClear];
+    [imgLogo setBackgroundColor:kCClear];
     [imgLogo setImage:[UIImage imageNamed:@"navLogo"]];
     [imgLogo setContentMode:UIViewContentModeScaleAspectFit];
     navItem.titleView = imgLogo;
@@ -444,62 +408,5 @@
 {
     [MBProgressHUD hideHUDForView:view animated:YES];
 }
-
-#pragma mark - Border && Radius
-
-+ (void)roundCorners:(UIRectCorner)corners onView:(UIView *)view radius:(CGFloat)radius withBorder:(BOOL)border andBorderColor:(UIColor *)color
-{
-    CGRect bounds = view.bounds;
-    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:bounds
-                                                     byRoundingCorners:corners
-                                                           cornerRadii:CGSizeMake(radius, radius)];
-    
-    CAShapeLayer *shapeLayer = [CAShapeLayer layer];
-    shapeLayer.frame = bounds;
-    shapeLayer.path = bezierPath.CGPath;
-    
-    view.layer.mask = shapeLayer;
-    
-    // Add Border
-    if (border == YES) {
-        
-        CAShapeLayer *shapeLayerForBorder = [CAShapeLayer layer];
-        shapeLayerForBorder.frame = CGRectZero;
-        shapeLayerForBorder.path = bezierPath.CGPath;
-        shapeLayerForBorder.strokeColor = [UIColor redColor].CGColor;
-        shapeLayerForBorder.fillColor = nil;
-        
-        // Check and see if border already exist , delete it then recreate
-        for (CAShapeLayer *layer in view.layer.sublayers) {
-            if (CGSizeEqualToSize(layer.frame.size,shapeLayerForBorder.frame.size)) {
-                [layer removeFromSuperlayer];
-            }
-        }
-        
-        [view.layer addSublayer:shapeLayerForBorder];
-    }
-    
-}
-
-+ (void)roundTopCornersRadius:(CGFloat)radius onView:(UIView *)view withBorder:(BOOL)border andBorderColor:(UIColor *)color
-{
-    [SFUtils roundCorners:(UIRectCornerTopLeft|UIRectCornerTopRight) onView:view radius:radius withBorder:border andBorderColor:color];
-}
-
-+ (void)roundBottomCornersRadius:(CGFloat)radius onView:(UIView *)view withBorder:(BOOL)border andBorderColor:(UIColor *)color
-{
-    [SFUtils roundCorners:(UIRectCornerBottomLeft|UIRectCornerBottomRight) onView:view radius:radius withBorder:border andBorderColor:color];
-}
-
-+ (void)addBorderOnView:(UIView *)view withRadius:(CGFloat)radius andBorderColor:(UIColor *)color andBorderWidth:(CGFloat)width
-{
-    view.layer.cornerRadius = radius;
-    view.layer.masksToBounds = YES;
-    view.layer.borderWidth = width;
-    view.layer.borderColor = (__bridge CGColorRef _Nullable)(color);
-}
-
-
-
 
 @end

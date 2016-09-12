@@ -1,16 +1,18 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BD9D75553D19850C1DF4DEC53D04D5D182254541",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "C80518BA0284909C1030310E92346D5CB8F24645+++24847AC",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "C80518BA0284909C1030310E92346D5CB8F24645" : 0,
-    "BD9D75553D19850C1DF4DEC53D04D5D182254541" : 0
+    "C80518BA0284909C1030310E92346D5CB8F24645+++24847AC" : 0,
+    "C80518BA0284909C1030310E92346D5CB8F24645+++0167B16" : 0,
+    "C80518BA0284909C1030310E92346D5CB8F24645+++265AABE" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E31AD992-39D1-4DE1-8F2B-9041D234AEB1",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "C80518BA0284909C1030310E92346D5CB8F24645" : "",
-    "BD9D75553D19850C1DF4DEC53D04D5D182254541" : "Example\/"
+    "C80518BA0284909C1030310E92346D5CB8F24645+++24847AC" : "Example\/",
+    "C80518BA0284909C1030310E92346D5CB8F24645+++0167B16" : "",
+    "C80518BA0284909C1030310E92346D5CB8F24645+++265AABE" : ""
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "SFramework",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -19,12 +21,17 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SattarFalahati\/SFramework.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BD9D75553D19850C1DF4DEC53D04D5D182254541"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C80518BA0284909C1030310E92346D5CB8F24645+++0167B16"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SattarFalahati\/SFramework.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C80518BA0284909C1030310E92346D5CB8F24645"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C80518BA0284909C1030310E92346D5CB8F24645+++24847AC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SattarFalahati\/SFramework.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "C80518BA0284909C1030310E92346D5CB8F24645+++265AABE"
     }
   ]
 }

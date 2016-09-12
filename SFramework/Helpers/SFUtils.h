@@ -23,7 +23,6 @@
 
 #pragma mark - Buttons
 
-+ (void)roundetBottomCornerView:(UIView *)view onCorner:(UIRectCorner)rectCorner andRadius:(CGFloat)radius andBackgroundColor:(UIColor *)bColor;
 + (void)setImageButtonWithoutText:(UIButton *)btn andImage:(UIImage *)btnImage transparent:(BOOL)transparent forState:(UIControlState)state;
 + (void)setTextButton:(UIButton *)btn andText:(NSString *)text forState:(UIControlState)state;
 + (void)setImageButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state;
@@ -42,11 +41,6 @@
 #pragma mark - Language
 
 + (NSString *)getMyLanguage;
-
-#pragma mark - Images
-
-+ (UIImage *)imageWithColor:(UIColor *)color;
-+ (UIImage *)scaleToWidth:(CGFloat)width andOrginalImage:(UIImage *)orginalImage;
 
 #pragma mark - Text fields
 
@@ -92,14 +86,5 @@
 + (void)hideProgressHUDFromView:(id)view;
 + (void)showProgressHUDWithMessage:(NSString *)message;
 + (void)hideProgressHUD;
-
-#pragma mark - Border && Radius
-
-+ (void)roundCorners:(UIRectCorner)corners onView:(UIView *)view radius:(CGFloat)radius withBorder:(BOOL)border andBorderColor:(UIColor *)color;
-+ (void)roundTopCornersRadius:(CGFloat)radius onView:(UIView *)view withBorder:(BOOL)border andBorderColor:(UIColor *)color;
-+ (void)roundBottomCornersRadius:(CGFloat)radius onView:(UIView *)view withBorder:(BOOL)border andBorderColor:(UIColor *)color;
-
-/// add border on a view *** if you don't want to have corner radius send radius nil
-+ (void)addBorderOnView:(UIView *)view withRadius:(CGFloat)radius andBorderColor:(UIColor *)color andBorderWidth:(CGFloat)width;
 
 @end

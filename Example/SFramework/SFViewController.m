@@ -29,7 +29,7 @@
 
 - (void)testNetworkConnection
 {
-    if ([SFNetworking isNetworkStatusActive]) {
+    if (![SFNetworking isNetworkStatusActive]) {
         [SFAlertView showAlertNetworkIsNotConnectOnTarget:self withRetryBlock:^{
             [self testNetworkConnection];
         } withCancelBlock:^{

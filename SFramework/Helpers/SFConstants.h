@@ -12,15 +12,15 @@
 // ************************************** Cloros
 #pragma mark - Colors
 
-#define CClear                  [UIColor clearColor]
-#define CBlack                  [UIColor blackColor]
-#define CRed                    [UIColor redColor]
-#define CWhite                  RGB(255, 255, 255)
-#define CLightGrey              [Utils colorWithHexString:@"#EEEEEE"]
-#define CDarkBlue               [Utils colorWithHexString:@"#263167"]
-#define CLightBlue              [Utils colorWithHexString:@"#15B3CD"]
-#define CBlackBorder            [Utils colorWithHexString:@"#5D5D5D"]
-#define CYellow                 [Utils colorWithHexString:@"#FBE608"]
+#define kCClear                  [UIColor clearColor]
+#define kCBlack                  [UIColor blackColor]
+#define kCRed                    [UIColor redColor]
+#define kCWhite                  RGB(255, 255, 255)
+#define kCLightGrey              [Utils colorWithHexString:@"#EEEEEE"]
+#define kCDarkBlue               [Utils colorWithHexString:@"#263167"]
+#define kCLightBlue              [Utils colorWithHexString:@"#15B3CD"]
+#define kCBlackBorder            [Utils colorWithHexString:@"#5D5D5D"]
+#define kCYellow                 [Utils colorWithHexString:@"#FBE608"]
 
 // ************************************** Fonts
 #pragma mark - Fonts Name

@@ -26,5 +26,7 @@
 #import "SFObject.h"
 #import "SFNetworking.h"
 #import "SFColor.h" 
+#import "SFImage.h"
+#import "SFView.h"
 
 #endif /* SFImports_h */

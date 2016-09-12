@@ -62,7 +62,6 @@
     });
 }
 
-
 /// Locolized alert view For Network is not connect
 + (void)showAlertNetworkIsNotConnectOnTarget:(id)target withRetryBlock:(SFAlertViewCompletionBlock)retryBtnTouchEventBlock withCancelBlock:(SFAlertViewCompletionBlock)cancelBtnTouchEventBlock
 {
