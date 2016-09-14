@@ -56,7 +56,7 @@
 
 @implementation SFLocationManager
 
-#pragma mark - FUNCTIONS
+#pragma mark - Get user current location 
 
 SFGeoManager *sfGeoLocationManager;
 
@@ -89,6 +89,22 @@ SFGeoManager *sfGeoLocationManager;
     
 }
 
+#pragma mark - Distance
+
+/// Calculate Distance *** This function return kilometers ***
++ (NSString *)calculateDistanceFromLocation:(CLLocationCoordinate2D)startLocation toLocation:(CLLocationCoordinate2D)destinationLocation
+{
+    CLLocation *fromLocation = [[CLLocation alloc] initWithLatitude:startLocation.latitude longitude:startLocation.longitude];
+    CLLocation *toLocation = [[CLLocation alloc] initWithLatitude:destinationLocation.latitude longitude:destinationLocation.longitude];
+    
+    CLLocationDistance distance = [toLocation distanceFromLocation:fromLocation];
+
+    // If distance is less than one kilometers return by metr
+    if (distance >= 999.00) return [NSString stringWithFormat:@"%.2f Km",distance/1000];
+    
+    // Return Kilometers
+    return [NSString stringWithFormat:@"%d m",(int)distance];
+}
 
 
 @end

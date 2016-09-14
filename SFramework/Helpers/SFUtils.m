@@ -409,4 +409,34 @@
     [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
+#pragma mark - Tab bar controller
+
+/// Use this method to hide tab bar controller with animation
++ (void)setTabBarController:(UITabBarController *)taBarController hidden:(BOOL)tabBarHidden animated:(BOOL)animated
+{
+    
+    CGFloat offset = tabBarHidden ? taBarController.tabBar.frame.size.height : - taBarController.tabBar.frame.size.height;
+    
+    [UIView animateWithDuration:animated ? 1.5 : 0.0 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseIn|UIViewAnimationOptionLayoutSubviews animations:^{
+        
+        taBarController.tabBar.center = CGPointMake(taBarController.tabBar.center.x, taBarController.tabBar.center.y + offset);
+        
+        if (tabBarHidden) {
+            // Hide TabBar
+            [taBarController.tabBar setHidden:YES];
+        }
+        else {
+            // Show TabBar
+            [taBarController.tabBar setHidden:NO];
+        }
+        
+        
+    } completion:^(BOOL finished) {
+        
+        // DO STH IF NEEDED
+    }];
+    
+}
+
+
 @end

@@ -87,4 +87,9 @@
 + (void)showProgressHUDWithMessage:(NSString *)message;
 + (void)hideProgressHUD;
 
+#pragma mark - Tab bar controller
+
+/// Use this method to hide tab bar controller with animation
++ (void)setTabBarController:(UITabBarController *)taBarController hidden:(BOOL)tabBarHidden animated:(BOOL)animated;
+
 @end
