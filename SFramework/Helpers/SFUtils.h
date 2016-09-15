@@ -70,10 +70,15 @@
 + (long long)getDateInMillisecondsFrom1970:(NSDate *)date;
 + (NSDate *)getNowDateWithFormat:(NSString *)format;
 + (NSDate *)getDate:(NSDate *)fromDate addDays:(NSUInteger)days addHours:(NSUInteger)hours;
+
+/// Compare to date ( Check if a date is before / after other date ) 
 + (BOOL)date:(NSDate *)date is:(BOOL)before otherDate:(NSDate *)otherDate;
 
 /// USE TO GET FIRST OR LAST DATE OF A MONTH *** EXAMPLE : FIRST DAY :[self returnDateForMonth:components.month year:components.year day:2 withDate:date] last DAY :  [self returnDateForMonth:components.month+1 year:components.year day:1 withDate:date];
 + (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day fromDate:(NSDate *)date;
+
+/// Convert seconeds to HH:MM:SS
++ (NSString *)fromSecondsToHH_MM_SS:(int)seconds;
 
 #pragma mark - CAMERA & SCREEN
 

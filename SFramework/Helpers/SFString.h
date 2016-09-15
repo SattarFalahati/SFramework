@@ -33,4 +33,7 @@
 - (NSString *)replaceDetector;
 - (NSString *)specialCharactersConversion;
 - (NSString *)convertHTML;
+
+/// Create random string with length
++ (NSString *)randomStringWithLength:(NSInteger)length;
 @end

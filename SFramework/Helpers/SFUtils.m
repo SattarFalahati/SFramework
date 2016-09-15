@@ -361,6 +361,16 @@
     return [CURRENT_CALENDAR dateFromComponents:components];
 }
 
++ (NSString *)fromSecondsToHH_MM_SS:(int)seconds
+{
+    int h = floor(seconds/3600);
+    int m = floor((seconds - h*3600)/60);
+    int s = seconds - (h*3600) - (m*60);
+    
+    NSString *str = [NSString stringWithFormat:@"%02d:%02d:%02d", h, m, s];
+    return str;
+}
+
 #pragma mark - CAMERA & SCREEN
 
 + (BOOL)hasCamera

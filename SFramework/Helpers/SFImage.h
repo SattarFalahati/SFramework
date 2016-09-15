@@ -19,4 +19,6 @@
 /// Set blur effect on an image (Its working fine but slow)
 + (UIImage *)blurredImage:(UIImage *)orginalImage;
 
+/// Get image type from data
++ (NSString *)getMimeTypeFormData:(NSData *)data;
 @end
