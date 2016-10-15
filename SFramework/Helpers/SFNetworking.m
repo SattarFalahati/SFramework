@@ -10,6 +10,7 @@
 
 // Frameworks
 #import <netinet/in.h>
+#import "UIImageView+AFNetworking.h"
 
 // Helpers
 #import "SFObject.h"
@@ -205,6 +206,43 @@
     
     // G : run data task to make a call
     [dataTask resume];
+}
+
+@end
+
+#pragma mark - SFImageView
+
+@implementation UIImageView (SFNetworking)
+
+/// A function to set image from a URLString with placeholder and activity indicator , which will return downloaded Image and a succeed flag.
+
+- (void)setImageWithURLString:(nonnull NSString *)URLString withPlaceholderImage:(nullable UIImage *)placeholder withActivityIndicator:(nullable UIActivityIndicatorView *)activityIndicator withCompletionBlock:(void ( ^ _Nullable )(BOOL succeed,  UIImage * _Nullable image))completionBlock
+{
+    self.image = nil;
+    
+    // Check URLString
+    if (!URLString || [URLString isEmpty]) {
+        if (completionBlock) completionBlock(NO, nil);
+        return;
+    }
+    
+    // Start Activity indicator
+    [activityIndicator startAnimating];
+    
+    // Download the image
+    NSURL *URL = [NSURL URLWithString:URLString];
+    NSURLRequest *request = [[NSURLRequest alloc] initWithURL:URL];
+    __block UIImageView *blockImageView = self;
+    
+    [self setImageWithURLRequest:request placeholderImage:placeholder success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        [blockImageView setImage:image];
+        [activityIndicator stopAnimating];
+        if (completionBlock) completionBlock(YES, image);
+        
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error) {
+        [activityIndicator stopAnimating];
+        if (completionBlock) completionBlock(NO, nil);
+    }];
 }
 
 @end

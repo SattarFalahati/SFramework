@@ -20,8 +20,18 @@
     [super viewDidLoad];
     
     // Collor test
-     [self.view setBackgroundColor:RGB(151, 127, 45)];
+    [self.view setBackgroundColor:RGB(151, 127, 45)];
     // [self.view setBackgroundColor:[UIColor colorWithHexString:@"#afeeee"]];
+    
+    NSString *str = [NSString randomStringWithLength:10];
+    NSLog(@"%@",str);
+    
+    NSString *strImg = @"http://www.qdtricks.org/wp-content/uploads/2015/12/2016-iphone-6-wallpaper.jpg";
+    
+    [self.imgBG setImageWithURLString:strImg withPlaceholderImage:[UIImage imageNamed:@"Placeholder"] withActivityIndicator:nil withCompletionBlock:^(BOOL succeed, UIImage * _Nullable image) {
+        // Do sth if needed
+        
+    }];
     
     [self testNetworkConnection];
 }
@@ -35,7 +45,7 @@
         
         [SFLocationManager stopGeoLocationManager];
     }];
-
+    
 }
 - (void)testNetworkConnection
 {

@@ -44,12 +44,22 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 
 /// make a request
 /*
-    *** type            : @"GET" , @"POST" , @"DELETE" ...
-    *** strURL          : Request Url string
-    *** params          : A dictionary of params for request body
-    *** Authorization   : If request must have an authorization send the Authorization value (key) as a string
-    *** HTTPHeaderFields: If request must have more than one header field pass it as a key valu object (dictionary)
-    *** multiPart       : If it is a multi part request base on web service programmer have to create [formData appendPartWithFileData:nil name:nil fileName:nil mimeType:nil]; to send it as completition multi part block *** if block is empty 
-*/
+ *** type            : @"GET" , @"POST" , @"DELETE" ...
+ *** strURL          : Request Url string
+ *** params          : A dictionary of params for request body
+ *** Authorization   : If request must have an authorization send the Authorization value (key) as a string
+ *** HTTPHeaderFields: If request must have more than one header field pass it as a key valu object (dictionary)
+ *** multiPart       : If it is a multi part request base on web service programmer have to create [formData appendPartWithFileData:nil name:nil fileName:nil mimeType:nil]; to send it as completition multi part block *** if block is empty
+ */
 + (void)networkConnectionWithType:(nonnull NSString *)type withURLRequestString:(nonnull NSString *)strURL withAuthorization:(nullable NSString *)authorization withOtherHTTPHeaderFields:(nullable NSDictionary *)HTTPHeaderFields withParams:(nullable NSDictionary *)params  forMultiPartRequest:(nullable SFNetworkingMultiPartCompletionBlock)multipartBlock completionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
+
+@end
+
+#pragma mark - SFImageView
+
+@interface UIImageView (SFNetworking)
+
+/// A function to set image from a URLString with placeholder and activity indicator , which will return downloaded Image and a succeed flag.
+- (void)setImageWithURLString:(nonnull NSString *)URLString withPlaceholderImage:(nullable UIImage *)placeholder withActivityIndicator:(nullable UIActivityIndicatorView *)activityIndicator withCompletionBlock:(void ( ^ _Nullable )(BOOL succeed,  UIImage * _Nullable image))completionBlock;
+
 @end

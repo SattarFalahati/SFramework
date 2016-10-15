@@ -10,4 +10,6 @@
 
 @interface SFViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *imgBG;
+
 @end
