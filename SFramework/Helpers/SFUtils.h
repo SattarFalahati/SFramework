@@ -63,7 +63,8 @@
 
 #pragma mark - NSDATE
 
-+ (NSDate *)getDateFromString:(NSString *)dateString;
++ (BOOL)date:(NSDate *)date isEqualToOtherDate:(NSDate *)otherDate;
++ (NSDate *)getDateFromString:(NSString *)dateString withOrginalFormat:(NSString *)strOrginalFormat;
 + (NSString *)getDateString:(NSDate *)date andDateFormatter:(NSString *)dateForm;
 + (NSDate *)getNowDate;
 + (long long)getNowDateInMillisecondsFrom1970;

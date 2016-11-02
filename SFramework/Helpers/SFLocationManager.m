@@ -106,5 +106,18 @@ SFGeoManager *sfGeoLocationManager;
     return [NSString stringWithFormat:@"%d m",(int)distance];
 }
 
+#pragma mark - Position
+
+/// Check if position is valid position
++ (BOOL)isValidPosition:(CLLocationCoordinate2D)coordinate
+{
+    if (!CLLocationCoordinate2DIsValid(coordinate)) return NO;
+    
+    if (coordinate.latitude == 0.0 && coordinate.longitude == 0.0) return NO;
+    
+    return YES;
+}
+
+
 
 @end

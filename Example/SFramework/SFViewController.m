@@ -41,7 +41,10 @@
     [super viewDidAppear:animated];
     
     [SFLocationManager initGeoLocationManagerWithCompletitionBlock:^(CLLocationCoordinate2D currentLocation) {
-        NSLog(@"OK");
+        
+        if ([SFLocationManager isValidPosition:currentLocation]) {
+            NSLog(@"position is valid");
+        }
         
         [SFLocationManager stopGeoLocationManager];
     }];
@@ -62,9 +65,8 @@
     
     NSString *strURL = @"http://jsonplaceholder.typicode.com/todos";
     
-    [SFNetworking networkConnectionWithType:@"GET" withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:nil forMultiPartRequest:nil completionBlock:^(ErrorCode errorCode, id  _Nullable responseObject, NSError * _Nullable error) {
-        NSLog(@"%@",responseObject);
-        
+    [SFNetworking getRequestWithURLString:strURL withCompletionBlock:^(ErrorCode errorCode, id  _Nullable responseObject, NSError * _Nullable error) {
+         NSLog(@"%@",responseObject);
         [SFUtils hideProgressHUDFromView:self.view];
     }];
 }

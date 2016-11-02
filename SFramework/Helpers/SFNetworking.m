@@ -16,6 +16,10 @@
 #import "SFObject.h"
 #import "SFDefine.h"
 
+// Defines
+#define HTML @"HTML"
+#define JSON @"JSON"
+
 @implementation SFNetworking
 
 #pragma mark - NETWORK STATUS
@@ -120,19 +124,92 @@
     }];
 }
 
+#pragma mark - REQUESTS
 
-#pragma mark - REQUEST
+///  IMPORTANT Explanation : SFNetworking have different JSON functions , if user have to call HTML request he have to use main request and send HTML as content type
+
+#pragma mark get requests
+
+/// GET request without authorization
++ (void)getRequestWithURLString:(NSString *)strURL withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"GET" withContentType:JSON withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:nil forMultiPartRequest:nil completionBlock:completionBlock];
+}
+
+/// GET request with authorization
++ (void)getRequestWithURLString:(NSString *)strURL withAuthorization:(NSString *)authorization withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"GET" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:nil forMultiPartRequest:nil completionBlock:completionBlock];
+}
+
+#pragma mark post requests
+
+/// POST request with params
++ (void)postRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"POST" withContentType:JSON withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
+}
+
+/// POST request with params with authorization
++ (void)postRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withAuthorization:(NSString *)authorization withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"POST" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
+}
+
+/// POST request with params with multipart
++ (void)multipartPostRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params forMultiPartRequest:(SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"POST" withContentType:JSON withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:multipartBlock completionBlock:completionBlock];
+}
+
+/// POST request with params with multipart and authorization
++ (void)multipartPostRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withAuthorization:(NSString *)authorization forMultiPartRequest:(SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"POST" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:multipartBlock completionBlock:completionBlock];
+}
+
+#pragma mark delete requests
+
+/// DELETE request with params without authorization
++ (void)deleteRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"DELETE" withContentType:JSON withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
+}
+
+/// DELETE request with params with authorization
++ (void)deleteRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withAuthorization:(NSString *)authorization withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"DELETE" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
+}
+
+#pragma mark put requests
+
+/// PUT request with params without authorization
++ (void)putRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"PUT" withContentType:JSON withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
+}
+
+/// PUT request with params with authorization
++ (void)putRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withAuthorization:(NSString *)authorization withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"PUT" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
+}
+
+#pragma mark main request
 
 /*
  *** type            : @"GET" , @"POST" , @"DELETE" ...
+ *** contentType     : application/json  , text/html
  *** strURL          : Request Url string
  *** params          : A dictionary of params for request body
  *** Authorization   : If request must have an authorization send the Authorization value (key) as a string
  *** HTTPHeaderFields: If request must have more than one header field pass it as a key valu object (dictionary)
  *** multiPart       : If it is a multi part request base on web service programmer have to create [formData appendPartWithFileData:nil name:nil fileName:nil mimeType:nil]; to send it as completition multi part block
  */
+
 /// make a request
-+ (void)networkConnectionWithType:(NSString *)type withURLRequestString:(NSString *)strURL withAuthorization:(NSString *)authorization withOtherHTTPHeaderFields:(NSDictionary *)HTTPHeaderFields withParams:(NSDictionary *)params forMultiPartRequest:(SFNetworkingMultiPartCompletionBlock)multipartBlock completionBlock:(SFNetworkingCompletionBlock)completionBlock
++ (void)networkConnectionWithType:(NSString *)type withContentType:(NSString *)contentType withURLRequestString:(NSString *)strURL withAuthorization:(NSString *)authorization withOtherHTTPHeaderFields:(NSDictionary *)HTTPHeaderFields withParams:(NSDictionary *)params forMultiPartRequest:(SFNetworkingMultiPartCompletionBlock)multipartBlock completionBlock:(SFNetworkingCompletionBlock)completionBlock
 {
     // Check if type is empty
     if ([type isEmpty]) {
@@ -161,7 +238,13 @@
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     manager.requestSerializer.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json"]];
+    
+    if ([contentType isEqualToString:JSON]) {
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"application/json"]];
+    }
+    else if  ([contentType isEqualToString:HTML]) {
+        manager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:@[@"text/html"]];
+    }
     
     // B : Check for Authorization
     if ([authorization isNotEmpty]) [manager.requestSerializer setValue:authorization forHTTPHeaderField:@"Authorization"];

@@ -272,11 +272,22 @@
 
 #pragma mark - NSDATE
 
-+ (NSDate *)getDateFromString:(NSString *)dateString
++ (BOOL)date:(NSDate *)date isEqualToOtherDate:(NSDate *)otherDate
 {
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSDate *date = [dateFormat dateFromString:dateString];
+    if(([date compare:otherDate] == NSOrderedAscending)){
+        return NO;
+    }
+    if (([date compare:otherDate] == NSOrderedDescending)){
+        return NO;
+    }
+    return YES;
+}
+
++ (NSDate *)getDateFromString:(NSString *)dateString withOrginalFormat:(NSString *)strOrginalFormat
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:strOrginalFormat];
+    NSDate *date = [formatter dateFromString:dateString];
     NSTimeInterval timeZoneSeconds = [[NSTimeZone localTimeZone] secondsFromGMT];
     NSDate *dateInLocalTimezone = [date dateByAddingTimeInterval:timeZoneSeconds];
     return dateInLocalTimezone;

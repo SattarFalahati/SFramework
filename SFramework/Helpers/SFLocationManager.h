@@ -27,4 +27,9 @@ typedef void (^SFLocationManagerBlock)(CLLocationCoordinate2D currentLocation);
 /// Calculate Distance *** This function return kilometers ***
 + (NSString *)calculateDistanceFromLocation:(CLLocationCoordinate2D)startLocation toLocation:(CLLocationCoordinate2D)destinationLocation;
 
+#pragma mark - Position
+
+/// Check if position is valid position
++ (BOOL)isValidPosition:(CLLocationCoordinate2D)coordinate;
+
 @end
