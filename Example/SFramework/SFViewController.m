@@ -53,13 +53,14 @@
 - (void)testNetworkConnection
 {
     if (![SFNetworking isNetworkStatusActive]) {
-        [SFAlertView showAlertNetworkIsNotConnectOnTarget:self withRetryBlock:^{
+        [SFAlertController showAlertNetworkIsNotConnectOnTarget:self withRetryBlock:^{
             [self testNetworkConnection];
         } withCancelBlock:^{
             // Do sth if needed
         }];
         return;
     }
+    
     
     [SFUtils showProgressHUDWithMessage:@"Loading ..." onView:self.view];
     

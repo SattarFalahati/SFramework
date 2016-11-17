@@ -8,6 +8,9 @@
 
 #import "SFLocationManager.h"
 
+// SFImporst ( to have access to all classes )
+#import "SFImports.h"
+
 #define kCurrentPositionIsUpdated       @"kCurrentPositionIsUpdated"
 
 
@@ -48,7 +51,7 @@
 {
     CLLocation *location = [locations lastObject];
     self.currentPosition = location.coordinate;
-    // return location 
+    // return location
     if (self.locationBlock) self.locationBlock(self.currentPosition);
 }
 
@@ -56,7 +59,7 @@
 
 @implementation SFLocationManager
 
-#pragma mark - Get user current location 
+#pragma mark - Get user current location
 
 SFGeoManager *sfGeoLocationManager;
 
@@ -83,7 +86,7 @@ SFGeoManager *sfGeoLocationManager;
 
 + (void)initGeoLocationManagerWithCompletitionBlock:(SFLocationManagerBlock)locationBlock
 {
-   SFGeoManager *geolocationManager = [self initGeoLocationManager];
+    SFGeoManager *geolocationManager = [self initGeoLocationManager];
     geolocationManager.locationBlock = locationBlock;
     [geolocationManager initLocationManager];
     
@@ -98,7 +101,7 @@ SFGeoManager *sfGeoLocationManager;
     CLLocation *toLocation = [[CLLocation alloc] initWithLatitude:destinationLocation.latitude longitude:destinationLocation.longitude];
     
     CLLocationDistance distance = [toLocation distanceFromLocation:fromLocation];
-
+    
     // If distance is less than one kilometers return by metr
     if (distance >= 999.00) return [NSString stringWithFormat:@"%.2f Km",distance/1000];
     
@@ -117,6 +120,71 @@ SFGeoManager *sfGeoLocationManager;
     
     return YES;
 }
+
+#pragma mark - Address
+
+/// Get address based on coordinate
+
++ (void)getAddressFromCoordinate:(CLLocationCoordinate2D)coordinate withSuccessBlock:(void (^)(NSDictionary *dicAddress, NSString *strAddress, NSString *strCitty, NSString *strZipCode))successBlock andFailureBlock:(void (^)(NSError *error))failureBlock
+{
+    CLGeocoder *geocoder = [CLGeocoder new];
+    CLLocation *location = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    
+    [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        if (!error) {
+            
+            CLPlacemark *placemark = [placemarks firstObject];
+            
+            NSDictionary *dicAddress = placemark.addressDictionary;
+            
+            NSString *ZIP =  [dicAddress safeValueForKey:@"ZIP"];
+            NSString *city = [dicAddress safeValueForKey:@"City"];
+            NSString *address = [dicAddress safeValueForKey:@"Street"];
+            
+            // check if address is empty send the name instead of address
+            if ([address length] == 0) address = [dicAddress safeValueForKey:@"Name"];
+            
+            if (successBlock) successBlock(dicAddress, address, city, ZIP);
+            
+        }
+        else {
+            if (failureBlock) failureBlock(error);
+        }
+        
+    }];
+}
+
+
+/// Get coordinate based on address
+
++ (void)getCoordinateFromAddress:(NSString *)address andCity:(NSString *)city withSuccessBlock:(void (^)(CLLocationCoordinate2D coordinate))successBlock andFailureBlock:(void (^)(NSError *error))failureBlock
+{
+    CLGeocoder *geocoder = [CLGeocoder new];
+    NSString *addressString = [NSString stringWithFormat:@"%@, %@", address, city];
+    
+    [geocoder geocodeAddressString:addressString completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        if (!error) {
+            
+            CLPlacemark *placemark = [placemarks firstObject];
+            CLLocationCoordinate2D coordinate = placemark.location.coordinate;
+            
+            // Check se if it is valid position
+            if (![self isValidPosition:coordinate]) coordinate = kCLLocationCoordinate2DInvalid;
+            
+            if (successBlock) successBlock(coordinate);
+        }
+        else {
+            if (failureBlock) failureBlock(error);
+        }
+    }];
+}
+
+
+
+
+
 
 
 

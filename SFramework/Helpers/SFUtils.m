@@ -18,7 +18,7 @@
 
 @implementation SFUtils
 
-+ (id)sharedManager
++ (nonnull id)sharedManager
 {
     static id sharedManager;
     static dispatch_once_t once;
@@ -44,50 +44,9 @@
     return randArray;
 }
 
-#pragma mark - Buttons
-
-+ (void)setTitleForButton:(UIButton *)btn withText:(NSString *)text andColor:(UIColor *)color forState:(UIControlState)state
-{
-    if ([text isEmpty] || [color isEmpty] ) return;
-    
-    [btn setTitleColor:color forState:state];
-    [btn setTitle:text forState:state];
-}
-
-+ (void)setTextColorButton:(UIButton *)btn andColor:(UIColor *)textColor forState:(UIControlState)state
-{
-    [btn setTitleColor:textColor forState:state];
-}
-
-+ (void)setTextButton:(UIButton *)btn andText:(NSString *)text forState:(UIControlState)state
-{
-    [btn setTitle:text forState:state];
-}
-
-+ (void)setImageButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state
-{
-    [btn setImage:btnImage forState:state];
-}
-
-+ (void)setImageBackgroundButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state
-{
-    [btn setBackgroundImage:btnImage forState:state];
-}
-
-+ (void)setImageButtonWithoutText:(UIButton *)btn andImage:(UIImage *)btnImage transparent:(BOOL)transparent forState:(UIControlState)state
-{
-    [self setTextButton:btn andText:@"" forState:state];
-    btn.contentMode = UIViewContentModeScaleAspectFit;
-    btn.imageEdgeInsets = UIEdgeInsetsMake(3, 3, 3, 3);
-    [self setImageButton:btn andImage:btnImage forState:state];
-    if(transparent){
-        [btn setBackgroundColor:kCClear];
-    }
-}
-
 #pragma mark - Text
 
-+(CGSize)heightText:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
++ (CGSize)heightText:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
 {
     if(IS_IOS7_AND_UP){
         NSDictionary *attributesDictionary = [NSDictionary dictionaryWithObjectsAndKeys: font, NSFontAttributeName, nil];
@@ -103,7 +62,7 @@
 
 #pragma mark - Unic ID
 
-+(NSString *)UUID
++ (NSString *)UUID
 {
     CFUUIDRef newUniqueID = CFUUIDCreate(kCFAllocatorDefault);
     CFStringRef newUniqueIDString = CFUUIDCreateString(kCFAllocatorDefault, newUniqueID);
@@ -113,7 +72,7 @@
     return([guid lowercaseString]);
 }
 
-+(NSString *)UUIDforEmail
++ (NSString *)UUIDforEmail
 {
     NSString *uuid = [[self UUID] stringByReplacingOccurrencesOfString:@"-" withString:@""];
     return [uuid substringToIndex:10];
@@ -121,7 +80,7 @@
 
 #pragma mark - Language
 
-+(NSString *) getMyLanguage
++ (NSString *)getMyLanguage
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
@@ -130,7 +89,7 @@
 
 #pragma mark - Text fields
 
-+(void)setPlaceholderForTextField:(UITextField *)txtFld withText:(NSString *)text withColor:(UIColor *)color andFont:(UIFont *)font
++ (void)setPlaceholderForTextField:(UITextField *)txtFld withText:(NSString *)text withColor:(UIColor *)color andFont:(UIFont *)font
 {
     if ([font isEmpty]) {
         NSLog(@"Placeholder font is empty \n system font with size of 13 substituted");
@@ -176,7 +135,7 @@
  Call this method When you want to have a custom navigation bar for only one page
  *************************/
 
-+(void)navigationController:(UINavigationController *)navigationBar forTarget:(id)target setBackgroundColor:(UIColor *)bgColor withPageTitle:(NSString *)title WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor
++(void)customNavigationController:(UINavigationController *)navigationBar forTarget:(id)target setBackgroundColor:(UIColor *)bgColor withPageTitle:(NSString *)title WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor
 {
     [target setNeedsStatusBarAppearanceUpdate];
     [navigationBar setNavigationBarHidden:NO];
@@ -219,7 +178,7 @@
 #pragma mark - STRING
 
 /// Find range of NUMBERS in a string and return an ARRAY of range.location & range.lenght
-+ (NSArray *)findRangeNumbrsInStringWithOriginalString:(NSString *)originalString
++ (NSArray *)findRangeOfNumbrsInStringWithOriginalString:(NSString *)originalString
 {
     NSMutableArray *arr = [NSMutableArray array];
     
@@ -268,118 +227,6 @@
         
     }
     return  arr;
-}
-
-#pragma mark - NSDATE
-
-+ (BOOL)date:(NSDate *)date isEqualToOtherDate:(NSDate *)otherDate
-{
-    if(([date compare:otherDate] == NSOrderedAscending)){
-        return NO;
-    }
-    if (([date compare:otherDate] == NSOrderedDescending)){
-        return NO;
-    }
-    return YES;
-}
-
-+ (NSDate *)getDateFromString:(NSString *)dateString withOrginalFormat:(NSString *)strOrginalFormat
-{
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:strOrginalFormat];
-    NSDate *date = [formatter dateFromString:dateString];
-    NSTimeInterval timeZoneSeconds = [[NSTimeZone localTimeZone] secondsFromGMT];
-    NSDate *dateInLocalTimezone = [date dateByAddingTimeInterval:timeZoneSeconds];
-    return dateInLocalTimezone;
-}
-
-+ (NSString *)getDateString:(NSDate *)date andDateFormatter:(NSString *)dateForm
-{
-    if(!date){
-        return nil;
-    }
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:dateForm];
-    return [formatter stringFromDate:date];
-}
-
-+ (NSDate *)getNowDate
-{
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
-    NSDate *date = [dateFormat dateFromString:dateString];
-    NSTimeInterval timeZoneSeconds = [[NSTimeZone localTimeZone] secondsFromGMT];
-    NSDate *dateInLocalTimezone = [date dateByAddingTimeInterval:timeZoneSeconds];
-    return dateInLocalTimezone;
-}
-
-+ (long long)getNowDateInMillisecondsFrom1970
-{
-    long long milliseconds = (long long)([[SFUtils getNowDate] timeIntervalSince1970] * 1000.0);
-    return milliseconds;
-}
-
-+ (long long)getDateInMillisecondsFrom1970:(NSDate *)date
-{
-    long long milliseconds = (long long)([date timeIntervalSince1970] * 1000.0);
-    return milliseconds;
-}
-
-+ (NSDate *)getNowDateWithFormat:(NSString *)format
-{
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:format];
-    NSString *dateString = [dateFormat stringFromDate:[NSDate date]];
-    NSDate *date = [dateFormat dateFromString:dateString];
-    NSTimeInterval timeZoneSeconds = [[NSTimeZone localTimeZone] secondsFromGMT];
-    NSDate *dateInLocalTimezone = [date dateByAddingTimeInterval:timeZoneSeconds];
-    return dateInLocalTimezone;
-}
-
-+ (NSDate *)getDate:(NSDate *)fromDate addDays:(NSUInteger)days addHours:(NSUInteger)hours
-{
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
-    dateComponents.day = days;
-    dateComponents.hour = hours;
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDate *previousDate = [calendar dateByAddingComponents:dateComponents
-                                                     toDate:fromDate
-                                                    options:0];
-    return previousDate;
-}
-
-+ (BOOL)date:(NSDate *)date is:(BOOL)before otherDate:(NSDate *)otherDate
-{
-    if(before && ([date compare:otherDate] == NSOrderedAscending)){
-        return YES;
-    }
-    if (!before && ([date compare:otherDate] == NSOrderedDescending)){
-        return YES;
-    }
-    return NO;
-}
-
-+ (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day fromDate:(NSDate *)date
-{
-    
-    NSDateComponents *components = [CURRENT_CALENDAR components:DATE_COMPONENTS fromDate:date];
-    
-    [components setDay:day];
-    [components setMonth:month];
-    [components setYear:year];
-    
-    return [CURRENT_CALENDAR dateFromComponents:components];
-}
-
-+ (NSString *)fromSecondsToHH_MM_SS:(int)seconds
-{
-    int h = floor(seconds/3600);
-    int m = floor((seconds - h*3600)/60);
-    int s = seconds - (h*3600) - (m*60);
-    
-    NSString *str = [NSString stringWithFormat:@"%02d:%02d:%02d", h, m, s];
-    return str;
 }
 
 #pragma mark - CAMERA & SCREEN
@@ -441,7 +288,6 @@
     [UIView animateWithDuration:animated ? 1.5 : 0.0 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0.5 options:UIViewAnimationOptionCurveEaseIn|UIViewAnimationOptionLayoutSubviews animations:^{
         
         taBarController.tabBar.center = CGPointMake(taBarController.tabBar.center.x, taBarController.tabBar.center.y + offset);
-        
         if (tabBarHidden) {
             // Hide TabBar
             [taBarController.tabBar setHidden:YES];
@@ -450,14 +296,24 @@
             // Show TabBar
             [taBarController.tabBar setHidden:NO];
         }
-        
-        
     } completion:^(BOOL finished) {
-        
         // DO STH IF NEEDED
     }];
-    
 }
 
+#pragma mark - Phone call
+
+/// Use this method to call to a number
++ (void)callToNumber:(nonnull NSString *)number
+{
+    if ([number isNotEmpty]) {
+        
+        NSURL *phoneUrl = [NSURL URLWithString:[NSString  stringWithFormat:@"telprompt:%@",number]];
+        
+        if ([[UIApplication sharedApplication] canOpenURL:phoneUrl]) {
+            [[UIApplication sharedApplication] openURL:phoneUrl];
+        }
+    }
+}
 
 @end

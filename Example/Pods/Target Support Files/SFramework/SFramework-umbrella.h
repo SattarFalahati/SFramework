@@ -1,8 +1,12 @@
+#ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#endif
 
-#import "SFAlertView.h"
+#import "SFAlertController.h"
+#import "SFButton.h"
 #import "SFColor.h"
 #import "SFConstants.h"
+#import "SFDate.h"
 #import "SFDefine.h"
 #import "SFDictionary.h"
 #import "SFImage.h"

@@ -15,72 +15,43 @@
 
 @interface SFUtils : NSObject
 
-+ (id)sharedManager;
++ (nonnull id)sharedManager;
 
 #pragma mark - Arrays
 
-+ (NSMutableArray *)generateRandomArray:(int)max;
-
-#pragma mark - Buttons
-
-+ (void)setImageButtonWithoutText:(UIButton *)btn andImage:(UIImage *)btnImage transparent:(BOOL)transparent forState:(UIControlState)state;
-+ (void)setTextButton:(UIButton *)btn andText:(NSString *)text forState:(UIControlState)state;
-+ (void)setImageButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state;
-+ (void)setImageBackgroundButton:(UIButton *)btn andImage:(UIImage *)btnImage forState:(UIControlState)state;
-+ (void)setTextColorButton:(UIButton *)btn andColor:(UIColor *)textColor forState:(UIControlState)state;
++ (nonnull NSMutableArray *)generateRandomArray:(int)max;
 
 #pragma mark - Text
 
-+ (CGSize)heightText:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size;
++ (CGSize)heightText:(nonnull NSString *)text sizeWithFont:(nonnull UIFont *)font constrainedToSize:(CGSize)size;
 
 #pragma mark - Unic ID
 
-+ (NSString *)UUID;
-+ (NSString *)UUIDforEmail;
++ (nonnull NSString *)UUID;
++ (nonnull NSString *)UUIDforEmail;
 
 #pragma mark - Language
 
-+ (NSString *)getMyLanguage;
++ (nonnull NSString *)getMyLanguage;
 
 #pragma mark - Text fields
 
-+ (void)setPlaceholderForTextField:(UITextField *)txtFld withText:(NSString *)text withColor:(UIColor *)color andFont:(UIFont *)font;
++ (void)setPlaceholderForTextField:(nonnull UITextField *)txtFld withText:(nullable NSString *)text withColor:(nullable UIColor *)color andFont:(nullable UIFont *)font;
 
 #pragma mark - Navigation Bar
 
-+ (UIBarButtonItem *)barButtonItemWithImageName:(NSString *)imageName forTarget:(id)target andselector:(SEL)selector;
-+ (void)setupNavigationBarWithBackgroundColor:(UIColor *)bgColor WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor;
-+ (void)navigationController:(UINavigationController *)navigationBar forTarget:(id)target setBackgroundColor:(UIColor *)bgColor withPageTitle:(NSString *)title WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor;
-+ (void)setImageForNavigationItem:(UINavigationItem *)navItem forTarget:(id)target;
++ (nonnull UIBarButtonItem *)barButtonItemWithImageName:(nonnull NSString *)imageName forTarget:(nonnull id)target andselector:(nonnull SEL)selector;
++ (void)setupNavigationBarWithBackgroundColor:(nonnull UIColor *)bgColor WithFontName:(nonnull UIFont *)font andfontColor:(nonnull UIColor *)fontColor;
++ (void)customNavigationController:(nonnull UINavigationController *)navigationBar forTarget:(nonnull id)target setBackgroundColor:(nonnull UIColor *)bgColor withPageTitle:(nonnull NSString *)title WithFontName:(nullable UIFont *)font andfontColor:(nullable UIColor *)fontColor;
++ (void)setImageForNavigationItem:(nonnull UINavigationItem *)navItem forTarget:(nonnull id)target;
 
 #pragma mark - Segments
 
-+ (void)setSegmentFont:(UIFont *)font andColor:(UIColor *)color forState:(UIControlState)state;
++ (void)setSegmentFont:(nonnull UIFont *)font andColor:(nonnull UIColor *)color forState:(UIControlState)state;
 
 #pragma mark - STRING
 
-+ (NSArray *)findRangeNumbrsInStringWithOriginalString:(NSString *)originalString;
-
-#pragma mark - NSDATE
-
-+ (BOOL)date:(NSDate *)date isEqualToOtherDate:(NSDate *)otherDate;
-+ (NSDate *)getDateFromString:(NSString *)dateString withOrginalFormat:(NSString *)strOrginalFormat;
-+ (NSString *)getDateString:(NSDate *)date andDateFormatter:(NSString *)dateForm;
-+ (NSDate *)getNowDate;
-+ (long long)getNowDateInMillisecondsFrom1970;
-+ (long long)getDateInMillisecondsFrom1970:(NSDate *)date;
-+ (NSDate *)getNowDateWithFormat:(NSString *)format;
-+ (NSDate *)getDate:(NSDate *)fromDate addDays:(NSUInteger)days addHours:(NSUInteger)hours;
-
-/// Compare to date ( Check if a date is before / after other date ) 
-+ (BOOL)date:(NSDate *)date is:(BOOL)before otherDate:(NSDate *)otherDate;
-
-/// USE TO GET FIRST OR LAST DATE OF A MONTH *** EXAMPLE : FIRST DAY :[self returnDateForMonth:components.month year:components.year day:2 withDate:date] last DAY :  [self returnDateForMonth:components.month+1 year:components.year day:1 withDate:date];
-+ (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day fromDate:(NSDate *)date;
-
-/// Convert seconeds to HH:MM:SS
-+ (NSString *)fromSecondsToHH_MM_SS:(int)seconds;
-
++ (nonnull NSArray *)findRangeOfNumbrsInStringWithOriginalString:(nonnull NSString *)originalString;
 #pragma mark - CAMERA & SCREEN
 
 + (BOOL)hasCamera;
@@ -88,14 +59,19 @@
 
 #pragma mark - progress bar
 
-+ (void)showProgressHUDWithMessage:(NSString *)message onView:(id)view;
-+ (void)hideProgressHUDFromView:(id)view;
-+ (void)showProgressHUDWithMessage:(NSString *)message;
++ (void)showProgressHUDWithMessage:(nonnull NSString *)message onView:(nonnull id)view;
++ (void)hideProgressHUDFromView:(nonnull id)view;
++ (void)showProgressHUDWithMessage:(nonnull NSString *)message;
 + (void)hideProgressHUD;
 
 #pragma mark - Tab bar controller
 
 /// Use this method to hide tab bar controller with animation
-+ (void)setTabBarController:(UITabBarController *)taBarController hidden:(BOOL)tabBarHidden animated:(BOOL)animated;
++ (void)setTabBarController:(nonnull UITabBarController *)taBarController hidden:(BOOL)tabBarHidden animated:(BOOL)animated;
+
+#pragma mark - Phone call
+
+/// Use this method to call to a number
++ (void)callToNumber:(nonnull NSString *)number;
 
 @end

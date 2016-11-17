@@ -14,20 +14,20 @@
 #import "MBProgressHUD.h"
 
 // Helpers
-#import "SFAlertView.h"
+#import "SFObject.h"
+#import "SFAlertController.h"
 #import "SFConstants.h"
 #import "SFDefine.h"
 #import "SFDictionary.h"
 #import "SFLabel.h"
 #import "SFString.h"
 #import "SFUtils.h"
-#import "MBProgressHUD.h"
 #import "SFTableView.h"
-#import "SFObject.h"
 #import "SFNetworking.h"
 #import "SFColor.h" 
 #import "SFImage.h"
 #import "SFView.h"
 #import "SFLocationManager.h"
+#import "SFButton.h"
 
 #endif /* SFImports_h */
