@@ -88,8 +88,7 @@
     dateComponents.month = months;
     dateComponents.day = days;
     dateComponents.hour = hours;
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDate *newDate = [calendar dateByAddingComponents:dateComponents toDate:self options:0];
+    NSDate *newDate = [CURRENT_CALENDAR dateByAddingComponents:dateComponents toDate:self options:0];
     return newDate;
 }
 
@@ -141,5 +140,14 @@
     return [NSString stringWithFormat:@"%d",intSum];
 }
 
+- (NSNumber *)getCalculatedYearDifferenceFromDate:(NSDate *)date
+{
+    // Calculate the year diffrence
+    NSDate *now = [NSDate date];
+    NSDateComponents *pastYearsComponents = [CURRENT_CALENDAR components:NSCalendarUnitYear fromDate:date toDate:[self getNowDateWithFormat:@"yyyy"] options:0];
+    NSInteger calculated = [pastYearsComponents year];
+    
+    return [NSNumber numberWithInteger:calculated];
+}
 
 @end

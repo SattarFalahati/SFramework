@@ -34,7 +34,17 @@
 - (void)addCornerRadius:(CGFloat)radius;
 
 #pragma mark - VIEWS
+
 /// Set blur effect with effect option
 - (void)blurEffectWithUIBlurEffectStyle:(UIBlurEffectStyle)blurStyle;
+
+@end
+
+#pragma mark - LABELS
+
+@interface UILabel (SFView)
+
+/// When you want to have a string with two different color and font use this method 
+- (void)setAttributedTextWithString:(NSString *)string withBaseFont:(UIFont *)baseFont andBaseColor:(UIColor *)baseColor withAttributedString:(NSString *)attributedString withAttributedFont:(UIFont *)attributedFont andAttributedColor:(UIColor *)attributedColor;
 
 @end

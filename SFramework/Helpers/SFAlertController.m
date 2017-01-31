@@ -98,7 +98,7 @@
 #pragma mark - ACTION SHEET
 
 /// Action sheet with ONE Button
-+ (void)showActionSheetWithOneButtonOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message withButtonTitle:(NSString *)btnTitle andButtonBlock:(SFAlertControllerCompletionBlock)touchEventBlock
++ (void)showActionSheetWithOneButtonOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message withButtonTitle:(NSString *)btnTitle andButtonBlock:(SFAlertControllerCompletionBlock)touchEventBlock withCancelButtonTitle:(NSString *)cancelBtnTitle withBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock
 {
     // Create alertController
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
@@ -109,7 +109,15 @@
             touchEventBlock();
         });
     }];
+    
+    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:cancelBtnTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cancelBtnTouchEventBlock();
+        });
+    }];
+    
     [alertController addAction:button];
+    [alertController addAction:cancelBtn];
     
     // Present alert (show)
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -119,7 +127,7 @@
 }
 
 /// Action sheet with TWO Buttons
-+ (void)showActionSheetWithOTwoButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertControllerCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertControllerCompletionBlock)secondBtnTouchEventBlock
++ (void)showActionSheetWithTwoButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertControllerCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertControllerCompletionBlock)secondBtnTouchEventBlock withCancelButtonTitle:(NSString *)cancelBtnTitle withBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock
 {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
@@ -136,8 +144,15 @@
         });
     }];
     
+    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:cancelBtnTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cancelBtnTouchEventBlock();
+        });
+    }];
+    
     [alertController addAction:firstBtn];
     [alertController addAction:secondBtn];
+    [alertController addAction:cancelBtn];
     
     // Present alert (show)
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -147,7 +162,7 @@
 
 
 /// Action sheet with three Buttons
-+ (void)showActionSheetWithOThreeButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertControllerCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertControllerCompletionBlock)secondBtnTouchEventBlock withThirdButtonTitle:(NSString *)thirdBtnTitle withBlock:(SFAlertControllerCompletionBlock)thirdBtnTouchEventBlock
++ (void)showActionSheetWithThreeButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertControllerCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertControllerCompletionBlock)secondBtnTouchEventBlock withThirdButtonTitle:(NSString *)thirdBtnTitle withBlock:(SFAlertControllerCompletionBlock)thirdBtnTouchEventBlock withCancelButtonTitle:(NSString *)cancelBtnTitle withBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock
 {
     
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleActionSheet];
@@ -170,19 +185,22 @@
         });
     }];
     
+    UIAlertAction *cancelBtn = [UIAlertAction actionWithTitle:cancelBtnTitle style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cancelBtnTouchEventBlock();
+        });
+    }];
+    
     [alertController addAction:firstBtn];
     [alertController addAction:secondBtn];
     [alertController addAction:thirdBtn];
+    [alertController addAction:cancelBtn];
     
     // Present alert (show)
     dispatch_async(dispatch_get_main_queue(), ^{
         [target presentViewController:alertController animated:YES completion:nil];
     });
 }
-
-
-
-
 
 
 @end

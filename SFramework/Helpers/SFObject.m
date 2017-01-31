@@ -24,7 +24,7 @@
 {
     if(self && ![self isKindOfClass:[NSNull class]] && (NSNull *)self!=[NSNull null]){
         if([self isKindOfClass:[NSString class]]){
-            return ![(NSString *)self isEmpty];
+            return ![(NSString *)self isEmptyString];
         }
         if([self isKindOfClass:[NSArray class]]){
             NSArray *arr = (NSArray *)self;
@@ -52,7 +52,7 @@
         }
         if([self isKindOfClass:[NSURL class]]){
             NSURL *url = (NSURL *)self;
-            if(url && [url absoluteString] && ![[url absoluteString] isEmpty]){
+            if(url && [url absoluteString] && ![[url absoluteString] isEmptyString]){
                 return YES;
             }
         }

@@ -11,14 +11,15 @@
 @interface SFImage : UIImage
 
 /// Create image from color
-+ (UIImage *)imageWithColor:(UIColor *)color;
++ (nonnull UIImage *)imageWithColor:(nonnull UIColor *)color;
 
 /// Change image scale
-+ (UIImage *)scaleImage:(UIImage *)orginalImage toWidth:(CGFloat)width;
+- (nonnull UIImage *)scaleToWidth:(CGFloat)width;
 
 /// Set blur effect on an image (Its working fine but slow)
-+ (UIImage *)blurredImage:(UIImage *)orginalImage;
+- (nonnull UIImage *)convertToBlurredImage;
 
 /// Get image type from data
-+ (NSString *)getMimeTypeFormData:(NSData *)data;
++ (nullable NSString *)getImageMimeTypeFormData:(nonnull NSData *)data;
+
 @end

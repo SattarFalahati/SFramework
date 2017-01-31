@@ -182,10 +182,4 @@ SFGeoManager *sfGeoLocationManager;
 }
 
 
-
-
-
-
-
-
 @end

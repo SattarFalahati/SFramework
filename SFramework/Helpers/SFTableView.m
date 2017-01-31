@@ -42,7 +42,7 @@
 
 - (void)scroolTableToLastCell:(NSInteger)cellRow inSection:(NSInteger)section
 {
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:cellRow inSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:cellRow inSection:section];
     [self scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
 }
 

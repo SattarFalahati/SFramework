@@ -100,7 +100,7 @@
 
 #pragma mark - Navigation Bar
 
-+(UIBarButtonItem *)barButtonItemWithImageName:(NSString *)imageName forTarget:(id)target andselector:(SEL)selector
++ (UIBarButtonItem *)barButtonItemWithImageName:(NSString *)imageName forTarget:(id)target andselector:(SEL)selector
 {
     UIImage *image = [UIImage imageNamed:imageName];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -114,7 +114,7 @@
 /*************************
  Call this method only in AppDelegate for having general NavigationBar
  *************************/
-+(void)setupNavigationBarWithBackgroundColor:(UIColor *)bgColor WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor
++ (void)setupNavigationBarWithBackgroundColor:(UIColor *)bgColor WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor
 {
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
@@ -135,7 +135,7 @@
  Call this method When you want to have a custom navigation bar for only one page
  *************************/
 
-+(void)customNavigationController:(UINavigationController *)navigationBar forTarget:(id)target setBackgroundColor:(UIColor *)bgColor withPageTitle:(NSString *)title WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor
++ (void)customNavigationController:(UINavigationController *)navigationBar forTarget:(id)target setBackgroundColor:(UIColor *)bgColor withPageTitle:(NSString *)title WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor
 {
     [target setNeedsStatusBarAppearanceUpdate];
     [navigationBar setNavigationBarHidden:NO];

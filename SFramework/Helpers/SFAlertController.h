@@ -27,17 +27,22 @@ typedef void (^SFAlertControllerCompletionBlock)();
 /// Locolized alert view For Network is not connect
 + (void)showAlertNetworkIsNotConnectOnTarget:(id)target withRetryBlock:(SFAlertControllerCompletionBlock)retryBtnTouchEventBlock withCancelBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock;
 
-
 #pragma mark - ACTION SHEET
 
-/// Action sheet with ONE Button
-+ (void)showActionSheetWithOneButtonOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message withButtonTitle:(NSString *)btnTitle andButtonBlock:(SFAlertControllerCompletionBlock)touchEventBlock;
+/** 
+ Desciption of SFAlertController ActionSheet 
+ Each of ActionSheet methods are having number off buttons PLUS on button with cancel style ( buttom btn to close the action sheet ) and this CANCEL btn is NOT included in the number of buttons
+ 
+ **/
 
-/// Action sheet with TWO Buttons
-+ (void)showActionSheetWithOTwoButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertControllerCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertControllerCompletionBlock)secondBtnTouchEventBlock;
+/// Action sheet with ONE Button and CANCEL Button
++ (void)showActionSheetWithOneButtonOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message withButtonTitle:(NSString *)btnTitle andButtonBlock:(SFAlertControllerCompletionBlock)touchEventBlock withCancelButtonTitle:(NSString *)cancelBtnTitle withBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock;
 
-/// Action sheet with three Buttons
-+ (void)showActionSheetWithOThreeButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertControllerCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertControllerCompletionBlock)secondBtnTouchEventBlock withThirdButtonTitle:(NSString *)thirdBtnTitle withBlock:(SFAlertControllerCompletionBlock)thirdBtnTouchEventBlock;
+/// Action sheet with TWO Buttons and CANCEL Button
++ (void)showActionSheetWithTwoButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertControllerCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertControllerCompletionBlock)secondBtnTouchEventBlock withCancelButtonTitle:(NSString *)cancelBtnTitle withBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock;
+
+/// Action sheet with three Buttons and CANCEL Button
++ (void)showActionSheetWithThreeButtonsOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message  withFirstButtonTitle:(NSString *)firstBtnTitle withBlock:(SFAlertControllerCompletionBlock)firstBtnTouchEventBlock withSecondButtonTitle:(NSString *)secondBtnTitle withBlock:(SFAlertControllerCompletionBlock)secondBtnTouchEventBlock withThirdButtonTitle:(NSString *)thirdBtnTitle withBlock:(SFAlertControllerCompletionBlock)thirdBtnTouchEventBlock withCancelButtonTitle:(NSString *)cancelBtnTitle withBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock;
 
 
 @end

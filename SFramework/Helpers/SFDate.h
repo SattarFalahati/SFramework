@@ -18,7 +18,7 @@
 - (BOOL)isEqualToDate:(nonnull NSDate *)date;
 
 /// Convert string to date
-- (nonnull NSDate *)convertStringToDateWithDateString:(nonnull NSString *)dateString withOrginalFormat:(nonnull NSString *)strOrginalFormat;
+- (nullable NSDate *)convertStringToDateWithDateString:(nonnull NSString *)dateString withOrginalFormat:(nullable NSString *)strOrginalFormat;
 
 /// Convert date to new date with new format
 - (nonnull NSString *)convertToNewFormat:(nonnull NSString *)strDateFormat;
@@ -47,7 +47,8 @@
 /// Convert hours to minutes
 - (nonnull NSString *)convertHoursToMinutes;
 
-
+/// Calculate the year diffrence between a date and now *** you can use this method to calculate the age ...
+- (nonnull NSNumber *)getCalculatedYearDifferenceFromDate:(NSDate *)date;
 
 
 @end

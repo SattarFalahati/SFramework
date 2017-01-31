@@ -26,7 +26,7 @@
     NSString *str = [NSString randomStringWithLength:10];
     NSLog(@"%@",str);
     
-    NSString *strImg = @"http://www.qdtricks.org/wp-content/uploads/2015/12/2016-iphone-6-wallpaper.jpg";
+    NSString *strImg = @"https://www.campsites.co.uk/getupload/campsite/20979/9edb6e5b-3789-423c-8cc4-5d267d451546/700/-/width/cobleland-campsite.jpg";
     
     [self.imgBG setImageWithURLString:strImg withPlaceholderImage:[UIImage imageNamed:@"Placeholder"] withActivityIndicator:nil withCompletionBlock:^(BOOL succeed, UIImage * _Nullable image) {
         // Do sth if needed
@@ -45,6 +45,14 @@
         if ([SFLocationManager isValidPosition:currentLocation]) {
             NSLog(@"position is valid");
         }
+        
+        [SFLocationManager getAddressFromCoordinate:currentLocation withSuccessBlock:^(NSDictionary *dicAddress, NSString *strAddress, NSString *strCitty, NSString *strZipCode) {
+            
+            NSLog(@"\n %@ \n %@ \n %@ \n ", strCitty, strZipCode, strAddress);
+            
+        } andFailureBlock:^(NSError *error) {
+            NSLog(@"Error : %@", error);
+        }];
         
         [SFLocationManager stopGeoLocationManager];
     }];
@@ -67,10 +75,23 @@
     NSString *strURL = @"http://jsonplaceholder.typicode.com/todos";
     
     [SFNetworking getRequestWithURLString:strURL withCompletionBlock:^(ErrorCode errorCode, id  _Nullable responseObject, NSError * _Nullable error) {
-         NSLog(@"%@",responseObject);
+        
+        NSLog(@"%@",responseObject);
+        
+        [self showActionSheet];
+        
         [SFUtils hideProgressHUDFromView:self.view];
     }];
 }
+
+- (void)showActionSheet
+{
+    [SFAlertController showActionSheetWithOneButtonOnTarget:self withTitle:@"Call" withMessage:@"Do you want to call to this number : 123456" withButtonTitle:@"Yes" andButtonBlock:^{
+        [SFUtils callToNumber:@"3246128309"];
+    } withCancelButtonTitle:@"No" withBlock:^{
+        
+    }];}
+
 
 - (void)didReceiveMemoryWarning
 {

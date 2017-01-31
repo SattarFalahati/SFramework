@@ -10,136 +10,17 @@
 #import "SFString.h"
 #import <CommonCrypto/CommonDigest.h>
 
-#define valueReplaced	@"VALUE"
-#define linkHRef		@"<font color='#ED8117'><a href='VALUE'>VALUE</a></font>"
-#define phoneHRef		@"<font color='#ED8117'><a href='telprompt://VALUE'>VALUE</a></font>"
 
 @implementation NSString (SFString)
 
-
-- (NSString *)reverse
+- (BOOL)contains:(NSString *)string
 {
-	NSInteger length = [self length];
-	unichar *buffer = calloc(length, sizeof(unichar));
-	[self getCharacters:buffer range:NSMakeRange(0, length)];
-	for(int i = 0, mid = ceil(length/2.0); i < mid; i++) {
-		unichar c = buffer[i];
-		buffer[i] = buffer[length-i-1];
-		buffer[length-i-1] = c;
-	}
-	NSString *s = [[NSString alloc] initWithCharacters:buffer length:length];
-    buffer = nil;
-	return s;
-}
-
--(NSUInteger)countWords {
-    __block NSUInteger wordCount = 0;
-    [self enumerateSubstringsInRange:NSMakeRange(0, self.length)
-                               options:NSStringEnumerationByWords
-                            usingBlock:^(NSString *character, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
-                                wordCount++;
-                            }];
-    return wordCount;
-}
-
--(NSString *)stringByStrippingWhitespace {
-    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-}
-
--(NSString *)substringFrom:(NSInteger)from to:(NSInteger)to {
-    NSString *rightPart = [self substringFromIndex:from];
-    return [rightPart substringToIndex:to-from];
-}
-
-
--(NSString *)URLEncode {
-    CFStringRef encoded = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-                                                                  (__bridge CFStringRef)self,
-                                                                  NULL,
-                                                                  CFSTR(":/?#[]@!$&'()*+,;="),
-                                                                  kCFStringEncodingUTF8);
-    return [NSString stringWithString:(__bridge_transfer NSString *)encoded];
-}
-
--(NSString *)URLDecode {
-    CFStringRef decoded = CFURLCreateStringByReplacingPercentEscapes( kCFAllocatorDefault,
-                                                                     (__bridge CFStringRef)self,
-                                                                     CFSTR(":/?#[]@!$&'()*+,;=") );
-    return [NSString stringWithString:(__bridge_transfer NSString *)decoded];
-}
-
-
-
--(NSString *)camelCaseToUnderscores:(NSString *)input {
-    NSMutableString *output = [NSMutableString string];
-    NSCharacterSet *uppercase = [NSCharacterSet uppercaseLetterCharacterSet];
-    for (NSInteger idx = 0; idx < [input length]; idx += 1) {
-        unichar c = [input characterAtIndex:idx];
-        if ([uppercase characterIsMember:c]) {
-            [output appendFormat:@"%s%C", (idx == 0 ? "" : "_"), (unichar)(c ^ 32)];
-        } else {
-            [output appendFormat:@"%C", c];
-        }
-    }
-    return output;
-}
-
--(NSString *)underscoresToCamelCase:(NSString*)underscores {
-    NSMutableString *output = [NSMutableString string];
-    BOOL makeNextCharacterUpperCase = NO;
-    for (NSInteger idx = 0; idx < [underscores length]; idx += 1) {
-        unichar c = [underscores characterAtIndex:idx];
-        if (c == '_') {
-            makeNextCharacterUpperCase = YES;
-        } else if (makeNextCharacterUpperCase) {
-            [output appendString:[[NSString stringWithCharacters:&c length:1] uppercaseString]];
-            makeNextCharacterUpperCase = NO;
-        } else {
-            [output appendFormat:@"%C", c];
-        }
-    }
-    return output;
-}
-
--(NSString *)capitalizeFirst:(NSString *)source {
-    if ([source length] == 0) {
-        return source;
-    }
-    return [source stringByReplacingCharactersInRange:NSMakeRange(0, 1)
-                                           withString:[[source substringWithRange:NSMakeRange(0, 1)] capitalizedString]];
-}
-
-
-#pragma mark - Boolean Helpers
--(BOOL)contains:(NSString *)string {
     NSRange range = [self rangeOfString:string];
     return (range.location != NSNotFound);
 }
 
-- (BOOL)isValidNumeroFisso{
-    NSString *regExPattern = @"^[0]{1}[0-9]{5,10}$";
-    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:NSRegularExpressionCaseInsensitive error:nil];
-    NSUInteger regExMatches = [regEx numberOfMatchesInString:self options:0 range:NSMakeRange(0, [self length])];
-    if (regExMatches != 0) {
-		if([self length] > 6 && [self length] < 11){
-			return YES;
-		}
-    }
-	return NO;
-}
-
--(BOOL)isValidNumeroMobile{
-    NSString *regExPattern = @"^([+]39)?((38[{8,9}|0|3])|(34[{0-3}|{5-9}])|(37[7|3|0])|(36[{0,3}|6|8])|(33[{0-9}])|(32[{2-4}|{7-9}|0])|(39[{0-3}|7])|(313)|(350))([\\d]{7})$";
-    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:NSRegularExpressionCaseInsensitive error:nil];
-    NSUInteger regExMatches = [regEx numberOfMatchesInString:self options:0 range:NSMakeRange(0, [self length])];
-    if (regExMatches == 0) {
-        return NO;
-    } else
-        return YES;
-}
-
-
-- (BOOL)isEmpty{
+- (BOOL)isEmptyString
+{
     if ((NSNull *) self == [NSNull null]) {
         return YES;
     }
@@ -158,12 +39,19 @@
     return NO;
 }
 
-- (BOOL) isAlphaNumeric{
+- (BOOL)isISOLatin
+{
+    return [self canBeConvertedToEncoding:NSISOLatin1StringEncoding];
+}
+
+- (BOOL)isAlphaNumeric
+{
     NSCharacterSet *unwantedCharacters = [[NSCharacterSet alphanumericCharacterSet] invertedSet];
     return ([self rangeOfCharacterFromSet:unwantedCharacters].location == NSNotFound) ? YES : NO;
 }
 
-- (BOOL) isOnlyNumeric{
+- (BOOL)isOnlyNumeric
+{
     NSString *localDecimalSymbol = [[NSLocale currentLocale] objectForKey:NSLocaleDecimalSeparator];
     NSMutableCharacterSet *decimalCharacterSet = [NSMutableCharacterSet characterSetWithCharactersInString:localDecimalSymbol];
     [decimalCharacterSet formUnionWithCharacterSet:[NSCharacterSet alphanumericCharacterSet]];
@@ -177,21 +65,19 @@
     else return NO;
 }
 
-- (BOOL)isNumeric{
-	const char *s = [self UTF8String];
-	for (size_t i=0;i<strlen(s);i++){
-		if ((s[i]<'0' || s[i]>'9') && (s[i] != '.')){
-			return NO;
-		}
-	}
-	return YES;
+- (BOOL)isNumeric
+{
+    const char *s = [self UTF8String];
+    for (size_t i=0;i<strlen(s);i++){
+        if ((s[i]<'0' || s[i]>'9') && (s[i] != '.')){
+            return NO;
+        }
+    }
+    return YES;
 }
 
--(BOOL)isISOLatin{
-    return [self canBeConvertedToEncoding:NSISOLatin1StringEncoding];
-}
-
-- (BOOL)isValidEmailFormat {
+- (BOOL)isValidEmailFormat
+{
     BOOL stricterFilter = YES;
     NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
     NSString *laxString = @".+@([A-Za-z0-9]+\\.)+[A-Za-z]{2}[A-Za-z]*";
@@ -200,7 +86,130 @@
     return [emailTest evaluateWithObject:self];
 }
 
--(NSString *)specialCharactersConversion{
+- (BOOL)isValidMobileNumber
+{
+    NSString *regExPattern = @"^([+]39)?((38[{8,9}|0|3])|(34[{0-3}|{5-9}])|(37[7|3|0])|(36[{0,3}|6|8])|(33[{0-9}])|(32[{2-4}|{7-9}|0])|(39[{0-3}|7])|(313)|(350))([\\d]{7})$";
+    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger regExMatches = [regEx numberOfMatchesInString:self options:0 range:NSMakeRange(0, [self length])];
+    if (regExMatches == 0) {
+        return NO;
+    } else
+        return YES;
+}
+
+- (BOOL)isValidFixedNumber
+{
+    NSString *regExPattern = @"^[0]{1}[0-9]{5,10}$";
+    NSRegularExpression *regEx = [[NSRegularExpression alloc] initWithPattern:regExPattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSUInteger regExMatches = [regEx numberOfMatchesInString:self options:0 range:NSMakeRange(0, [self length])];
+    if (regExMatches != 0) {
+        if([self length] > 6 && [self length] < 11){
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
+- (NSString *)reverse
+{
+	NSInteger length = [self length];
+	unichar *buffer = calloc(length, sizeof(unichar));
+	[self getCharacters:buffer range:NSMakeRange(0, length)];
+	for(int i = 0, mid = ceil(length/2.0); i < mid; i++) {
+		unichar c = buffer[i];
+		buffer[i] = buffer[length-i-1];
+		buffer[length-i-1] = c;
+	}
+	NSString *s = [[NSString alloc] initWithCharacters:buffer length:length];
+    buffer = nil;
+	return s;
+}
+
+- (NSString *)URLEncode
+{
+    CFStringRef encoded = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                  (__bridge CFStringRef)self,
+                                                                  NULL,
+                                                                  CFSTR(":/?#[]@!$&'()*+,;="),
+                                                                  kCFStringEncodingUTF8);
+    return [NSString stringWithString:(__bridge_transfer NSString *)encoded];
+}
+
+- (NSString *)URLDecode
+{
+    CFStringRef decoded = CFURLCreateStringByReplacingPercentEscapes( kCFAllocatorDefault,
+                                                                     (__bridge CFStringRef)self,
+                                                                     CFSTR(":/?#[]@!$&'()*+,;=") );
+    return [NSString stringWithString:(__bridge_transfer NSString *)decoded];
+}
+
+- (NSString *)stringByStrippingWhitespace
+{
+    return [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+}
+
+- (NSString *)substringFrom:(NSInteger)from to:(NSInteger)to
+{
+    NSString *rightPart = [self substringFromIndex:from];
+    return [rightPart substringToIndex:to-from];
+}
+
+- (NSString *)capitalizeFirst:(NSString *)source
+{
+    if ([source length] == 0) {
+        return source;
+    }
+    return [source stringByReplacingCharactersInRange:NSMakeRange(0, 1)
+                                           withString:[[source substringWithRange:NSMakeRange(0, 1)] capitalizedString]];
+}
+
+- (NSString *)underscoresToCamelCase:(NSString*)underscores
+{
+    NSMutableString *output = [NSMutableString string];
+    BOOL makeNextCharacterUpperCase = NO;
+    for (NSInteger idx = 0; idx < [underscores length]; idx += 1) {
+        unichar c = [underscores characterAtIndex:idx];
+        if (c == '_') {
+            makeNextCharacterUpperCase = YES;
+        } else if (makeNextCharacterUpperCase) {
+            [output appendString:[[NSString stringWithCharacters:&c length:1] uppercaseString]];
+            makeNextCharacterUpperCase = NO;
+        } else {
+            [output appendFormat:@"%C", c];
+        }
+    }
+    return output;
+}
+
+- (NSString *)camelCaseToUnderscores:(NSString *)input
+{
+    NSMutableString *output = [NSMutableString string];
+    NSCharacterSet *uppercase = [NSCharacterSet uppercaseLetterCharacterSet];
+    for (NSInteger idx = 0; idx < [input length]; idx += 1) {
+        unichar c = [input characterAtIndex:idx];
+        if ([uppercase characterIsMember:c]) {
+            [output appendFormat:@"%s%C", (idx == 0 ? "" : "_"), (unichar)(c ^ 32)];
+        } else {
+            [output appendFormat:@"%C", c];
+        }
+    }
+    return output;
+}
+
+- (NSUInteger)countWords
+{
+    __block NSUInteger wordCount = 0;
+    [self enumerateSubstringsInRange:NSMakeRange(0, self.length)
+                               options:NSStringEnumerationByWords
+                            usingBlock:^(NSString *character, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
+                                wordCount++;
+                            }];
+    return wordCount;
+}
+
+- (NSString *)specialCharactersConversion
+{
 	NSString *string = [self stringByReplacingOccurrencesOfString:@"&ndash;" withString:@"–"];
 	string = [string stringByReplacingOccurrencesOfString:@"\\U20ac" withString:@"€"];
 	string = [string stringByReplacingOccurrencesOfString:@"\\u20ac" withString:@"€"];
@@ -302,56 +311,36 @@
 	return string;
 }
 
--(NSArray *)URLDetector:(NSString *)text{
+- (NSArray *)URLDetector:(NSString *)text
+{
 	NSMutableArray *mutex = [NSMutableArray array];
 	NSDataDetector *detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
 	NSArray *matches = [detector matchesInString:text options:0 range:NSMakeRange(0, [text length])];
 	for (NSTextCheckingResult *match in matches){
 		NSString *matchText = [text substringWithRange:[match range]];
-		if(matchText && ![matchText isEmpty]){
+		if(matchText && ![matchText isEmptyString]){
 			[mutex addObject:matchText];
 		}
 	}
 	return [NSArray arrayWithArray:mutex];
 }
 
--(NSArray *)phoneNumberDetector:(NSString *)text{
+- (NSArray *)phoneNumberDetector:(NSString *)text
+{
 	NSMutableArray *mutex = [NSMutableArray array];
 	NSDataDetector* detector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypePhoneNumber error:nil];
 	NSArray *matches = [detector matchesInString:text options:0 range:NSMakeRange(0, [text length])];
 	for (NSTextCheckingResult *match in matches){
 		NSString *matchText = [text substringWithRange:[match range]];
-		if(matchText && ![matchText isEmpty]){
+		if(matchText && ![matchText isEmptyString]){
 			[mutex addObject:matchText];
 		}
 	}
 	return [NSArray arrayWithArray:mutex];
 }
 
--(NSString *)replaceDetector{
-	NSString *result = self;
-	NSArray *arrayLink = [self URLDetector:result];
-	NSArray *arrayPhone = [self phoneNumberDetector:result];
-	if(arrayLink && [arrayLink count]>0){
-		for(NSString *str in arrayLink){
-			if(str && ![str isEmpty]){
-				NSString *toFinal = [linkHRef stringByReplacingOccurrencesOfString:valueReplaced withString:str];
-				result = [result stringByReplacingOccurrencesOfString:str withString:toFinal];
-			}
-		}
-	}
-	if(arrayPhone && [arrayPhone count]>0){
-		for(NSString *str in arrayPhone){
-			if(str && ![str isEmpty]){
-				NSString *toFinal = [phoneHRef stringByReplacingOccurrencesOfString:valueReplaced withString:str];
-				result = [result stringByReplacingOccurrencesOfString:str withString:toFinal];
-			}
-		}
-	}
-	return result;
-}
 
-- (NSString *)convertHTML
+- (NSString *)convertHTMLCodeToString
 {
     NSString *html = self;
     NSScanner *myScanner;
@@ -369,6 +358,20 @@
     html = [html stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
     return html;
+}
+
+- (NSString *)stringByStrippingBrTag
+{
+    NSString *str = self;
+    str = [str stringByReplacingOccurrencesOfString:@"\n" withString:@" "];
+    str = [str stringByReplacingOccurrencesOfString:@"\r" withString:@" "];
+    str = [str stringByReplacingOccurrencesOfString:@"\t" withString:@" "];
+    str = [str stringByReplacingOccurrencesOfString:@"<br>" withString:@" "];
+    str = [str stringByReplacingOccurrencesOfString:@"<br/>" withString:@" "];
+    str = [str stringByReplacingOccurrencesOfString:@"<br >" withString:@" "];
+    str = [str stringByReplacingOccurrencesOfString:@"<br />" withString:@" "];
+    [str stringByReplacingOccurrencesOfString:@"\\s" withString:@" " options:NSRegularExpressionSearch range:NSMakeRange(0, [str length])];
+    return [str stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 }
 
 + (NSString *)randomStringWithLength:(NSInteger)length

@@ -23,9 +23,9 @@
     return image;
 }
 
-+ (UIImage *)scaleImage:(UIImage *)orginalImage toWidth:(CGFloat)width
+- (UIImage *)scaleToWidth:(CGFloat)width
 {
-    UIImage *scaledImage = orginalImage;
+    UIImage *scaledImage = self;
     if (scaledImage.size.width != width) {
         CGFloat height = floorf(scaledImage.size.height * (width / scaledImage.size.width));
         CGSize size = CGSizeMake(width, height);
@@ -46,11 +46,11 @@
     return scaledImage;
 }
 
-+ (UIImage *)blurredImage:(UIImage *)orginalImage
+- (UIImage *)convertToBlurredImage
 {
     //  Create our blurred image
     CIContext *context = [CIContext contextWithOptions:nil];
-    CIImage *inputImage = [CIImage imageWithCGImage:orginalImage.CGImage];
+    CIImage *inputImage = [CIImage imageWithCGImage:self.CGImage];
     
     //  Setting up Gaussian Blur
     CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
@@ -66,7 +66,7 @@
     return blurredImage;
 }
 
-+ (NSString *)getMimeTypeFormData:(NSData *)data
++ (NSString *)getImageMimeTypeFormData:(NSData *)data
 {
     uint8_t c;
     [data getBytes:&c length:1];
