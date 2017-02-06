@@ -10,7 +10,13 @@
 
 @interface UILabel (SFLabel)
 
+/// Set Text color for a part of string
 - (void)setTextColor:(UIColor *)textColor range:(NSRange)range;
+
+/// Set font for a part of string
 - (void)setFont:(UIFont *)font range:(NSRange)range;
+
+/// When you want to have a string with two different color and font use this method
+- (void)setAttributedTextWithString:(NSString *)string withBaseFont:(UIFont *)baseFont andBaseColor:(UIColor *)baseColor withAttributedString:(NSString *)attributedString withAttributedFont:(UIFont *)attributedFont andAttributedColor:(UIColor *)attributedColor;
 
 @end

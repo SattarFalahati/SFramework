@@ -9,7 +9,7 @@
 
 @interface KWBeWithinMatcher : KWMatcher
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beWithin:(id)aDistance of:(id)aValue;
 - (void)equal:(double)aValue withDelta:(double)aDelta;

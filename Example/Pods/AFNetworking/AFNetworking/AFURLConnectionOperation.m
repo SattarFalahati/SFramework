@@ -215,7 +215,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
     }
 }
 
-#pragma mark -
+// MARK: -
 
 - (void)setResponseData:(NSData *)responseData {
     [self.lock lock];
@@ -317,7 +317,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
 }
 #endif
 
-#pragma mark -
+// MARK: -
 
 - (void)setState:(AFOperationState)state {
     if (!AFStateTransitionIsValid(self.state, state, [self isCancelled])) {
@@ -377,7 +377,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
     [self.lock unlock];
 }
 
-#pragma mark -
+// MARK: -
 
 - (void)setUploadProgressBlock:(void (^)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite))block {
     self.uploadProgress = block;
@@ -399,7 +399,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
     self.redirectResponse = block;
 }
 
-#pragma mark - NSOperation
+// MARK: - NSOperation
 
 - (void)setCompletionBlock:(void (^)(void))block {
     [self.lock lock];
@@ -518,7 +518,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
     }
 }
 
-#pragma mark -
+// MARK: -
 
 + (NSArray *)batchOfRequestOperations:(NSArray *)operations
                         progressBlock:(void (^)(NSUInteger numberOfFinishedOperations, NSUInteger totalNumberOfOperations))progressBlock
@@ -577,7 +577,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
     return [operations arrayByAddingObject:batchedOperation];
 }
 
-#pragma mark - NSObject
+// MARK: - NSObject
 
 - (NSString *)description {
     [self.lock lock];
@@ -586,7 +586,7 @@ static inline BOOL AFStateTransitionIsValid(AFOperationState fromState, AFOperat
     return description;
 }
 
-#pragma mark - NSURLConnectionDelegate
+// MARK: - NSURLConnectionDelegate
 
 - (void)connection:(NSURLConnection *)connection
 willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
@@ -729,7 +729,7 @@ didReceiveResponse:(NSURLResponse *)response
     }
 }
 
-#pragma mark - NSSecureCoding
+// MARK: - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -773,7 +773,7 @@ didReceiveResponse:(NSURLResponse *)response
     [coder encodeInt64:self.totalBytesRead forKey:NSStringFromSelector(@selector(totalBytesRead))];
 }
 
-#pragma mark - NSCopying
+// MARK: - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFURLConnectionOperation *operation = [(AFURLConnectionOperation *)[[self class] allocWithZone:zone] initWithRequest:self.request];

@@ -9,7 +9,7 @@
 
 @interface KWBeZeroMatcher : KWMatcher
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beZero;
 

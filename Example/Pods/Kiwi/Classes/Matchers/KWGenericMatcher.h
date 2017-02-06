@@ -17,7 +17,7 @@
 
 @interface KWGenericMatcher : KWMatcher
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)match:(id<KWGenericMatching>)aMatcher;
 

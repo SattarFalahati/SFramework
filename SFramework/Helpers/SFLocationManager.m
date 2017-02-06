@@ -45,7 +45,7 @@
     self.locationBlock = nil;
 }
 
-#pragma mark - DELEGATE
+// MARK: - DELEGATE
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
@@ -59,7 +59,7 @@
 
 @implementation SFLocationManager
 
-#pragma mark - Get user current location
+// MARK: - Get user current location
 
 SFGeoManager *sfGeoLocationManager;
 
@@ -92,7 +92,7 @@ SFGeoManager *sfGeoLocationManager;
     
 }
 
-#pragma mark - Distance
+// MARK: - Distance
 
 /// Calculate Distance *** This function return kilometers ***
 + (NSString *)calculateDistanceFromLocation:(CLLocationCoordinate2D)startLocation toLocation:(CLLocationCoordinate2D)destinationLocation
@@ -109,7 +109,7 @@ SFGeoManager *sfGeoLocationManager;
     return [NSString stringWithFormat:@"%d m",(int)distance];
 }
 
-#pragma mark - Position
+// MARK: - Position
 
 /// Check if position is valid position
 + (BOOL)isValidPosition:(CLLocationCoordinate2D)coordinate
@@ -121,7 +121,7 @@ SFGeoManager *sfGeoLocationManager;
     return YES;
 }
 
-#pragma mark - Address
+// MARK: - Address
 
 /// Get address based on coordinate
 

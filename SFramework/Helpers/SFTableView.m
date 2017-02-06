@@ -13,7 +13,7 @@
 
 @implementation  UITableView (SFTableView) 
 
-#pragma mark - REFRESH ( RELOAD DATA )
+// MARK: - REFRESH ( RELOAD DATA )
 
 - (void)refreshTableView
 {
@@ -38,7 +38,7 @@
     [self endUpdates];
 }
 
-#pragma mark - SCROLL OPTIONS
+// MARK: - SCROLL OPTIONS
 
 - (void)scroolTableToLastCell:(NSInteger)cellRow inSection:(NSInteger)section
 {

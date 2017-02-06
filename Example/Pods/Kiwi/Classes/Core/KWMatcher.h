@@ -9,29 +9,29 @@
 
 @interface KWMatcher : NSObject<KWMatching>
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithSubject:(id)anObject;
 
 + (id)matcherWithSubject:(id)anObject;
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @property (nonatomic, strong) id subject;
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings;
 
-#pragma mark - Getting Matcher Compatability
+// MARK: - Getting Matcher Compatability
 
 + (BOOL)canMatchSubject:(id)anObject;
 
-#pragma mark - Matching
+// MARK: - Matching
 
 - (BOOL)evaluate;
 
-#pragma mark - Getting Failure Messages
+// MARK: - Getting Failure Messages
 
 - (NSString *)failureMessageForShould;
 - (NSString *)failureMessageForShouldNot;

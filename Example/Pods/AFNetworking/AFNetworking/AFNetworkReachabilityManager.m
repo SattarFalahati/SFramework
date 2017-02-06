@@ -167,7 +167,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
     [self stopMonitoring];
 }
 
-#pragma mark -
+// MARK: -
 
 - (BOOL)isReachable {
     return [self isReachableViaWWAN] || [self isReachableViaWiFi];
@@ -181,7 +181,7 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
     return self.networkReachabilityStatus == AFNetworkReachabilityStatusReachableViaWiFi;
 }
 
-#pragma mark -
+// MARK: -
 
 - (void)startMonitoring {
     [self stopMonitoring];
@@ -222,19 +222,19 @@ static void AFNetworkReachabilityReleaseCallback(const void *info) {
     SCNetworkReachabilityUnscheduleFromRunLoop((__bridge SCNetworkReachabilityRef)self.networkReachability, CFRunLoopGetMain(), kCFRunLoopCommonModes);
 }
 
-#pragma mark -
+// MARK: -
 
 - (NSString *)localizedNetworkReachabilityStatusString {
     return AFStringFromNetworkReachabilityStatus(self.networkReachabilityStatus);
 }
 
-#pragma mark -
+// MARK: -
 
 - (void)setReachabilityStatusChangeBlock:(void (^)(AFNetworkReachabilityStatus status))block {
     self.networkReachabilityStatusBlock = block;
 }
 
-#pragma mark - NSKeyValueObserving
+// MARK: - NSKeyValueObserving
 
 + (NSSet *)keyPathsForValuesAffectingValueForKey:(NSString *)key {
     if ([key isEqualToString:@"reachable"] || [key isEqualToString:@"reachableViaWWAN"] || [key isEqualToString:@"reachableViaWiFi"]) {

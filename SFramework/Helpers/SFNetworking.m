@@ -22,7 +22,7 @@
 
 @implementation SFNetworking
 
-#pragma mark - NETWORK STATUS
+// MARK: - NETWORK STATUS
 
 + (BOOL)isNetworkStatusActive
 {
@@ -124,11 +124,11 @@
     }];
 }
 
-#pragma mark - REQUESTS
+// MARK: - REQUESTS
 
 ///  IMPORTANT Explanation : SFNetworking have different JSON functions , if user have to call HTML request he have to use main request and send HTML as content type
 
-#pragma mark get requests
+// MARK: get requests
 
 /// GET request without authorization
 + (void)getRequestWithURLString:(NSString *)strURL withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
@@ -142,7 +142,7 @@
     [self networkConnectionWithType:@"GET" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:nil forMultiPartRequest:nil completionBlock:completionBlock];
 }
 
-#pragma mark post requests
+// MARK: post requests
 
 /// POST request with params
 + (void)postRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
@@ -168,7 +168,7 @@
     [self networkConnectionWithType:@"POST" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:multipartBlock completionBlock:completionBlock];
 }
 
-#pragma mark delete requests
+// MARK: delete requests
 
 /// DELETE request with params without authorization
 + (void)deleteRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
@@ -182,7 +182,7 @@
     [self networkConnectionWithType:@"DELETE" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
 }
 
-#pragma mark put requests
+// MARK: put requests
 
 /// PUT request with params without authorization
 + (void)putRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
@@ -196,7 +196,7 @@
     [self networkConnectionWithType:@"PUT" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
 }
 
-#pragma mark main request
+// MARK: main request
 
 /*
  *** type            : @"GET" , @"POST" , @"DELETE" ...
@@ -293,7 +293,7 @@
 
 @end
 
-#pragma mark - SFImageView
+// MARK: - SFImageView
 
 @implementation UIImageView (SFNetworking)
 

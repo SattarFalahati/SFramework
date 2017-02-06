@@ -12,7 +12,7 @@
 
 @implementation SFAlertController
 
-#pragma mark - ALERT VIEW
+// MARK: - ALERT VIEW
 
 /// Alert view with ONE Button
 + (void)showAlertWithOneButtonOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message withButtonTitle:(NSString *)btnTitle andButtonBlock:(SFAlertControllerCompletionBlock)touchEventBlock
@@ -62,7 +62,7 @@
     });
 }
 
-#pragma mark - ALERT NETWORK CONECTION
+// MARK: - ALERT NETWORK CONECTION
 
 /// Locolized alert view For Network is not connect
 + (void)showAlertNetworkIsNotConnectOnTarget:(id)target withRetryBlock:(SFAlertControllerCompletionBlock)retryBtnTouchEventBlock withCancelBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock
@@ -95,7 +95,7 @@
     });
 }
 
-#pragma mark - ACTION SHEET
+// MARK: - ACTION SHEET
 
 /// Action sheet with ONE Button
 + (void)showActionSheetWithOneButtonOnTarget:(id)target withTitle:(NSString *)title withMessage:(NSString *)message withButtonTitle:(NSString *)btnTitle andButtonBlock:(SFAlertControllerCompletionBlock)touchEventBlock withCancelButtonTitle:(NSString *)cancelBtnTitle withBlock:(SFAlertControllerCompletionBlock)cancelBtnTouchEventBlock

@@ -10,7 +10,7 @@
 
 @implementation SFImage
 
-#pragma mark - Images
+// MARK: - Images
 
 + (UIImage *)imageWithColor:(UIColor *)color
 {

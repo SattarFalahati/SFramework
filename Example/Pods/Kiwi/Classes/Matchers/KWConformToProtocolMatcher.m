@@ -15,19 +15,19 @@
 
 @implementation KWConformToProtocolMatcher
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"conformToProtocol:"];
 }
 
-#pragma mark - Matching
+// MARK: - Matching
 
 - (BOOL)evaluate {
     return [self.subject conformsToProtocol:self.protocol];
 }
 
-#pragma mark - Getting Failure Messages
+// MARK: - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to conform to %@ protocol",
@@ -38,7 +38,7 @@
     return [NSString stringWithFormat:@"conform to %@ protocol", NSStringFromProtocol(self.protocol)];
 }
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)conformToProtocol:(Protocol *)aProtocol {
     self.protocol = aProtocol;

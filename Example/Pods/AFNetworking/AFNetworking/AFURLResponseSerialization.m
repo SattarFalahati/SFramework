@@ -103,7 +103,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return self;
 }
 
-#pragma mark -
+// MARK: -
 
 - (BOOL)validateResponse:(NSHTTPURLResponse *)response
                     data:(NSData *)data
@@ -154,7 +154,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return responseIsValid;
 }
 
-#pragma mark - AFURLResponseSerialization
+// MARK: - AFURLResponseSerialization
 
 - (id)responseObjectForResponse:(NSURLResponse *)response
                            data:(NSData *)data
@@ -165,7 +165,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return data;
 }
 
-#pragma mark - NSSecureCoding
+// MARK: - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -188,7 +188,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     [coder encodeObject:self.acceptableContentTypes forKey:NSStringFromSelector(@selector(acceptableContentTypes))];
 }
 
-#pragma mark - NSCopying
+// MARK: - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFHTTPResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
@@ -200,7 +200,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 
 @end
 
-#pragma mark -
+// MARK: -
 
 @implementation AFJSONResponseSerializer
 
@@ -226,7 +226,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return self;
 }
 
-#pragma mark - AFURLResponseSerialization
+// MARK: - AFURLResponseSerialization
 
 - (id)responseObjectForResponse:(NSURLResponse *)response
                            data:(NSData *)data
@@ -285,7 +285,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return responseObject;
 }
 
-#pragma mark - NSSecureCoding
+// MARK: - NSSecureCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super initWithCoder:decoder];
@@ -306,7 +306,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     [coder encodeObject:@(self.removesKeysWithNullValues) forKey:NSStringFromSelector(@selector(removesKeysWithNullValues))];
 }
 
-#pragma mark - NSCopying
+// MARK: - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFJSONResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
@@ -318,7 +318,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 
 @end
 
-#pragma mark -
+// MARK: -
 
 @implementation AFXMLParserResponseSerializer
 
@@ -339,7 +339,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return self;
 }
 
-#pragma mark - AFURLResponseSerialization
+// MARK: - AFURLResponseSerialization
 
 - (id)responseObjectForResponse:(NSHTTPURLResponse *)response
                            data:(NSData *)data
@@ -356,7 +356,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 
 @end
 
-#pragma mark -
+// MARK: -
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 
@@ -384,7 +384,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return self;
 }
 
-#pragma mark - AFURLResponseSerialization
+// MARK: - AFURLResponseSerialization
 
 - (id)responseObjectForResponse:(NSURLResponse *)response
                            data:(NSData *)data
@@ -406,7 +406,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return document;
 }
 
-#pragma mark - NSSecureCoding
+// MARK: - NSSecureCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super initWithCoder:decoder];
@@ -425,7 +425,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     [coder encodeObject:@(self.options) forKey:NSStringFromSelector(@selector(options))];
 }
 
-#pragma mark - NSCopying
+// MARK: - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFXMLDocumentResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
@@ -438,7 +438,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 
 #endif
 
-#pragma mark -
+// MARK: -
 
 @implementation AFPropertyListResponseSerializer
 
@@ -467,7 +467,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return self;
 }
 
-#pragma mark - AFURLResponseSerialization
+// MARK: - AFURLResponseSerialization
 
 - (id)responseObjectForResponse:(NSURLResponse *)response
                            data:(NSData *)data
@@ -493,7 +493,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return responseObject;
 }
 
-#pragma mark - NSSecureCoding
+// MARK: - NSSecureCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super initWithCoder:decoder];
@@ -514,7 +514,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     [coder encodeObject:@(self.readOptions) forKey:NSStringFromSelector(@selector(readOptions))];
 }
 
-#pragma mark - NSCopying
+// MARK: - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFPropertyListResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
@@ -526,7 +526,7 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
 
 @end
 
-#pragma mark -
+// MARK: -
 
 #if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
 #import <CoreGraphics/CoreGraphics.h>
@@ -678,7 +678,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     return self;
 }
 
-#pragma mark - AFURLResponseSerializer
+// MARK: - AFURLResponseSerializer
 
 - (id)responseObjectForResponse:(NSURLResponse *)response
                            data:(NSData *)data
@@ -708,7 +708,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     return nil;
 }
 
-#pragma mark - NSSecureCoding
+// MARK: - NSSecureCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super initWithCoder:decoder];
@@ -739,7 +739,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 #endif
 }
 
-#pragma mark - NSCopying
+// MARK: - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFImageResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
@@ -754,7 +754,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 
 @end
 
-#pragma mark -
+// MARK: -
 
 @interface AFCompoundResponseSerializer ()
 @property (readwrite, nonatomic, copy) NSArray *responseSerializers;
@@ -769,7 +769,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     return serializer;
 }
 
-#pragma mark - AFURLResponseSerialization
+// MARK: - AFURLResponseSerialization
 
 - (id)responseObjectForResponse:(NSURLResponse *)response
                            data:(NSData *)data
@@ -794,7 +794,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     return [super responseObjectForResponse:response data:data error:error];
 }
 
-#pragma mark - NSSecureCoding
+// MARK: - NSSecureCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super initWithCoder:decoder];
@@ -813,7 +813,7 @@ static UIImage * AFInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
     [coder encodeObject:self.responseSerializers forKey:NSStringFromSelector(@selector(responseSerializers))];
 }
 
-#pragma mark - NSCopying
+// MARK: - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFCompoundResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];

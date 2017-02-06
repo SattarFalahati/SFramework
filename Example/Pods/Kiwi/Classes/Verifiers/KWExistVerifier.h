@@ -14,13 +14,13 @@
 
 @interface KWExistVerifier : NSObject<KWVerifying>
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite reporter:(id<KWReporting>)aReporter;
 
 + (id)existVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite reporter:(id<KWReporting>)aReporter;
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @property (nonatomic, strong) id subject;
 

@@ -10,7 +10,7 @@
 
 @interface UITableView (SFTableView)
 
-#pragma mark - REFRESH ( RELOAD DATA )
+// MARK: - REFRESH ( RELOAD DATA )
 
 /// Refresh table view
 - (void)refreshTableView;
@@ -18,7 +18,7 @@
 /// Refresh specific cell at index path
 - (void)refreshCellAtIndexPath:(NSInteger)row inSection:(NSInteger)section withRowAnimation:(UITableViewRowAnimation)animation;
 
-#pragma mark - SCROLL OPTIONS
+// MARK: - SCROLL OPTIONS
 
 /// Scrool to last cell in section
 - (void)scroolTableToLastCell:(NSInteger)cellRow inSection:(NSInteger)section;

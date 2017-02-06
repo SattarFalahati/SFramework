@@ -19,7 +19,7 @@
 
 @implementation KWMatcherFactory
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)init {
     self = [super init];
@@ -31,7 +31,7 @@
     return self;
 }
 
-#pragma mark - Registering Matcher Classes
+// MARK: - Registering Matcher Classes
 
 - (void)registerMatcherClass:(Class)aClass {
     if ([self.registeredMatcherClasses containsObject:aClass])
@@ -90,7 +90,7 @@
     }
 }
 
-#pragma mark - Getting Method Signatures
+// MARK: - Getting Method Signatures
 
 - (NSMethodSignature *)methodSignatureForMatcherSelector:(SEL)aSelector {
     NSMutableArray *matcherClassChain = self.matcherClassChains[NSStringFromSelector(aSelector)];
@@ -102,7 +102,7 @@
     return [matcherClass instanceMethodSignatureForSelector:aSelector];
 }
 
-#pragma mark - Getting Matchers
+// MARK: - Getting Matchers
 
 - (KWMatcher *)matcherFromInvocation:(NSInvocation *)anInvocation subject:(id)subject {
     SEL selector = [anInvocation selector];
@@ -117,7 +117,7 @@
     return [[matcherClass alloc] initWithSubject:subject];
 }
 
-#pragma mark - Internal Methods
+// MARK: - Internal Methods
 
 - (Class)matcherClassForSelector:(SEL)aSelector subject:(id)anObject {
     NSArray *matcherClassChain = self.matcherClassChains[NSStringFromSelector(aSelector)];

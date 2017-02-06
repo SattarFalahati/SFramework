@@ -10,7 +10,7 @@
 
 @interface NSObject(KiwiVerifierAdditions)
 
-#pragma mark - Attaching to Verifiers
+// MARK: - Attaching to Verifiers
 
 - (id)attachToVerifier:(id<KWVerifying>)aVerifier;
 

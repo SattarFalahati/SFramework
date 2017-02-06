@@ -104,7 +104,7 @@
 }
 #endif
 
-#pragma mark -
+// MARK: -
 
 - (void)setAnimatingWithStateOfOperation:(AFURLConnectionOperation *)operation {
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
@@ -131,7 +131,7 @@
     }
 }
 
-#pragma mark -
+// MARK: -
 
 - (void)af_startAnimating {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -151,7 +151,7 @@
     });
 }
 
-#pragma mark -
+// MARK: -
 
 - (void)dealloc {
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];

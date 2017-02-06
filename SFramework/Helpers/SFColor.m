@@ -10,7 +10,7 @@
 
 @implementation UIColor (SFColor)
 
-#pragma mark - Color with HEX
+// MARK: - Color with HEX
 
 + (UIColor *)colorWithHexString:(NSString *)strHex
 {

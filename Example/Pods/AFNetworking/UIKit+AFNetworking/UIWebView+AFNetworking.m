@@ -45,7 +45,7 @@
 
 @end
 
-#pragma mark -
+// MARK: -
 
 @implementation UIWebView (AFNetworking)
 
@@ -83,7 +83,7 @@
     objc_setAssociatedObject(self, @selector(responseSerializer), responseSerializer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-#pragma mark -
+// MARK: -
 
 - (void)loadRequest:(NSURLRequest *)request
            progress:(void (^)(NSUInteger bytesWritten, long long totalBytesWritten, long long totalBytesExpectedToWrite))progress

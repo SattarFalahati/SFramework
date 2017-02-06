@@ -11,7 +11,7 @@
 
 @implementation NSInvocation(KiwiAdditions)
 
-#pragma mark - Creating NSInvocation Objects
+// MARK: - Creating NSInvocation Objects
 
 + (NSInvocation *)invocationWithTarget:(id)anObject selector:(SEL)aSelector {
     return [self invocationWithTarget:anObject selector:aSelector messageArguments:nil];
@@ -51,7 +51,7 @@
     return invocation;
 }
 
-#pragma mark - Accessing Message Arguments
+// MARK: - Accessing Message Arguments
 
 - (NSData *)messageArgumentDataAtIndex:(NSUInteger)anIndex {
     NSUInteger length =  KWObjCTypeLength([[self methodSignature] messageArgumentTypeAtIndex:anIndex]);

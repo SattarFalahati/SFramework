@@ -9,7 +9,7 @@
 
 @interface KWInequalityMatcher : KWMatcher
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beLessThan:(id)aValue;
 - (void)beLessThanOrEqualTo:(id)aValue;

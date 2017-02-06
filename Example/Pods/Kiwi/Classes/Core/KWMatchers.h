@@ -18,13 +18,13 @@ typedef void (^KWMatchersBuildingBlock)(KWUserDefinedMatcherBuilder *matcherBuil
 
 + (id)matchers;
 
-#pragma mark - Defining Matchers
+// MARK: - Defining Matchers
 
 + (void)defineMatcher:(NSString *)selectorString as:(KWMatchersBuildingBlock)block;
 - (void)defineMatcher:(NSString *)selectorString as:(KWMatchersBuildingBlock)block;
 - (void)addUserDefinedMatcherBuilder:(KWUserDefinedMatcherBuilder *)builder;
 
-#pragma mark - Building Matchers
+// MARK: - Building Matchers
 
 - (KWUserDefinedMatcher *)matcherForSelector:(SEL)selector subject:(id)subject;
 @end

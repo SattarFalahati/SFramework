@@ -10,7 +10,7 @@
 
 @synthesize description = _description;
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite description:(NSString *)aDescription block:(void (^)(void))block {
     self = [super init];

@@ -10,13 +10,13 @@
 
 @implementation KWBeZeroMatcher
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beZero"];
 }
 
-#pragma mark - Matching
+// MARK: - Matching
 
 - (BOOL)evaluate {
     if ([self.subject isKindOfClass:[NSNumber class]]) {
@@ -30,7 +30,7 @@
     return NO;
 }
 
-#pragma mark - Getting Failure Messages
+// MARK: - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to be zero, got %@",
@@ -45,7 +45,7 @@
     return @"be zero";
 }
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beZero {
 }

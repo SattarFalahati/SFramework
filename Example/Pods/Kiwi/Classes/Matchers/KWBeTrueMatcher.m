@@ -14,13 +14,13 @@
 
 @implementation KWBeTrueMatcher
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beTrue", @"beFalse", @"beYes", @"beNo"];
 }
 
-#pragma mark - Matching
+// MARK: - Matching
 
 - (BOOL)evaluate {
     if (![self.subject respondsToSelector:@selector(boolValue)])
@@ -29,7 +29,7 @@
     return [self.subject boolValue] == self.expectedValue;
 }
 
-#pragma mark - Getting Failure Messages
+// MARK: - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to be %@",
@@ -43,7 +43,7 @@
     return @"be false";
 }
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beTrue {
     self.expectedValue = YES;

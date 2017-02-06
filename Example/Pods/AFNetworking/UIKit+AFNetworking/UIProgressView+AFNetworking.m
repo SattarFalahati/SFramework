@@ -50,7 +50,7 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
 @dynamic af_downloadProgressAnimated;
 @end
 
-#pragma mark -
+// MARK: -
 
 @implementation UIProgressView (AFNetworking)
 
@@ -70,7 +70,7 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
     objc_setAssociatedObject(self, @selector(af_downloadProgressAnimated), @(animated), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-#pragma mark -
+// MARK: -
 
 #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 70000
 - (void)setProgressWithUploadProgressOfTask:(NSURLSessionUploadTask *)task
@@ -92,7 +92,7 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
 }
 #endif
 
-#pragma mark -
+// MARK: -
 
 - (void)setProgressWithUploadProgressOfOperation:(AFURLConnectionOperation *)operation
                                         animated:(BOOL)animated
@@ -132,7 +132,7 @@ static void * AFTaskCountOfBytesReceivedContext = &AFTaskCountOfBytesReceivedCon
     }];
 }
 
-#pragma mark - NSKeyValueObserving
+// MARK: - NSKeyValueObserving
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object

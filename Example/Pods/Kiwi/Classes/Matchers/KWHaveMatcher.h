@@ -10,7 +10,7 @@
 
 @interface KWHaveMatcher : KWMatcher
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)haveCountOf:(NSUInteger)aCount;
 - (void)haveCountOfAtLeast:(NSUInteger)aCount;
@@ -26,7 +26,7 @@
 
 @protocol KWContainmentCountMatcherTerminals
 
-#pragma mark - Terminals
+// MARK: - Terminals
 
 - (id)objects;
 - (id)items;
@@ -34,11 +34,11 @@
 
 @end
 
-#pragma mark - Verifying
+// MARK: - Verifying
 
 @interface KWMatchVerifier(KWHaveMatcherAdditions)
 
-#pragma mark - Invocation Capturing Methods
+// MARK: - Invocation Capturing Methods
 
 - (id)have:(NSUInteger)aCount;
 - (id)haveAtLeast:(NSUInteger)aCount;

@@ -11,7 +11,7 @@
 @implementation SFLocalization
 
 
-#pragma mark - Internal Framework Localization Helper
+// MARK: - Internal Framework Localization Helper
 
 /// Use this only for internal localized text
 + (NSString *)internalFrameworkLocalizedStringForKey:(NSString *)key withDefault:(NSString *)defaultString

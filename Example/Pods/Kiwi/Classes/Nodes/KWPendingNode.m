@@ -14,7 +14,7 @@
 
 @synthesize description = _description;
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite context:(KWContextNode *)context description:(NSString *)aDescription {
     self = [super init];
@@ -31,13 +31,13 @@
     return [[self alloc] initWithCallSite:aCallSite context:context description:aDescription];
 }
 
-#pragma mark - Accepting Visitors
+// MARK: - Accepting Visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor {
     [aVisitor visitPendingNode:self];
 }
 
-#pragma mark - Accessing the context stack
+// MARK: - Accessing the context stack
 
 - (NSArray *)contextStack
 {

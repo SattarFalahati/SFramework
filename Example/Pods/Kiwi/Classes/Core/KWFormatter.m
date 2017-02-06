@@ -9,7 +9,7 @@
 @implementation KWFormatter
 
 
-#pragma mark - Getting Descriptions
+// MARK: - Getting Descriptions
 
 + (NSString *)formatObject:(id)anObject {
     if ([anObject isKindOfClass:[NSString class]])
@@ -34,7 +34,7 @@
 }
 
 
-#pragma mark - Internal Methods
+// MARK: - Internal Methods
 
 + (NSString *)formattedCollection:(id<NSFastEnumeration>)collection {
 

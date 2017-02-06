@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, ErrorCode)
 
 @interface SFNetworking : NSObject
 
-#pragma mark - NETWORK STATUS
+// MARK: - NETWORK STATUS
 
 + (BOOL)isNetworkStatusActive;
 + (BOOL)isReachableWithoutRequiringConnection:(SCNetworkReachabilityFlags)flags;
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, ErrorCode)
 /// This method is a helper to know when reachability status is changing
 + (void)getNetworkConnectionStatuseWhenReachabilityStatuseIsChanege;
 
-#pragma mark - REQUESTS
+// MARK: - REQUESTS
 
 ///  IMPORTANT Explanation : SFNetworking have different JSON functions , if user have to call HTML request he have to use main request and send HTML as content type.
 
@@ -44,7 +44,7 @@ typedef void (^SFNetworkingCompletionBlock)(ErrorCode errorCode, id  _Nullable r
 /// Completion Block for Multi part
 typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _Nullable formData);
 
-#pragma mark get request
+// MARK: get request
 
 /// GET request without authorization
 + (void)getRequestWithURLString:(nonnull NSString *)strURL withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
@@ -52,7 +52,7 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 /// GET request with authorization
 + (void)getRequestWithURLString:(nonnull NSString *)strURL withAuthorization:(nullable NSString *)authorization withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
 
-#pragma mark post requests
+// MARK: post requests
 
 /// POST request with params
 + (void)postRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
@@ -66,7 +66,7 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 /// POST request with params with multipart and authorization
 + (void)multipartPostRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization forMultiPartRequest:(nullable SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
 
-#pragma mark delete requests
+// MARK: delete requests
 
 /// DELETE request with params without authorization
 + (void)deleteRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
@@ -74,7 +74,7 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 /// DELETE request with params with authorization
 + (void)deleteRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
 
-#pragma mark put requests
+// MARK: put requests
 
 /// PUT request with params without authorization
 + (void)putRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
@@ -82,7 +82,7 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 /// PUT request with params with authorization
 + (void)putRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
 
-#pragma mark main request
+// MARK: main request
 
 /// make a request
 /*
@@ -98,7 +98,7 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 
 @end
 
-#pragma mark - SFImageView
+// MARK: - SFImageView
 
 @interface UIImageView (SFNetworking)
 

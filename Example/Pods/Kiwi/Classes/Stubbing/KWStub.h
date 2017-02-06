@@ -10,7 +10,7 @@
 
 @interface KWStub : NSObject
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithMessagePattern:(KWMessagePattern *)aMessagePattern;
 - (id)initWithMessagePattern:(KWMessagePattern *)aMessagePattern value:(id)aValue;
@@ -22,7 +22,7 @@
 + (id)stubWithMessagePattern:(KWMessagePattern *)aMessagePattern block:(id (^)(NSArray *params))aBlock;
 + (id)stubWithMessagePattern:(KWMessagePattern *)aMessagePattern value:(id)aValue times:(id)times afterThatReturn:(id)aSecondValue;
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @property (nonatomic, readonly) KWMessagePattern *messagePattern;
 @property (nonatomic, readonly) id value;
@@ -30,7 +30,7 @@
 @property (nonatomic, readonly) int returnedValueTimes;
 @property (nonatomic, readonly) id secondValue;
 
-#pragma mark - Processing Invocations
+// MARK: - Processing Invocations
 
 - (BOOL)processInvocation:(NSInvocation *)anInvocation;
 

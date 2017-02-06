@@ -9,7 +9,7 @@
 
 @implementation NSNumber(KiwiAdditions)
 
-#pragma mark - Creating Numbers
+// MARK: - Creating Numbers
 
 + (id)numberWithBytes:(const void *)bytes objCType:(const char *)anObjCType {
     // Yeah, this is ugly.

@@ -87,7 +87,7 @@
     return self;
 }
 
-#pragma mark -
+// MARK: -
 
 #ifdef _SYSTEMCONFIGURATION_H
 #endif
@@ -104,7 +104,7 @@
     [super setResponseSerializer:responseSerializer];
 }
 
-#pragma mark -
+// MARK: -
 
 - (NSURLSessionDataTask *)GET:(NSString *)URLString
                    parameters:(id)parameters
@@ -257,13 +257,13 @@
     return dataTask;
 }
 
-#pragma mark - NSObject
+// MARK: - NSObject
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@: %p, baseURL: %@, session: %@, operationQueue: %@>", NSStringFromClass([self class]), self, [self.baseURL absoluteString], self.session, self.operationQueue];
 }
 
-#pragma mark - NSSecureCoding
+// MARK: - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -312,7 +312,7 @@
     [coder encodeObject:self.securityPolicy forKey:NSStringFromSelector(@selector(securityPolicy))];
 }
 
-#pragma mark - NSCopying
+// MARK: - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFHTTPSessionManager *HTTPClient = [[[self class] allocWithZone:zone] initWithBaseURL:self.baseURL sessionConfiguration:self.session.configuration];

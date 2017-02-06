@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
   NSFileManager *_fileManager;
 }
 
-#pragma mark - Initializers
+// MARK: - Initializers
 
 - (instancetype)initWithTestClass:(Class)testClass;
 {
@@ -53,14 +53,14 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
   return self;
 }
 
-#pragma mark - Overrides
+// MARK: - Overrides
 
 - (NSString *)description
 {
   return [NSString stringWithFormat:@"%@ %@", [super description], _referenceImagesDirectory];
 }
 
-#pragma mark - Public API
+// MARK: - Public API
 
 - (BOOL)compareSnapshotOfLayer:(CALayer *)layer
                       selector:(SEL)selector
@@ -207,7 +207,7 @@ typedef NS_ENUM(NSUInteger, FBTestSnapshotFileNameType) {
   return YES;
 }
 
-#pragma mark - Private API
+// MARK: - Private API
 
 - (NSString *)_fileNameForSelector:(SEL)selector
                         identifier:(NSString *)identifier

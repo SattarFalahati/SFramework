@@ -18,7 +18,7 @@
 
 @implementation KWItNode
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 + (id)itNodeWithCallSite:(KWCallSite *)aCallSite 
              description:(NSString *)aDescription 
@@ -29,13 +29,13 @@
     return itNode;
 }
 
-#pragma mark - Accepting Visitors
+// MARK: - Accepting Visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor {
     [aVisitor visitItNode:self];
 }
 
-#pragma mark - Runtime Description support
+// MARK: - Runtime Description support
 
 - (NSString *)description {
     NSString *description = [super description];
@@ -45,7 +45,7 @@
     return description;
 }
 
-#pragma mark - Accessing the context stack
+// MARK: - Accessing the context stack
 
 - (NSArray *)contextStack {
     NSMutableArray *contextStack = [NSMutableArray array];

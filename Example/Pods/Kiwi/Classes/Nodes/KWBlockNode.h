@@ -11,23 +11,23 @@
 
 @interface KWBlockNode : NSObject
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite description:(NSString *)aDescription block:(void (^)(void))block;
 
-#pragma mark - Getting Call Sites
+// MARK: - Getting Call Sites
 
 @property (nonatomic, strong, readonly) KWCallSite *callSite;
 
-#pragma mark - Getting Descriptions
+// MARK: - Getting Descriptions
 
 @property (nonatomic, copy) NSString *description;
 
-#pragma mark - Getting Blocks
+// MARK: - Getting Blocks
 
 @property (nonatomic, copy, readonly) void (^block)(void);
 
-#pragma mark - Performing blocks
+// MARK: - Performing blocks
 
 - (void)performBlock;
 

@@ -7,7 +7,7 @@
 #import "KWObjCUtilities.h"
 #import "KWStringUtilities.h"
 
-#pragma mark - Objective-C Type Utilities
+// MARK: - Objective-C Type Utilities
 
 BOOL KWObjCTypeEqualToObjCType(const char *firstObjCType, const char *secondObjCType) {
     return strcmp(firstObjCType, secondObjCType) == 0;
@@ -88,7 +88,7 @@ BOOL KWObjCTypeIsBlock(const char *objCType) {
 }
 
 
-#pragma mark - Selector Utlities
+// MARK: - Selector Utlities
 
 NSUInteger KWSelectorParameterCount(SEL selector) {
     NSString *selectorString = NSStringFromSelector(selector);

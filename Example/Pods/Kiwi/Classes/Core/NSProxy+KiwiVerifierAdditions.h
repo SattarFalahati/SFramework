@@ -12,7 +12,7 @@
 
 @interface NSProxy (KiwiVerifierAdditions)
 
-#pragma mark - Attaching to Verifiers
+// MARK: - Attaching to Verifiers
 
 - (id)attachToVerifier:(id<KWVerifying>)aVerifier;
 - (id)attachToVerifier:(id<KWVerifying>)firstVerifier verifier:(id<KWVerifying>)secondVerifier;

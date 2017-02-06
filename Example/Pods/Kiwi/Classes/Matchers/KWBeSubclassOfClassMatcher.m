@@ -9,7 +9,7 @@
 
 @interface KWBeSubclassOfClassMatcher()
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @property (nonatomic, assign) Class targetClass;
 
@@ -17,19 +17,19 @@
 
 @implementation KWBeSubclassOfClassMatcher
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beSubclassOfClass:"];
 }
 
-#pragma mark - Matching
+// MARK: - Matching
 
 - (BOOL)evaluate {
     return [self.subject isSubclassOfClass:self.targetClass];
 }
 
-#pragma mark - Getting Failure Messages
+// MARK: - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to be subclass of %@, got %@",
@@ -42,7 +42,7 @@
                                       NSStringFromClass(self.targetClass)];
 }
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beSubclassOfClass:(Class)aClass {
     self.targetClass = aClass;

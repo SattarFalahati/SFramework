@@ -11,7 +11,7 @@
 
 @interface KWHaveValueMatcher : KWMatcher
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)haveValue:(id)value forKey:(NSString *)key;
 - (void)haveValue:(id)value forKeyPath:(NSString *)keyPath;

@@ -10,7 +10,7 @@
 
 @interface UIView (SFView)
 
-#pragma mark - Border && Radius
+// MARK: - Border && Radius
 
 /// Add Corner Radius to corners (TopLeft, TopRight, BottomLeft, BottomRight, AllCorners) with border ( if you don't want to have border just set border == NO and color == nil )
 - (void)roundCorners:(UIRectCorner)corners radius:(CGFloat)radius withBorder:(BOOL)border andBorderColor:(UIColor *)color;
@@ -33,18 +33,9 @@
 /// Add Corner Radius
 - (void)addCornerRadius:(CGFloat)radius;
 
-#pragma mark - VIEWS
+// MARK: - VIEWS
 
 /// Set blur effect with effect option
 - (void)blurEffectWithUIBlurEffectStyle:(UIBlurEffectStyle)blurStyle;
-
-@end
-
-#pragma mark - LABELS
-
-@interface UILabel (SFView)
-
-/// When you want to have a string with two different color and font use this method 
-- (void)setAttributedTextWithString:(NSString *)string withBaseFont:(UIFont *)baseFont andBaseColor:(UIColor *)baseColor withAttributedString:(NSString *)attributedString withAttributedFont:(UIFont *)attributedFont andAttributedColor:(UIColor *)attributedColor;
 
 @end

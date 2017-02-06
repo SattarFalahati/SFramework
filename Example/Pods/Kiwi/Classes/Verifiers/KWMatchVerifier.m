@@ -20,7 +20,7 @@
 
 @interface KWMatchVerifier()
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @property (nonatomic, readwrite, strong) id<KWMatching> endOfExampleMatcher;
 @property (nonatomic, readwrite, strong) id<KWMatching> matcher;
@@ -32,7 +32,7 @@
 
 @implementation KWMatchVerifier
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initForShouldWithCallSite:(KWCallSite *)aCallSite matcherFactory:(KWMatcherFactory *)aMatcherFactory reporter:(id<KWReporting>)aReporter {
     return [self initWithExpectationType:KWExpectationTypeShould callSite:aCallSite matcherFactory:aMatcherFactory reporter:aReporter];
@@ -74,7 +74,7 @@
     return [NSString stringWithFormat:@"%@ %@", typeString, actualMatcher];
 }
 
-#pragma mark - Verifying
+// MARK: - Verifying
 
 - (void)verifyWithMatcher:(id<KWMatching>)aMatcher {
     BOOL specFailed = NO;
@@ -103,7 +103,7 @@
     }
 }
 
-#pragma mark - Ending Examples
+// MARK: - Ending Examples
 
 - (void)exampleWillEnd {
     if (self.endOfExampleMatcher) {
@@ -111,7 +111,7 @@
     }
 }
 
-#pragma mark - Handling Invocations
+// MARK: - Handling Invocations
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
     NSMethodSignature *signature = [super methodSignatureForSelector:aSelector];

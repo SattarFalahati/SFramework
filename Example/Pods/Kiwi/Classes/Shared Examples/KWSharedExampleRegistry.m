@@ -13,7 +13,7 @@
 
 @implementation KWSharedExampleRegistry
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 + (instancetype)sharedRegistry {
     static KWSharedExampleRegistry *sharedRegistry = nil;
@@ -33,7 +33,7 @@
     return self;
 }
 
-#pragma mark - Public Interface
+// MARK: - Public Interface
 
 - (KWSharedExample *)sharedExampleForName:(NSString *)name {
     [self raiseIfSharedExampleNotRegistered:name];
@@ -45,7 +45,7 @@
     [_sharedExamples setObject:sharedExample forKey:sharedExample.name];
 }
 
-#pragma mark - Internal Methods
+// MARK: - Internal Methods
 
 - (void)raiseIfSharedExampleNotRegistered:(NSString *)name {
     if (![_sharedExamples objectForKey:name]) {

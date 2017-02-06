@@ -15,19 +15,19 @@
 
 @implementation KWBeMemberOfClassMatcher
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beMemberOfClass:"];
 }
 
-#pragma mark - Matching
+// MARK: - Matching
 
 - (BOOL)evaluate {
     return [self.subject isMemberOfClass:self.targetClass];
 }
 
-#pragma mark - Getting Failure Messages
+// MARK: - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to be member of %@, got %@",
@@ -40,7 +40,7 @@
                                     NSStringFromClass(self.targetClass)];
 }
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beMemberOfClass:(Class)aClass {
     self.targetClass = aClass;

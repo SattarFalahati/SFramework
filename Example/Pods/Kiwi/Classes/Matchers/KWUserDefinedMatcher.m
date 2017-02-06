@@ -47,7 +47,7 @@
     return result;
 }
 
-#pragma mark - Message forwarding
+// MARK: - Message forwarding
 
 - (BOOL)respondsToSelector:(SEL)aSelector {
     if (aSelector == self.selector) {
@@ -83,7 +83,7 @@
 
 @end
 
-#pragma mark -
+// MARK: -
 
 @implementation KWUserDefinedMatcherBuilder
 
@@ -109,7 +109,7 @@
     return NSStringFromSelector(matcher.selector);
 }
 
-#pragma mark - Configuring The Matcher
+// MARK: - Configuring The Matcher
 
 - (void)match:(KWUserDefinedMatcherBlock)block {
     matcher.matcherBlock = block;
@@ -127,7 +127,7 @@
     description = [aDescription copy];
 }
 
-#pragma mark - Buiding The Matcher
+// MARK: - Buiding The Matcher
 
 - (KWUserDefinedMatcher *)buildMatcherWithSubject:(id)subject {
     [matcher setSubject:subject];

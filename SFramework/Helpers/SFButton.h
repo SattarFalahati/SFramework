@@ -19,4 +19,7 @@
 /// set image in button with btn having transparent background
 - (void)setImage:(UIImage *)btnImage withTransparentBackground:(BOOL)transparent forState:(UIControlState)state;
 
+
+- (void)setAttributedTitleWithString:(NSString *)string withBaseFont:(UIFont *)baseFont andBaseColor:(UIColor *)baseColor withAttributedString:(NSString *)attributedString withAttributedFont:(UIFont *)attributedFont andAttributedColor:(UIColor *)attributedColor forState:(UIControlState)state;;
+
 @end

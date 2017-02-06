@@ -8,7 +8,7 @@
 
 @implementation NSMethodSignature(KiwiAdditions)
 
-#pragma mark - Getting Information on Message Arguments
+// MARK: - Getting Information on Message Arguments
 
 - (NSUInteger)numberOfMessageArguments {
     return [self numberOfArguments] - 2;

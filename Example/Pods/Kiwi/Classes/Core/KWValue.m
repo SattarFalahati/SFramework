@@ -10,7 +10,7 @@
 
 @interface KWValue()
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @property (nonatomic, readonly) id value;
 
@@ -18,7 +18,7 @@
 
 @implementation KWValue
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithBytes:(const void *)bytes objCType:(const char *)anObjCType {
     self = [super init];
@@ -95,7 +95,7 @@
 }
 
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @synthesize objCType;
 
@@ -105,7 +105,7 @@
 
 @synthesize value;
 
-#pragma mark - Accessing Numeric Values
+// MARK: - Accessing Numeric Values
 
 - (NSNumber *)numberValue {
     if (!KWObjCTypeIsNumeric(self.objCType) && !KWObjCTypeIsBoolean(self.objCType)) {
@@ -176,7 +176,7 @@
     return [[self numberValue] unsignedShortValue];
 }
 
-#pragma mark - Accessing Data
+// MARK: - Accessing Data
 
 - (NSData *)dataValue {
     NSUInteger length = KWObjCTypeLength(self.objCType);
@@ -191,7 +191,7 @@
     [self.value getValue:buffer];
 }
 
-#pragma mark - Accessing Numeric Data
+// MARK: - Accessing Numeric Data
 
 - (NSData *)dataForObjCType:(const char *)anObjCType {
     // Yeah, this is ugly.
@@ -304,7 +304,7 @@
     return [NSData dataWithBytes:&aValue length:sizeof(unsigned short)];
 }
 
-#pragma mark - Comparing Objects
+// MARK: - Comparing Objects
 
 - (NSUInteger)hash {
     if (self.isNumeric)
@@ -338,7 +338,7 @@
     return [[self numberValue] isEqualToNumber:aValue];
 }
 
-#pragma mark - Representing Values
+// MARK: - Representing Values
 
 - (NSString *)description {
     if ([self isNumeric])

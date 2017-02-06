@@ -10,7 +10,7 @@
 
 @implementation KWSharedExample
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithName:(NSString *)name block:(KWSharedExampleBlock)block {
     NSParameterAssert(name);
@@ -26,7 +26,7 @@
 
 @end
 
-#pragma mark - Building Example Groups
+// MARK: - Building Example Groups
 
 void sharedExamplesFor(NSString *name, KWSharedExampleBlock block) {
     KWSharedExample *sharedExample = [[KWSharedExample alloc] initWithName:name block:block];

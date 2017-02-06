@@ -10,7 +10,7 @@
 #define Constants_h
 
 // ************************************** Cloros
-#pragma mark - Colors
+// MARK: - Colors
 
 #define kCClear                  [UIColor clearColor]
 #define kCBlack                  [UIColor blackColor]
@@ -23,7 +23,7 @@
 #define kCYellow                 [Utils colorWithHexString:@"#FBE608"]
 
 // ************************************** Fonts
-#pragma mark - Fonts Name
+// MARK: - Fonts Name
 
 #define MontserratRegular_WithSize(s)       [UIFont fontWithName:@"Montserrat-Regular" size:s]
 #define MontserratBold_WithSize(s)          [UIFont fontWithName:@"Montserrat-Bold" size:s]

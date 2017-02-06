@@ -16,7 +16,7 @@
 
 @interface KWMatchVerifier : NSObject<KWVerifying>
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @property (nonatomic, readonly) KWExpectationType expectationType;
 
@@ -26,7 +26,7 @@
 @property (nonatomic, strong) id subject;
 
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initForShouldWithCallSite:(KWCallSite *)aCallSite matcherFactory:(KWMatcherFactory *)aMatcherFactory reporter:(id<KWReporting>)aReporter;
 - (id)initForShouldNotWithCallSite:(KWCallSite *)aCallSite matcherFactory:(KWMatcherFactory *)aMatcherFactory reporter:(id<KWReporting>)aReporter;

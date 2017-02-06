@@ -8,12 +8,12 @@
 
 @interface NSInvocation(KiwiAdditions)
 
-#pragma mark - Creating NSInvocation Objects
+// MARK: - Creating NSInvocation Objects
 
 + (NSInvocation *)invocationWithTarget:(id)anObject selector:(SEL)aSelector;
 + (NSInvocation *)invocationWithTarget:(id)anObject selector:(SEL)aSelector messageArguments:(const void *)firstBytes, ...;
 
-#pragma mark - Accessing Message Arguments
+// MARK: - Accessing Message Arguments
 
 // Message arguments are invocation arguments that begin after the target and selector arguments. These methods provide
 // convenient ways to access them.

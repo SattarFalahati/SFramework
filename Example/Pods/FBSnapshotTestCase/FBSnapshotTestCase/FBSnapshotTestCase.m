@@ -16,7 +16,7 @@
   FBSnapshotTestController *_snapshotController;
 }
 
-#pragma mark - Overrides
+// MARK: - Overrides
 
 - (void)setUp
 {
@@ -63,7 +63,7 @@
   _snapshotController.usesDrawViewHierarchyInRect = usesDrawViewHierarchyInRect;
 }
 
-#pragma mark - Public API
+// MARK: - Public API
 
 - (NSString *)snapshotVerifyViewOrLayer:(id)viewOrLayer
                              identifier:(NSString *)identifier
@@ -173,7 +173,7 @@
 }
 
 
-#pragma mark - Private API
+// MARK: - Private API
 
 - (BOOL)_compareSnapshotOfViewOrLayer:(id)viewOrLayer
              referenceImagesDirectory:(NSString *)referenceImagesDirectory

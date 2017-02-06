@@ -53,4 +53,24 @@
     }
 }
 
+- (void)setAttributedTitleWithString:(NSString *)string withBaseFont:(UIFont *)baseFont andBaseColor:(UIColor *)baseColor withAttributedString:(NSString *)attributedString withAttributedFont:(UIFont *)attributedFont andAttributedColor:(UIColor *)attributedColor forState:(UIControlState)state;
+{
+    string = string;
+    attributedString = attributedString;
+    if (!baseFont) baseFont = self.font;
+    if (!baseColor) baseColor = self.currentTitleColor;
+    if (!attributedFont) attributedFont = baseFont;
+    if (!attributedColor) attributedColor = baseColor;
+    
+    NSDictionary *base = @{NSForegroundColorAttributeName:baseColor, NSFontAttributeName:baseFont};
+    NSDictionary *attributed = @{NSForegroundColorAttributeName:attributedColor, NSFontAttributeName:attributedFont};
+    
+    NSMutableAttributedString *finalString = [[NSMutableAttributedString alloc] initWithString:string attributes:base];
+    
+    NSRange range = [string rangeOfString:attributedString];
+    [finalString setAttributes:attributed range:range];
+    
+    [self setAttributedTitle:finalString forState: state];
+}
+
 @end

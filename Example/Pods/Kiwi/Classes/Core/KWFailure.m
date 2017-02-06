@@ -9,7 +9,7 @@
 
 @implementation KWFailure
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite message:(NSString *)aMessage {
     self = [super init];

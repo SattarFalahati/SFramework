@@ -16,7 +16,7 @@
 
 @implementation KWMessagePattern
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithSelector:(SEL)aSelector {
     return [self initWithSelector:aSelector argumentFilters:nil];
@@ -94,12 +94,12 @@
     return [self messagePatternWithSelector:[anInvocation selector] argumentFilters:argumentFilters];
 }
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @synthesize selector;
 @synthesize argumentFilters;
 
-#pragma mark - Matching Invocations
+// MARK: - Matching Invocations
 
 - (BOOL)argumentFiltersMatchInvocationArguments:(NSInvocation *)anInvocation {
     if (self.argumentFilters == nil)
@@ -158,7 +158,7 @@
     return self.selector == [anInvocation selector] && [self argumentFiltersMatchInvocationArguments:anInvocation];
 }
 
-#pragma mark - Comparing Message Patterns
+// MARK: - Comparing Message Patterns
 
 - (NSUInteger)hash {
     return [NSStringFromSelector(self.selector) hash];
@@ -181,7 +181,7 @@
     return [self.argumentFilters isEqualToArray:aMessagePattern.argumentFilters];
 }
 
-#pragma mark - Retrieving String Representations
+// MARK: - Retrieving String Representations
 
 - (NSString *)selectorString {
     return NSStringFromSelector(self.selector);
@@ -208,7 +208,7 @@
         return [self selectorAndArgumentFiltersString];
 }
 
-#pragma mark - Debugging
+// MARK: - Debugging
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"selector: %@\nargumentFilters: %@",

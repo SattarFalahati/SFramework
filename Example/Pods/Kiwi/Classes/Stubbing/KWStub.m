@@ -18,7 +18,7 @@
 
 @implementation KWStub
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithMessagePattern:(KWMessagePattern *)aMessagePattern {
     return [self initWithMessagePattern:aMessagePattern value:nil];
@@ -69,7 +69,7 @@
     return [[self alloc] initWithMessagePattern:aMessagePattern value:aValue times:times afterThatReturn:aSecondValue];
 }
 
-#pragma mark - Properties
+// MARK: - Properties
 
 @synthesize messagePattern;
 @synthesize value;
@@ -77,7 +77,7 @@
 @synthesize returnValueTimes;
 @synthesize returnedValueTimes;
 
-#pragma mark - Processing Invocations
+// MARK: - Processing Invocations
 
 - (void)writeZerosToInvocationReturnValue:(NSInvocation *)anInvocation {
     NSUInteger returnLength = [[anInvocation methodSignature] methodReturnLength];
@@ -207,7 +207,7 @@
     return YES;
 }
 
-#pragma mark - Debugging
+// MARK: - Debugging
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"messagePattern: %@\nvalue: %@", self.messagePattern, self.value];

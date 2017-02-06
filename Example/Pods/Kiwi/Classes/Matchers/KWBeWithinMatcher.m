@@ -18,13 +18,13 @@
 
 @implementation KWBeWithinMatcher
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beWithin:of:", @"equal:withDelta:"];
 }
 
-#pragma mark - Matching
+// MARK: - Matching
 
 // Evaluation is done by getting the underlying values as the widest data
 // types available.
@@ -64,7 +64,7 @@
         return [self evaluateForSignedIntegral];
 }
 
-#pragma mark - Getting Failure Messages
+// MARK: - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to be within %@ of %@, got %@",
@@ -77,7 +77,7 @@
     return [NSString stringWithFormat:@"be within %@ of %@", self.distance, self.otherValue];
 }
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beWithin:(id)aDistance of:(id)aValue {
     self.distance = aDistance;

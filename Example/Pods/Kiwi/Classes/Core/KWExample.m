@@ -71,7 +71,7 @@
   return [NSString stringWithFormat:@"<KWExample: %@>", self.exampleNode.description];
 }
 
-#pragma mark - Adding Verifiers
+// MARK: - Adding Verifiers
 
 - (id)addVerifier:(id<KWVerifying>)aVerifier {
   if (![self.verifiers containsObject:aVerifier])
@@ -103,7 +103,7 @@
   return verifier;
 }
 
-#pragma mark - Running examples
+// MARK: - Running examples
 
 - (void)runWithDelegate:(id<KWExampleDelegate>)delegate; {
     self.delegate = delegate;
@@ -112,7 +112,7 @@
     [self.exampleNode acceptExampleNodeVisitor:self];
 }
 
-#pragma mark - Reporting failure
+// MARK: - Reporting failure
 
 - (NSString *)descriptionForExampleContext {
     NSMutableArray *parts = [NSMutableArray array];
@@ -151,7 +151,7 @@
     NSLog(@"+ '%@ %@' [%@]", [self descriptionForExampleContext], [self.exampleNode description], label);
 }
 
-#pragma mark - Full description with context
+// MARK: - Full description with context
 
 /** Pending cases will be marked yellow by XCode as not finished, because their description differs for -[SenTestCaseRun start] and -[SenTestCaseRun stop] methods
  */
@@ -205,7 +205,7 @@
     return (_selectorName = name);
 }
 
-#pragma mark - Visiting Nodes
+// MARK: - Visiting Nodes
 
 - (void)visitRegisterMatchersNode:(KWRegisterMatchersNode *)aNode {
     [self.matcherFactory registerMatcherClassesWithNamespacePrefix:aNode.namespacePrefix];
@@ -301,7 +301,7 @@
 
 @end
 
-#pragma mark - Looking up CallSites
+// MARK: - Looking up CallSites
 
 KWCallSite *callSiteWithAddress(long address);
 KWCallSite *callSiteAtAddressIfNecessary(long address);
@@ -311,7 +311,7 @@ KWCallSite *callSiteAtAddressIfNecessary(long address){
     return  shouldLookup ? [KWCallSite callSiteWithCallerAddress:address] : nil;
 }
 
-#pragma mark - Building Example Groups
+// MARK: - Building Example Groups
 
 void describe(NSString *aDescription, void (^block)(void)) {
     KWCallSite *callSite = callSiteAtAddressIfNecessary(kwCallerAddress());

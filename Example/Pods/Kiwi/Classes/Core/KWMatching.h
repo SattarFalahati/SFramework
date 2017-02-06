@@ -8,19 +8,19 @@
 
 @protocol KWMatching<NSObject>
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithSubject:(id)anObject;
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings;
 
-#pragma mark - Getting Matcher Compatability
+// MARK: - Getting Matcher Compatability
 
 + (BOOL)canMatchSubject:(id)anObject;
 
-#pragma mark - Matching
+// MARK: - Matching
 
 @optional
 
@@ -34,7 +34,7 @@
 
 - (BOOL)evaluate;
 
-#pragma mark - Getting Failure Messages
+// MARK: - Getting Failure Messages
 
 - (NSString *)failureMessageForShould;
 - (NSString *)failureMessageForShouldNot;

@@ -9,13 +9,13 @@
 
 @implementation KWAfterAllNode
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 + (id)afterAllNodeWithCallSite:(KWCallSite *)aCallSite block:(void (^)(void))block {
     return [[self alloc] initWithCallSite:aCallSite description:nil block:block];
 }
 
-#pragma mark - Accepting Visitors
+// MARK: - Accepting Visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor {
     [aVisitor visitAfterAllNode:self];

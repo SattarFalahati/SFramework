@@ -11,7 +11,7 @@
 
 @implementation KWRegisterMatchersNode
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite namespacePrefix:(NSString *)aNamespacePrefix {
     self = [super init];
@@ -27,7 +27,7 @@
     return [[self alloc] initWithCallSite:aCallSite namespacePrefix:aNamespacePrefix];
 }
 
-#pragma mark - Accepting Visitors
+// MARK: - Accepting Visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor {
     [aVisitor visitRegisterMatchersNode:self];

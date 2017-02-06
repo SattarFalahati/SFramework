@@ -21,13 +21,13 @@
 
 @implementation KWNilMatcher
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beNil", @"beNil:", @"beNonNil", @"beNonNil:"];
 }
 
-#pragma mark - Matching
+// MARK: - Matching
 
 - (BOOL)isNilMatcher {
     return YES;
@@ -52,7 +52,7 @@
     return [self verifySubjectExpectingNil:NO];
 }
 
-#pragma mark Getting Failure Messages
+// MARK: Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     if (self.expectsNil) {
@@ -90,7 +90,7 @@
     self.expectsNil = NO;
 }
 
-#pragma mark - Internal Methods
+// MARK: - Internal Methods
 
 + (BOOL)verifySubjectExpectingNil:(BOOL)expectNil {
     KWExample *currentExample = [[KWExampleSuiteBuilder sharedExampleSuiteBuilder] currentExample];

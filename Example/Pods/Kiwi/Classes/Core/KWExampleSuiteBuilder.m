@@ -24,7 +24,7 @@ static NSString * const KWExampleSuiteBuilderException = @"KWExampleSuiteBuilder
 
 @interface KWExampleSuiteBuilder()
 
-#pragma mark - Building Example Groups
+// MARK: - Building Example Groups
 
 @property (nonatomic, strong) KWExampleSuite *currentExampleSuite;
 @property (nonatomic, readonly) NSMutableArray *contextNodeStack;
@@ -39,7 +39,7 @@ static NSString * const KWExampleSuiteBuilderException = @"KWExampleSuiteBuilder
 @implementation KWExampleSuiteBuilder
 
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 
 - (id)init {
@@ -63,7 +63,7 @@ static NSString * const KWExampleSuiteBuilderException = @"KWExampleSuiteBuilder
     return sharedExampleSuiteBuilder;
 }
 
-#pragma mark - Focus
+// MARK: - Focus
 
 - (void)focusWithURI:(NSString *)nodeUrl {
     NSArray *focusInfo = [nodeUrl componentsSeparatedByString:@":"];
@@ -86,7 +86,7 @@ static NSString * const KWExampleSuiteBuilderException = @"KWExampleSuiteBuilder
     return self.focusedContextNode || self.focusedItNode;
 }
 
-#pragma mark - Building Example Groups
+// MARK: - Building Example Groups
 
 - (BOOL)isBuildingExampleSuite {
     return [self.contextNodeStack count] > 0;

@@ -9,7 +9,7 @@
 
 @interface KWConformToProtocolMatcher : KWMatcher
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)conformToProtocol:(Protocol *)aProtocol;
 

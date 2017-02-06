@@ -17,7 +17,7 @@
 
 @implementation KWGenericMatcher
 
-#pragma mark - Matching
+// MARK: - Matching
 
 - (BOOL)evaluate {
     return [KWGenericMatchEvaluator genericMatcher:self.matcher matches:self.subject];
@@ -32,13 +32,13 @@
   return [NSString stringWithFormat:@"match %@", [self.matcher description]];
 }
 
-#pragma mark - Getting Matcher Strings
+// MARK: - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
   return @[@"match:"];
 }
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)match:(id)aMatcher;
 {

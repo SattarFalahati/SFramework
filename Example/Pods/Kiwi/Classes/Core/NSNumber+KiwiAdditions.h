@@ -8,7 +8,7 @@
 
 @interface NSNumber(KiwiAdditions)
 
-#pragma mark - Creating Numbers
+// MARK: - Creating Numbers
 
 + (id)numberWithBytes:(const void *)bytes objCType:(const char *)anObjCType;
 + (id)numberWithBoolBytes:(const void *)bytes;

@@ -28,7 +28,7 @@
     return sharedManager;
 }
 
-#pragma mark - Arrays
+// MARK: - Arrays
 
 + (NSMutableArray *)generateRandomArray:(int) max
 {
@@ -44,7 +44,7 @@
     return randArray;
 }
 
-#pragma mark - Text
+// MARK: - Text
 
 + (CGSize)heightText:(NSString *)text sizeWithFont:(UIFont *)font constrainedToSize:(CGSize)size
 {
@@ -60,7 +60,7 @@
     }
 }
 
-#pragma mark - Unic ID
+// MARK: - Unic ID
 
 + (NSString *)UUID
 {
@@ -78,7 +78,7 @@
     return [uuid substringToIndex:10];
 }
 
-#pragma mark - Language
+// MARK: - Language
 
 + (NSString *)getMyLanguage
 {
@@ -87,7 +87,7 @@
     return [languages objectAtIndex:0];
 }
 
-#pragma mark - Text fields
+// MARK: - Text fields
 
 + (void)setPlaceholderForTextField:(UITextField *)txtFld withText:(NSString *)text withColor:(UIColor *)color andFont:(UIFont *)font
 {
@@ -98,7 +98,7 @@
     txtFld.attributedPlaceholder = [[NSAttributedString alloc] initWithString:text attributes:@{NSForegroundColorAttributeName: color, NSFontAttributeName : font}];
 }
 
-#pragma mark - Navigation Bar
+// MARK: - Navigation Bar
 
 + (UIBarButtonItem *)barButtonItemWithImageName:(NSString *)imageName forTarget:(id)target andselector:(SEL)selector
 {
@@ -164,7 +164,7 @@
     navItem.titleView = imgLogo;
 }
 
-#pragma mark - Segments
+// MARK: - Segments
 
 + (void)setSegmentFont:(UIFont *)font andColor:(UIColor *)color forState:(UIControlState)state
 {
@@ -175,7 +175,7 @@
                                                    forState:state];
 }
 
-#pragma mark - STRING
+// MARK: - STRING
 
 /// Find range of NUMBERS in a string and return an ARRAY of range.location & range.lenght
 + (NSArray *)findRangeOfNumbrsInStringWithOriginalString:(NSString *)originalString
@@ -229,7 +229,7 @@
     return  arr;
 }
 
-#pragma mark - CAMERA & SCREEN
+// MARK: - CAMERA & SCREEN
 
 + (BOOL)hasCamera
 {
@@ -245,7 +245,7 @@
     } else NSLog(@"Screen Always ON: NO");
 }
 
-#pragma mark - progress bar
+// MARK: - progress bar
 
 + (void)showProgressHUDWithMessage:(NSString *)message
 {
@@ -277,7 +277,7 @@
     [MBProgressHUD hideHUDForView:view animated:YES];
 }
 
-#pragma mark - Tab bar controller
+// MARK: - Tab bar controller
 
 /// Use this method to hide tab bar controller with animation
 + (void)setTabBarController:(UITabBarController *)taBarController hidden:(BOOL)tabBarHidden animated:(BOOL)animated
@@ -301,7 +301,7 @@
     }];
 }
 
-#pragma mark - Phone call
+// MARK: - Phone call
 
 /// Use this method to call to a number
 + (void)callToNumber:(nonnull NSString *)number

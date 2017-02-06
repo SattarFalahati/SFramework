@@ -9,7 +9,7 @@
 
 @interface KWBeMemberOfClassMatcher : KWMatcher
 
-#pragma mark - Configuring Matchers
+// MARK: - Configuring Matchers
 
 - (void)beMemberOfClass:(Class)aClass;
 

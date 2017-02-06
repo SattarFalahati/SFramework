@@ -14,7 +14,7 @@
 /// Block to get current location
 typedef void (^SFLocationManagerBlock)(CLLocationCoordinate2D currentLocation);
 
-#pragma mark - Get user current location 
+// MARK: - Get user current location 
 
 /// initial location manager to get user current location
 + (void)initGeoLocationManagerWithCompletitionBlock:(SFLocationManagerBlock)locationBlock;
@@ -22,17 +22,17 @@ typedef void (^SFLocationManagerBlock)(CLLocationCoordinate2D currentLocation);
 /// Stop getting location *** IMPORTANT : if we don't call this method location will get update endlessly
 + (void)stopGeoLocationManager;
 
-#pragma mark - DISTANCE
+// MARK: - DISTANCE
 
 /// Calculate Distance *** This function return kilometers ***
 + (NSString *)calculateDistanceFromLocation:(CLLocationCoordinate2D)startLocation toLocation:(CLLocationCoordinate2D)destinationLocation;
 
-#pragma mark - Position
+// MARK: - Position
 
 /// Check if position is valid position
 + (BOOL)isValidPosition:(CLLocationCoordinate2D)coordinate;
 
-#pragma mark - Address & Coordinate
+// MARK: - Address & Coordinate
 
 /// Get address based on coordinate IMPORTANT : for defult in success block it will return address, city, zip , dicAddress . in case that we need more option like country ect we need to print dicAddress.
 + (void)getAddressFromCoordinate:(CLLocationCoordinate2D)coordinate withSuccessBlock:(void (^)(NSDictionary *dicAddress, NSString *strAddress, NSString *strCitty, NSString *strZipCode))successBlock andFailureBlock:(void (^)(NSError *error))failureBlock;

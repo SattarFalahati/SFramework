@@ -29,7 +29,7 @@ static NSString * const KWContextNodeException = @"KWContextNodeException";
 
 @synthesize description = _description;
 
-#pragma mark - Initializing
+// MARK: - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite parentContext:(KWContextNode *)node description:(NSString *)aDescription {
     self = [super init];
@@ -143,7 +143,7 @@ static NSString * const KWContextNodeException = @"KWContextNodeException";
     }
 }
 
-#pragma mark - Accepting Visitors
+// MARK: - Accepting Visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor {
     [aVisitor visitContextNode:self];

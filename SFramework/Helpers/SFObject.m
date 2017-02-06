@@ -13,7 +13,7 @@
 
 @implementation NSObject (SFObject)
 
-#pragma mark - Objects
+// MARK: - Objects
 
 - (BOOL)isEmpty
 {
