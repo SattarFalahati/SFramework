@@ -30,7 +30,7 @@
     
     [self.imgBG setImageWithURLString:strImg withPlaceholderImage:[UIImage imageNamed:@"Placeholder"] withActivityIndicator:nil withCompletionBlock:^(BOOL succeed, UIImage * _Nullable image) {
         // Do sth if needed
-        
+        NSLog(@"This is a test");
     }];
     
     [self testNetworkConnection];
