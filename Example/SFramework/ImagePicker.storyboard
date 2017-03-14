@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Image Picker-->
+        <scene sceneID="qtF-5r-iVY">
+            <objects>
+                <viewController storyboardIdentifier="SFImagePicker" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jFh-NO-Hhe" customClass="SFImagePicker" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jno-cm-6pt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hvn-A2-iD8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VZ0-Uw-LIX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qaB-ek-ll8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NhA-TC-OBo">
+                                <rect key="frame" x="0.0" y="467" width="375" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="Ihh-re-t65"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CG0-gQ-5z5">
+                                    <size key="itemSize" width="95" height="94"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SFImagePickerCell" id="8m6-pY-Rw6" customClass="SFImagePickerCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-Zt-Im2">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="7GB-I9-iae"/>
+                                                        <constraint firstAttribute="height" constant="100" id="H1O-oZ-Vmg"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="RWp-Zt-Im2" firstAttribute="centerX" secondItem="8m6-pY-Rw6" secondAttribute="centerX" id="53g-UX-0yo"/>
+                                            <constraint firstItem="RWp-Zt-Im2" firstAttribute="centerY" secondItem="8m6-pY-Rw6" secondAttribute="centerY" id="V9f-aG-1BZ"/>
+                                        </constraints>
+                                        <size key="customSize" width="100" height="100"/>
+                                        <connections>
+                                            <outlet property="image" destination="RWp-Zt-Im2" id="u84-jC-25d"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X8z-nW-6b3">
+                                <rect key="frame" x="20" y="30" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="aNj-5K-MOD"/>
+                                    <constraint firstAttribute="width" constant="44" id="zFz-dd-L6V"/>
+                                </constraints>
+                                <state key="normal" image="SFImagePickerClose"/>
+                                <connections>
+                                    <action selector="btnCloseSFImagePicker:" destination="jFh-NO-Hhe" eventType="touchUpInside" id="zgP-Un-nIR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqm-DB-y9d">
+                                <rect key="frame" x="311" y="593" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Egd-Z2-SrN"/>
+                                    <constraint firstAttribute="width" constant="44" id="rm9-Fw-Rx4"/>
+                                </constraints>
+                                <state key="normal" image="SFImagePickerBackCamera"/>
+                                <connections>
+                                    <action selector="btnChangeCamera:" destination="jFh-NO-Hhe" eventType="touchUpInside" id="9Tm-DV-TuQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2X-Lj-SfE">
+                                <rect key="frame" x="152.5" y="580" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="Mj6-Ft-aUr"/>
+                                    <constraint firstAttribute="height" constant="70" id="jLB-y0-br5"/>
+                                </constraints>
+                                <state key="normal" image="SFImagePickerCapture"/>
+                                <connections>
+                                    <action selector="btnCapturePhoto:" destination="jFh-NO-Hhe" eventType="touchUpInside" id="0ZQ-NE-DAJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="k2X-Lj-SfE" firstAttribute="centerX" secondItem="VZ0-Uw-LIX" secondAttribute="centerX" id="4m7-r5-G7D"/>
+                            <constraint firstAttribute="trailing" secondItem="NhA-TC-OBo" secondAttribute="trailing" id="EqX-f7-IW1"/>
+                            <constraint firstItem="X8z-nW-6b3" firstAttribute="leading" secondItem="VZ0-Uw-LIX" secondAttribute="leading" constant="20" id="Gbg-Qc-G3w"/>
+                            <constraint firstAttribute="trailing" secondItem="Rqm-DB-y9d" secondAttribute="trailing" constant="20" id="H4m-bV-3nM"/>
+                            <constraint firstItem="NhA-TC-OBo" firstAttribute="leading" secondItem="VZ0-Uw-LIX" secondAttribute="leading" id="KLM-7T-Xul"/>
+                            <constraint firstItem="X8z-nW-6b3" firstAttribute="top" secondItem="VZ0-Uw-LIX" secondAttribute="top" constant="30" id="NgV-HC-Bxq"/>
+                            <constraint firstItem="qaB-ek-ll8" firstAttribute="leading" secondItem="VZ0-Uw-LIX" secondAttribute="leading" id="NuH-Nr-Fh9"/>
+                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="NhA-TC-OBo" secondAttribute="bottom" constant="100" id="RV0-4V-o1I"/>
+                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="qaB-ek-ll8" secondAttribute="bottom" id="aMw-zz-cID"/>
+                            <constraint firstAttribute="trailing" secondItem="qaB-ek-ll8" secondAttribute="trailing" id="ffJ-w9-qEP"/>
+                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="k2X-Lj-SfE" secondAttribute="bottom" constant="17" id="g4a-9v-Dfb"/>
+                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="Rqm-DB-y9d" secondAttribute="bottom" constant="30" id="mcC-Po-xOf"/>
+                            <constraint firstItem="qaB-ek-ll8" firstAttribute="top" secondItem="VZ0-Uw-LIX" secondAttribute="top" id="wxQ-Cf-h7K"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnChangeCamera" destination="Rqm-DB-y9d" id="yrx-fW-e5F"/>
+                        <outlet property="cameraView" destination="qaB-ek-ll8" id="JDN-ii-saV"/>
+                        <outlet property="imageCollection" destination="NhA-TC-OBo" id="uSh-bW-Rzm"/>
+                        <outletCollection property="buttons" destination="X8z-nW-6b3" id="xjJ-m1-9DB"/>
+                        <outletCollection property="buttons" destination="Rqm-DB-y9d" id="8vs-6a-boW"/>
+                        <outletCollection property="buttons" destination="k2X-Lj-SfE" id="bQv-Jk-Bi0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rVU-Cd-a0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-236" y="31.934032983508249"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="SFImagePickerBackCamera" width="36" height="36"/>
+        <image name="SFImagePickerCapture" width="48" height="48"/>
+        <image name="SFImagePickerClose" width="28" height="28"/>
+    </resources>
+</document>

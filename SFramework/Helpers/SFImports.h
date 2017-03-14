@@ -29,5 +29,8 @@
 #import "SFView.h"
 #import "SFLocationManager.h"
 #import "SFButton.h"
+#import "SFProgressHUD.h"
+#import "SFInAppNotification.h"
+#import "SFDate.h"
 
 #endif /* SFImports_h */

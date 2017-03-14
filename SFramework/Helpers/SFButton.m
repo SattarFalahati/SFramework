@@ -34,9 +34,26 @@
     
 }
 
+- (void)buttonWithImageAndTitle
+{
+    // the space between the image and text
+    CGFloat spacing = 20.0;
+    
+    // Image size
+    CGSize imageSize = self.imageView.image.size;
+    
+    // Title edge and size
+    self.titleEdgeInsets = UIEdgeInsetsMake(0.0, (imageSize.width + spacing), 0.0, 0.0);
+    CGSize titleSize = [self.titleLabel.text sizeWithAttributes:@{NSFontAttributeName: self.titleLabel.font}];
+    
+    // increase the content height to avoid clipping
+    CGFloat edgeOffset = fabs(titleSize.height - imageSize.height) / 2.0;
+    self.contentEdgeInsets = UIEdgeInsetsMake(edgeOffset, 0.0, edgeOffset, 0.0);
+}
+
 - (void)setTitle:(NSString *)strTitle andTitleColor:(UIColor *)color forState:(UIControlState)state
 {
-    if ([strTitle isEmpty] || [color isEmpty] ) return;
+    if ([strTitle isEmpty] || [color isEmpty]) return;
     
     [self setTitleColor:color forState:state];
     [self setTitle:strTitle forState:state];

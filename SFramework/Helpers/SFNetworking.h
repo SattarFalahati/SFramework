@@ -102,7 +102,10 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 
 @interface UIImageView (SFNetworking)
 
+/// Completion Block for downloading image it will handle errors and image
+typedef void (^SFNetworkingDownloadImageCompletionBlock)(BOOL succeed, UIImage * _Nullable image);
+
 /// A function to set image from a URLString with placeholder and activity indicator , which will return downloaded Image and a succeed flag.
-- (void)setImageWithURLString:(nonnull NSString *)URLString withPlaceholderImage:(nullable UIImage *)placeholder withActivityIndicator:(nullable UIActivityIndicatorView *)activityIndicator withCompletionBlock:(void ( ^ _Nullable )(BOOL succeed,  UIImage * _Nullable image))completionBlock;
+- (void)setImageWithURLString:(nonnull NSString *)URLString withPlaceholderImage:(nullable UIImage *)placeholder withActivityIndicator:(nullable UIActivityIndicatorView *)activityIndicator withCompletionBlock:(nullable SFNetworkingDownloadImageCompletionBlock)completionBlock;
 
 @end

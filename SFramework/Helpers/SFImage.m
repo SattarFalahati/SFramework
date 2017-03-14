@@ -23,27 +23,107 @@
     return image;
 }
 
++ (NSString *)getImageMimeTypeFormData:(NSData *)data
+{
+    uint8_t c;
+    [data getBytes:&c length:1];
+    
+    switch (c) {
+        case 0xFF:
+            return @"image/jpeg";
+        case 0x89:
+            return @"image/png";
+        case 0x47:
+            return @"image/gif";
+        case 0x49:
+        case 0x4D:
+            return @"image/tiff";
+    }
+    return nil;
+}
+
+@end
+
+@implementation UIImage (SFImage)
+
+- (UIImage *)resizeImageWithResolution:(CGFloat)resolution
+{
+    @autoreleasepool {
+        
+        CGFloat width = self.size.width;
+        CGFloat height = self.size.height;
+        CGRect  bounds = CGRectMake(0, 0, width, height);
+        
+        // Check if current image is not lower than size
+        if (width <= resolution && height <= resolution) {
+            return self;
+        }
+        
+        CGFloat ratio = width / height;
+        
+        if (ratio > 1.0) {
+            bounds.size.width = resolution;
+            bounds.size.height = bounds.size.width / ratio;
+        } else {
+            bounds.size.height = resolution;
+            bounds.size.width = bounds.size.height * ratio;
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(bounds.size, NO, 0.0);
+        [self drawInRect:CGRectMake(0.0, 0.0, bounds.size.width, bounds.size.height)];
+        
+        UIImage *resizedImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return resizedImage;
+    }
+}
+
+- (UIImage *)changeImageColor:(UIColor *)color
+{
+    @autoreleasepool {
+        UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [color setFill];
+        
+        CGContextTranslateCTM(context, 0, self.size.height);
+        CGContextScaleCTM(context, 1.0, -1.0);
+        CGContextClipToMask(context, CGRectMake(0, 0, self.size.width, self.size.height), [self CGImage]);
+        CGContextFillRect(context, CGRectMake(0, 0, self.size.width, self.size.height));
+        
+        UIImage *nuovaImmagine = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return nuovaImmagine;
+    }
+}
+
 - (UIImage *)scaleToWidth:(CGFloat)width
 {
-    UIImage *scaledImage = self;
-    if (scaledImage.size.width != width) {
-        CGFloat height = floorf(scaledImage.size.height * (width / scaledImage.size.width));
-        CGSize size = CGSizeMake(width, height);
+    @autoreleasepool {
         
-        // Create an image context
-        UIGraphicsBeginImageContext(size);
+        UIImage *scaledImage = self;
         
-        // Draw the scaled image
-        [scaledImage drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
-        
-        // Create a new image from context
-        scaledImage = UIGraphicsGetImageFromCurrentImageContext();
-        
-        // Pop the current context from the stack
-        UIGraphicsEndImageContext();
+        if (scaledImage.size.width != width) {
+            
+            CGFloat height = floorf(scaledImage.size.height * (width / scaledImage.size.width));
+            CGSize size = CGSizeMake(width, height);
+            
+            // Create an image context
+            UIGraphicsBeginImageContext(size);
+            
+            // Draw the scaled image
+            [scaledImage drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
+            
+            // Create a new image from context
+            scaledImage = UIGraphicsGetImageFromCurrentImageContext();
+            
+            // Pop the current context from the stack
+            UIGraphicsEndImageContext();
+        }
+        // Return the new scaled image
+        return scaledImage;
     }
-    // Return the new scaled image
-    return scaledImage;
 }
 
 - (UIImage *)convertToBlurredImage
@@ -65,25 +145,5 @@
     UIImage *blurredImage = [UIImage imageWithCGImage:cgImage];
     return blurredImage;
 }
-
-+ (NSString *)getImageMimeTypeFormData:(NSData *)data
-{
-    uint8_t c;
-    [data getBytes:&c length:1];
-    
-    switch (c) {
-        case 0xFF:
-            return @"image/jpeg";
-        case 0x89:
-            return @"image/png";
-        case 0x47:
-            return @"image/gif";
-        case 0x49:
-        case 0x4D:
-            return @"image/tiff";
-    }
-    return nil;
-}
-
 
 @end

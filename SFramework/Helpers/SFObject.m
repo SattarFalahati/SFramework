@@ -8,8 +8,8 @@
 
 #import "SFObject.h"
 
-// Helper
-#import "SFString.h"
+// SFImporst ( to have access to all classes )
+#import "SFImports.h"
 
 @implementation NSObject (SFObject)
 
@@ -73,3 +73,68 @@
 }
 
 @end
+
+@implementation NSArray (SFArr)
+
+- (id)safeObjectAtIndex:(NSUInteger)index
+{
+    @try {
+        id value = [self objectAtIndex:index];
+        if (value && value != [NSNull null]) return value;
+        return nil;
+    }
+    @catch (NSException *exception) {
+        return nil;
+    }
+}
+
++ (NSArray *)getCountriesName
+{
+    NSArray *countryArray = [NSLocale ISOCountryCodes];
+    NSMutableArray *sortedCountryArray = [NSMutableArray new];
+    
+    for (NSString *countryCode in countryArray) {
+        
+        NSString *displayNameString = [CURRENT_LOCAL displayNameForKey:NSLocaleCountryCode value:countryCode];
+        [sortedCountryArray addObject:displayNameString];
+    }
+    
+    [sortedCountryArray sortUsingSelector:@selector(localizedCompare:)];
+    
+    return sortedCountryArray;
+}
+
+@end
+
+@implementation NSMutableArray (SFMutArr)
+
+- (void)moveObjectFromIndext:(NSUInteger)fromIndex toIndex:(NSUInteger)toIndex
+{
+    // A) Check if index(s) are presented in the array
+    if (self.count <= fromIndex) return;
+    if (self.count <= toIndex) return;
+    
+    // B) Get Object
+    id obj = [self safeObjectAtIndex:fromIndex];
+    
+    if (obj) {
+        // C) Romove object from index
+        [self removeObjectAtIndex:fromIndex];
+        
+        // D) Add object to new index
+        [self insertObject:obj atIndex:toIndex];
+    }
+}
+
+- (void)toggleObject:(id)object
+{
+    if ([self containsObject:object]) {
+        [self removeObject:object];
+    }
+    else {
+        [self addObject:object];
+    }
+}
+
+@end
+

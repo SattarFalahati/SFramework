@@ -245,38 +245,6 @@
     } else NSLog(@"Screen Always ON: NO");
 }
 
-// MARK: - progress bar
-
-+ (void)showProgressHUDWithMessage:(NSString *)message
-{
-    [self showProgressHUDWithMessage:message onView:WINDOW];
-}
-
-+ (void)hideProgressHUD
-{
-    [self hideProgressHUDFromView:WINDOW];
-}
-
-+ (void)showProgressHUDWithMessage:(NSString *)message onView:(id)view
-{
-    // SetUp Message
-    if ([message isEmpty])
-        message = @"";
-    
-    // SetUp Progress bar
-    MBProgressHUD *progress = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    
-    progress.labelText = message;
-    progress.animationType = MBProgressHUDAnimationFade;
-    progress.mode = MBProgressHUDModeIndeterminate;
-    [progress show:YES];
-}
-
-+ (void)hideProgressHUDFromView:(id)view
-{
-    [MBProgressHUD hideHUDForView:view animated:YES];
-}
-
 // MARK: - Tab bar controller
 
 /// Use this method to hide tab bar controller with animation

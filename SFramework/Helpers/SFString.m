@@ -386,4 +386,13 @@
     return randomString;
 }
 
+- (NSString *)safeSubstringToIndex:(NSUInteger)to
+{
+    @try {
+        return [self substringToIndex:to];
+    } @catch (NSException *exception) {
+        return @"";
+    }
+}
+
 @end

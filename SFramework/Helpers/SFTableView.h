@@ -29,5 +29,9 @@
 /// Scrool table to the bottom with animation
 - (void)scroolTableToTheBottomWithAnimated:(BOOL)animated;
 
+// MARK: SIZE
+
+/// Override del metodo di sistema: permette di calcolare il contentSize esatto della TableView.
+- (CGSize)realContentSize;
 
 @end

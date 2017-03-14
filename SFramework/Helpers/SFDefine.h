@@ -55,19 +55,19 @@
 #define WINDOW_VIEW                                         [[[UIApplication sharedApplication] windows] lastObject]
 
 #define CURRENT_CALENDAR                                    [NSCalendar currentCalendar]
-#define DATE_COMPONENTS                                     (NSYearCalendarUnit| NSMonthCalendarUnit | NSDayCalendarUnit | NSWeekCalendarUnit |  NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit | NSWeekdayCalendarUnit | NSWeekdayOrdinalCalendarUnit)
+#define DATE_COMPONENTS                                     (NSCalendarUnitYear| NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitWeekOfYear |  NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday | NSCalendarUnitWeekdayOrdinal | NSCalendarUnitWeekOfMonth)
 
 #define NOTIFICATION_CENTER                                 [NSNotificationCenter defaultCenter]
 #define SHARED_APPLICATION                                  [UIApplication sharedApplication]
 #define DEFAULT_MANAGER                                     [NSFileManager defaultManager]
 #define BUNDLE                                              [NSBundle mainBundle]
-#define LOCALE                                              [NSLocale currentLocale]
+#define CURRENT_LOCAL                                       [NSLocale currentLocale]
 #define MAIN_SCREEN                                         [UIScreen mainScreen]
 #define BUNDLE                                              [NSBundle mainBundle]
 #define BUNDLE_PATH                                         [[NSBundle mainBundle] bundlePath]
 #define SCREEN_BOUNDS                                       [[UIScreen mainScreen] bounds]
 #define TIME_COMPONENTS                                     NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
-#define USER_LOCALE(param)                                  [[NSLocale currentLocale] objectForKey:(param)]
+#define CURRENT_LOCAL_WITH_OBJECT(param)                    [[NSLocale currentLocale] objectForKey:(param)]
 #define APP_ID                                              [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"]
 #define BUNDLE_VERSION                                      [BUNDLE objectForInfoDictionaryKey:@"CFBundleVersion"]
 #define APP_VERSION                                         [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]

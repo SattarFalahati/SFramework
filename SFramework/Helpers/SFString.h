@@ -82,4 +82,7 @@
 /// Create random string with length
 + (NSString *)randomStringWithLength:(NSInteger)length;
 
+/// Trim a string 
+- (NSString *)safeSubstringToIndex:(NSUInteger)to;
+
 @end

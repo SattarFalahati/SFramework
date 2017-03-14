@@ -52,17 +52,11 @@
 // MARK: - STRING
 
 + (nonnull NSArray *)findRangeOfNumbrsInStringWithOriginalString:(nonnull NSString *)originalString;
+
 // MARK: - CAMERA & SCREEN
 
 + (BOOL)hasCamera;
 + (void)setScreenAlwaysOn:(BOOL)value;
-
-// MARK: - progress bar
-
-+ (void)showProgressHUDWithMessage:(nonnull NSString *)message onView:(nonnull id)view;
-+ (void)hideProgressHUDFromView:(nonnull id)view;
-+ (void)showProgressHUDWithMessage:(nonnull NSString *)message;
-+ (void)hideProgressHUD;
 
 // MARK: - Tab bar controller
 
