@@ -32,7 +32,9 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Can i use your camera please ?</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>I need your location when you use this app</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Can i use your photos please ?</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -41,6 +43,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -52,7 +56,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
 </dict>
 </plist>

@@ -20,10 +20,14 @@ typedef NS_ENUM(NSInteger, ErrorCode)
     code_NoNetworkConnection,
     code_NetworkTaskError,
     code_Ok
-    
 };
 
 @interface SFNetworking : NSObject
+
+// MARK: - INITIALIZATION
+
++ (SFNetworking *_Nullable)sharedInstance;
++ (void)lunchDebugMode;
 
 // MARK: - NETWORK STATUS
 
@@ -58,10 +62,10 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 + (void)postRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
 
 /// POST request with params with authorization
-+ (void)multipartPostRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
++ (void)postRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
 
 /// POST request with params with multipart
-+ (void)postRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params forMultiPartRequest:(nullable SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
++ (void)multipartPostRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params forMultiPartRequest:(nullable SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
 
 /// POST request with params with multipart and authorization
 + (void)multipartPostRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization forMultiPartRequest:(nullable SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
@@ -81,6 +85,13 @@ typedef void (^SFNetworkingMultiPartCompletionBlock)(id <AFMultipartFormData> _N
 
 /// PUT request with params with authorization
 + (void)putRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
+
+/// PUT request with params with multipart
++ (void)multipartPutRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params forMultiPartRequest:(nullable SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
+
+/// PUT request with params with multipart and authorization
++ (void)multipartPutRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization forMultiPartRequest:(nullable SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock;
+
 
 // MARK: main request
 

@@ -25,23 +25,48 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IO7-Ez-SXW">
-                                <rect key="frame" x="166.5" y="323" width="42" height="21"/>
+                                <rect key="frame" x="167" y="323" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvO-T0-QfE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvO-T0-QfE" customClass="SFButton">
                                 <rect key="frame" x="20" y="607" width="335" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="selectorBtnDidSelect:" destination="whP-gf-Uak" eventType="touchUpInside" id="Aau-FB-nUy"/>
+                                    <action selector="selectorBtnActionSheetDidSelect:" destination="whP-gf-Uak" eventType="touchUpInside" id="1gg-5t-FTT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZC-Uf-gAA" customClass="SFButton">
+                                <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="1dx-uq-hCS"/>
+                                    <constraint firstAttribute="height" constant="50" id="ZFn-Bq-b2k"/>
+                                </constraints>
+                                <state key="normal" image="addPhoto"/>
+                                <connections>
+                                    <action selector="btnGallery:" destination="whP-gf-Uak" eventType="touchUpInside" id="qzu-Tm-Kdx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fa7-vK-jue" customClass="SFButton">
+                                <rect key="frame" x="305" y="40" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="cus-pz-mas"/>
+                                    <constraint firstAttribute="width" constant="50" id="dC1-5X-PXc"/>
+                                </constraints>
+                                <state key="normal" image="tutorial"/>
+                                <connections>
+                                    <action selector="btnIntro:" destination="whP-gf-Uak" eventType="touchUpInside" id="t9D-MZ-Brx"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="ZZC-Uf-gAA" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="07d-vw-04N"/>
                             <constraint firstAttribute="trailing" secondItem="EsO-BO-d7Z" secondAttribute="trailing" id="883-8X-R1D"/>
+                            <constraint firstItem="Fa7-vK-jue" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="20" id="E2R-RY-yEd"/>
                             <constraint firstItem="IO7-Ez-SXW" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="EKk-EG-prL"/>
+                            <constraint firstAttribute="trailing" secondItem="Fa7-vK-jue" secondAttribute="trailing" constant="20" id="Hjb-Kn-ABI"/>
                             <constraint firstAttribute="trailing" secondItem="OvO-T0-QfE" secondAttribute="trailing" constant="20" id="IOJ-b8-Wa2"/>
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="OvO-T0-QfE" secondAttribute="bottom" constant="30" id="M1B-sN-AlD"/>
                             <constraint firstAttribute="bottom" secondItem="EsO-BO-d7Z" secondAttribute="bottom" id="TTK-Mt-FND"/>
@@ -49,10 +74,13 @@
                             <constraint firstItem="IO7-Ez-SXW" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" id="isM-Fp-rua"/>
                             <constraint firstItem="EsO-BO-d7Z" firstAttribute="top" secondItem="TpU-gO-2f1" secondAttribute="top" id="n41-6q-OFq"/>
                             <constraint firstItem="EsO-BO-d7Z" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="ovr-no-Vj1"/>
+                            <constraint firstItem="ZZC-Uf-gAA" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="20" id="pmQ-fX-4HS"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btn" destination="OvO-T0-QfE" id="VBf-E1-qet"/>
+                        <outlet property="btnActionSheet" destination="OvO-T0-QfE" id="wVS-kn-feg"/>
+                        <outlet property="btnGallery" destination="ZZC-Uf-gAA" id="lqR-Nq-RvE"/>
+                        <outlet property="btnIntro" destination="Fa7-vK-jue" id="dzx-Tk-KWr"/>
                         <outlet property="imgBG" destination="EsO-BO-d7Z" id="ITN-Dj-Jw6"/>
                         <outlet property="lblTitle" destination="IO7-Ez-SXW" id="4ds-Oe-dPQ"/>
                     </connections>
@@ -62,4 +90,8 @@
             <point key="canvasLocation" x="498" y="409"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="addPhoto" width="36" height="36"/>
+        <image name="tutorial" width="36" height="36"/>
+    </resources>
 </document>

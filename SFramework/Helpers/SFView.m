@@ -102,4 +102,21 @@
     }
 }
 
+// MARK: - Make image from a view
+
+- (UIImage *)makeImageFromView
+{
+    @autoreleasepool {
+        
+        CGSize imgSize = self.bounds.size;
+        
+        UIGraphicsBeginImageContextWithOptions(imgSize, NO, 0.0);
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
+        
+        UIImage *img = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return img;
+    }
+}
 @end

@@ -76,5 +76,13 @@
     return hexComponent / 255.0;
 }
 
++ (void)setColor:(UIColor *)color forScrollViewIndicator:(UIScrollView *)scrollView
+{
+    //Change Scrool indicator Color to Green :
+    // 1) get refrence of vertical indicator
+    UIImageView *verticalIndicator = ((UIImageView *)[scrollView.subviews objectAtIndex:(scrollView.subviews.count-1)]);
+    // 2) set color to vertical indicator
+    [verticalIndicator setBackgroundColor:color];
+}
 
 @end

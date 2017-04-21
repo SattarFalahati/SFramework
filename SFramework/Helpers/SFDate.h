@@ -25,10 +25,10 @@
 + (nullable NSDate *)convertStringToDateWithDateString:(nonnull NSString *)dateString withOrginalFormat:(nullable NSString *)strOrginalFormat;
 
 /// Convert date to new date with new format
-+ (nonnull NSString *)convertToNewFormat:(nonnull NSString *)strDateFormat;
+- (nonnull NSString *)convertToNewFormat:(nonnull NSString *)strDateFormat;
 
 /// Get now date and time IMPORTANT : The defualt strDateFormat is : @"yyyy-MM-dd HH:mm:ss" ( in case user send it empty )
-+ (nonnull NSDate *)getNowDateWithFormat:(nonnull NSString *)strDateFormat;
++ (nonnull NSDate *)getNowDateWithFormat:(nullable NSString *)strDateFormat;
 
 /// Get now date in milliseconds
 + (long long)getNowDateInMillisecondsFrom1970;
@@ -42,8 +42,8 @@
 /// Compare to date ( Check if a date is before / after other date )
 - (BOOL)isBefore:(BOOL)before otherDate:(nonnull NSDate *)otherDate;
 
-/// USE TO GET FIRST OR LAST DATE OF A MONTH *** EXAMPLE : FIRST DAY :[NSDate returnDateForMonth:components.month year:components.year day:2 withDate:date] last DAY :  [NSDate returnDateForMonth:components.month+1 year:components.year day:1 withDate:date];
-+ (nonnull NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day fromDate:(nonnull NSDate *)date;
+/// USE TO GET FIRST OR LAST DATE OF A MONTH *** EXAMPLE : FIRST DAY :[someDate returnDateForMonth:components.month year:components.year day:2 withDate:date] last DAY :  [someDate returnDateForMonth:components.month+1 year:components.year day:1 withDate:date];
+- (nonnull NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day;
 
 /// Convert seconeds to HH:MM:SS
 - (nonnull NSString *)convertSecondsToHoursMinutesSeconds:(int)seconds;

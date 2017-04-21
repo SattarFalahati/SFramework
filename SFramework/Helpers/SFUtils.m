@@ -284,4 +284,21 @@
     }
 }
 
+// MARK: - Open web page (SAFARI)
+
++ (void)openWebPage:(nonnull NSString *)strURL
+{
+    if ([strURL isEmptyString]) return;
+ 
+    NSString *str = strURL;
+    
+    if (![strURL contains:@"http://"]) {
+        str = [NSString stringWithFormat:@"http://%@",strURL];
+    }
+    NSURL *URL = [NSURL URLWithString:str];
+    
+    if ([[UIApplication sharedApplication] canOpenURL:URL]) {
+        [[UIApplication sharedApplication] openURL:URL];
+    }
+}
 @end

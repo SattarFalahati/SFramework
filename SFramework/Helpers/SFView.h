@@ -38,4 +38,6 @@
 /// Set blur effect with effect option
 - (void)blurEffectWithUIBlurEffectStyle:(UIBlurEffectStyle)blurStyle;
 
+/// Create an image from a view
+- (UIImage *)makeImageFromView;
 @end

@@ -15,12 +15,36 @@
 // Helpers
 #import "SFObject.h"
 #import "SFDefine.h"
+#import "SFString.h"
+#import "SFDictionary.h"
 
 // Defines
 #define HTML @"HTML"
 #define JSON @"JSON"
 
+@interface SFNetworking ()
+
+@property (nonatomic) BOOL printRequest;
+
+@end
+
 @implementation SFNetworking
+
+SFNetworking *_SFNetworking;
++ (SFNetworking *)sharedInstance
+{
+    @synchronized(_SFNetworking) {
+        _SFNetworking = [SFNetworking new];
+        _SFNetworking.printRequest = NO;
+        return _SFNetworking;
+    }
+}
+
++ (void)lunchDebugMode
+{
+    SFNetworking *networking = [SFNetworking sharedInstance];
+    networking.printRequest = YES;
+}
 
 // MARK: - NETWORK STATUS
 
@@ -163,7 +187,7 @@
 }
 
 /// POST request with params with multipart and authorization
-+ (void)multipartPostRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withAuthorization:(NSString *)authorization forMultiPartRequest:(SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
++ (void)multipartPostRequestWithURLString:(nonnull NSString *)strURL withParams:(nullable NSDictionary *)params withAuthorization:(nullable NSString *)authorization forMultiPartRequest:(nullable SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(nullable SFNetworkingCompletionBlock)completionBlock
 {
     [self networkConnectionWithType:@"POST" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:multipartBlock completionBlock:completionBlock];
 }
@@ -196,6 +220,18 @@
     [self networkConnectionWithType:@"PUT" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:nil completionBlock:completionBlock];
 }
 
+/// PUT request with params with multipart
++ (void)multipartPutRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params forMultiPartRequest:(SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"PUT" withContentType:JSON withURLRequestString:strURL withAuthorization:nil withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:multipartBlock completionBlock:completionBlock];
+}
+
+/// PUT request with params with multipart and authorization
++ (void)multipartPutRequestWithURLString:(NSString *)strURL withParams:(NSDictionary *)params withAuthorization:(NSString *)authorization forMultiPartRequest:(SFNetworkingMultiPartCompletionBlock)multipartBlock withCompletionBlock:(SFNetworkingCompletionBlock)completionBlock
+{
+    [self networkConnectionWithType:@"PUT" withContentType:JSON withURLRequestString:strURL withAuthorization:authorization withOtherHTTPHeaderFields:nil withParams:params forMultiPartRequest:multipartBlock completionBlock:completionBlock];
+}
+
 // MARK: main request
 
 /*
@@ -214,8 +250,8 @@
     // Check if type is empty
     if ([type isEmpty]) {
         if (completionBlock) {
-            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:@""}; // Fixme : show error
-            NSError *err = [NSError errorWithDomain:@"" code:code_Generic userInfo:nil];
+            NSDictionary *userInfo = @{@"Message":@"Type can't be empty"};
+            NSError *err = [NSError errorWithDomain:@"" code:code_Generic userInfo:userInfo];
             completionBlock(code_MandatoryFieldEmpty,nil,err);
         }
         return;
@@ -224,8 +260,8 @@
     // Check if strUrl is empty
     if ([strURL isEmpty]) {
         if (completionBlock) {
-            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:@""}; // Fixme : show error
-            NSError *err = [NSError errorWithDomain:@"" code:code_Generic userInfo:nil];
+            NSDictionary *userInfo = @{@"Message":@"Url can't be empty"};
+            NSError *err = [NSError errorWithDomain:@"" code:code_Generic userInfo:userInfo];
             completionBlock(code_MandatoryFieldEmpty,nil,err);
         }
         return;
@@ -279,9 +315,15 @@
             if (completionBlock) completionBlock(code_NetworkTaskError,nil,error);
         }
         else {
+            
             if (completionBlock) completionBlock(code_Success,responseObject,nil);
         }
         
+        if (_SFNetworking.printRequest) {
+            NSString *strDebug = [NSString stringWithFormat:@"Type: %@ \n URL: %@ \n Authorization: %@ \n \n ERROR: %ld *** %@ \n \n RESPONSE: %@ \n", type, strURL, authorization, error.code, error.localizedDescription, responseObject];
+            
+            NSLog(@"%@", strDebug);
+        }
     }];
     
     // F : show Network Activity Indicator

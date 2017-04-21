@@ -10,8 +10,11 @@
 
 // View controllers
 #import "SFImagePicker.h"
+#import "SFIntro.h"
 
-@interface SFViewController () <SFInAppNotificationDelegate, SFImagePickerDelegate>
+@interface SFViewController () <SFInAppNotificationDelegate, SFImagePickerDelegate, SFIntroDelegate>
+
+@property (strong, nonatomic) SFIntro *intro;
 
 @end
 
@@ -35,7 +38,7 @@
 {
     [super viewDidAppear:animated];
     
-    // SFLocationManager
+    //MARK: - SFLocationManager
     [SFLocationManager initGeoLocationManagerWithCompletitionBlock:^(CLLocationCoordinate2D currentLocation) {
         
         if ([SFLocationManager isValidPosition:currentLocation]) {
@@ -53,7 +56,7 @@
         [SFLocationManager stopGeoLocationManager];
     }];
     
-    //MARK: - NSDate extentions test
+    //MARK: - NSDate extentions
     NSDate *endDate = [[NSDate date] addMonth:0 addDays:1 addHours:1];
     
     [NSDate countdownFromNowToDate:endDate withCompletitionBlock:^(NSInteger year, NSInteger month, NSInteger day, NSInteger hour, NSInteger minute, NSInteger second) {
@@ -71,6 +74,8 @@
     
 }
 
+// MARK: UI
+
 - (void)applyCustomGraphic
 {
     // SFColor (ways to set color)
@@ -83,24 +88,43 @@
     [self.lblTitle setBackgroundColor:RGBA(0, 0, 0, 0.8)];
     [self.lblTitle addCornerRadius:5];
     
-    
     // SFButton
-    [self.btn setAttributedTitleWithString:@"  Open SFActionSheet  " withBaseFont:[UIFont systemFontOfSize:13] andBaseColor:RGB(151, 127, 45) withAttributedString:@"SFActionSheet" withAttributedFont:[UIFont boldSystemFontOfSize:15] andAttributedColor:[UIColor colorWithHexString:@"#afeeee"] forState:UIControlStateNormal];
     
-    [self.btn setBackgroundColor:RGBA(0, 0, 0, 0.8)];
-    [self.btn addCornerRadius:5];
+    [self.btnActionSheet setAttributedTitleWithString:@"  Open SFActionSheet  " withBaseFont:[UIFont systemFontOfSize:13] andBaseColor:RGB(151, 127, 45) withAttributedString:@"SFActionSheet" withAttributedFont:[UIFont boldSystemFontOfSize:15] andAttributedColor:[UIColor colorWithHexString:@"#afeeee"] forState:UIControlStateNormal];
+    
+    [self.btnActionSheet setBackgroundColor:RGBA(0, 0, 0, 0.8)];
+    [self.btnActionSheet addCornerRadius:5];
+    self.btnActionSheet.option = SFButtonBounce; // To animate
+    
+    self.btnGallery.option = SFButtonBounce;
+    self.btnGallery.backgroundColor = RGBA(0, 0, 0, 0.5);
+    [self.btnGallery makeViewCircular];
+    
+    self.btnIntro.option = SFButtonNormal;
+    self.btnIntro.backgroundColor = RGBA(0, 0, 0, 0.5);
+    [self.btnIntro makeViewCircular];
     
     // SFImageView (SFNetworking)
-    NSString *strImg = @"https://www.campsites.co.uk/getupload/campsite/20979/9edb6e5b-3789-423c-8cc4-5d267d451546/700/-/width/cobleland-campsite.jpg";
+//    NSString *strImg = @"https://www.campsites.co.uk/getupload/campsite/20979/9edb6e5b-3789-423c-8cc4-5d267d451546/700/-/width/cobleland-campsite.jpg";
     
-    [self.imgBG setImageWithURLString:strImg withPlaceholderImage:[UIImage imageNamed:@"Placeholder"] withActivityIndicator:nil withCompletionBlock:^(BOOL succeed, UIImage * _Nullable image) {
-        
-        // Do sth if needed
-        if (succeed) {
-            [self.imgBG setImage:image];
-        }
-    }];
+//    [self.imgBG setImageWithURLString:strImg withPlaceholderImage:[UIImage imageNamed:@"Placeholder"] withActivityIndicator:nil withCompletionBlock:^(BOOL succeed, UIImage * _Nullable image) {
+//        
+//        // Do sth if needed
+//        if (succeed) {
+//            [self.imgBG setImage:image];
+//        }
+//    }];
+    
+//    self.imgBG.image = [UIImage gradiantImageForView:self.imgBG withColors:@[kCWhite, kCLightBlue, kCDarkBlue] withDirection:SFImageGradiantDirectionFromBottomLeftToTopRight];
+
+    
+    self.imgBG.image = [UIImage generateRandomImageColor];
+    
+    
+//    self.imgBG.image = [UIImage combinedPhotosWithBackgroundImage:[UIImage imageNamed:@"trolltunga"] withBGImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) andTopImage:[UIImage imageNamed:@"Placeholder"]  withTopImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100) withTopImageAlpha:0.5f];
 }
+
+// MARK: SFNetworking
 
 - (void)testNetworkConnection
 {
@@ -122,7 +146,7 @@
     [SFNetworking getRequestWithURLString:strURL withCompletionBlock:^(ErrorCode errorCode, id  _Nullable responseObject, NSError * _Nullable error) {
         
         if (errorCode == code_Success) {
-            //            NSLog(@"%@",responseObject);
+            // NSLog(@"%@",responseObject);
         }
         
         // SFUtils (hide progress hud)
@@ -130,15 +154,28 @@
     }];
 }
 
+// MARK: Action
 
-- (IBAction)selectorBtnDidSelect:(id)sender
+- (IBAction)selectorBtnActionSheetDidSelect:(id)sender
 {
     // SFALertController ( action sheet type )
-    //    [self showActionSheet];
-    //    [self initialInAppNotification];
+    [self showActionSheet];
+    // [self initialInAppNotification];
     
+}
+
+- (IBAction)btnGallery:(id)sender
+{
     [self openSFImagePicker];
 }
+
+- (IBAction)btnIntro:(id)sender
+{
+    [self.btnIntro rotateButton];
+    [self initSFIntro];
+}
+
+// MARK: Action Sheet
 
 - (void)showActionSheet{
     [SFAlertController showActionSheetWithOneButtonOnTarget:self withTitle:@"Call" withMessage:@"Do you want to call to this number : 123456" withButtonTitle:@"Yes" andButtonBlock:^{
@@ -147,8 +184,6 @@
         
     }];
 }
-
-
 
 //MARK: - InAppNotification and Delegate
 
@@ -199,6 +234,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"ImagePicker" bundle:nil];
     SFImagePicker *next = [storyboard instantiateViewControllerWithIdentifier:@"SFImagePicker"];
     next.delegate = self;
+    next.option = SFImagePickerCameraFront;
     [self presentViewController:next animated:YES completion:^{
         
     }];
@@ -207,6 +243,72 @@
 - (void)selectedPhoto:(UIImage *)photo
 {
     self.imgBG.image = photo;
+}
+
+//MARK: - SFIntro && delegate
+
+- (void)initSFIntro
+{
+    NSArray *arr = @[@{kSFIntroObjectImage : @"trolltunga",
+                       kSFIntroObjectTitle : @"Trolltunga is amazing",
+                       kSFIntroObjectDescription : @"One day i'll go there and took some amazing picture to hold in my life album.\n This is my goal and i have to gain it before next summer. \n This is a promiss to myself",
+                       },
+                     @{kSFIntroObjectImage : @"colorFullLife",
+                       kSFIntroObjectTitle : @"Color Full Life",
+                       kSFIntroObjectDescription : @"“Failure is simply the opportunity to begin again, this time more intelligently.”\n Henry Ford",
+                       },
+                     @{kSFIntroObjectImage : @"Placeholder",
+                       kSFIntroObjectTitle : @"title for third page",
+                       kSFIntroObjectDescription : @"This is a description for third page",
+                       },
+                     ];
+    
+    self.intro = [SFIntro initWithFrame:self.view.frame withParallaxBackgroundImage:@"BG" withDelegate:self withDataSourceArray:arr];
+    
+    
+    self.intro.alpha = 0;
+    [self.view addSubview:self.intro];
+    
+    // Open the page
+    [UIView animateWithDuration:0.7f animations:^{
+        self.intro.alpha = 1;
+    } completion:^(BOOL finished) {
+    }];
+}
+
+- (void)firstButtonDidSelectWithIntro:(SFIntro *)intro
+{
+    // Close the page
+    [UIView animateWithDuration:0.7f animations:^{
+        self.intro.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.intro removeFromSuperview];
+    }];
+}
+
+- (void)secondButtonDidSelectWithIntro:(SFIntro *)intro
+{
+    [self.intro goToPageAtIndex:1];
+}
+
+- (void)presentedIntroViewPage:(SFIntroView *)page atIndex:(NSInteger)pageIndex withSFIntroObject:(NSDictionary *)dicSFIntroObject
+{
+    NSLog(@"%lu", (unsigned long)pageIndex);
+    
+    if (pageIndex == 2) {
+        [page.lblTitle setText:@"Go fuck yourself"];
+    }
+}
+
+- (void)presentedIntroPage:(SFIntro *)intro atIndex:(NSUInteger)pageIndex
+{
+    //    NSLog(@"%lu", (unsigned long)pageIndex);
+    if (pageIndex+1 == intro.arrContent.count) {
+        [intro hideSecondButton];
+    }
+    else {
+        [intro showSecondButton];
+    }
 }
 
 @end

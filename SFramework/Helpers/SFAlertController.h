@@ -30,9 +30,8 @@ typedef void (^SFAlertControllerCompletionBlock)();
 // MARK: - ACTION SHEET
 
 /** 
- Desciption of SFAlertController ActionSheet 
- Each of ActionSheet methods are having number off buttons PLUS on button with cancel style ( buttom btn to close the action sheet ) and this CANCEL btn is NOT included in the number of buttons
- 
+ * Desciption of SFAlertController ActionSheet
+ * Each of ActionSheet methods are having number off buttons PLUS on button with cancel style ( buttom btn to close the action sheet ) and this CANCEL btn is NOT included in the number of buttons
  **/
 
 /// Action sheet with ONE Button and CANCEL Button

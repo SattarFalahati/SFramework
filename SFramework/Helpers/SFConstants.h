@@ -16,11 +16,11 @@
 #define kCBlack                  [UIColor blackColor]
 #define kCRed                    [UIColor redColor]
 #define kCWhite                  RGB(255, 255, 255)
-#define kCLightGrey              [Utils colorWithHexString:@"#EEEEEE"]
-#define kCDarkBlue               [Utils colorWithHexString:@"#263167"]
-#define kCLightBlue              [Utils colorWithHexString:@"#15B3CD"]
-#define kCBlackBorder            [Utils colorWithHexString:@"#5D5D5D"]
-#define kCYellow                 [Utils colorWithHexString:@"#FBE608"]
+#define kCLightGrey              [UIColor colorWithHexString:@"#EEEEEE"]
+#define kCDarkBlue               [UIColor colorWithHexString:@"#263167"]
+#define kCLightBlue              [UIColor colorWithHexString:@"#15B3CD"]
+#define kCBlackBorder            [UIColor colorWithHexString:@"#5D5D5D"]
+#define kCYellow                 [UIColor colorWithHexString:@"#FBE608"]
 
 // ************************************** Fonts
 // MARK: - Fonts Name

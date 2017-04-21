@@ -14,13 +14,15 @@
 
 + (UIImage *)imageWithColor:(UIColor *)color
 {
-    CGRect rect = CGRectMake(0, 0, 1, 1);
-    UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
-    [color setFill];
-    UIRectFill(rect);
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
+    @autoreleasepool {
+        CGRect rect = CGRectMake(0, 0, 1, 1);
+        UIGraphicsBeginImageContextWithOptions(rect.size, NO, 0);
+        [color setFill];
+        UIRectFill(rect);
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        return image;
+    }
 }
 
 + (NSString *)getImageMimeTypeFormData:(NSData *)data
@@ -145,5 +147,192 @@
     UIImage *blurredImage = [UIImage imageWithCGImage:cgImage];
     return blurredImage;
 }
+
+// MARK: GRADIANT
+
++ (UIImage *)gradiantImageForView:(UIView *)view withColors:(NSArray<UIColor *> *)colors withDirection:(SFImageGradiantDirection)direction
+{
+    CGPoint startPoint = CGPointZero;
+    CGPoint endPoint = CGPointZero;
+    
+    // Direzione
+    switch (direction) {
+        case SFImageGradiantCenter:{
+            return [self createCenterGradientImageOnView:view withColors:colors];
+        }
+            break;
+        case SFImageGradiantDirectionTowardsTop:
+            startPoint = CGPointMake(0.0, 1.0);
+            endPoint   = CGPointMake(0.0, 0.0);
+            break;
+        case SFImageGradiantDirectionFromTopRightToBottomLeft:
+            startPoint = CGPointMake(1.0, 0.0);
+            endPoint   = CGPointMake(0.0, 1.0);
+            break;
+        case SFImageGradiantDirectionFromTopLeftToBottomRight:
+            startPoint = CGPointMake(0.0, 0.0);
+            endPoint   = CGPointMake(1.0, 1.0);
+            break;
+        case SFImageGradiantDirectionTowardsBottom:
+            startPoint = CGPointMake(0.0, 0.0);
+            endPoint   = CGPointMake(0.0, 1.0);
+            break;
+            
+        case SFImageGradiantDirectionFromBottomLeftToTopRight:
+            startPoint = CGPointMake(0.0, 1.0);
+            endPoint   = CGPointMake(1.0, 0.0);
+            break;
+        case SFImageGradiantDirectionFromBottomRightToTopLeft:
+            startPoint = CGPointMake(1.0, 1.0);
+            endPoint   = CGPointMake(0.0, 0.0);
+            break;
+        case SFImageGradiantDirectionTowardsRight:
+            startPoint = CGPointMake(0.0, 0.0);
+            endPoint   = CGPointMake(1.0, 0.0);
+            break;
+        case SFImageGradiantDirectionTowardsLeft:
+            startPoint = CGPointMake(1.0, 0.0);
+            endPoint   = CGPointMake(0.0, 0.0);
+            break;
+    }
+    
+    startPoint.x *= view.frame.size.width;
+    startPoint.y *= view.frame.size.height;
+    
+    endPoint.x *= view.frame.size.width;
+    endPoint.y *= view.frame.size.height;
+    
+    return [self createGradientImageWithSize:view.frame.size withColors:colors withStartPoint:startPoint withEndPoint:endPoint];
+}
+
+/// Helper : http://stackoverflow.com/questions/8098130/how-can-i-tint-a-uiimage-with-gradient
++ (UIImage *)createGradientImageWithSize:(CGSize)size withColors:(NSArray<UIColor *> *)colors withStartPoint:(CGPoint)startPoint withEndPoint:(CGPoint)endPoint
+{
+    // Create frame
+    CGRect frame = CGRectMake(0.0, 0.0, size.width, size.height);
+    
+    // Create Context
+    UIGraphicsBeginImageContext(frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Create arry of CGcolors
+    NSMutableArray *arrColors = [NSMutableArray array];
+    for (UIColor *color in colors) {
+        [arrColors addObject:(__bridge id)color.CGColor];
+    }
+    
+    // Create gradient
+    CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradient = CGGradientCreateWithColors(space, (__bridge CFArrayRef)arrColors, NULL);
+    
+    // Apply gradient
+    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, kCGGradientDrawsBeforeStartLocation|kCGGradientDrawsAfterEndLocation);
+    UIImage *gradientImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(space);
+    
+    return gradientImage;
+}
+
+/// Helper: http://stackoverflow.com/questions/26907352/how-to-draw-radial-gradients-in-a-calayer
++ (UIImage *)createCenterGradientImageOnView:(UIView *)view withColors:(NSArray<UIColor *> *)colors
+{
+    // Create frame
+    CGRect frame = view.frame;
+    
+    // Create Context
+    UIGraphicsBeginImageContext(frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    // Create arry of CGcolors
+    NSMutableArray *arrColors = [NSMutableArray array];
+    for (UIColor *color in colors) {
+        [arrColors addObject:(__bridge id)color.CGColor];
+    }
+    
+    // Create gradient
+    CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+    CGGradientRef gradient = CGGradientCreateWithColors(space, (__bridge CFArrayRef)arrColors, NULL);
+    
+    //  Create positions (ceter)
+    CGPoint gradCenter= CGPointMake(CGRectGetMidX(view.bounds), CGRectGetMidY(view.bounds));
+    float gradRadius = MIN(frame.size.width , frame.size.height);
+    
+    CGContextDrawRadialGradient (context, gradient, gradCenter, 0, gradCenter, gradRadius, kCGGradientDrawsAfterEndLocation);
+    
+    UIImage *gradientImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGGradientRelease(gradient);
+    CGColorSpaceRelease(space);
+    
+    return gradientImage;
+}
+
+// MARK: - COMBINE PHOTOS
+
++ (UIImage *)combinedPhotosWithBackgroundImage:(UIImage *)backgroundImage withBGImageFrame:(CGRect)bgFrame andTopImage:(UIImage *)topImage withTopImageFrame:(CGRect)topFrame withTopImageAlpha:(CGFloat)topAlpha
+{
+    UIImage *finalImage;
+    
+    @autoreleasepool {
+        UIView *sharingView = [[UIView alloc] initWithFrame:bgFrame];
+        
+        UIImageView *imgBackground = [[UIImageView alloc] initWithFrame:bgFrame];
+        imgBackground.image = backgroundImage;
+        imgBackground.contentMode = UIViewContentModeTop;
+        [sharingView addSubview:imgBackground];
+        
+        UIImageView *imgTop = [[UIImageView alloc] initWithFrame:topFrame];
+        imgTop.image = topImage;
+        imgTop.backgroundColor = [UIColor colorWithRed:26.0f/255.0f green:25.0f/255.0f blue:32.0f/255.0f alpha:.5f];
+        imgTop.contentMode = UIViewContentModeScaleAspectFit;
+        [sharingView addSubview:imgTop];
+        [imgTop setAlpha:topAlpha];
+        
+        UIGraphicsBeginImageContextWithOptions(bgFrame.size, YES, 0.0f);
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [sharingView.layer renderInContext:context];
+        finalImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    
+    return finalImage;
+}
+
+// MARK: SCREENSHOT
+
++ (UIImage *)makeScreenShot
+{
+    // create graphics context with screen size
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    UIGraphicsBeginImageContext(screenRect.size);
+    CGContextRef ctx = UIGraphicsGetCurrentContext();
+    [[UIColor blackColor] set];
+    CGContextFillRect(ctx, screenRect);
+    
+    // grab reference to our window
+    UIWindow *window = [UIApplication sharedApplication].keyWindow;
+    
+    // transfer content into our context
+    [window.layer renderInContext:ctx];
+    UIImage *screengrab = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return screengrab;
+}
+
+// MARK: RANDOM COLOR
+
++ (UIImage *)generateRandomImageColor
+{
+    UIColor *randomColor = [[UIColor alloc] initWithRed:arc4random()%256/256.0 green:arc4random()%256/256.0 blue:arc4random()%256/256.0 alpha:1.0];
+    
+    return [SFImage imageWithColor:randomColor];
+}
+
+
 
 @end

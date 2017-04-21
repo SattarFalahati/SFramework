@@ -22,10 +22,12 @@
 		65C0ECAA1B2183C4AD05AFC6 /* Pods_SFramework_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9FAC803535BD7CBF20EEAD /* Pods_SFramework_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D79CA083484E1B49CE90F5CF /* Pods_SFramework_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAFFA7F951885E50A0613E7A /* Pods_SFramework_Example.framework */; };
-		F5F98FFB1E78273700A60644 /* ImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F98FFA1E78273700A60644 /* ImagePicker.storyboard */; };
-		F5F98FFE1E78277400A60644 /* SFImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F98FFD1E78277400A60644 /* SFImagePicker.m */; };
+		F54C9DAA1E8B0D16005DA8AC /* ImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54C9DA51E8B0D16005DA8AC /* ImagePicker.storyboard */; };
+		F54C9DAB1E8B0D16005DA8AC /* SFImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F54C9DA71E8B0D16005DA8AC /* SFImagePicker.m */; };
+		F54C9DAC1E8B0D16005DA8AC /* SFImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54C9DA91E8B0D16005DA8AC /* SFImagePickerCell.m */; };
+		F54E3E651E8AC29700E939DD /* SFIntro.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3E631E8AC29700E939DD /* SFIntro.m */; };
+		F54E3E661E8AC29700E939DD /* SFIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54E3E641E8AC29700E939DD /* SFIntroView.xib */; };
 		F5F990001E782AF700A60644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F98FFF1E782AF700A60644 /* LaunchScreen.storyboard */; };
-		F5F990031E78395300A60644 /* SFImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5F990021E78395300A60644 /* SFImagePickerCell.m */; };
 		F5F990051E78403D00A60644 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5F990041E78403D00A60644 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -69,12 +71,15 @@
 		AAFFA7F951885E50A0613E7A /* Pods_SFramework_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SFramework_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3FD28D8149C938F65D38C3 /* Pods-SFramework_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFramework_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SFramework_Example/Pods-SFramework_Example.release.xcconfig"; sourceTree = "<group>"; };
 		DD9FAC803535BD7CBF20EEAD /* Pods_SFramework_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SFramework_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F5F98FFA1E78273700A60644 /* ImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImagePicker.storyboard; sourceTree = "<group>"; };
-		F5F98FFC1E78277400A60644 /* SFImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFImagePicker.h; sourceTree = "<group>"; };
-		F5F98FFD1E78277400A60644 /* SFImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFImagePicker.m; sourceTree = "<group>"; };
+		F54C9DA51E8B0D16005DA8AC /* ImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImagePicker.storyboard; sourceTree = "<group>"; };
+		F54C9DA61E8B0D16005DA8AC /* SFImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFImagePicker.h; sourceTree = "<group>"; };
+		F54C9DA71E8B0D16005DA8AC /* SFImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFImagePicker.m; sourceTree = "<group>"; };
+		F54C9DA81E8B0D16005DA8AC /* SFImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFImagePickerCell.h; sourceTree = "<group>"; };
+		F54C9DA91E8B0D16005DA8AC /* SFImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFImagePickerCell.m; sourceTree = "<group>"; };
+		F54E3E621E8AC29700E939DD /* SFIntro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFIntro.h; sourceTree = "<group>"; };
+		F54E3E631E8AC29700E939DD /* SFIntro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFIntro.m; sourceTree = "<group>"; };
+		F54E3E641E8AC29700E939DD /* SFIntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SFIntroView.xib; sourceTree = "<group>"; };
 		F5F98FFF1E782AF700A60644 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F5F990011E78395300A60644 /* SFImagePickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFImagePickerCell.h; sourceTree = "<group>"; };
-		F5F990021E78395300A60644 /* SFImagePickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFImagePickerCell.m; sourceTree = "<group>"; };
 		F5F990041E78403D00A60644 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -145,13 +150,10 @@
 				6003F59D195388D20070C39A /* SFAppDelegate.m */,
 				F5F98FFF1E782AF700A60644 /* LaunchScreen.storyboard */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				F5F98FFA1E78273700A60644 /* ImagePicker.storyboard */,
 				6003F5A5195388D20070C39A /* SFViewController.h */,
 				6003F5A6195388D20070C39A /* SFViewController.m */,
-				F5F98FFC1E78277400A60644 /* SFImagePicker.h */,
-				F5F98FFD1E78277400A60644 /* SFImagePicker.m */,
-				F5F990011E78395300A60644 /* SFImagePickerCell.h */,
-				F5F990021E78395300A60644 /* SFImagePickerCell.m */,
+				F54C9DA41E8B0D16005DA8AC /* SFImagePicker */,
+				F54E3E611E8AC29700E939DD /* SFIntro */,
 				F5F990041E78403D00A60644 /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -208,6 +210,28 @@
 				86EDF3426A95AD99E06AA0F5 /* Pods-SFramework_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F54C9DA41E8B0D16005DA8AC /* SFImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				F54C9DA51E8B0D16005DA8AC /* ImagePicker.storyboard */,
+				F54C9DA61E8B0D16005DA8AC /* SFImagePicker.h */,
+				F54C9DA71E8B0D16005DA8AC /* SFImagePicker.m */,
+				F54C9DA81E8B0D16005DA8AC /* SFImagePickerCell.h */,
+				F54C9DA91E8B0D16005DA8AC /* SFImagePickerCell.m */,
+			);
+			path = SFImagePicker;
+			sourceTree = "<group>";
+		};
+		F54E3E611E8AC29700E939DD /* SFIntro */ = {
+			isa = PBXGroup;
+			children = (
+				F54E3E621E8AC29700E939DD /* SFIntro.h */,
+				F54E3E631E8AC29700E939DD /* SFIntro.m */,
+				F54E3E641E8AC29700E939DD /* SFIntroView.xib */,
+			);
+			path = SFIntro;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,9 +323,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F54E3E661E8AC29700E939DD /* SFIntroView.xib in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				F54C9DAA1E8B0D16005DA8AC /* ImagePicker.storyboard in Resources */,
 				F5F990051E78403D00A60644 /* Images.xcassets in Resources */,
-				F5F98FFB1E78273700A60644 /* ImagePicker.storyboard in Resources */,
 				F5F990001E782AF700A60644 /* LaunchScreen.storyboard in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -415,10 +440,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5F98FFE1E78277400A60644 /* SFImagePicker.m in Sources */,
+				F54C9DAB1E8B0D16005DA8AC /* SFImagePicker.m in Sources */,
 				6003F59E195388D20070C39A /* SFAppDelegate.m in Sources */,
+				F54C9DAC1E8B0D16005DA8AC /* SFImagePickerCell.m in Sources */,
 				6003F5A7195388D20070C39A /* SFViewController.m in Sources */,
-				F5F990031E78395300A60644 /* SFImagePickerCell.m in Sources */,
+				F54E3E651E8AC29700E939DD /* SFIntro.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -540,7 +566,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -558,6 +584,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SFramework/SFramework-Prefix.pch";
 				INFOPLIST_FILE = "SFramework/SFramework-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -576,6 +603,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SFramework/SFramework-Prefix.pch";
 				INFOPLIST_FILE = "SFramework/SFramework-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

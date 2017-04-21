@@ -68,4 +68,9 @@
 /// Use this method to call to a number
 + (void)callToNumber:(nonnull NSString *)number;
 
+// MARK: - Open web page (SAFARI)
+
+/// Use this to open a web site
++ (void)openWebPage:(nonnull NSString *)strURL;
+
 @end

@@ -103,7 +103,7 @@
     return NO;
 }
 
-+ (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day
+- (NSDate *)returnDayForMonth:(NSInteger)month year:(NSInteger)year day:(NSInteger)day
 {
     NSDateComponents *components = [CURRENT_CALENDAR components:DATE_COMPONENTS fromDate:self];
     
@@ -139,7 +139,7 @@
     // Get sum of the minutes and hours
     NSInteger intSum = (intHours * 60) + intMins;
     
-    return [NSString stringWithFormat:@"%d",intSum];
+    return [NSString stringWithFormat:@"%ld",(long)intSum];
 }
 
 + (NSNumber *)getCalculatedYearDifferenceBetweenfirstDate:(NSDate *)firstDate andSecondDate:(NSDate *)secondDate

@@ -395,4 +395,61 @@
     }
 }
 
+- (id)createObjectFromJSONString
+{
+    NSData *data = [self dataUsingEncoding:NSUTF8StringEncoding];
+    return [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+}
+
+- (BOOL)isEmail
+{
+    NSDataDetector * dataDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
+    NSTextCheckingResult * firstMatch = [dataDetector firstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+    return (firstMatch
+            && firstMatch.range.location == 0
+            && firstMatch.range.length == self.length
+            && [firstMatch.URL.scheme isEqualToString:@"mailto"]);
+}
+
+- (BOOL)isURL
+{
+    NSDataDetector *dataDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeLink error:nil];
+    NSTextCheckingResult *firstMatch = [dataDetector firstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+    return (firstMatch
+            && firstMatch.range.location == 0
+            && firstMatch.range.length == self.length
+            && ![firstMatch.URL.scheme isEqualToString:@"mailto"]);
+}
+
+- (BOOL)isPhoneNumber
+{
+    NSDataDetector *dataDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypePhoneNumber error:nil];
+    NSTextCheckingResult *firstMatch = [dataDetector firstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+    return firstMatch.range.location == 0 && firstMatch.range.length == self.length;
+}
+
+- (BOOL)isDate
+{
+    NSDataDetector *dataDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeDate error:nil];
+    NSTextCheckingResult *firstMatch = [dataDetector firstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+    return firstMatch.range.location == 0 && firstMatch.range.length == self.length;
+}
+
+- (BOOL)isAddress
+{
+    NSDataDetector *dataDetector = [NSDataDetector dataDetectorWithTypes:NSTextCheckingTypeAddress error:nil];
+    NSTextCheckingResult *firstMatch = [dataDetector firstMatchInString:self options:0 range:NSMakeRange(0, self.length)];
+    return firstMatch.range.location == 0 && firstMatch.range.length == self.length;
+}
+
+- (BOOL)isEqualToStringIgnoringCase:(NSString *)otherString
+{
+    return [self caseInsensitiveCompare:otherString] == NSOrderedSame;
+}
+
+- (NSString *)stringByRemovingOccurrencesOfString:(NSString *)removeString
+{
+    return [self stringByReplacingOccurrencesOfString:removeString withString:@""];
+}
+
 @end

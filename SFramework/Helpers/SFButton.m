@@ -11,6 +11,79 @@
 // SFImporst ( to have access to all classes )
 #import "SFImports.h"
 
+// Set animation duration
+const CGFloat bounceAnimationDuration = 0.10;
+
+
+@implementation SFButton
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.option = SFButtonNormal; // At the beginning the option is normal a button with no grafic design
+    }
+    return self;
+}
+
+// MARK: - Bounce
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    if (self.option == SFButtonBounce) {
+        // Check se if btn is enebled
+        if (self.enabled) {
+            [UIView animateWithDuration:bounceAnimationDuration animations:^{
+                self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 1.1, 1.1);
+            } completion:^(BOOL finished) {
+            }];
+        }
+    }
+}
+
+
+-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    
+    if (self.option == SFButtonBounce) {
+        // Check se if btn is enebled
+        if (self.enabled) {
+            [UIView animateWithDuration:bounceAnimationDuration animations:^{
+                self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:bounceAnimationDuration animations:^{
+                    self.transform = CGAffineTransformIdentity;
+                }];
+            }];
+        }
+    }
+}
+
+
+-(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [super touchesCancelled:touches withEvent:event];
+    if (self.option == SFButtonBounce) {
+        // Check se if btn is enebled
+        if (self.enabled) {
+            [UIView animateWithDuration:bounceAnimationDuration animations:^{
+                self.transform = CGAffineTransformScale(CGAffineTransformIdentity, 0.9, 0.9);
+            } completion:^(BOOL finished) {
+                [UIView animateWithDuration:bounceAnimationDuration animations:^{
+                    self.transform = CGAffineTransformIdentity;
+                }];
+            }];
+        }
+    }
+}
+
+
+@end
+
+
 @implementation UIButton (SFButton)
 
 - (void)centerImageAndTitle
@@ -74,7 +147,7 @@
 {
     string = string;
     attributedString = attributedString;
-    if (!baseFont) baseFont = self.font;
+    if (!baseFont) baseFont = self.titleLabel.font;
     if (!baseColor) baseColor = self.currentTitleColor;
     if (!attributedFont) attributedFont = baseFont;
     if (!attributedColor) attributedColor = baseColor;
@@ -88,6 +161,24 @@
     [finalString setAttributes:attributed range:range];
     
     [self setAttributedTitle:finalString forState: state];
+}
+
+
+// MARK - Rotate Button
+
+- (void)rotateButton
+{
+    [UIView transitionWithView:self duration:0.3 options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        // Animate button
+        if (CGAffineTransformEqualToTransform(self.transform, CGAffineTransformIdentity)) {
+            self.transform = CGAffineTransformMakeRotation(M_PI * 0.999);
+        } else {
+            // Rotate back to orginal position
+            self.transform = CGAffineTransformIdentity;
+        }
+    } completion:^(BOOL finished) {
+        
+    }];
 }
 
 @end

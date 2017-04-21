@@ -8,6 +8,8 @@
 
 #import "SFDictionary.h"
 
+#import "SFObject.h"
+
 @implementation NSDictionary (SFDictionary)
 
 - (id)safeValueForKey:(NSString *)key
@@ -20,6 +22,20 @@
     @catch (NSException *exception) {
         return nil;
     }
+}
+
+- (id)getRandomKey
+{
+    if (self.count == 0) {
+        return nil;
+    }
+    return self.allKeys.getRandomObject;
+}
+
+- (NSString *)createJSONString
+{
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:0 error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
 @end

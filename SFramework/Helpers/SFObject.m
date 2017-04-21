@@ -72,6 +72,91 @@
     return NO;
 }
 
+- (BOOL)isEqualTo:(id)object
+{
+    SEL comparisonSelector = @selector(compare:);
+    NSAssert([self respondsToSelector:comparisonSelector], @"To use the comparison methods, this object must respond to the selector `compare:`");
+    
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[[self class] instanceMethodSignatureForSelector:comparisonSelector]];
+    invocation.selector = comparisonSelector;
+    invocation.target = self;
+    [invocation setArgument:&object atIndex:2];
+    [invocation invoke];
+    NSComparisonResult comparisonResult;
+    [invocation getReturnValue:&comparisonResult];
+    
+    return comparisonResult == NSOrderedSame ;
+}
+
+- (BOOL)isLessThanOrEqualTo:(id)object
+{
+    SEL comparisonSelector = @selector(compare:);
+    NSAssert([self respondsToSelector:comparisonSelector], @"To use the comparison methods, this object must respond to the selector `compare:`");
+    
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[[self class] instanceMethodSignatureForSelector:comparisonSelector]];
+    invocation.selector = comparisonSelector;
+    invocation.target = self;
+    [invocation setArgument:&object atIndex:2];
+    [invocation invoke];
+    NSComparisonResult comparisonResult;
+    [invocation getReturnValue:&comparisonResult];
+    
+    return comparisonResult == NSOrderedSame || comparisonResult == NSOrderedAscending;
+}
+
+- (BOOL)isLessThan:(id)object
+{
+    SEL comparisonSelector = @selector(compare:);
+    NSAssert([self respondsToSelector:comparisonSelector], @"To use the comparison methods, this object must respond to the selector `compare:`");
+    
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[[self class] instanceMethodSignatureForSelector:comparisonSelector]];
+    invocation.selector = comparisonSelector;
+    invocation.target = self;
+    [invocation setArgument:&object atIndex:2];
+    [invocation invoke];
+    NSComparisonResult comparisonResult;
+    [invocation getReturnValue:&comparisonResult];
+    
+    return comparisonResult == NSOrderedAscending;
+}
+
+- (BOOL)isGreaterThanOrEqualTo:(id)object
+{
+    SEL comparisonSelector = @selector(compare:);
+    NSAssert([self respondsToSelector:comparisonSelector], @"To use the comparison methods, this object must respond to the selector `compare:`");
+    
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[[self class] instanceMethodSignatureForSelector:comparisonSelector]];
+    invocation.selector = comparisonSelector;
+    invocation.target = self;
+    [invocation setArgument:&object atIndex:2];
+    [invocation invoke];
+    NSComparisonResult comparisonResult;
+    [invocation getReturnValue:&comparisonResult];
+    
+    return comparisonResult == NSOrderedSame || comparisonResult == NSOrderedDescending;
+}
+
+- (BOOL)isGreaterThan:(id)object
+{
+    SEL comparisonSelector = @selector(compare:);
+    NSAssert([self respondsToSelector:comparisonSelector], @"To use the comparison methods, this object must respond to the selector `compare:`");
+    
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[[self class] instanceMethodSignatureForSelector:comparisonSelector]];
+    invocation.selector = comparisonSelector;
+    invocation.target = self;
+    [invocation setArgument:&object atIndex:2];
+    [invocation invoke];
+    NSComparisonResult comparisonResult;
+    [invocation getReturnValue:&comparisonResult];
+    
+    return comparisonResult == NSOrderedDescending;
+}
+
+- (BOOL)isNotEqualTo:(id)object
+{
+    return ![self isEqualTo:object];
+}
+
 @end
 
 @implementation NSArray (SFArr)
@@ -102,6 +187,57 @@
     [sortedCountryArray sortUsingSelector:@selector(localizedCompare:)];
     
     return sortedCountryArray;
+}
+
+- (NSArray *)arrayWithRemovedDuplicatedObjects
+{
+    return [[NSOrderedSet orderedSetWithArray:self] array];
+}
+
+- (NSArray *)arrayWithSortedAscendingOrder
+{
+    return [self sortedArrayUsingSelector:@selector(compare:)];
+}
+
+- (NSArray *)arrayWithSortedReversedOrder
+{
+    return [[self reverseObjectEnumerator] allObjects];
+}
+
+- (NSArray *)flattenedArray
+{
+    NSMutableArray *array = [NSMutableArray array];
+    
+    for (id object in self) {
+        if ([object isKindOfClass:NSArray.class]) {
+            [array addObjectsFromArray:[object flattenedArray]];
+        } else {
+            [array addObject:object];
+        }
+    }
+    return array;
+}
+
+- (NSArray *)arrayWithRemovedNullObjects
+{
+    NSMutableArray *mutableArray = [self mutableCopy];
+    [mutableArray removeObjectIdenticalTo:[NSNull null]];
+    return mutableArray;
+}
+
+- (id)getRandomObject
+{
+    if (self.count == 0) {
+        return nil;
+    }
+    NSUInteger randomIndex = arc4random_uniform((u_int32_t)self.count);
+    return self[randomIndex];
+}
+
+- (NSString *)createJSONString
+{
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:self options:0 error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
 
 @end

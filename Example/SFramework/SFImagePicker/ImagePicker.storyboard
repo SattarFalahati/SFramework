@@ -47,16 +47,15 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RWp-Zt-Im2">
                                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="7GB-I9-iae"/>
-                                                        <constraint firstAttribute="height" constant="100" id="H1O-oZ-Vmg"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="RWp-Zt-Im2" firstAttribute="centerX" secondItem="8m6-pY-Rw6" secondAttribute="centerX" id="53g-UX-0yo"/>
+                                            <constraint firstItem="RWp-Zt-Im2" firstAttribute="top" secondItem="8m6-pY-Rw6" secondAttribute="top" id="DAW-9J-Z9F"/>
+                                            <constraint firstItem="RWp-Zt-Im2" firstAttribute="leading" secondItem="8m6-pY-Rw6" secondAttribute="leading" id="Hcn-Ia-ihc"/>
                                             <constraint firstItem="RWp-Zt-Im2" firstAttribute="centerY" secondItem="8m6-pY-Rw6" secondAttribute="centerY" id="V9f-aG-1BZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="RWp-Zt-Im2" secondAttribute="bottom" id="q3g-dF-Ckt"/>
                                         </constraints>
                                         <size key="customSize" width="100" height="100"/>
                                         <connections>
@@ -77,25 +76,37 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rqm-DB-y9d">
-                                <rect key="frame" x="311" y="593" width="44" height="44"/>
+                                <rect key="frame" x="305" y="590" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Egd-Z2-SrN"/>
-                                    <constraint firstAttribute="width" constant="44" id="rm9-Fw-Rx4"/>
+                                    <constraint firstAttribute="height" constant="50" id="Egd-Z2-SrN"/>
+                                    <constraint firstAttribute="width" constant="50" id="rm9-Fw-Rx4"/>
                                 </constraints>
+                                <size key="titleShadowOffset" width="1" height="1"/>
                                 <state key="normal" image="SFImagePickerBackCamera"/>
                                 <connections>
                                     <action selector="btnChangeCamera:" destination="jFh-NO-Hhe" eventType="touchUpInside" id="9Tm-DV-TuQ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k2X-Lj-SfE">
-                                <rect key="frame" x="152.5" y="580" width="70" height="70"/>
+                                <rect key="frame" x="150.5" y="577" width="75" height="75"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="Mj6-Ft-aUr"/>
-                                    <constraint firstAttribute="height" constant="70" id="jLB-y0-br5"/>
+                                    <constraint firstAttribute="width" constant="75" id="Mj6-Ft-aUr"/>
+                                    <constraint firstAttribute="height" constant="75" id="jLB-y0-br5"/>
                                 </constraints>
                                 <state key="normal" image="SFImagePickerCapture"/>
                                 <connections>
                                     <action selector="btnCapturePhoto:" destination="jFh-NO-Hhe" eventType="touchUpInside" id="0ZQ-NE-DAJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0GZ-cR-VXN">
+                                <rect key="frame" x="20" y="590" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="B5R-5b-ryL"/>
+                                    <constraint firstAttribute="width" constant="50" id="rIz-Vf-Cpn"/>
+                                </constraints>
+                                <state key="normal" image="SFImagePickerResize"/>
+                                <connections>
+                                    <action selector="btnResizeCollection:" destination="jFh-NO-Hhe" eventType="touchUpInside" id="2WW-bi-JIk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -110,19 +121,24 @@
                             <constraint firstItem="qaB-ek-ll8" firstAttribute="leading" secondItem="VZ0-Uw-LIX" secondAttribute="leading" id="NuH-Nr-Fh9"/>
                             <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="NhA-TC-OBo" secondAttribute="bottom" constant="100" id="RV0-4V-o1I"/>
                             <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="qaB-ek-ll8" secondAttribute="bottom" id="aMw-zz-cID"/>
+                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="0GZ-cR-VXN" secondAttribute="bottom" constant="27" id="eWN-rW-TIa"/>
+                            <constraint firstItem="0GZ-cR-VXN" firstAttribute="leading" secondItem="VZ0-Uw-LIX" secondAttribute="leading" constant="20" id="f6f-Ta-Lii"/>
                             <constraint firstAttribute="trailing" secondItem="qaB-ek-ll8" secondAttribute="trailing" id="ffJ-w9-qEP"/>
-                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="k2X-Lj-SfE" secondAttribute="bottom" constant="17" id="g4a-9v-Dfb"/>
-                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="Rqm-DB-y9d" secondAttribute="bottom" constant="30" id="mcC-Po-xOf"/>
+                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="k2X-Lj-SfE" secondAttribute="bottom" constant="15" id="g4a-9v-Dfb"/>
+                            <constraint firstItem="Hvn-A2-iD8" firstAttribute="top" secondItem="Rqm-DB-y9d" secondAttribute="bottom" constant="27" id="mcC-Po-xOf"/>
                             <constraint firstItem="qaB-ek-ll8" firstAttribute="top" secondItem="VZ0-Uw-LIX" secondAttribute="top" id="wxQ-Cf-h7K"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="btnChangeCamera" destination="Rqm-DB-y9d" id="yrx-fW-e5F"/>
+                        <outlet property="btnResize" destination="0GZ-cR-VXN" id="4hT-5u-RLa"/>
                         <outlet property="cameraView" destination="qaB-ek-ll8" id="JDN-ii-saV"/>
+                        <outlet property="collectionHaight" destination="Ihh-re-t65" id="kWI-aY-esq"/>
                         <outlet property="imageCollection" destination="NhA-TC-OBo" id="uSh-bW-Rzm"/>
                         <outletCollection property="buttons" destination="X8z-nW-6b3" id="xjJ-m1-9DB"/>
                         <outletCollection property="buttons" destination="Rqm-DB-y9d" id="8vs-6a-boW"/>
                         <outletCollection property="buttons" destination="k2X-Lj-SfE" id="bQv-Jk-Bi0"/>
+                        <outletCollection property="buttons" destination="0GZ-cR-VXN" id="2Kp-Xm-Mc9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rVU-Cd-a0M" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,8 +147,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SFImagePickerBackCamera" width="36" height="36"/>
-        <image name="SFImagePickerCapture" width="48" height="48"/>
-        <image name="SFImagePickerClose" width="28" height="28"/>
+        <image name="SFImagePickerBackCamera" width="64" height="64"/>
+        <image name="SFImagePickerCapture" width="64" height="64"/>
+        <image name="SFImagePickerClose" width="32" height="32"/>
+        <image name="SFImagePickerResize" width="32" height="32"/>
     </resources>
 </document>

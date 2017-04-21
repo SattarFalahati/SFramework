@@ -21,4 +21,7 @@
 /// Create color from hex string
 + (UIColor *)colorWithHexString:(NSString *)strHex;
 
+/// Set color for scroll view
++ (void)setColor:(UIColor *)color forScrollViewIndicator:(UIScrollView *)scrollView;
+
 @end
