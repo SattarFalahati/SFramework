@@ -119,4 +119,24 @@
         return img;
     }
 }
+
+// MARK: - VIEW CONSTRAINT
+
+- (void)setConstraintsEqualToItem:(id)item;
+{
+    //Trailing
+    NSLayoutConstraint *trailing =[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:0.f];
+    
+    //Leading
+    NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.f];
+    
+    //Bottom
+    NSLayoutConstraint *bottom =[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.f];
+    
+    //Bottom
+    NSLayoutConstraint *top =[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeTop multiplier:1.0f constant:0.f];
+    
+    [NSLayoutConstraint activateConstraints:@[trailing, leading, bottom, top]];
+}
+
 @end

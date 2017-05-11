@@ -85,6 +85,15 @@
 
 - (void)initCamera
 {
+    // Check Authorization status
+    if ([self getAuthorizationStatus] == AVAuthorizationStatusDenied) {
+        
+        [SFAlertController showAlertWithOneButtonOnTarget:self withTitle:@"Ops!" withMessage:@"You have not authorized us to access your camera.\n To change that go to your setting and change camera authorization" withButtonTitle:@"Ok" andButtonBlock:^{
+            [self closeSFImagePicker];
+        }];
+        return;
+    }
+    
     //Capture Session
     self.captureSession = [AVCaptureSession new];
     self.captureSession.sessionPreset = AVCaptureSessionPresetPhoto;
@@ -238,6 +247,16 @@
         // Do sth if needed
     }];
 }
+
+// MARK: - Authorization
+
+- (AVAuthorizationStatus)getAuthorizationStatus
+{
+    AVAuthorizationStatus status = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    
+    return status;
+}
+
 
 // MARK: - CollectionView & Delegate
 

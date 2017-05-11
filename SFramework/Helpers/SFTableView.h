@@ -31,7 +31,7 @@
 
 // MARK: SIZE
 
-/// Override del metodo di sistema: permette di calcolare il contentSize esatto della TableView.
+/// Override the system method
 - (CGSize)realContentSize;
 
 @end

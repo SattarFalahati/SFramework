@@ -40,4 +40,16 @@
 
 /// Create an image from a view
 - (UIImage *)makeImageFromView;
+
+// MARK: - VIEW CONSTRAINT
+
+/**
+ *  Set constraints of a view equal to another view
+ *
+ * This method will add trailing, leading, bottom, top constraints to the view and make the equal to @param item 
+ */
+- (void)setConstraintsEqualToItem:(id)item;
+
+
+
 @end
