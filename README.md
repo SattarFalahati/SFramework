@@ -30,6 +30,8 @@ pod 'SFramework', :git => 'https://github.com/SattarFalahati/SFramework.git'
 
 ## Author
 
+Special thanks to Davide Balistreri It was impossible to create this framework without his guidance and help.
+
 Sattar Falahati
 
 sattar.falahati@gmail.com
