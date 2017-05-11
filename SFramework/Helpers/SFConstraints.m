@@ -22,7 +22,7 @@
     //Bottom
     NSLayoutConstraint *bottom =[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.f];
     
-    //Bottom
+    //Top
     NSLayoutConstraint *top =[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeTop multiplier:1.0f constant:0.f];
     
     [NSLayoutConstraint activateConstraints:@[trailing, leading, bottom, top]];

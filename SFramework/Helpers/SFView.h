@@ -41,6 +41,4 @@
 /// Create an image from a view
 - (UIImage *)makeImageFromView;
 
-- (void)activeParallaxEffectWithDefaultSize:(CGFloat)size WithScrollView:(UIScrollView *)scrollView;
-
 @end

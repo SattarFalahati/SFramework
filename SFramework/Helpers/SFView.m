@@ -122,16 +122,4 @@
     }
 }
 
-
-- (void)activeParallaxEffectWithDefaultSize:(CGFloat)size WithScrollView:(UIScrollView *)scrollView
-{
-    // Do the parallax magic
-    CGFloat offset = scrollView.contentOffset.y;
-    
-    self.constraintTop = offset;
-    self.constraintHeight = size - offset;
-
-}
-
-
 @end
