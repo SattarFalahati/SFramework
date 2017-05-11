@@ -302,6 +302,8 @@
 		F29A54D7517A487F22D0656553E50654 /* KWInequalityMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = E17D8ABF0052DD6EF5D80DFC3F1E6303 /* KWInequalityMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F3A3E05FDF4E819622F38D7F503ECA88 /* KWReporting.h in Headers */ = {isa = PBXBuildFile; fileRef = C2CB86B0ED61781C29D7C144B092EC98 /* KWReporting.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F4FDA1C9C78DBBEC1F2A539AC5F3EB46 /* SFString.h in Headers */ = {isa = PBXBuildFile; fileRef = AEE221290FE6007A7B73A506980C40BD /* SFString.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F5C5D8EC1EC4A9E800CCFC35 /* SFConstraints.h in Headers */ = {isa = PBXBuildFile; fileRef = F5C5D8E91EC4A9E800CCFC35 /* SFConstraints.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F5C5D8EE1EC4A9E800CCFC35 /* SFConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C5D8EA1EC4A9E800CCFC35 /* SFConstraints.m */; };
 		F60E411CD4BDD959ADFFC1434EAC461B /* KWItNode.h in Headers */ = {isa = PBXBuildFile; fileRef = AB8468423938B3F019502D00CD6FE4EA /* KWItNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F6EBF111EBCACF88F4AFCF42FD905813 /* KWSharedExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 148040B3BF413E355B48C4A0204BADE4 /* KWSharedExample.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		F74FBDC7491459DE3309B6C4DCC5D386 /* KWEqualMatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = A3301FF7B877EBB24C3104DAE938C632 /* KWEqualMatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -715,6 +717,8 @@
 		F553639481151549362AD324425B9DEB /* KWSharedExample.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWSharedExample.h; path = "Classes/Shared Examples/KWSharedExample.h"; sourceTree = "<group>"; };
 		F5884672686C161B055A6C50AAE75074 /* SFLocalization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SFLocalization.m; sourceTree = "<group>"; };
 		F5AB01C352809AC90C76A82293F4EF91 /* KWMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWMatcher.h; path = Classes/Core/KWMatcher.h; sourceTree = "<group>"; };
+		F5C5D8E91EC4A9E800CCFC35 /* SFConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFConstraints.h; sourceTree = "<group>"; };
+		F5C5D8EA1EC4A9E800CCFC35 /* SFConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFConstraints.m; sourceTree = "<group>"; };
 		F6C7847937108CC3FFEEA0DE577765A3 /* FBSnapshotTestCase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FBSnapshotTestCase-dummy.m"; sourceTree = "<group>"; };
 		F9E3B436375217EC72F5DA97BF2BCE9E /* SFDefine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SFDefine.h; sourceTree = "<group>"; };
 		FC3C5A69F24661BFD1C9945854410DC5 /* KWStub.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWStub.h; path = Classes/Stubbing/KWStub.h; sourceTree = "<group>"; };
@@ -1063,6 +1067,8 @@
 				9B2783BE39E658DA7E9053E5E00E76B8 /* SFUtils.m */,
 				7DA79408C0DDD18EF7E0942445628673 /* SFView.h */,
 				D45764A4AA43C68497CFE2368D3B67F7 /* SFView.m */,
+				F5C5D8E91EC4A9E800CCFC35 /* SFConstraints.h */,
+				F5C5D8EA1EC4A9E800CCFC35 /* SFConstraints.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1436,6 +1442,7 @@
 				E58217069022B5C4A8676970711A55E8 /* SFramework-umbrella.h in Headers */,
 				F4FDA1C9C78DBBEC1F2A539AC5F3EB46 /* SFString.h in Headers */,
 				200C0A9579D7998A3715FE8E68C440CB /* SFTableView.h in Headers */,
+				F5C5D8EC1EC4A9E800CCFC35 /* SFConstraints.h in Headers */,
 				534D6D3AAA058665823FFFF0112E03B7 /* SFUtils.h in Headers */,
 				550329F6CDCAD17C3887C405C5173FA5 /* SFView.h in Headers */,
 			);
@@ -1785,6 +1792,7 @@
 				16C97C3CDFDA38D5D5957D11A85AA5B2 /* SFImage.m in Sources */,
 				FE5AB760F6B88E04BC20B05EBC3BC830 /* SFInAppNotification.m in Sources */,
 				97A818B14A5E07F2994E295AFECF26BA /* SFLabel.m in Sources */,
+				F5C5D8EE1EC4A9E800CCFC35 /* SFConstraints.m in Sources */,
 				4FB796B2121A4494A0F1E378DC58916A /* SFLocalization.m in Sources */,
 				0751A610C7CF935FD6D60B224B3D7D0D /* SFLocationManager.m in Sources */,
 				0D444ACFA352E60463C57ED98E9A0036 /* SFNetworking.m in Sources */,

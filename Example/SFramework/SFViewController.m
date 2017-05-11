@@ -122,6 +122,11 @@
     
     
 //    self.imgBG.image = [UIImage combinedPhotosWithBackgroundImage:[UIImage imageNamed:@"trolltunga"] withBGImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) andTopImage:[UIImage imageNamed:@"Placeholder"]  withTopImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100) withTopImageAlpha:0.5f];
+    
+    
+    /// Constraints
+    self.btnActionSheet.constraintHeight = 55;
+
 }
 
 // MARK: SFNetworking

@@ -8,6 +8,8 @@
 
 #import "SFView.h"
 
+#import "SFConstraints.h"
+
 @implementation UIView (SFView)
 
 // MARK: - Border && Radius
@@ -120,23 +122,16 @@
     }
 }
 
-// MARK: - VIEW CONSTRAINT
 
-- (void)setConstraintsEqualToItem:(id)item;
+- (void)activeParallaxEffectWithDefaultSize:(CGFloat)size WithScrollView:(UIScrollView *)scrollView
 {
-    //Trailing
-    NSLayoutConstraint *trailing =[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeTrailing multiplier:1.0f constant:0.f];
+    // Do the parallax magic
+    CGFloat offset = scrollView.contentOffset.y;
     
-    //Leading
-    NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeLeading multiplier:1.0f constant:0.f];
-    
-    //Bottom
-    NSLayoutConstraint *bottom =[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeBottom multiplier:1.0f constant:0.f];
-    
-    //Bottom
-    NSLayoutConstraint *top =[NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:item attribute:NSLayoutAttributeTop multiplier:1.0f constant:0.f];
-    
-    [NSLayoutConstraint activateConstraints:@[trailing, leading, bottom, top]];
+    self.constraintTop = offset;
+    self.constraintHeight = size - offset;
+
 }
+
 
 @end
