@@ -19,6 +19,12 @@
 
 // MARK: - Autolayouts
 
+/// Get constraint of a view
+- (NSLayoutConstraint *)constraintWithAttribute:(NSLayoutAttribute)attribute;
+
+/// Setter method to set or change calue of a constraint
+- (void)setConstraintValue:(CGFloat)value withAttribute:(NSLayoutAttribute)attribute;
+
 @property (nonatomic) CGFloat constraintHeight;
 @property (nonatomic) CGFloat constraintWidth;
 

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SFParallaxViewController : UIView
+@interface SFParallaxViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *img;
+@property (weak, nonatomic) IBOutlet SFParallaxView *parallaxView;
 
 @end

@@ -2,7 +2,7 @@
 
 Sattar Falahati personal helper framework (Objective-C)
 
-Version 0.1.2
+Version 0.2.0
 
 <!--[![CI Status](http://img.shields.io/travis/sattar_falahati/SFramework.svg?style=flat)](https://travis-ci.org/sattar_falahati/SFramework) -->
 [![Version](https://img.shields.io/cocoapods/v/SFramework.svg?style=flat)](http://cocoapods.org/pods/SFramework)

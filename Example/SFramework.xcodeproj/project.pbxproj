@@ -27,6 +27,7 @@
 		F54C9DAC1E8B0D16005DA8AC /* SFImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54C9DA91E8B0D16005DA8AC /* SFImagePickerCell.m */; };
 		F54E3E651E8AC29700E939DD /* SFIntro.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E3E631E8AC29700E939DD /* SFIntro.m */; };
 		F54E3E661E8AC29700E939DD /* SFIntroView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F54E3E641E8AC29700E939DD /* SFIntroView.xib */; };
+		F5B1A1531EC5CC9C00989557 /* SFParallaxViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B1A1521EC5CC9C00989557 /* SFParallaxViewController.m */; };
 		F5F990001E782AF700A60644 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5F98FFF1E782AF700A60644 /* LaunchScreen.storyboard */; };
 		F5F990051E78403D00A60644 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5F990041E78403D00A60644 /* Images.xcassets */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,8 @@
 		F54E3E621E8AC29700E939DD /* SFIntro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFIntro.h; sourceTree = "<group>"; };
 		F54E3E631E8AC29700E939DD /* SFIntro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFIntro.m; sourceTree = "<group>"; };
 		F54E3E641E8AC29700E939DD /* SFIntroView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SFIntroView.xib; sourceTree = "<group>"; };
+		F5B1A1511EC5CC9C00989557 /* SFParallaxViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFParallaxViewController.h; sourceTree = "<group>"; };
+		F5B1A1521EC5CC9C00989557 /* SFParallaxViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFParallaxViewController.m; sourceTree = "<group>"; };
 		F5F98FFF1E782AF700A60644 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5F990041E78403D00A60644 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -152,6 +155,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* SFViewController.h */,
 				6003F5A6195388D20070C39A /* SFViewController.m */,
+				F5B1A1511EC5CC9C00989557 /* SFParallaxViewController.h */,
+				F5B1A1521EC5CC9C00989557 /* SFParallaxViewController.m */,
 				F54C9DA41E8B0D16005DA8AC /* SFImagePicker */,
 				F54E3E611E8AC29700E939DD /* SFIntro */,
 				F5F990041E78403D00A60644 /* Images.xcassets */,
@@ -445,6 +450,7 @@
 				F54C9DAC1E8B0D16005DA8AC /* SFImagePickerCell.m in Sources */,
 				6003F5A7195388D20070C39A /* SFViewController.m in Sources */,
 				F54E3E651E8AC29700E939DD /* SFIntro.m in Sources */,
+				F5B1A1531EC5CC9C00989557 /* SFParallaxViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

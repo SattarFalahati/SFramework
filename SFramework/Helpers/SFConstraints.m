@@ -29,7 +29,7 @@
 }
 
 
-// MARK: - Private methods
+// MARK: - Helper methods
 
 /// Get constraint of a view
 - (NSLayoutConstraint *)constraintWithAttribute:(NSLayoutAttribute)attribute

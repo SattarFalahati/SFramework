@@ -33,5 +33,6 @@
 #import "SFProgressHUD.h"
 #import "SFInAppNotification.h"
 #import "SFDate.h"
+#import "SFParallaxView.h"
 
 #endif /* SFImports_h */

@@ -15,7 +15,7 @@
 // MARK: - Default elements
 
 /// Set tag for SFInAppNotification view to check if view is presented.
-#define KSFInAppNotificationTag     1234567890987654321
+#define KSFInAppNotificationTag     319489485
 
 /// Defualt style
 #define KDefaultBackgroundColor         RGBA(0, 0, 0, .8)

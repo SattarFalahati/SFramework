@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet SFButton *btnActionSheet;
 @property (weak, nonatomic) IBOutlet SFButton *btnGallery;
 @property (weak, nonatomic) IBOutlet SFButton *btnIntro;
+@property (weak, nonatomic) IBOutlet SFButton *btnOpenParallax;
 
 @end

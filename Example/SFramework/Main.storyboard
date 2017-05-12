@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VuW-EC-f7b">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZC-Uf-gAA" customClass="SFButton">
-                                <rect key="frame" x="20" y="40" width="50" height="50"/>
+                                <rect key="frame" x="20" y="84" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="1dx-uq-hCS"/>
                                     <constraint firstAttribute="height" constant="50" id="ZFn-Bq-b2k"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fa7-vK-jue" customClass="SFButton">
-                                <rect key="frame" x="305" y="40" width="50" height="50"/>
+                                <rect key="frame" x="305" y="84" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cus-pz-mas"/>
                                     <constraint firstAttribute="width" constant="50" id="dC1-5X-PXc"/>
@@ -59,6 +59,16 @@
                                 <state key="normal" image="tutorial"/>
                                 <connections>
                                     <action selector="btnIntro:" destination="whP-gf-Uak" eventType="touchUpInside" id="t9D-MZ-Brx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkR-63-GR5" customClass="SFButton">
+                                <rect key="frame" x="20" y="517" width="335" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dCF-35-fOh"/>
+                                </constraints>
+                                <state key="normal" title="Parallax"/>
+                                <connections>
+                                    <action selector="openParallaxView:" destination="whP-gf-Uak" eventType="touchUpInside" id="dgD-d1-FC2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -72,27 +82,133 @@
                             <constraint firstAttribute="trailing" secondItem="OvO-T0-QfE" secondAttribute="trailing" constant="20" id="IOJ-b8-Wa2"/>
                             <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="OvO-T0-QfE" secondAttribute="bottom" constant="30" id="M1B-sN-AlD"/>
                             <constraint firstAttribute="bottom" secondItem="EsO-BO-d7Z" secondAttribute="bottom" id="TTK-Mt-FND"/>
+                            <constraint firstItem="QkR-63-GR5" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="VR2-YK-DMA"/>
+                            <constraint firstAttribute="trailing" secondItem="QkR-63-GR5" secondAttribute="trailing" constant="20" id="bZX-7K-3Ic"/>
                             <constraint firstItem="OvO-T0-QfE" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="20" id="ilx-Yr-qRB"/>
                             <constraint firstItem="IO7-Ez-SXW" firstAttribute="centerY" secondItem="TpU-gO-2f1" secondAttribute="centerY" id="isM-Fp-rua"/>
                             <constraint firstItem="EsO-BO-d7Z" firstAttribute="top" secondItem="TpU-gO-2f1" secondAttribute="top" id="n41-6q-OFq"/>
                             <constraint firstItem="EsO-BO-d7Z" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" id="ovr-no-Vj1"/>
+                            <constraint firstItem="OvO-T0-QfE" firstAttribute="top" secondItem="QkR-63-GR5" secondAttribute="bottom" constant="50" id="pRt-Ns-Jey"/>
                             <constraint firstItem="ZZC-Uf-gAA" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="20" id="pmQ-fX-4HS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="fcz-eE-B6e"/>
                     <connections>
                         <outlet property="btnActionSheet" destination="OvO-T0-QfE" id="wVS-kn-feg"/>
                         <outlet property="btnGallery" destination="ZZC-Uf-gAA" id="lqR-Nq-RvE"/>
                         <outlet property="btnIntro" destination="Fa7-vK-jue" id="dzx-Tk-KWr"/>
+                        <outlet property="btnOpenParallax" destination="QkR-63-GR5" id="fy0-Re-tSg"/>
                         <outlet property="imgBG" destination="EsO-BO-d7Z" id="ITN-Dj-Jw6"/>
                         <outlet property="lblTitle" destination="IO7-Ez-SXW" id="4ds-Oe-dPQ"/>
+                        <segue destination="rE6-MZ-Pyq" kind="show" identifier="goToParallax" id="guT-sb-NeC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="498" y="409"/>
+            <point key="canvasLocation" x="1436" y="408.84557721139436"/>
+        </scene>
+        <!--Parallax View Controller-->
+        <scene sceneID="INJ-16-pN2">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="rE6-MZ-Pyq" customClass="SFParallaxViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4Gg-kf-0IE"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ona-Zo-7e3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gDC-qy-p37">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9I-4F-uoo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lg4-gJ-C8M">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="815"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jq-Ko-cnJ" customClass="SFParallaxView">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ikD-VK-CPP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstItem="ikD-VK-CPP" firstAttribute="leading" secondItem="4jq-Ko-cnJ" secondAttribute="leading" id="6ZA-Yb-JX3"/>
+                                                    <constraint firstItem="ikD-VK-CPP" firstAttribute="height" secondItem="4jq-Ko-cnJ" secondAttribute="height" id="7oi-Nz-pcA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ikD-VK-CPP" secondAttribute="trailing" id="8uA-3L-5bE"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ikD-VK-CPP" secondAttribute="bottom" id="IFc-gZ-972"/>
+                                                    <constraint firstAttribute="height" constant="165" id="w4w-t5-aYL"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cva-Cd-dsV">
+                                                <rect key="frame" x="0.0" y="165" width="375" height="650"/>
+                                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="650" id="CQy-yU-hUq"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="4jq-Ko-cnJ" secondAttribute="trailing" id="2U4-84-Oel"/>
+                                            <constraint firstAttribute="bottom" secondItem="Cva-Cd-dsV" secondAttribute="bottom" id="EPI-RV-uay"/>
+                                            <constraint firstAttribute="trailing" secondItem="Cva-Cd-dsV" secondAttribute="trailing" id="IDQ-cb-LB0"/>
+                                            <constraint firstItem="Cva-Cd-dsV" firstAttribute="top" secondItem="4jq-Ko-cnJ" secondAttribute="bottom" id="MMl-SX-dBV"/>
+                                            <constraint firstItem="4jq-Ko-cnJ" firstAttribute="top" secondItem="Lg4-gJ-C8M" secondAttribute="top" id="gPH-jM-gMc"/>
+                                            <constraint firstItem="Cva-Cd-dsV" firstAttribute="leading" secondItem="Lg4-gJ-C8M" secondAttribute="leading" id="xKM-q6-yt0"/>
+                                            <constraint firstItem="4jq-Ko-cnJ" firstAttribute="leading" secondItem="Lg4-gJ-C8M" secondAttribute="leading" id="xYi-16-NAm"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Lg4-gJ-C8M" secondAttribute="trailing" id="GH3-ze-tXl"/>
+                                    <constraint firstItem="Lg4-gJ-C8M" firstAttribute="leading" secondItem="D9I-4F-uoo" secondAttribute="leading" id="KRM-Mj-FuJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Lg4-gJ-C8M" secondAttribute="bottom" id="azF-7c-xXL"/>
+                                    <constraint firstItem="Lg4-gJ-C8M" firstAttribute="top" secondItem="D9I-4F-uoo" secondAttribute="top" id="xBv-yT-chD"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ona-Zo-7e3" firstAttribute="top" secondItem="D9I-4F-uoo" secondAttribute="bottom" id="D2n-WU-r4v"/>
+                            <constraint firstItem="Lg4-gJ-C8M" firstAttribute="width" secondItem="gDC-qy-p37" secondAttribute="width" id="SZU-V5-MjU"/>
+                            <constraint firstAttribute="trailing" secondItem="D9I-4F-uoo" secondAttribute="trailing" id="WDm-nf-MRt"/>
+                            <constraint firstItem="D9I-4F-uoo" firstAttribute="leading" secondItem="gDC-qy-p37" secondAttribute="leading" id="fGl-c8-Fjb"/>
+                            <constraint firstItem="D9I-4F-uoo" firstAttribute="top" secondItem="4Gg-kf-0IE" secondAttribute="bottom" id="yfl-Wc-qQN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="img" destination="ikD-VK-CPP" id="hQa-SX-sqP"/>
+                        <outlet property="parallaxView" destination="4jq-Ko-cnJ" id="s7I-oq-tCi"/>
+                        <outlet property="scrollView" destination="D9I-4F-uoo" id="95D-9t-4wr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2sp-T0-lcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2308" y="408.84557721139436"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="HFc-CP-y4y">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VuW-EC-f7b" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="V50-JA-Qwb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="whP-gf-Uak" kind="relationship" relationship="rootViewController" id="vj9-IV-cah"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VXl-8e-jOn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="496.80000000000001" y="408.84557721139436"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Placeholder" width="340" height="148"/>
         <image name="addPhoto" width="36" height="36"/>
         <image name="tutorial" width="36" height="36"/>
     </resources>

@@ -126,6 +126,12 @@
     
     /// Constraints
     self.btnActionSheet.constraintHeight = 55;
+    
+    // Btn Parallax
+    self.btnOpenParallax.option = SFButtonBounce;
+    self.btnOpenParallax.backgroundColor = RGBA(0, 0, 0, 0.5);
+    [self.btnOpenParallax addCornerRadius:self.btnOpenParallax.frame.size.height /2];
+
 
 }
 
@@ -316,5 +322,13 @@
         [intro showSecondButton];
     }
 }
+
+// MARK: - SFParallaxView
+
+- (IBAction)openParallaxView:(id)sender
+{
+    [self performSegueWithIdentifier:@"goToParallax" sender:nil];
+}
+
 
 @end
