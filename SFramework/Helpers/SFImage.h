@@ -63,7 +63,7 @@ typedef NS_ENUM(NSUInteger, SFImageGradiantDirection) {
  * @param bgFrame : Frame (size) to hold the background Image
  * @param topImage : An image to set above the background image 
  * @param topFrame : Frame (size) to set size of the top image  
- * @param alpha : Alpha for top to make some transparent top image
+ * @param topAlpha : Alpha for top to make some transparent top image
  */
 
 + (nonnull UIImage *)combinedPhotosWithBackgroundImage:(nonnull UIImage *)backgroundImage withBGImageFrame:(CGRect)bgFrame andTopImage:(nonnull UIImage *)topImage withTopImageFrame:(CGRect)topFrame withTopImageAlpha:(CGFloat)topAlpha;

@@ -38,7 +38,7 @@
     CGFloat offset = scrollView.contentOffset.y;
     CGFloat height = self.originalHeight - offset;
     
-//     NSLog(@"height == %f", height);
+     NSLog(@"height == %f", height);
 //     NSLog(@"offset == %f", offset);
     
     self.topConstraint.constant = offset;

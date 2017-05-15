@@ -34,12 +34,19 @@
     [self testNetworkConnection];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
     //MARK: - SFLocationManager
-    [SFLocationManager initGeoLocationManagerWithCompletitionBlock:^(CLLocationCoordinate2D currentLocation) {
+    [SFLocationManager initGeoLocationManagerWithCompletitionBlock:^(CLLocationCoordinate2D currentLocation, CLAuthorizationStatus status) {
         
         if ([SFLocationManager isValidPosition:currentLocation]) {
             NSLog(@"position is valid");

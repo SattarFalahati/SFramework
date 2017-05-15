@@ -13,7 +13,7 @@
 /**
  *  Set constraints of a view equal to another view
  *
- * This method will add trailing, leading, bottom, top constraints to the view and make the equal to @param item
+ * This method will add trailing, leading, bottom, top constraints to the view and make the equal to item
  */
 - (void)setConstraintsEqualToItem:(id)item;
 

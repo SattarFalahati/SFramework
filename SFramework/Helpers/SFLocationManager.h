@@ -11,8 +11,12 @@
 
 @interface SFLocationManager : NSObject
 
-/// Block to get current location
-typedef void (^SFLocationManagerBlock)(CLLocationCoordinate2D currentLocation);
+/// Block to get current location and authorization status
+typedef void (^SFLocationManagerBlock)(CLLocationCoordinate2D currentLocation, CLAuthorizationStatus status);
+
+// MARK: - Location manager status
+
++ (CLAuthorizationStatus)locationManagerStatus;
 
 // MARK: - Get user current location 
 

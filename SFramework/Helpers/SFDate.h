@@ -53,23 +53,23 @@
 
 /**
  *  Calculate the year diffrence between a date and now (you can use this method to calculate the age ...)
- *  @param date: The date that you want to calculate the year difference.
+ *  @param date The date that you want to calculate the year difference.
  *  @return Number of difference.
  */
 + (nonnull NSNumber *)getCalculatedYearDifferenceFromNowToDate:(nonnull NSDate *)date;
 
 /**
  *  Calculate the year diffrence between two dates.
- *  @param firstDate
- *  @param secondDate
+ *  @param firstDate : the first date
+ *  @param secondDate : the second date
  *  @return Number of difference between two dates.
  */
 + (nonnull NSNumber *)getCalculatedYearDifferenceBetweenfirstDate:(nonnull NSDate *)firstDate andSecondDate:(nonnull NSDate *)secondDate;
 
 /**
  *  Calculate the time remain between now and at specific date
- *  @param endDate: The end date.
- *  @return Years, month, days, hours, minutes and seconds that remains from NOW date to the enad date.
+ *  @param endDate The end date.
+ *  return Years, month, days, hours, minutes and seconds that remains from NOW date to the enad date.
  */
 + (void)countdownFromNowToDate:(nonnull NSDate *)endDate withCompletitionBlock:(void (^_Nullable)(NSInteger year, NSInteger month, NSInteger day, NSInteger hour, NSInteger minute, NSInteger second))completitionBlock;
 

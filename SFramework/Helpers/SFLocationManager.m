@@ -35,6 +35,9 @@
             [self.locationManager requestWhenInUseAuthorization];
         }
     }
+    else if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusDenied) {
+        if (self.locationBlock) self.locationBlock(self.currentPosition, [CLLocationManager authorizationStatus]); // currentPosition is empty here
+    }
     
     [self.locationManager startUpdatingLocation];
 }
@@ -51,9 +54,27 @@
 {
     CLLocation *location = [locations lastObject];
     self.currentPosition = location.coordinate;
+    
     // return location
-    if (self.locationBlock) self.locationBlock(self.currentPosition);
+       if (self.locationBlock) self.locationBlock(self.currentPosition, [CLLocationManager authorizationStatus]);
 }
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    if (status == kCLAuthorizationStatusDenied) {
+        NSLog(@"Authorized Denied");
+        if (self.locationBlock) self.locationBlock(self.currentPosition, [CLLocationManager authorizationStatus]); // currentPosition is empty here
+    }
+    else if (status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        NSLog(@"Authorized When in use");
+        // Do sth if needed
+    }
+    else if (status == kCLAuthorizationStatusAuthorizedAlways) {
+        NSLog(@"Authorized Always");
+        // Do sth if needed
+    }
+}
+
 
 @end
 
@@ -90,6 +111,13 @@ SFGeoManager *sfGeoLocationManager;
     geolocationManager.locationBlock = locationBlock;
     [geolocationManager initLocationManager];
     
+}
+
+// MARK: - Location manager status
+
++ (CLAuthorizationStatus)locationManagerStatus
+{
+    return [CLLocationManager authorizationStatus];
 }
 
 // MARK: - Distance

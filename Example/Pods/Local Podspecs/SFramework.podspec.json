@@ -1,6 +1,6 @@
 {
   "name": "SFramework",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "summary": "Sattar personal framework.",
   "description": "This framework will be used as a helper to help us make projects faster and easier.",
   "homepage": "https://github.com/SattarFalahati/SFramework",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/SattarFalahati/SFramework.git",
-    "tag": "0.0.1"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"

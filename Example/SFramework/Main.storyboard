@@ -40,7 +40,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZC-Uf-gAA" customClass="SFButton">
-                                <rect key="frame" x="20" y="84" width="50" height="50"/>
+                                <rect key="frame" x="20" y="40" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="1dx-uq-hCS"/>
                                     <constraint firstAttribute="height" constant="50" id="ZFn-Bq-b2k"/>
@@ -51,7 +51,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fa7-vK-jue" customClass="SFButton">
-                                <rect key="frame" x="305" y="84" width="50" height="50"/>
+                                <rect key="frame" x="305" y="40" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="cus-pz-mas"/>
                                     <constraint firstAttribute="width" constant="50" id="dC1-5X-PXc"/>
@@ -120,16 +120,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D9I-4F-uoo">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lg4-gJ-C8M">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="815"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="860"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4jq-Ko-cnJ" customClass="SFParallaxView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="ikD-VK-CPP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="165"/>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Happy" translatesAutoresizingMaskIntoConstraints="NO" id="ikD-VK-CPP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="210"/>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -138,11 +138,11 @@
                                                     <constraint firstItem="ikD-VK-CPP" firstAttribute="height" secondItem="4jq-Ko-cnJ" secondAttribute="height" id="7oi-Nz-pcA"/>
                                                     <constraint firstAttribute="trailing" secondItem="ikD-VK-CPP" secondAttribute="trailing" id="8uA-3L-5bE"/>
                                                     <constraint firstAttribute="bottom" secondItem="ikD-VK-CPP" secondAttribute="bottom" id="IFc-gZ-972"/>
-                                                    <constraint firstAttribute="height" constant="165" id="w4w-t5-aYL"/>
+                                                    <constraint firstAttribute="height" constant="210" id="w4w-t5-aYL"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cva-Cd-dsV">
-                                                <rect key="frame" x="0.0" y="165" width="375" height="650"/>
+                                                <rect key="frame" x="0.0" y="210" width="375" height="650"/>
                                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="650" id="CQy-yU-hUq"/>
@@ -191,7 +191,7 @@
         <!--Navigation Controller-->
         <scene sceneID="HFc-CP-y4y">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VuW-EC-f7b" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="VuW-EC-f7b" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="V50-JA-Qwb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -208,7 +208,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Placeholder" width="340" height="148"/>
+        <image name="Happy" width="1280" height="720"/>
         <image name="addPhoto" width="36" height="36"/>
         <image name="tutorial" width="36" height="36"/>
     </resources>
