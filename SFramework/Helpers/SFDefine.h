@@ -195,3 +195,16 @@ static inline NSDictionary *dictionaryWithIDArray(id *array, NSUInteger count) {
     }
     return [NSDictionary dictionaryWithObjects: objs forKeys: keys count: count];
 }
+
+
+
+
+// MARK: - SFCarousel
+
+#define SFCarouselImagesDirectory              [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) lastObject] \
+stringByAppendingPathComponent:NSStringFromClass([self class])]
+
+#define SFCarouselImageName(URLString)          [URLString lastPathComponent]
+#define SFCarouselImagePath(URLString)          [SFCarouselImagesDirectory stringByAppendingPathComponent:SFCarouselImageName(URLString)]
+
+

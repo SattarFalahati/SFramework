@@ -29,7 +29,6 @@
 
     // Original height
     self.originalHeight = self.constraintHeight;
-
 }
 
 - (void)parallaxWithScroll:(UIScrollView *)scrollView
@@ -38,7 +37,7 @@
     CGFloat offset = scrollView.contentOffset.y;
     CGFloat height = self.originalHeight - offset;
     
-     NSLog(@"height == %f", height);
+//     NSLog(@"height == %f", height);
 //     NSLog(@"offset == %f", offset);
     
     self.topConstraint.constant = offset;
@@ -50,8 +49,6 @@
         self.heightConstraint.constant = 0;
     }
 }
-
-
 
 
 @end

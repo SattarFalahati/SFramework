@@ -34,5 +34,6 @@
 #import "SFInAppNotification.h"
 #import "SFDate.h"
 #import "SFParallaxView.h"
+#import "SFCarousel.h"
 
 #endif /* SFImports_h */

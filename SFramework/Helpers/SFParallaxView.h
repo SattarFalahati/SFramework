@@ -15,7 +15,7 @@
  *
  * How it works ? 
  * Create a view in storyboard and set the Custom class to SFParallaxView then set constriants (Top, Bottom, left, right, height) in 'viewDidLoaed' call 'setupParallaxView' and in scrollview delegate method (scrollViewDidScroll) call 'parallaxWithScroll:scrollView'
- * In case you want to have an image in this view insert imageView (from stroyboard) into SFParallaxView then add constraint (Bottom, left, right, equal height to the SFParallaxView.
+ * In case you want to have an image in this view insert imageView Or SFcarousel (from stroyboard) into SFParallaxView then add constraint (Bottom, left, right, equal height to the SFParallaxView.
  *
  * TIPS: 1) Don't forget about clip to bounds and aspect fill for image
          2) Don't set topConstraint for image to the SFParallaxView.
