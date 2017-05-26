@@ -41,10 +41,10 @@
 // Initial dictionary
 - (NSMutableDictionary *)dicRedownloadManager
 {
-    if (!self.dicRedownloadManager) {
-        self.dicRedownloadManager = [NSMutableDictionary dictionary];
+    if (!_dicRedownloadManager) {
+        _dicRedownloadManager = [NSMutableDictionary dictionary];
     }
-    return self.dicRedownloadManager;
+    return _dicRedownloadManager;
 }
 
 - (instancetype)init

@@ -41,7 +41,8 @@
 // MARK: - Navigation Bar
 
 + (nonnull UIBarButtonItem *)barButtonItemWithImageName:(nonnull NSString *)imageName forTarget:(nonnull id)target andselector:(nonnull SEL)selector;
-+ (void)setupNavigationBarWithBackgroundColor:(nonnull UIColor *)bgColor WithFontName:(nonnull UIFont *)font andfontColor:(nonnull UIColor *)fontColor;
++ (void)setupNavigationBarWithBackgroundColor:(nonnull UIColor *)bgColor withFontName:(nonnull UIFont *)font andfontColor:(nonnull UIColor *)fontColor;
++ (void)setupNavigationBarButtonItemWithColor:(nonnull UIColor *)color withFontName:(nonnull UIFont *)font;
 + (void)customNavigationController:(nonnull UINavigationController *)navigationBar forTarget:(nonnull id)target setBackgroundColor:(nonnull UIColor *)bgColor withPageTitle:(nonnull NSString *)title WithFontName:(nullable UIFont *)font andfontColor:(nullable UIColor *)fontColor;
 + (void)setImageForNavigationItem:(nonnull UINavigationItem *)navItem forTarget:(nonnull id)target;
 
@@ -62,6 +63,12 @@
 
 /// Use this method to hide tab bar controller with animation
 + (void)setTabBarController:(nonnull UITabBarController *)taBarController hidden:(BOOL)tabBarHidden animated:(BOOL)animated;
+
+/// Usi this methiod in app delegate to have general tabbar appearance
++ (void)setTabBarWithShadowImage:(nullable UIImage *)imgShadow withBackgroundImage:(nullable UIImage *)imgBackground withBackgroundColor:(nullable UIColor *)bgColor withBarTintColor:(nullable UIColor *)barTintColor withTintColor:(nullable UIColor *)tintColor;
+
+/// Change tabbar text color base on state
++ (void)setTabBarItemColor:(nullable UIColor *)color forState:(UIControlState)state;
 
 // MARK: - Phone call
 

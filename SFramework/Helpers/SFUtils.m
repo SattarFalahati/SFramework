@@ -114,7 +114,7 @@
 /*************************
  Call this method only in AppDelegate for having general NavigationBar
  *************************/
-+ (void)setupNavigationBarWithBackgroundColor:(UIColor *)bgColor WithFontName:(UIFont *)font andfontColor:(UIColor *)fontColor
++ (void)setupNavigationBarWithBackgroundColor:(UIColor *)bgColor withFontName:(UIFont *)font andfontColor:(UIColor *)fontColor
 {
     [[UINavigationBar appearance] setTranslucent:NO];
     [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
@@ -129,6 +129,16 @@
     // Set Background color
     UIImage *image = [SFImage imageWithColor:bgColor];
     [[UINavigationBar appearance] setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+}
+
+/*************************
+ Call this method only in AppDelegate for having general NavigationBarButtonItem
+ *************************/
+
++ (void)setupNavigationBarButtonItemWithColor:(UIColor *)color withFontName:(UIFont *)font
+{
+    NSDictionary *attributiNavigationItem = @{NSForegroundColorAttributeName:color, NSFontAttributeName:font};
+    [[UIBarButtonItem appearance] setTitleTextAttributes:attributiNavigationItem forState:UIControlStateNormal];
 }
 
 /*************************
@@ -267,6 +277,21 @@
     } completion:^(BOOL finished) {
         // DO STH IF NEEDED
     }];
+}
+
++ (void)setTabBarWithShadowImage:(UIImage *)imgShadow withBackgroundImage:(UIImage *)imgBackground withBackgroundColor:(UIColor *)bgColor withBarTintColor:(UIColor *)barTintColor withTintColor:(UIColor *)tintColor
+{
+    // TabBar
+    [[UITabBar appearance] setShadowImage:imgShadow];
+    [[UITabBar appearance] setBackgroundColor:bgColor];
+    [[UITabBar appearance] setBackgroundImage:imgBackground];
+    [[UITabBar appearance] setBarTintColor:barTintColor];
+    [[UITabBar appearance] setTintColor:tintColor];
+}
+
++ (void)setTabBarItemColor:(UIColor *)color forState:(UIControlState)state
+{
+    [[UITabBarItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName :color} forState: state];
 }
 
 // MARK: - Phone call
