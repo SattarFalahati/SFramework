@@ -22,6 +22,7 @@
 		65C0ECAA1B2183C4AD05AFC6 /* Pods_SFramework_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD9FAC803535BD7CBF20EEAD /* Pods_SFramework_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		D79CA083484E1B49CE90F5CF /* Pods_SFramework_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAFFA7F951885E50A0613E7A /* Pods_SFramework_Example.framework */; };
+		DC81CCF81F0E7441002DF609 /* SFImagePickerPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = DC81CCF71F0E7441002DF609 /* SFImagePickerPreview.m */; };
 		F54C9DAA1E8B0D16005DA8AC /* ImagePicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F54C9DA51E8B0D16005DA8AC /* ImagePicker.storyboard */; };
 		F54C9DAB1E8B0D16005DA8AC /* SFImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = F54C9DA71E8B0D16005DA8AC /* SFImagePicker.m */; };
 		F54C9DAC1E8B0D16005DA8AC /* SFImagePickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54C9DA91E8B0D16005DA8AC /* SFImagePickerCell.m */; };
@@ -71,6 +72,8 @@
 		A644253AD9D1C9C9C9D8F39A /* Pods-SFramework_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFramework_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SFramework_Tests/Pods-SFramework_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		AAFFA7F951885E50A0613E7A /* Pods_SFramework_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SFramework_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3FD28D8149C938F65D38C3 /* Pods-SFramework_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SFramework_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-SFramework_Example/Pods-SFramework_Example.release.xcconfig"; sourceTree = "<group>"; };
+		DC81CCF61F0E7441002DF609 /* SFImagePickerPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFImagePickerPreview.h; sourceTree = "<group>"; };
+		DC81CCF71F0E7441002DF609 /* SFImagePickerPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFImagePickerPreview.m; sourceTree = "<group>"; };
 		DD9FAC803535BD7CBF20EEAD /* Pods_SFramework_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SFramework_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F54C9DA51E8B0D16005DA8AC /* ImagePicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ImagePicker.storyboard; sourceTree = "<group>"; };
 		F54C9DA61E8B0D16005DA8AC /* SFImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFImagePicker.h; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 				F54C9DA51E8B0D16005DA8AC /* ImagePicker.storyboard */,
 				F54C9DA61E8B0D16005DA8AC /* SFImagePicker.h */,
 				F54C9DA71E8B0D16005DA8AC /* SFImagePicker.m */,
+				DC81CCF61F0E7441002DF609 /* SFImagePickerPreview.h */,
+				DC81CCF71F0E7441002DF609 /* SFImagePickerPreview.m */,
 				F54C9DA81E8B0D16005DA8AC /* SFImagePickerCell.h */,
 				F54C9DA91E8B0D16005DA8AC /* SFImagePickerCell.m */,
 			);
@@ -294,7 +299,7 @@
 				ORGANIZATIONNAME = sattar_falahati;
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
-						DevelopmentTeam = KJZ4HXSGV8;
+						DevelopmentTeam = F34AC6Q5BM;
 						ProvisioningStyle = Automatic;
 					};
 					6003F5AD195388D20070C39A = {
@@ -450,6 +455,7 @@
 				F54C9DAC1E8B0D16005DA8AC /* SFImagePickerCell.m in Sources */,
 				6003F5A7195388D20070C39A /* SFViewController.m in Sources */,
 				F54E3E651E8AC29700E939DD /* SFIntro.m in Sources */,
+				DC81CCF81F0E7441002DF609 /* SFImagePickerPreview.m in Sources */,
 				F5B1A1531EC5CC9C00989557 /* SFParallaxViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -586,7 +592,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = KJZ4HXSGV8;
+				DEVELOPMENT_TEAM = F34AC6Q5BM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SFramework/SFramework-Prefix.pch";
 				INFOPLIST_FILE = "SFramework/SFramework-Info.plist";
@@ -605,7 +611,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = KJZ4HXSGV8;
+				DEVELOPMENT_TEAM = F34AC6Q5BM;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SFramework/SFramework-Prefix.pch";
 				INFOPLIST_FILE = "SFramework/SFramework-Info.plist";

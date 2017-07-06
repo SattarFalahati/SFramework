@@ -92,6 +92,8 @@
 #define NUM_FLOAT(float)                                    [NSNumber numberWithFloat:float]
 #define NUM_BOOL(bool)                                      [NSNumber numberWithBool:bool]
 
+#define BETWEEN(value, min, max)                            (value < max && value > min)
+
 #define CENTER_VERTICALLY(parent,child)                     floor((parent.frame.size.height - child.frame.size.height) / 2)
 #define CENTER_HORIZONTALLY(parent,child)                   floor((parent.frame.size.width - child.frame.size.width) / 2)
 #define CENTER_IN_PARENT(parent,childWidth,childHeight)     CGPointMake(floor((parent.frame.size.width - childWidth) / 2),floor((parent.frame.size.height - childHeight) / 2))
