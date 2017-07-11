@@ -14,9 +14,14 @@
 
 + (UIColor *)colorWithHexString:(NSString *)strHex
 {
+    return [self colorWithHexString:strHex withAlpha:1.0f];
+}
+
++ (UIColor *)colorWithHexString:(NSString *)strHex withAlpha:(CGFloat)opacity
+{
     NSString *strColor = [[strHex stringByReplacingOccurrencesOfString:@"#" withString:@""] uppercaseString];
     
-    CGFloat alpha = 1.0;
+    CGFloat alpha = opacity;
     CGFloat red = 0.0;
     CGFloat blue = 0.0;
     CGFloat green = 0.0;
@@ -28,7 +33,6 @@
             
         case 3:
             // #RGB
-            alpha = 1.0;
             red   = [self colorComponentFrom:strColor start:0 length:1];
             green = [self colorComponentFrom:strColor start:1 length:1];
             blue  = [self colorComponentFrom:strColor start:2 length:1];
@@ -36,7 +40,6 @@
             
         case 4:
             // #ARGB
-            alpha = [self colorComponentFrom:strColor start:0 length:1];
             red   = [self colorComponentFrom:strColor start:1 length:1];
             green = [self colorComponentFrom:strColor start:2 length:1];
             blue  = [self colorComponentFrom:strColor start:3 length:1];
@@ -44,7 +47,6 @@
             
         case 6:
             // #RRGGBB
-            alpha = 1.0;
             red   = [self colorComponentFrom:strColor start:0 length:2];
             green = [self colorComponentFrom:strColor start:2 length:2];
             blue  = [self colorComponentFrom:strColor start:4 length:2];
@@ -52,7 +54,6 @@
             
         case 8:
             // #AARRGGBB
-            alpha = [self colorComponentFrom:strColor start:0 length:2];
             red   = [self colorComponentFrom:strColor start:2 length:2];
             green = [self colorComponentFrom:strColor start:4 length:2];
             blue  = [self colorComponentFrom:strColor start:6 length:2];

@@ -106,7 +106,6 @@
 {
     [super viewWillAppear:animated];
     
-    
     // Set Preview vontainer hidden
     self.viewContainer.hidden = YES;
 }
@@ -410,10 +409,6 @@
 - (IBAction)btnCapturePhoto:(id)sender
 {
     [self capturePhoto];
-
-    [self captureOutputImageWithCompletionBlock:^(UIImage *image) {
-        [self photoSelected:image];
-    }];
 }
 
 - (IBAction)btnResizeCollection:(id)sender

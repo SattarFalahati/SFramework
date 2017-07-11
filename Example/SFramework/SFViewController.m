@@ -87,7 +87,7 @@
 {
     // SFColor (ways to set color)
     [self.view setBackgroundColor:RGB(151, 127, 45)];
-    // [self.view setBackgroundColor:[UIColor colorWithHexString:@"#afeeee"]];
+//    [self.view setBackgroundColor:[UIColor colorWithHexString:@"#afeeee" withAlpha:0.5F]];
     
     // SFLable
     [self.lblTitle setAttributedTextWithString:@"  Wellcome to SFramework  " withBaseFont:[UIFont systemFontOfSize:13] andBaseColor:[UIColor whiteColor] withAttributedString:@"SFramework" withAttributedFont:[UIFont boldSystemFontOfSize:15] andAttributedColor:[UIColor redColor]];
@@ -99,7 +99,7 @@
     
     [self.btnActionSheet setAttributedTitleWithString:@"  Open SFActionSheet  " withBaseFont:[UIFont systemFontOfSize:13] andBaseColor:RGB(151, 127, 45) withAttributedString:@"SFActionSheet" withAttributedFont:[UIFont boldSystemFontOfSize:15] andAttributedColor:[UIColor colorWithHexString:@"#afeeee"] forState:UIControlStateNormal];
     
-    [self.btnActionSheet setBackgroundColor:RGBA(0, 0, 0, 0.8)];
+    [self.btnActionSheet setBackgroundColor:[UIColor colorWithHexString:@"#000000" withAlpha:.7]];
     [self.btnActionSheet addCornerRadius:5];
     self.btnActionSheet.option = SFButtonBounce; // To animate
     

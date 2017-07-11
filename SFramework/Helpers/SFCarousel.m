@@ -343,8 +343,8 @@
 
 - (void)didTapCurrentImageView
 {
-    if ([self.delegate respondsToSelector:@selector(imageCarouselViewDidSelectImageAtIndex:)]) {
-        [self.delegate imageCarouselViewDidSelectImageAtIndex:self.currentIndex];
+    if ([self.delegate respondsToSelector:@selector(carouselViewDidSelectImageAtIndex:)]) {
+        [self.delegate carouselViewDidSelectImageAtIndex:self.currentIndex];
     }
 }
 

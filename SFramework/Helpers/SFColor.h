@@ -18,6 +18,9 @@
 
 @interface UIColor (SFColor)
 
+/// Create color from hex string with Alpha
++ (UIColor *)colorWithHexString:(NSString *)strHex withAlpha:(CGFloat)opacity;
+
 /// Create color from hex string
 + (UIColor *)colorWithHexString:(NSString *)strHex;
 

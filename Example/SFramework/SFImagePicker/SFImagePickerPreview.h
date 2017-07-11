@@ -24,4 +24,8 @@ typedef void(^SFImagePickerPreviewDismissHandler)(UIImage *image, BOOL retake);
 @property (nonatomic, weak) IBOutlet UIButton   *btnConfirm;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
 
+// UI For Edit
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionFilters;
+@property (nonatomic, weak) IBOutlet UIButton         *btnFilters;
+
 @end

@@ -50,7 +50,7 @@
 
 // MARK: - SFCarousel Delegate
 
-- (void)imageCarouselViewDidSelectImageAtIndex:(NSInteger)index
+- (void)carouselViewDidSelectImageAtIndex:(NSInteger)index
 {
     NSLog(@"Selected image");
 }

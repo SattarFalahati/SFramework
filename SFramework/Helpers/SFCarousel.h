@@ -58,7 +58,7 @@
 @protocol SFCarouselDelegate <NSObject>
 
 // Use this to handle the selected image
-- (void)imageCarouselViewDidSelectImageAtIndex:(NSInteger)index;
+- (void)carouselViewDidSelectImageAtIndex:(NSInteger)index;
 
 @end
 
@@ -70,7 +70,6 @@
 - (void)setImageArrary:(NSArray *)arrImages withPlaceholderImage:(UIImage *)imgPlaceholder withDelegate:(id<SFCarouselDelegate>)delegate;
 
 // Options
-
 @property (nonatomic, strong) UIColor *currentPageIndicatorColor;;
 @property (nonatomic, strong) UIColor *basePageIndicatorColor;
 

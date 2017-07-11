@@ -19,7 +19,8 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Your description</string>
  * @param : Delegate (you need to set delegate to get selected photo)
- * @param : Option to chose between front and back camera
+ * @param : Option to chose between front and back camera  (default is back camera)
+ * @param : Option to show selected photo preview (default is NO)
  * @return : Selected photo in delegate
 **/
 
