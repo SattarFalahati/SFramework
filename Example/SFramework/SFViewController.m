@@ -122,10 +122,11 @@
 //        }
 //    }];
     
-//    self.imgBG.image = [UIImage gradiantImageForView:self.imgBG withColors:@[kCWhite, kCLightBlue, kCDarkBlue] withDirection:SFImageGradiantDirectionFromBottomLeftToTopRight];
-
     
-    self.imgBG.image = [UIImage generateRandomImageColor];
+    
+//    self.imgBG.image = [UIImage gradiantImageForView:self.imgBG withColors:@[kCWhite, kCLightBlue, kCDarkBlue] withDirection:SFImageGradiantDirectionFromBottomLeftToTopRight];
+    self.imgBG.image = [[UIImage imageNamed:@"colorFullLife"] imageWithGrayScaleEffect];
+//    self.imgBG.image = [UIImage generateRandomImageColor];
     
     
 //    self.imgBG.image = [UIImage combinedPhotosWithBackgroundImage:[UIImage imageNamed:@"trolltunga"] withBGImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) andTopImage:[UIImage imageNamed:@"Placeholder"]  withTopImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100) withTopImageAlpha:0.5f];
@@ -178,8 +179,8 @@
 - (IBAction)selectorBtnActionSheetDidSelect:(id)sender
 {
     // SFALertController ( action sheet type )
-    [self showActionSheet];
-    // [self initialInAppNotification];
+//    [self showActionSheet];
+     [self initialInAppNotification];
     
 }
 

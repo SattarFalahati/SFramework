@@ -285,6 +285,8 @@
 		DB71648982519BCB86F8474C6BDF33C7 /* KWBeKindOfClassMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = C064DA3D5A91482F8991DF84C72A1FC4 /* KWBeKindOfClassMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		DB721EE87F7F1053599A1F2A0750851B /* NSInvocation+OCMAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AB43E759A334487D41D748AE536BC95 /* NSInvocation+OCMAdditions.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		DB7A106243AC974FC7EBEB00B506C786 /* FBSnapshotTestCasePlatform.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A2EE241A9FE46BAF001454D35CD00FF /* FBSnapshotTestCasePlatform.m */; };
+		DC278B881F349EB000366D57 /* SFTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = DC278B861F349EB000366D57 /* SFTimer.h */; };
+		DC278B891F349EB000366D57 /* SFTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC278B871F349EB000366D57 /* SFTimer.m */; };
 		DE12A0A46797BF8060E09703E8507AEE /* KWMessagePattern.m in Sources */ = {isa = PBXBuildFile; fileRef = 4660A85C35DEAA307C6442F8D890E0B2 /* KWMessagePattern.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		DE51443F84DFFFB7633D85C257097937 /* KWBeBetweenMatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B085DC1139AE9DADBE4037167CB7821 /* KWBeBetweenMatcher.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		E102FB6604F2D85FEA78BAF91D4B97C5 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = A29E849FB091ED4B1D9989C10518C757 /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -684,6 +686,8 @@
 		DA4635303243BB5D88FF50966B3D5C6E /* KWNotificationMatcher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWNotificationMatcher.h; path = Classes/Matchers/KWNotificationMatcher.h; sourceTree = "<group>"; };
 		DA52B4DF341F4F4B2A000C289F0574EE /* Localizable.strings */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA8D1127D17AB66C4068F97C4D17192D /* KWBeZeroMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeZeroMatcher.m; path = Classes/Matchers/KWBeZeroMatcher.m; sourceTree = "<group>"; };
+		DC278B861F349EB000366D57 /* SFTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFTimer.h; sourceTree = "<group>"; };
+		DC278B871F349EB000366D57 /* SFTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFTimer.m; sourceTree = "<group>"; };
 		DD37FA5E18C44F864707DC9E4D1059F8 /* UIImage+Diff.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+Diff.h"; path = "FBSnapshotTestCase/Categories/UIImage+Diff.h"; sourceTree = "<group>"; };
 		DD426D644473F7373F5515B29C810FFB /* NSInvocation+KiwiAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSInvocation+KiwiAdditions.m"; path = "Classes/Core/NSInvocation+KiwiAdditions.m"; sourceTree = "<group>"; };
 		DD7E0FF389E9FC7EE467375EE383AD0E /* SwiftSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftSupport.swift; path = FBSnapshotTestCase/SwiftSupport.swift; sourceTree = "<group>"; };
@@ -853,6 +857,8 @@
 				2BA3FE37C65E72FE38EB1B907F0513D0 /* SFUtils.m */,
 				17DD978C349437B3678F3F3C549B090D /* SFView.h */,
 				610385AAD144EBEF96F65335122F292B /* SFView.m */,
+				DC278B861F349EB000366D57 /* SFTimer.h */,
+				DC278B871F349EB000366D57 /* SFTimer.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1452,6 +1458,7 @@
 				C5C3434FB7FB0533A136199F94877CEC /* UIActivityIndicatorView+AFNetworking.h in Headers */,
 				5F4ADB57CEB7A57AC58F1E6AAD42A72A /* UIAlertView+AFNetworking.h in Headers */,
 				B8E64C71559B3F4120760CA40C78A8A8 /* UIButton+AFNetworking.h in Headers */,
+				DC278B881F349EB000366D57 /* SFTimer.h in Headers */,
 				95B31D9D71F9E540216811163394F255 /* UIImage+AFNetworking.h in Headers */,
 				300F34DBD1EAD72F220D42721638201C /* UIImageView+AFNetworking.h in Headers */,
 				46003CFB00EE9EDB7751E5D9515CC8D4 /* UIKit+AFNetworking.h in Headers */,
@@ -1927,6 +1934,7 @@
 				2ED997B259CF87164EB742D3C6E3C670 /* AFURLResponseSerialization.m in Sources */,
 				8634FF44ABEFF40B5D561593B24C9B1E /* AFURLSessionManager.m in Sources */,
 				59B5809E8E97F19BCDF9B18278740A6B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
+				DC278B891F349EB000366D57 /* SFTimer.m in Sources */,
 				23F62266558CF7EA25B7AE2C7E75E67F /* UIAlertView+AFNetworking.m in Sources */,
 				7A6F8593BBD598773DCC198202C35A7F /* UIButton+AFNetworking.m in Sources */,
 				1D974D4F7BB49961BF96F2A9084B4812 /* UIImageView+AFNetworking.m in Sources */,

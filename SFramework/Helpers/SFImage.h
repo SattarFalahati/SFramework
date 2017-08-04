@@ -79,4 +79,11 @@ typedef NS_ENUM(NSUInteger, SFImageGradiantDirection) {
  */
 + (nonnull UIImage *)generateRandomImageColor;
 
+/**
+ * Generate Image with effects
+ */
+
+/// To have Image with grayScake (black & whit) use this metthod
+- (UIImage *_Nullable)imageWithGrayScaleEffect;
+
 @end
