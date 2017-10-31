@@ -81,3 +81,12 @@
 + (void)openWebPage:(nonnull NSString *)strURL;
 
 @end
+
+// MARK: - NUMBERs
+
+@interface NSNumber (SFNumber)
+
+/// Use this to convert Negative Number To a Positive Number
+- (nonnull NSNumber *)convertNegativeNumberToPositiveNumber;
+
+@end

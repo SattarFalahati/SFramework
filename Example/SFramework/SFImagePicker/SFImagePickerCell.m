@@ -10,8 +10,4 @@
 
 @implementation SFImagePickerCell
 
-- (void)awakeFromNib
-{
-    [super awakeFromNib];
-}
 @end

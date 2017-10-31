@@ -12,6 +12,7 @@
 
 #import "SFAlertController.h"
 #import "SFButton.h"
+#import "SFCarousel.h"
 #import "SFColor.h"
 #import "SFConstants.h"
 #import "SFConstraints.h"
@@ -30,6 +31,7 @@
 #import "SFProgressHUD.h"
 #import "SFString.h"
 #import "SFTableView.h"
+#import "SFTimer.h"
 #import "SFUtils.h"
 #import "SFView.h"
 

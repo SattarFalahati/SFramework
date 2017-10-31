@@ -452,4 +452,16 @@
     return [self stringByReplacingOccurrencesOfString:removeString withString:@""];
 }
 
+- (NSString *)capitalizedFirstLetter
+{
+    NSString *retVal;
+    if (self.length < 2) {
+        retVal = self.capitalizedString;
+    }
+    else {
+        retVal = [NSString stringWithFormat:@"%@%@",[[self safeSubstringToIndex:1] uppercaseString],[self substringFromIndex:1]];
+    }
+    return retVal;
+}
+
 @end

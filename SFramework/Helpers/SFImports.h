@@ -35,5 +35,6 @@
 #import "SFDate.h"
 #import "SFParallaxView.h"
 #import "SFCarousel.h"
+#import "SFTimer.h"
 
 #endif /* SFImports_h */

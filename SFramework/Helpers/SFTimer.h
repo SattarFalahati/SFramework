@@ -12,7 +12,8 @@
 
 @interface NSTimer (SFTimer)
 
-+ (id)scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval blockOfFunctions:(void (^)())inBlock repeats:(BOOL)repeat;
-+ (id)timerWithTimeInterval:(NSTimeInterval)inTimeInterval blockOfFunctions:(void (^)())inBlock repeats:(BOOL)repeat;
+/// Use this methods for ios 8 to 10. from iOS 10 above use the native method. 
++ (id)scheduledTimerWithTimeInterval:(NSTimeInterval)inTimeInterval repeats:(BOOL)repeat blockOfFunctions:(void (^)())inBlock;
++ (id)timerWithTimeInterval:(NSTimeInterval)inTimeInterval repeats:(BOOL)repeat blockOfFunctions:(void (^)())inBlock;
 
 @end

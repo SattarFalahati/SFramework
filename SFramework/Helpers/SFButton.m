@@ -14,7 +14,6 @@
 // Set animation duration
 const CGFloat bounceAnimationDuration = 0.10;
 
-
 @implementation SFButton
 
 - (instancetype)init

@@ -335,6 +335,8 @@
 
 // MARK: Effects on image
 
+// https://developer.apple.com/library/content/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html#//apple_ref/doc/filter/ci/CIColorClamp
+
 - (UIImage *)imageWithGrayScaleEffect
 {
     UIImage *newImage;
@@ -359,12 +361,101 @@
         
         // Create a new UIImage object
         newImage = [UIImage imageWithCGImage:imageRef];
+        
+        // Release colorspace, context and bitmap information
+        CGColorSpaceRelease(colorSpace);
+        CGContextRelease(context);
+        CFRelease(imageRef);
     }
     
     // Return the new grayscale image
     return newImage;
 }
 
+- (UIImage *)filterEffectsOnImageWithFillterType:(SFImageFilterType)type
+{
+    UIImage *newImage;
+    @autoreleasepool
+    {
+        // Get Orientation
+        UIImageOrientation orientation = self.imageOrientation;
+        
+        // Create CI Image
+        CIImage *img = [CIImage imageWithCGImage:self.CGImage];
+        
+        // Create Context
+        CIContext *context = [CIContext contextWithOptions:nil];
+        
+        // Create Filter and options
+        CIFilter *filter = [self filterWithType:type];
+        [filter setValue:img forKey:kCIInputImageKey];
+        
+        // Get Output image
+        CIImage *outputImage = [filter outputImage];
+        
+        // Get image
+        CGImageRef cgImg = [context createCGImage:outputImage fromRect:[outputImage extent]];
+        newImage = [UIImage imageWithCGImage:cgImg scale:1.0 orientation:orientation];
+        
+        // Release
+        CGImageRelease(cgImg);
+        context = nil;
+    }
+    return newImage;
+}
+
+- (CIFilter *)filterWithType:(SFImageFilterType)type
+{
+    // Create Filter and options
+    if (type == SFImageFilterType_Sepia) {
+        CIFilter *filter = [CIFilter filterWithName:@"CISepiaTone"];
+        NSNumber *scale = [NSNumber numberWithFloat:0.6];
+        [filter setValue:scale forKey:@"inputIntensity"];
+        return filter;
+    }
+    else if (type == SFImageFilterType_Blur) {
+        CIFilter *filter = [CIFilter filterWithName:@"CIBoxBlur"];
+        NSNumber *scale = [NSNumber numberWithFloat:50];
+        [filter setValue:scale forKey:@"inputRadius"];
+        return filter;
+    }
+    else if (type == SFImageFilterType_Clamp) {
+        CIFilter *filter = [CIFilter filterWithName:@"CIColorClamp"];
+        CIVector *extentMin = [CIVector vectorWithX:-0.1 Y:-0.1 Z:-0.1 W:-0.1];
+        CIVector *extentMax = [CIVector vectorWithX:0.7 Y:0.7 Z:0.7 W:0.7];
+        [filter setValue:extentMin forKey:@"inputMinComponents"];
+        [filter setValue:extentMax forKey:@"inputMaxComponents"];
+        
+        return filter;
+    }
+    else if (type == SFImageFilterType_Adjust) {
+        CIFilter *filter = [CIFilter filterWithName:@"CIExposureAdjust"];
+        NSNumber *scale = [NSNumber numberWithFloat:0.99];
+        [filter setValue:scale forKey:@"inputEV"];
+        return filter;
+    }
+    else if (type == SFImageFilterType_ToneCurve) {
+        CIFilter *filter = [CIFilter filterWithName:@"CILinearToSRGBToneCurve"];
+        return filter;
+    }
+    else if (type == SFImageFilterType_Hot) {
+        CIFilter *filter = [CIFilter filterWithName:@"CITemperatureAndTint"];
+        CIVector *inputNeutral = [CIVector vectorWithX:6500 Y:500];
+        CIVector *inputTargetNeutral = [CIVector vectorWithX:4000 Y:0];
+        [filter setValue:inputNeutral forKey:@"inputNeutral"]; // Default value: [6500, 0] Identity: [6500, 0]
+        [filter setValue:inputTargetNeutral forKey:@"inputTargetNeutral"]; // Default value: [6500, 0] Identity: [6500, 0]
+        return filter;
+    }
+    else if (type == SFImageFilterType_Transfer) {
+        CIFilter *filter = [CIFilter filterWithName:@"CIPhotoEffectTransfer"];
+        return filter;
+    }
+    else if (type == SFImageFilterType_Edges) {
+        CIFilter *filter = [CIFilter filterWithName:@"CIEdges"]; // Default value: 1.0
+        return filter;
+    }
+    return nil;
+}
 
 
 @end

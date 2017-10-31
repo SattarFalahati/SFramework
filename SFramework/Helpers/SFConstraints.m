@@ -90,11 +90,31 @@
     
     if (constraint) {
         constraint.constant = value;
-     
+        
         [self setNeedsUpdateConstraints];
         [self updateConstraintsIfNeeded];
         [self setNeedsLayout];
         [self layoutIfNeeded];
+    }
+}
+
+- (void)setConstraintValue:(CGFloat)value withAttribute:(NSLayoutAttribute)attribute animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    NSLayoutConstraint *constraint = [self constraintWithAttribute:attribute];
+    
+    if (constraint) {
+        constraint.constant = value;
+        
+        [UIView animateWithDuration:duration animations:^{
+            
+            [[self superview] setNeedsUpdateConstraints];
+            [[self superview] updateConstraintsIfNeeded];
+            [[self superview] setNeedsLayout];
+            [[self superview] layoutIfNeeded];
+            
+        } completion:^(BOOL finished) {
+            if (compilationBlock) compilationBlock();
+        }];
     }
 }
 
@@ -201,6 +221,78 @@
 - (void)setConstraintCentrY:(CGFloat)constraintCentrY
 {
     [self setConstraintValue:constraintCentrY withAttribute:NSLayoutAttributeCenterY];
+}
+
+// MARK: - Autolayout Setter with animation
+
+- (void)setConstraintHeight:(CGFloat)constraintHeight animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintValue:constraintHeight withAttribute:NSLayoutAttributeHeight animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintWidth:(CGFloat)constraintWidth animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintValue:constraintWidth withAttribute:NSLayoutAttributeWidth animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintTop:(CGFloat)constraintTop animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintValue:constraintTop withAttribute:NSLayoutAttributeTop animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintBottom:(CGFloat)constraintBottom animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintValue:constraintBottom withAttribute:NSLayoutAttributeBottom animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintLeft:(CGFloat)constraintLeft animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintLeading:constraintLeft animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintRight:(CGFloat)constraintRight animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintTrailing:duration animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintLeading:(CGFloat)constraintLeading animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintValue:constraintLeading withAttribute:NSLayoutAttributeLeading animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintTrailing:(CGFloat)constraintTrailing animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintValue:constraintTrailing withAttribute:NSLayoutAttributeTrailing animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintCentrX:(CGFloat)constraintCentrX animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintValue:constraintCentrX withAttribute:NSLayoutAttributeCenterX animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
+}
+
+- (void)setConstraintCentrY:(CGFloat)constraintCentrY animatedWithDuration:(NSTimeInterval)duration withCompletionBlock:(SFConstraintCompletionBlock)compilationBlock
+{
+    [self setConstraintValue:constraintCentrY withAttribute:NSLayoutAttributeCenterY animatedWithDuration:duration withCompletionBlock:^{
+        if (compilationBlock) compilationBlock();
+    }];
 }
 
 @end

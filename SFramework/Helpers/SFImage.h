@@ -23,6 +23,24 @@ typedef NS_ENUM(NSUInteger, SFImageGradiantDirection) {
 };
 
 
+/**
+ * Image effects type
+ */
+typedef NS_ENUM(NSUInteger, SFImageFilterType) {
+    SFImageFilterType_None = 0,
+    SFImageFilterType_GreyScale,
+    SFImageFilterType_Sepia,
+    SFImageFilterType_Blur,
+    SFImageFilterType_Clamp,
+    SFImageFilterType_Adjust,
+    SFImageFilterType_ToneCurve,
+    SFImageFilterType_Hot,
+    SFImageFilterType_Transfer,
+    SFImageFilterType_Edges
+};
+
+
+
 @interface SFImage : UIImage
 
 /// Create image from color
@@ -84,6 +102,9 @@ typedef NS_ENUM(NSUInteger, SFImageGradiantDirection) {
  */
 
 /// To have Image with grayScake (black & whit) use this metthod
-- (UIImage *_Nullable)imageWithGrayScaleEffect;
+- (nonnull UIImage *)imageWithGrayScaleEffect;
+
+/// Set diffrent image filter effects using SFImageFilterType
+- (nonnull UIImage *)filterEffectsOnImageWithFillterType:(SFImageFilterType)type;
 
 @end

@@ -120,7 +120,6 @@
     [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
     
-    // FIXME dellet comments if you have text title for your page
     // Set txt font , dont size and color
     [[UINavigationBar appearance] setTitleTextAttributes:@{
                                                            NSForegroundColorAttributeName: fontColor,
@@ -326,4 +325,24 @@
         [[UIApplication sharedApplication] openURL:URL];
     }
 }
+
+@end
+
+// MARK: - NSNUMBER
+
+@implementation NSNumber (SFNumber)
+
+- (NSNumber *)convertNegativeNumberToPositiveNumber
+{
+    CGFloat numb = self.floatValue;
+    
+    if (numb < 0) {
+        // Since number is negative, lets try to
+        // minus minus the number and make it positive.
+        numb = (0 - numb);
+    }
+
+    return [NSNumber numberWithFloat:numb];
+}
+
 @end

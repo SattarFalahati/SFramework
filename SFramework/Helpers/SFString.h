@@ -155,5 +155,7 @@
  */
 - (NSString *)stringByRemovingOccurrencesOfString:(NSString *)removeString;
 
+/// Capitalized ONLY first letter
+- (NSString *)capitalizedFirstLetter;
 
 @end

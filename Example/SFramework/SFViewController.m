@@ -23,6 +23,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
+    SFButton *btn = [SFButton new];
     
     [self applyCustomGraphic];
     
@@ -87,7 +89,7 @@
 {
     // SFColor (ways to set color)
     [self.view setBackgroundColor:RGB(151, 127, 45)];
-//    [self.view setBackgroundColor:[UIColor colorWithHexString:@"#afeeee" withAlpha:0.5F]];
+    //    [self.view setBackgroundColor:[UIColor colorWithHexString:@"#afeeee" withAlpha:0.5F]];
     
     // SFLable
     [self.lblTitle setAttributedTextWithString:@"  Wellcome to SFramework  " withBaseFont:[UIFont systemFontOfSize:13] andBaseColor:[UIColor whiteColor] withAttributedString:@"SFramework" withAttributedFont:[UIFont boldSystemFontOfSize:15] andAttributedColor:[UIColor redColor]];
@@ -101,77 +103,83 @@
     
     [self.btnActionSheet setBackgroundColor:[UIColor colorWithHexString:@"#000000" withAlpha:.7]];
     [self.btnActionSheet addCornerRadius:5];
-    self.btnActionSheet.option = SFButtonBounce; // To animate
+//    self.btnActionSheet.option = SFButtonBounce; // To animate
     
-    self.btnGallery.option = SFButtonBounce;
+//    self.btnGallery.option = SFButtonBounce;
     self.btnGallery.backgroundColor = RGBA(0, 0, 0, 0.5);
     [self.btnGallery makeViewCircular];
     
-    self.btnIntro.option = SFButtonNormal;
+//    self.btnIntro.option = SFButtonNormal;
     self.btnIntro.backgroundColor = RGBA(0, 0, 0, 0.5);
     [self.btnIntro makeViewCircular];
     
     // SFImageView (SFNetworking)
-//    NSString *strImg = @"https://www.campsites.co.uk/getupload/campsite/20979/9edb6e5b-3789-423c-8cc4-5d267d451546/700/-/width/cobleland-campsite.jpg";
+    //    NSString *strImg = @"https://www.campsites.co.uk/getupload/campsite/20979/9edb6e5b-3789-423c-8cc4-5d267d451546/700/-/width/cobleland-campsite.jpg";
     
-//    [self.imgBG setImageWithURLString:strImg withPlaceholderImage:[UIImage imageNamed:@"Placeholder"] withActivityIndicator:nil withCompletionBlock:^(BOOL succeed, UIImage * _Nullable image) {
-//        
-//        // Do sth if needed
-//        if (succeed) {
-//            [self.imgBG setImage:image];
-//        }
-//    }];
+    //    [self.imgBG setImageWithURLString:strImg withPlaceholderImage:[UIImage imageNamed:@"Placeholder"] withActivityIndicator:nil withCompletionBlock:^(BOOL succeed, UIImage * _Nullable image) {
+    //
+    //        // Do sth if needed
+    //        if (succeed) {
+    //            [self.imgBG setImage:image];
+    //        }
+    //    }];
+    
+    self.imgBG.image = [[UIImage imageNamed:@"colorFullLife"] filterEffectsOnImageWithFillterType:SFImageFilterType_Blur];
+    [NSTimer scheduledTimerWithTimeInterval:2 repeats:NO blockOfFunctions:^{
+        self.imgBG.image = [UIImage generateRandomImageColor];
+        
+        [self.btnActionSheet setConstraintHeight:120 animatedWithDuration:1.20 withCompletionBlock:^{
+            NSLog(@"DONE TTT");
+        }];
+        
+    }];
     
     
+    //    self.imgBG.image = [UIImage gradiantImageForView:self.imgBG withColors:@[kCWhite, kCLightBlue, kCDarkBlue] withDirection:SFImageGradiantDirectionFromBottomLeftToTopRight];
     
-//    self.imgBG.image = [UIImage gradiantImageForView:self.imgBG withColors:@[kCWhite, kCLightBlue, kCDarkBlue] withDirection:SFImageGradiantDirectionFromBottomLeftToTopRight];
-    self.imgBG.image = [[UIImage imageNamed:@"colorFullLife"] imageWithGrayScaleEffect];
-//    self.imgBG.image = [UIImage generateRandomImageColor];
-    
-    
-//    self.imgBG.image = [UIImage combinedPhotosWithBackgroundImage:[UIImage imageNamed:@"trolltunga"] withBGImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) andTopImage:[UIImage imageNamed:@"Placeholder"]  withTopImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100) withTopImageAlpha:0.5f];
+    //    self.imgBG.image = [UIImage combinedPhotosWithBackgroundImage:[UIImage imageNamed:@"trolltunga"] withBGImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) andTopImage:[UIImage imageNamed:@"Placeholder"]  withTopImageFrame:CGRectMake(0, 0, SCREEN_WIDTH, 100) withTopImageAlpha:0.5f];
     
     
     /// Constraints
-    self.btnActionSheet.constraintHeight = 55;
+    //    self.btnActionSheet.constraintHeight = 55;
     
     // Btn Parallax
-    self.btnOpenParallax.option = SFButtonBounce;
+//    self.btnOpenParallax.option = SFButtonBounce;
     self.btnOpenParallax.backgroundColor = RGBA(0, 0, 0, 0.5);
     [self.btnOpenParallax addCornerRadius:self.btnOpenParallax.frame.size.height /2];
-
-
+    
+    
 }
 
 // MARK: SFNetworking
 
 - (void)testNetworkConnection
 {
-    if (![SFNetworking isNetworkStatusActive]) {
-        [SFAlertController showAlertNetworkIsNotConnectOnTarget:self withRetryBlock:^{
-            [self testNetworkConnection];
-        } withCancelBlock:^{
-            // Do sth if needed
-        }];
-        return;
-    }
+//    if (![SFNetworking isNetworkStatusActive]) {
+//        [SFAlertController showAlertNetworkIsNotConnectOnTarget:self withRetryBlock:^{
+//            [self testNetworkConnection];
+//        } withCancelBlock:^{
+//            // Do sth if needed
+//        }];
+//        return;
+//    }
+//    
+//    // SFUtils (show progress hud)
+//    [SFProgressHUD showProgressHUDWithMessage:@"Loading ..." onView:self.view];
+//    
+//    NSString *strURL = @"http://jsonplaceholder.typicode.com/todos";
+//    
+//    // SFNetworking GET method
+//    [SFNetworking getRequestWithURLString:strURL withCompletionBlock:^(ErrorCode errorCode, id  _Nullable responseObject, NSError * _Nullable error) {
+//        
+//        if (errorCode == code_Success) {
+//            // NSLog(@"%@",responseObject);
+//        }
+//        
+//        // SFUtils (hide progress hud)
+//        [SFProgressHUD hideProgressHUDFromView:self.view];
+//    }];
     
-    // SFUtils (show progress hud)
-    [SFProgressHUD showProgressHUDWithMessage:@"Loading ..." onView:self.view];
-    
-    NSString *strURL = @"http://jsonplaceholder.typicode.com/todos";
-    
-    // SFNetworking GET method
-    [SFNetworking getRequestWithURLString:strURL withCompletionBlock:^(ErrorCode errorCode, id  _Nullable responseObject, NSError * _Nullable error) {
-        
-        if (errorCode == code_Success) {
-            // NSLog(@"%@",responseObject);
-        }
-        
-        // SFUtils (hide progress hud)
-        [SFProgressHUD hideProgressHUDFromView:self.view];
-    }];
-
 }
 
 // MARK: Action
@@ -179,8 +187,8 @@
 - (IBAction)selectorBtnActionSheetDidSelect:(id)sender
 {
     // SFALertController ( action sheet type )
-//    [self showActionSheet];
-     [self initialInAppNotification];
+    //    [self showActionSheet];
+    [self initialInAppNotification];
     
 }
 

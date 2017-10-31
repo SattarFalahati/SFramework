@@ -261,19 +261,20 @@
                 image = [[UIImage alloc] initWithData:imageData];
                 
                 // Image have right miror orientation when we took photo from front camera, so we need to raotat it again.
-                UIImageOrientation orient = image.imageOrientation;
-                CGImageRef imageRef = [image CGImage];
+//                UIImageOrientation orient = image.imageOrientation;
+//                CGImageRef imageRef = [image CGImage];
+//                
+//                if (self.frontCamera && orient == UIImageOrientationRight){
+//                    image = [UIImage imageWithCGImage:imageRef scale:1.0 orientation:UIImageOrientationLeftMirrored];
+//                }
                 
-                if (self.frontCamera && orient == UIImageOrientationRight){
-                    image = [UIImage imageWithCGImage:imageRef scale:1.0 orientation:UIImageOrientationLeftMirrored];
-                }
+                image = [self rotateImage:image];
             }
         }
         
         if (completionBlock) completionBlock(image);
     }];
 }
-
 
 // MARK: - Photo gallery
 
@@ -470,6 +471,36 @@
     }];
 }
 
+- (UIImage *)rotateImage:(UIImage *)src
+{
+    UIImageOrientation orientation = src.imageOrientation;
+    
+    UIGraphicsBeginImageContext(src.size);
+    
+    [src drawAtPoint:CGPointMake(0, 0)];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    if (orientation == UIImageOrientationRight) {
+        CGContextRotateCTM (context, [self radians:90]);
+    }
+    else if (orientation == UIImageOrientationLeft) {
+        CGContextRotateCTM (context, [self radians:90]);
+    }
+    else if (orientation == UIImageOrientationDown) {
+        // NOTHING
+    }
+    else if (orientation == UIImageOrientationUp) {
+        CGContextRotateCTM (context, [self radians:0]);
+    }
+    
+    return UIGraphicsGetImageFromCurrentImageContext();
+}
+
+- (CGFloat)radians:(int)degrees
+{
+    return (degrees/180)*(22/7);
+}
+
 // MARK: - Delegate
 
 - (void)photoSelected:(UIImage *)image
@@ -507,7 +538,6 @@
             
             [self closeSFImagePicker];
         }
-        
     }];
     
     [self showSelectedPhotoPreview:next];
