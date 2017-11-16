@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VuW-EC-f7b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VuW-EC-f7b">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,14 +30,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvO-T0-QfE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvO-T0-QfE" customClass="SFButton" customModule="SFButton">
                                 <rect key="frame" x="20" y="607" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IyA-ur-LQj"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="selectorBtnActionSheetDidSelect:" destination="whP-gf-Uak" eventType="touchUpInside" id="1gg-5t-FTT"/>
+                                    <action selector="selectorBtnActionSheetDidSelect:" destination="whP-gf-Uak" eventType="touchUpInside" id="8M8-NT-Lqk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZC-Uf-gAA">
@@ -95,7 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="fcz-eE-B6e"/>
                     <connections>
-                        <outlet property="btnActionSheet" destination="OvO-T0-QfE" id="wVS-kn-feg"/>
+                        <outlet property="btnActionSheet" destination="OvO-T0-QfE" id="E95-Fe-1va"/>
                         <outlet property="btnGallery" destination="ZZC-Uf-gAA" id="lqR-Nq-RvE"/>
                         <outlet property="btnIntro" destination="Fa7-vK-jue" id="dzx-Tk-KWr"/>
                         <outlet property="btnOpenParallax" destination="QkR-63-GR5" id="fy0-Re-tSg"/>

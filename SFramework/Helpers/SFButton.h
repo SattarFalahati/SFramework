@@ -12,18 +12,17 @@
 
 @interface SFButton : UIButton
 
-
 typedef NS_ENUM(NSUInteger, SFButtonOption) {
     SFButtonNormal = 1,
     SFButtonBounce
 };
 
-@property (nonatomic) SFButtonOption option;
+@property (nonatomic) IBInspectable SFButtonOption option;
 
 @end
 
 
-@interface UIButton (SFButton)
+@interface UIButton (SFButtonExtention)
 
 /// Use this when you want to have an image in top center and a title on bottom center of the button.
 - (void)centerImageAndTitle;

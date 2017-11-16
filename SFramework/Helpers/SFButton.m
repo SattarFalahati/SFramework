@@ -25,6 +25,16 @@ const CGFloat bounceAnimationDuration = 0.10;
     return self;
 }
 
+- (void)setOption:(SFButtonOption)option
+{
+    self.option = option;
+}
+
+- (SFButtonOption)option
+{
+    return self.option;
+}
+
 // MARK: - Bounce
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -83,7 +93,7 @@ const CGFloat bounceAnimationDuration = 0.10;
 @end
 
 
-@implementation UIButton (SFButton)
+@implementation UIButton (SFButtonExtention)
 
 - (void)centerImageAndTitle
 {

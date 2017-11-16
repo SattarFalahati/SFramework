@@ -23,8 +23,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
-    SFButton *btn = [SFButton new];
     
     [self applyCustomGraphic];
     
@@ -103,7 +101,8 @@
     
     [self.btnActionSheet setBackgroundColor:[UIColor colorWithHexString:@"#000000" withAlpha:.7]];
     [self.btnActionSheet addCornerRadius:5];
-//    self.btnActionSheet.option = SFButtonBounce; // To animate
+//    [self.btnActionSheet setOption: SFButtonBounce]; // To animate
+//    self.btnActionSheet.option = SFButtonBounce;
     
 //    self.btnGallery.option = SFButtonBounce;
     self.btnGallery.backgroundColor = RGBA(0, 0, 0, 0.5);
@@ -131,6 +130,10 @@
         [self.btnActionSheet setConstraintHeight:120 animatedWithDuration:1.20 withCompletionBlock:^{
             NSLog(@"DONE TTT");
         }];
+        
+    }];
+    
+    [NSTimer scheduledTimerWithTimeInterval:2 repeats:NO block:^(NSTimer * _Nonnull timer) {
         
     }];
     
