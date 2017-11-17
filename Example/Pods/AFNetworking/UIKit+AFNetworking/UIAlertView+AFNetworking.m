@@ -91,7 +91,7 @@ static void AFGetAlertViewTitleAndMessageFromError(NSError *error, NSString * __
 }
 #endif
 
-// MARK: -
+#pragma mark -
 
 + (void)showAlertViewForRequestOperationWithErrorOnCompletion:(AFURLConnectionOperation *)operation
                                                      delegate:(id)delegate

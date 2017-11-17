@@ -101,8 +101,8 @@
     
     [self.btnActionSheet setBackgroundColor:[UIColor colorWithHexString:@"#000000" withAlpha:.7]];
     [self.btnActionSheet addCornerRadius:5];
-//    [self.btnActionSheet setOption: SFButtonBounce]; // To animate
-//    self.btnActionSheet.option = SFButtonBounce;
+    [self.btnActionSheet setSFOptions: SFButtonBounce]; // To animate
+//    self.btnActionSheet.SFOptions = SFButtonBounce;
     
 //    self.btnGallery.option = SFButtonBounce;
     self.btnGallery.backgroundColor = RGBA(0, 0, 0, 0.5);

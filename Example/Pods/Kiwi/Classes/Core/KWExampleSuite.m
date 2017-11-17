@@ -52,7 +52,7 @@
     }
 }
 
-// MARK: - Example selector names
+#pragma mark - Example selector names
 
 - (NSString *)nextUniqueSelectorName:(NSString *)name {
     NSUInteger count = [(self.selectorNameCache[name] ?: @1) integerValue];
@@ -65,7 +65,7 @@
     return uniqueName;
 }
 
-// MARK: - NSFastEnumeration
+#pragma mark - NSFastEnumeration
 
 - (NSUInteger)countByEnumeratingWithState:(NSFastEnumerationState *)state objects:(__unsafe_unretained id [])buffer count:(NSUInteger)len {
     return [self.examples countByEnumeratingWithState:state objects:buffer count:len];
@@ -73,7 +73,7 @@
 
 @end
 
-// MARK: -
+#pragma mark -
 
 // because XCTest will modify the invocation target, we'll have to store
 // another reference to the example group so we can retrieve it later

@@ -32,7 +32,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
 
 @implementation KWMock
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)init {
     // May already have been initialized since stubbing -init is allowed!
@@ -153,7 +153,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
     return [[self alloc] initAsPartialMockForObject:object];
 }
 
-// MARK: - Getting Transitive Closure For Mocked Protocols
+#pragma mark - Getting Transitive Closure For Mocked Protocols
 
 - (NSSet *)mockedProtocolTransitiveClosureSet {
     if (self.mockedProtocol == nil)
@@ -183,7 +183,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
     return protocolSet;
 }
 
-// MARK: - Stubbing Methods
+#pragma mark - Stubbing Methods
 
 - (void)removeStubWithMessagePattern:(KWMessagePattern *)messagePattern {
     KWStub *stub = [self currentStubWithMessagePattern:messagePattern];
@@ -286,7 +286,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
     [self.stubs removeAllObjects];
 }
 
-// MARK: - Spying on Messages
+#pragma mark - Spying on Messages
 
 - (void)addMessageSpy:(id<KWMessageSpying>)aSpy forMessagePattern:(KWMessagePattern *)aMessagePattern {
     [self expectMessagePattern:aMessagePattern];
@@ -306,7 +306,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
     [messagePatternSpies removeObject:aSpy];
 }
 
-// MARK: - Expecting Message Patterns
+#pragma mark - Expecting Message Patterns
 
 - (void)expect:(SEL)aSelector {
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:aSelector];
@@ -330,7 +330,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
         [self.expectedMessagePatterns addObject:aMessagePattern];
 }
 
-// MARK: - Capturing Invocations
+#pragma mark - Capturing Invocations
 
 - (NSMethodSignature *)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer methodSignatureForSelector:(SEL)aSelector {
     return [self methodSignatureForSelector:aSelector];
@@ -354,7 +354,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
 }
 
 
-// MARK: - Handling Invocations
+#pragma mark - Handling Invocations
 
 - (NSString *)namePhrase {
     if (self.mockName == nil)
@@ -444,7 +444,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
 #endif // #if KW_TARGET_HAS_INVOCATION_EXCEPTION_BUG
 }
 
-// MARK: - Testing Objects
+#pragma mark - Testing Objects
 
 - (BOOL)mockedClassHasAncestorClass:(Class)aClass {
     Class currentClass = self.mockedClass;
@@ -510,7 +510,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
            [super conformsToProtocol:aProtocol];
 }
 
-// MARK: - Whitelisted NSObject Methods
+#pragma mark - Whitelisted NSObject Methods
 
 - (BOOL)isEqual:(id)anObject {
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:_cmd];
@@ -582,8 +582,8 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
     }
 }
 
-// MARK: -
-// MARK: Key-Value Coding Support
+#pragma mark -
+#pragma mark Key-Value Coding Support
 
 static id valueForKeyImplementation(id self, SEL _cmd, id key) {
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:_cmd];

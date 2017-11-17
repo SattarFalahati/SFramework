@@ -41,7 +41,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     return af_http_request_operation_completion_group;
 }
 
-// MARK: -
+#pragma mark -
 
 @interface AFURLConnectionOperation ()
 @property (readwrite, nonatomic, strong) NSURLRequest *request;
@@ -102,7 +102,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     }
 }
 
-// MARK: - AFHTTPRequestOperation
+#pragma mark - AFHTTPRequestOperation
 
 - (void)setCompletionBlockWithSuccess:(void (^)(AFHTTPRequestOperation *operation, id responseObject))success
                               failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure
@@ -148,7 +148,7 @@ static dispatch_group_t http_request_operation_completion_group() {
 #pragma clang diagnostic pop
 }
 
-// MARK: - AFURLRequestOperation
+#pragma mark - AFURLRequestOperation
 
 - (void)pause {
     [super pause];
@@ -168,7 +168,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     self.request = mutableURLRequest;
 }
 
-// MARK: - NSSecureCoding
+#pragma mark - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -191,7 +191,7 @@ static dispatch_group_t http_request_operation_completion_group() {
     [coder encodeObject:self.responseSerializer forKey:NSStringFromSelector(@selector(responseSerializer))];
 }
 
-// MARK: - NSCopying
+#pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFHTTPRequestOperation *operation = [super copyWithZone:zone];

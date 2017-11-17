@@ -17,7 +17,7 @@ static NSString * const CountKey = @"CountKey";
 
 @interface KWHaveMatcher()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, assign) KWCountType countType;
 @property (nonatomic, assign) NSUInteger count;
@@ -28,7 +28,7 @@ static NSString * const CountKey = @"CountKey";
 
 @implementation KWHaveMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[
@@ -44,7 +44,7 @@ static NSString * const CountKey = @"CountKey";
              ];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (id)targetObject {
     if (self.invocation == nil)
@@ -92,7 +92,7 @@ static NSString * const CountKey = @"CountKey";
     return NO;
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)verbPhrase {
     switch (self.countType) {
@@ -137,13 +137,13 @@ static NSString * const CountKey = @"CountKey";
                                       [self itemPhrase]];
 }
 
-// MARK: - Description
+#pragma mark - Description
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"%@ %u %@", [self verbPhrase], (unsigned)self.count, [self itemPhrase]];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)haveCountOf:(NSUInteger)aCount {
     self.count = aCount;
@@ -190,7 +190,7 @@ static NSString * const CountKey = @"CountKey";
     self.invocation = anInvocation;
 }
 
-// MARK: - Capturing Invocations
+#pragma mark - Capturing Invocations
 
 + (NSMethodSignature *)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer methodSignatureForSelector:(SEL)aSelector {
     KWMatchVerifier *verifier = (anInvocationCapturer.userInfo)[MatchVerifierKey];
@@ -225,11 +225,11 @@ static NSString * const CountKey = @"CountKey";
 
 @end
 
-// MARK: - Verifying
+#pragma mark - Verifying
 
 @implementation KWMatchVerifier(KWHaveMatcherAdditions)
 
-// MARK: - Invocation Capturing Methods
+#pragma mark - Invocation Capturing Methods
 
 - (NSDictionary *)userInfoForHaveMatcherWithCountType:(KWCountType)aCountType count:(NSUInteger)aCount {
     return @{MatchVerifierKey: self,

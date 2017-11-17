@@ -13,24 +13,24 @@
 
 @interface KWMatcherFactory : NSObject
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)init;
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, readonly) NSArray *registeredMatcherClasses;
 
-// MARK: - Registering Matcher Classes
+#pragma mark - Registering Matcher Classes
 
 - (void)registerMatcherClass:(Class)aClass;
 - (void)registerMatcherClassesWithNamespacePrefix:(NSString *)aNamespacePrefix;
 
-// MARK: - Getting Method Signatures
+#pragma mark - Getting Method Signatures
 
 - (NSMethodSignature *)methodSignatureForMatcherSelector:(SEL)aSelector;
 
-// MARK: - Getting Matchers
+#pragma mark - Getting Matchers
 
 - (KWMatcher *)matcherFromInvocation:(NSInvocation *)anInvocation subject:(id)subject;
 

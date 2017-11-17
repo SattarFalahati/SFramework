@@ -1,12 +1,12 @@
 //
-//  SFButton.m
+//  SFAnimatedButton.m
 //  Pods
 //
-//  Created by Mac on 11/11/16.
+//  Created by Sattar Falahati on 11/11/16.
 //
 //
 
-#import "SFButton.h"
+#import "SFAnimatedButton.h"
 
 // SFImporst ( to have access to all classes )
 #import "SFImports.h"
@@ -14,25 +14,15 @@
 // Set animation duration
 const CGFloat bounceAnimationDuration = 0.10;
 
-@implementation SFButton
+@implementation SFAnimatedButton
 
-- (instancetype)init
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super init];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        self.option = SFButtonNormal; // At the beginning the option is normal a button with no grafic design
+        self.SFOptions = SFButtonNormal; // At the beginning the option is normal a button with no grafic design
     }
     return self;
-}
-
-- (void)setOption:(SFButtonOption)option
-{
-    self.option = option;
-}
-
-- (SFButtonOption)option
-{
-    return self.option;
 }
 
 // MARK: - Bounce
@@ -41,7 +31,7 @@ const CGFloat bounceAnimationDuration = 0.10;
 {
     [super touchesBegan:touches withEvent:event];
     
-    if (self.option == SFButtonBounce) {
+    if (self.SFOptions == SFButtonBounce) {
         // Check se if btn is enebled
         if (self.enabled) {
             [UIView animateWithDuration:bounceAnimationDuration animations:^{
@@ -57,7 +47,7 @@ const CGFloat bounceAnimationDuration = 0.10;
 {
     [super touchesEnded:touches withEvent:event];
     
-    if (self.option == SFButtonBounce) {
+    if (self.SFOptions == SFButtonBounce) {
         // Check se if btn is enebled
         if (self.enabled) {
             [UIView animateWithDuration:bounceAnimationDuration animations:^{
@@ -75,7 +65,7 @@ const CGFloat bounceAnimationDuration = 0.10;
 -(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
     [super touchesCancelled:touches withEvent:event];
-    if (self.option == SFButtonBounce) {
+    if (self.SFOptions == SFButtonBounce) {
         // Check se if btn is enebled
         if (self.enabled) {
             [UIView animateWithDuration:bounceAnimationDuration animations:^{

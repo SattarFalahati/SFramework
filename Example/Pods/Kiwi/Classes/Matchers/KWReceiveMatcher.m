@@ -21,7 +21,7 @@ static NSString * const StubValueKey = @"StubValueKey";
 
 @interface KWReceiveMatcher()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, readwrite, strong) KWMessageTracker *messageTracker;
 
@@ -29,7 +29,7 @@ static NSString * const StubValueKey = @"StubValueKey";
 
 @implementation KWReceiveMatcher
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithSubject:(id)anObject {
     self = [super initWithSubject:anObject];
@@ -40,7 +40,7 @@ static NSString * const StubValueKey = @"StubValueKey";
     return self;
 }
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"receive:",
@@ -57,7 +57,7 @@ static NSString * const StubValueKey = @"StubValueKey";
                                      @"receiveUnspecifiedCountOfMessagePattern:andReturn:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)shouldBeEvaluatedAtEndOfExample {
     return YES;
@@ -72,7 +72,7 @@ static NSString * const StubValueKey = @"StubValueKey";
     return succeeded;
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to receive -%@ %@, but received it %@",
@@ -87,7 +87,7 @@ static NSString * const StubValueKey = @"StubValueKey";
                                       [self.messageTracker receivedCountPhrase]];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)receive:(SEL)aSelector {
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:aSelector];
@@ -175,7 +175,7 @@ static NSString * const StubValueKey = @"StubValueKey";
 #endif // #if KW_TARGET_HAS_INVOCATION_EXCEPTION_BUG
 }
 
-// MARK: - Capturing Invocations
+#pragma mark - Capturing Invocations
 
 + (NSMethodSignature *)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer methodSignatureForSelector:(SEL)aSelector {
     KWMatchVerifier *verifier = (anInvocationCapturer.userInfo)[MatchVerifierKey];
@@ -205,7 +205,7 @@ static NSString * const StubValueKey = @"StubValueKey";
 
 @implementation KWMatchVerifier(KWReceiveMatcherAdditions)
 
-// MARK: - Verifying
+#pragma mark - Verifying
 
 - (void)receive:(SEL)aSelector withArguments:(id)firstArgument, ... {
     va_list argumentList;
@@ -263,7 +263,7 @@ static NSString * const StubValueKey = @"StubValueKey";
     [(id)self receiveMessagePattern:messagePattern andReturn:aValue countType:KWCountTypeAtMost count:aCount];
 }
 
-// MARK: Invocation Capturing Methods
+#pragma mark Invocation Capturing Methods
 
 - (NSDictionary *)userInfoForReceiveMatcherWithCountType:(KWCountType)aCountType count:(NSUInteger)aCount {
     return @{

@@ -132,7 +132,7 @@
 		66255FC1F1EC359EEA38824A3CDE0DD9 /* KWWorkarounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AFC53171675DD120AD77EB8D0FC3BC /* KWWorkarounds.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		66327F6768CE7C606794D7B8DE22690C /* Localizable.strings in Sources */ = {isa = PBXBuildFile; fileRef = 42089C1F32962487E3F0813FC6DF7783 /* Localizable.strings */; };
 		669BA4A9C8132D790275A585702FE1AF /* NSObject+KiwiStubAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5137079C529EF9EE3864FFC95D25F962 /* NSObject+KiwiStubAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		68B80000231DAF4CF9A39167E1333AD0 /* SFButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 18088373D6408FCE9BA78E53CBFECCDB /* SFButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		68B80000231DAF4CF9A39167E1333AD0 /* SFAnimatedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 18088373D6408FCE9BA78E53CBFECCDB /* SFAnimatedButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		69B47C295F83E64F1B2C7C2B2FBA0D50 /* SFColor.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C3ADA7BA57A1E1F9BFDE1198248BBA /* SFColor.m */; };
 		69DA8B003216466C60F029CBD79897F1 /* UIImage+Compare.m in Sources */ = {isa = PBXBuildFile; fileRef = E791A4B28C5368FFA939B09B8E105D55 /* UIImage+Compare.m */; };
 		6A177E053CFE94820162705BDEFA836C /* KWLet.h in Headers */ = {isa = PBXBuildFile; fileRef = 54684543BE7224576883188F8522028E /* KWLet.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -172,7 +172,7 @@
 		845EE117529C8C8026945B657ADEB1EA /* Pods-SFramework_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9407D388EFD4F022FED7A9E37482A629 /* Pods-SFramework_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8634FF44ABEFF40B5D561593B24C9B1E /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 61BBF6364966EFB29523D82250037278 /* AFURLSessionManager.m */; };
 		86A4516B3CE647E633349AC05226C207 /* AFHTTPRequestOperationManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F1ACCAC3A6A964205270FF2A9A23F5D1 /* AFHTTPRequestOperationManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		87991115E086DA4526EE98789E84FD14 /* SFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E0B98BABC8CBB16ECEB4E565A495D /* SFButton.m */; };
+		87991115E086DA4526EE98789E84FD14 /* SFAnimatedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 560E0B98BABC8CBB16ECEB4E565A495D /* SFAnimatedButton.m */; };
 		87B9EDD1BFA90AD963E021894C5D2188 /* SFTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EFC44D2B4049FA7694A035B27C4D376 /* SFTableView.m */; };
 		890E05781CA9823560139547D08B9842 /* Kiwi-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 304023031C8AF478FF782BB1293EE44A /* Kiwi-dummy.m */; };
 		8AE140717EC43CB6CD24D3E58D00E3CC /* Kiwi.h in Headers */ = {isa = PBXBuildFile; fileRef = B61FD316AB7BAA4D2CC54D2521352840 /* Kiwi.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -413,7 +413,7 @@
 		148040B3BF413E355B48C4A0204BADE4 /* KWSharedExample.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWSharedExample.m; path = "Classes/Shared Examples/KWSharedExample.m"; sourceTree = "<group>"; };
 		167E469789D93368488202B1C4A1448C /* KWBlockNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBlockNode.m; path = Classes/Nodes/KWBlockNode.m; sourceTree = "<group>"; };
 		1715D5324646D9E8C67C9DCEEEAE048D /* KWBeIdenticalToMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeIdenticalToMatcher.m; path = Classes/Matchers/KWBeIdenticalToMatcher.m; sourceTree = "<group>"; };
-		18088373D6408FCE9BA78E53CBFECCDB /* SFButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SFButton.h; sourceTree = "<group>"; };
+		18088373D6408FCE9BA78E53CBFECCDB /* SFAnimatedButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SFAnimatedButton.h; sourceTree = "<group>"; };
 		1809DC57EAAC036C7F0678AB1A9AA3A1 /* NSObject+KiwiMockAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+KiwiMockAdditions.h"; path = "Classes/Mocking/NSObject+KiwiMockAdditions.h"; sourceTree = "<group>"; };
 		1A0C1F05B05120A9396AD8B58F01963B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1BFBF44F417EE8C1D9CC0A747B5E776E /* KWAfterAllNode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWAfterAllNode.h; path = Classes/Nodes/KWAfterAllNode.h; sourceTree = "<group>"; };
@@ -499,7 +499,7 @@
 		54312B90A425DF48F78E7F9F6C0FDE53 /* MBProgressHUD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MBProgressHUD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		54684543BE7224576883188F8522028E /* KWLet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KWLet.h; path = Classes/Core/KWLet.h; sourceTree = "<group>"; };
 		54D5651FE9B9DB23B14D198B5BD7CB6A /* KWBeforeAllNode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KWBeforeAllNode.m; path = Classes/Nodes/KWBeforeAllNode.m; sourceTree = "<group>"; };
-		560E0B98BABC8CBB16ECEB4E565A495D /* SFButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SFButton.m; sourceTree = "<group>"; };
+		560E0B98BABC8CBB16ECEB4E565A495D /* SFAnimatedButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SFAnimatedButton.m; sourceTree = "<group>"; };
 		5664B71E90DB3A1572C1079C8ED7E685 /* Pods-SFramework_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SFramework_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		5696D13B2742F93F844D97A348275862 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		5780798FCBE16F4D564CAF31B73F9682 /* NSProxy+KiwiVerifierAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSProxy+KiwiVerifierAdditions.m"; path = "Classes/Core/NSProxy+KiwiVerifierAdditions.m"; sourceTree = "<group>"; };
@@ -868,8 +868,8 @@
 			children = (
 				34AA74B5F34D914515E2D5E9565476AD /* SFAlertController.h */,
 				B06A707DA9C1E16D13D2CE4149F83436 /* SFAlertController.m */,
-				18088373D6408FCE9BA78E53CBFECCDB /* SFButton.h */,
-				560E0B98BABC8CBB16ECEB4E565A495D /* SFButton.m */,
+				18088373D6408FCE9BA78E53CBFECCDB /* SFAnimatedButton.h */,
+				560E0B98BABC8CBB16ECEB4E565A495D /* SFAnimatedButton.m */,
 				C278DDC2ABEFBA9F27F9F214E43A8DAF /* SFCarousel.h */,
 				484849E43804E14D129070578B938583 /* SFCarousel.m */,
 				FC519F79B88F91FB4B4278942CA5363B /* SFColor.h */,
@@ -1444,7 +1444,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8116694A5D939FBFC2C04772532B47F /* SFAlertController.h in Headers */,
-				68B80000231DAF4CF9A39167E1333AD0 /* SFButton.h in Headers */,
+				68B80000231DAF4CF9A39167E1333AD0 /* SFAnimatedButton.h in Headers */,
 				62305AE719A2513BBC397CC1BBE942A0 /* SFCarousel.h in Headers */,
 				57970E75148E707CCCF91F7EF0D3B067 /* SFColor.h in Headers */,
 				A2F2181858C4428601CB221DB85D187A /* SFConstants.h in Headers */,
@@ -1774,7 +1774,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1953,7 +1953,7 @@
 				B8F6F7AA9670ABC74F77A8C50A4D5545 /* Montserrat-Regular.ttf in Sources */,
 				E107A250D540CA2B61D62A7AFB1F67D6 /* Root.plist in Sources */,
 				591EDCE63067A2CCB097AEF4398EC191 /* SFAlertController.m in Sources */,
-				87991115E086DA4526EE98789E84FD14 /* SFButton.m in Sources */,
+				87991115E086DA4526EE98789E84FD14 /* SFAnimatedButton.m in Sources */,
 				9B03D57C4C4904004E15EE54F8303ECE /* SFCarousel.m in Sources */,
 				69B47C295F83E64F1B2C7C2B2FBA0D50 /* SFColor.m in Sources */,
 				773C7BC4A7343CC0E314623782A2C410 /* SFConstraints.m in Sources */,
@@ -2197,16 +2197,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -2214,21 +2211,15 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -2424,16 +2415,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -2441,20 +2429,14 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -2468,7 +2450,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};

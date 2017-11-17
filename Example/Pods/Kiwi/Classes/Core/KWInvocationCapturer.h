@@ -10,7 +10,7 @@
 
 @interface KWInvocationCapturer : NSProxy
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithDelegate:(id)aDelegate;
 - (id)initWithDelegate:(id)aDelegate userInfo:(NSDictionary *)aUserInfo;
@@ -18,7 +18,7 @@
 + (id)invocationCapturerWithDelegate:(id)aDelegate;
 + (id)invocationCapturerWithDelegate:(id)aDelegate userInfo:(NSDictionary *)aUserInfo;
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, weak, readonly) id delegate;
 @property (nonatomic, strong, readonly) NSDictionary *userInfo;
@@ -27,7 +27,7 @@
 
 @protocol KWInvocationCapturerDelegate
 
-// MARK: - Capturing Invocations
+#pragma mark - Capturing Invocations
 
 - (NSMethodSignature *)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer methodSignatureForSelector:(SEL)aSelector;
 - (void)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer didCaptureInvocation:(NSInvocation *)anInvocation;

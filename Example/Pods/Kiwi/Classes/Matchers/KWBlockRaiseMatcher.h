@@ -9,7 +9,7 @@
 
 @interface KWBlockRaiseMatcher : KWMatcher
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)raise;
 - (void)raiseWithName:(NSString *)aName;

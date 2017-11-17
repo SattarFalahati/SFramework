@@ -14,11 +14,11 @@
 
 - (NSString *)descriptionForAnonymousItNode;
 
-// MARK: - Subjects
+#pragma mark - Subjects
 
 @property (nonatomic, strong) id subject;
 
-// MARK: - Ending Examples
+#pragma mark - Ending Examples
 
 - (void)exampleWillEnd;
 

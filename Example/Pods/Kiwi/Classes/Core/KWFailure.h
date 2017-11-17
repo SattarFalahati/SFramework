@@ -10,7 +10,7 @@
 
 @interface KWFailure : NSObject
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite message:(NSString *)aMessage;
 - (id)initWithCallSite:(KWCallSite *)aCallSite format:(NSString *)format, ...;
@@ -18,7 +18,7 @@
 + (id)failureWithCallSite:(KWCallSite *)aCallSite message:(NSString *)aMessage;
 + (id)failureWithCallSite:(KWCallSite *)aCallSite format:(NSString *)format, ...;
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, readonly) NSString *message;
 @property (nonatomic, weak, readonly) KWCallSite *callSite;

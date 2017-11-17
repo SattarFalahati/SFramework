@@ -14,7 +14,7 @@
 
 @implementation KWDeviceInfo
 
-// MARK: - Getting the Device Type
+#pragma mark - Getting the Device Type
 
 + (BOOL)isSimulator {
 #if TARGET_IPHONE_SIMULATOR

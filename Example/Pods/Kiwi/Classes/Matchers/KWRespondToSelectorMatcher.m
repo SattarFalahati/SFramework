@@ -9,7 +9,7 @@
 
 @interface KWRespondToSelectorMatcher()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, assign) SEL selector;
 
@@ -17,19 +17,19 @@
 
 @implementation KWRespondToSelectorMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"respondToSelector:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     return [self.subject respondsToSelector:self.selector];
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to respond to -%@",
@@ -40,7 +40,7 @@
     return [NSString stringWithFormat:@"respond to -%@", NSStringFromSelector(self.selector)];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)respondToSelector:(SEL)aSelector {
     self.selector = aSelector;

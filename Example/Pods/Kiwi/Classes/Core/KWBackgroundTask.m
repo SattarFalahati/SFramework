@@ -52,7 +52,7 @@ static NSString *const KWBackgroundTaskException = @"KWBackgroundTaskException";
     [[NSNotificationCenter defaultCenter] removeObserver:taskObserver];
 }
 
-// MARK: - Private
+#pragma mark - Private
 
 - (void)launch {
     __block id<NSTask_KWWarningSuppressor> task = [[NSClassFromString(@"NSTask") alloc] init];

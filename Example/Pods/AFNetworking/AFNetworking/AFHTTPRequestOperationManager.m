@@ -72,7 +72,7 @@
     return self;
 }
 
-// MARK: -
+#pragma mark -
 
 #ifdef _SYSTEMCONFIGURATION_H
 #endif
@@ -89,7 +89,7 @@
     _responseSerializer = responseSerializer;
 }
 
-// MARK: -
+#pragma mark -
 
 - (AFHTTPRequestOperation *)HTTPRequestOperationWithHTTPMethod:(NSString *)method
                                                      URLString:(NSString *)URLString
@@ -132,7 +132,7 @@
     return operation;
 }
 
-// MARK: -
+#pragma mark -
 
 - (AFHTTPRequestOperation *)GET:(NSString *)URLString
                      parameters:(id)parameters
@@ -238,13 +238,13 @@
     return operation;
 }
 
-// MARK: - NSObject
+#pragma mark - NSObject
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"<%@: %p, baseURL: %@, operationQueue: %@>", NSStringFromClass([self class]), self, [self.baseURL absoluteString], self.operationQueue];
 }
 
-// MARK: - NSSecureCoding
+#pragma mark - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -275,7 +275,7 @@
     [coder encodeObject:self.securityPolicy forKey:NSStringFromSelector(@selector(securityPolicy))];
 }
 
-// MARK: - NSCopying
+#pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFHTTPRequestOperationManager *HTTPClient = [[[self class] allocWithZone:zone] initWithBaseURL:self.baseURL];

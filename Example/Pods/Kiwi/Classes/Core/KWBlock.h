@@ -8,18 +8,18 @@
 
 @interface KWBlock : NSObject
 
-// MARK: - Initializing
+#pragma mark - Initializing
 - (id)initWithBlock:(void (^)(void))block;
 
 + (id)blockWithBlock:(void (^)(void))block;
 
-// MARK: - Calling Blocks
+#pragma mark - Calling Blocks
 
 - (void)call;
 
 @end
 
-// MARK: - Creating Blocks
+#pragma mark - Creating Blocks
 
 KWBlock *theBlock(void (^block)(void));
 KWBlock *lambda(void (^block)(void));

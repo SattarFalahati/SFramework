@@ -20,21 +20,21 @@
 
 @interface KWContextNode : NSObject<KWExampleNode>
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite parentContext:(KWContextNode *)node description:(NSString *)aDescription;
 
 + (id)contextNodeWithCallSite:(KWCallSite *)aCallSite parentContext:(KWContextNode *)contextNode description:(NSString *)aDescription;
 
-// MARK: -  Getting Call Sites
+#pragma mark -  Getting Call Sites
 
 @property (nonatomic, weak, readonly) KWCallSite *callSite;
 
-// MARK: - Getting Descriptions
+#pragma mark - Getting Descriptions
 
 @property (readonly, copy) NSString *description;
 
-// MARK: - Managing Nodes
+#pragma mark - Managing Nodes
 
 @property (nonatomic, strong) KWBeforeAllNode *beforeAllNode;
 @property (nonatomic, strong) KWAfterAllNode *afterAllNode;
@@ -58,7 +58,7 @@
 
 - (void)performExample:(KWExample *)example withBlock:(void (^)(void))exampleBlock;
 
-// MARK: - Accepting Visitors
+#pragma mark - Accepting Visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor;
 

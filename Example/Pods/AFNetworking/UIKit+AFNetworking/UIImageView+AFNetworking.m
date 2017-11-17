@@ -30,7 +30,7 @@
 @interface AFImageCache : NSCache <AFImageCache>
 @end
 
-// MARK: -
+#pragma mark -
 
 @interface UIImageView (_AFNetworking)
 @property (readwrite, nonatomic, strong, setter = af_setImageRequestOperation:) AFHTTPRequestOperation *af_imageRequestOperation;
@@ -59,7 +59,7 @@
 
 @end
 
-// MARK: -
+#pragma mark -
 
 @implementation UIImageView (AFNetworking)
 @dynamic imageResponseSerializer;
@@ -85,7 +85,7 @@
     objc_setAssociatedObject(self, @selector(sharedImageCache), imageCache, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-// MARK: -
+#pragma mark -
 
 - (id <AFURLResponseSerialization>)imageResponseSerializer {
     static id <AFURLResponseSerialization> _af_defaultImageResponseSerializer = nil;
@@ -104,7 +104,7 @@
     objc_setAssociatedObject(self, @selector(imageResponseSerializer), serializer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-// MARK: -
+#pragma mark -
 
 - (void)setImageWithURL:(NSURL *)url {
     [self setImageWithURL:url placeholderImage:nil];
@@ -182,7 +182,7 @@
 
 @end
 
-// MARK: -
+#pragma mark -
 
 static inline NSString * AFImageCacheKeyFromURLRequest(NSURLRequest *request) {
     return [[request URL] absoluteString];

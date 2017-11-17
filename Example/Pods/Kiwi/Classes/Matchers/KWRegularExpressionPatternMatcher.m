@@ -21,13 +21,13 @@
 @implementation KWRegularExpressionPatternMatcher
 
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"matchPattern:", @"matchPattern:options:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     if (![self.subject isKindOfClass:[NSString class]]) {
@@ -52,7 +52,7 @@
     return (numberOfMatches == 1);
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"%@ did not match pattern \"%@\"",

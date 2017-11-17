@@ -10,7 +10,7 @@
 
 @implementation KWMatcher
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithSubject:(id)anObject {
     self = [super init];
@@ -26,7 +26,7 @@
 }
 
 
-// MARK: - Properties
+#pragma mark - Properties
 
 - (id)subject
 {
@@ -36,19 +36,19 @@
   return _subject;
 }
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return nil;
 }
 
-// MARK: - Getting Matcher Compatability
+#pragma mark - Getting Matcher Compatability
 
 + (BOOL)canMatchSubject:(id)anObject {
     return YES;
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     [NSException raise:NSInternalInconsistencyException format:@"%@ must override -evaluate",
@@ -56,7 +56,7 @@
     return NO;
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return @"subject did not meet expectation";

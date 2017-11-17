@@ -8,7 +8,7 @@
 
 @interface KWDeviceInfo : NSObject
 
-// MARK: - Getting the Device Type
+#pragma mark - Getting the Device Type
 
 + (BOOL)isSimulator;
 + (BOOL)isPhysical;

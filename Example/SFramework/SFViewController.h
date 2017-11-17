@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imgBG;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblTitle;
-@property (weak, nonatomic) IBOutlet SFButton *btnActionSheet;
+@property (weak, nonatomic) IBOutlet SFAnimatedButton *btnActionSheet;
 @property (weak, nonatomic) IBOutlet UIButton *btnGallery;
 @property (weak, nonatomic) IBOutlet UIButton *btnIntro;
 @property (weak, nonatomic) IBOutlet UIButton *btnOpenParallax;

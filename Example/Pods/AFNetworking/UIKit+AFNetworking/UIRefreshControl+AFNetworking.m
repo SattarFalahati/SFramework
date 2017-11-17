@@ -126,7 +126,7 @@
     }
 }
 
-// MARK: -
+#pragma mark -
 
 - (void)af_beginRefreshing {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -146,7 +146,7 @@
     });
 }
 
-// MARK: -
+#pragma mark -
 
 - (void)dealloc {
     NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];

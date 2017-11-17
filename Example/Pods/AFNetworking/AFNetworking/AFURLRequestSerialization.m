@@ -108,7 +108,7 @@ static NSString * AFPercentEscapedStringFromString(NSString *string) {
 	return escaped;
 }
 
-// MARK: -
+#pragma mark -
 
 @interface AFQueryStringPair : NSObject
 @property (readwrite, nonatomic, strong) id field;
@@ -143,7 +143,7 @@ static NSString * AFPercentEscapedStringFromString(NSString *string) {
 
 @end
 
-// MARK: -
+#pragma mark -
 
 FOUNDATION_EXPORT NSArray * AFQueryStringPairsFromDictionary(NSDictionary *dictionary);
 FOUNDATION_EXPORT NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value);
@@ -192,7 +192,7 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
     return mutableQueryStringComponents;
 }
 
-// MARK: -
+#pragma mark -
 
 @interface AFStreamingMultipartFormData : NSObject <AFMultipartFormData>
 - (instancetype)initWithURLRequest:(NSMutableURLRequest *)urlRequest
@@ -201,7 +201,7 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
 - (NSMutableURLRequest *)requestByFinalizingMultipartFormData;
 @end
 
-// MARK: -
+#pragma mark -
 
 static NSArray * AFHTTPRequestSerializerObservedKeyPaths() {
     static NSArray *_AFHTTPRequestSerializerObservedKeyPaths = nil;
@@ -291,7 +291,7 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
     }
 }
 
-// MARK: -
+#pragma mark -
 
 // Workarounds for crashing behavior using Key-Value Observing with XCTest
 // See https://github.com/AFNetworking/AFNetworking/issues/2523
@@ -332,7 +332,7 @@ static void *AFHTTPRequestSerializerObserverContext = &AFHTTPRequestSerializerOb
     [self didChangeValueForKey:NSStringFromSelector(@selector(timeoutInterval))];
 }
 
-// MARK: -
+#pragma mark -
 
 - (NSDictionary *)HTTPRequestHeaders {
     return [NSDictionary dictionaryWithDictionary:self.mutableHTTPRequestHeaders];
@@ -363,7 +363,7 @@ forHTTPHeaderField:(NSString *)field
 	[self.mutableHTTPRequestHeaders removeObjectForKey:@"Authorization"];
 }
 
-// MARK: -
+#pragma mark -
 
 - (void)setQueryStringSerializationWithStyle:(AFHTTPRequestQueryStringSerializationStyle)style {
     self.queryStringSerializationStyle = style;
@@ -374,7 +374,7 @@ forHTTPHeaderField:(NSString *)field
     self.queryStringSerialization = block;
 }
 
-// MARK: -
+#pragma mark -
 
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                  URLString:(NSString *)URLString
@@ -508,7 +508,7 @@ forHTTPHeaderField:(NSString *)field
     return mutableRequest;
 }
 
-// MARK: - AFURLRequestSerialization
+#pragma mark - AFURLRequestSerialization
 
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(id)parameters
@@ -564,7 +564,7 @@ forHTTPHeaderField:(NSString *)field
     return mutableRequest;
 }
 
-// MARK: - NSKeyValueObserving
+#pragma mark - NSKeyValueObserving
 
 + (BOOL)automaticallyNotifiesObserversForKey:(NSString *)key {
     if ([AFHTTPRequestSerializerObservedKeyPaths() containsObject:key]) {
@@ -588,7 +588,7 @@ forHTTPHeaderField:(NSString *)field
     }
 }
 
-// MARK: - NSSecureCoding
+#pragma mark - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -611,7 +611,7 @@ forHTTPHeaderField:(NSString *)field
     [coder encodeInteger:self.queryStringSerializationStyle forKey:NSStringFromSelector(@selector(queryStringSerializationStyle))];
 }
 
-// MARK: - NSCopying
+#pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFHTTPRequestSerializer *serializer = [[[self class] allocWithZone:zone] init];
@@ -624,7 +624,7 @@ forHTTPHeaderField:(NSString *)field
 
 @end
 
-// MARK: -
+#pragma mark -
 
 static NSString * AFCreateMultipartFormBoundary() {
     return [NSString stringWithFormat:@"Boundary+%08X%08X", arc4random(), arc4random()];
@@ -692,7 +692,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
 - (void)appendHTTPBodyPart:(AFHTTPBodyPart *)bodyPart;
 @end
 
-// MARK: -
+#pragma mark -
 
 @interface AFStreamingMultipartFormData ()
 @property (readwrite, nonatomic, copy) NSMutableURLRequest *request;
@@ -870,7 +870,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
 
 @end
 
-// MARK: -
+#pragma mark -
 
 @interface NSStream ()
 @property (readwrite) NSStreamStatus streamStatus;
@@ -929,7 +929,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
     return [self.HTTPBodyParts count] == 0;
 }
 
-// MARK: - NSInputStream
+#pragma mark - NSInputStream
 
 - (NSInteger)read:(uint8_t *)buffer
         maxLength:(NSUInteger)length
@@ -977,7 +977,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
     return [self streamStatus] == NSStreamStatusOpen;
 }
 
-// MARK: - NSStream
+#pragma mark - NSStream
 
 - (void)open {
     if (self.streamStatus == NSStreamStatusOpen) {
@@ -1021,7 +1021,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
     return length;
 }
 
-// MARK: - Undocumented CFReadStream Bridged Methods
+#pragma mark - Undocumented CFReadStream Bridged Methods
 
 - (void)_scheduleInCFRunLoop:(__unused CFRunLoopRef)aRunLoop
                      forMode:(__unused CFStringRef)aMode
@@ -1037,7 +1037,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
     return NO;
 }
 
-// MARK: - NSCopying
+#pragma mark - NSCopying
 
 -(id)copyWithZone:(NSZone *)zone {
     AFMultipartBodyStream *bodyStreamCopy = [[[self class] allocWithZone:zone] initWithStringEncoding:self.stringEncoding];
@@ -1053,7 +1053,7 @@ NSTimeInterval const kAFUploadStream3GSuggestedDelay = 0.2;
 
 @end
 
-// MARK: -
+#pragma mark -
 
 typedef enum {
     AFEncapsulationBoundaryPhase = 1,
@@ -1252,7 +1252,7 @@ typedef enum {
     return YES;
 }
 
-// MARK: - NSCopying
+#pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFHTTPBodyPart *bodyPart = [[[self class] allocWithZone:zone] init];
@@ -1268,7 +1268,7 @@ typedef enum {
 
 @end
 
-// MARK: -
+#pragma mark -
 
 @implementation AFJSONRequestSerializer
 
@@ -1284,7 +1284,7 @@ typedef enum {
     return serializer;
 }
 
-// MARK: - AFURLRequestSerialization
+#pragma mark - AFURLRequestSerialization
 
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(id)parameters
@@ -1315,7 +1315,7 @@ typedef enum {
     return mutableRequest;
 }
 
-// MARK: - NSSecureCoding
+#pragma mark - NSSecureCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super initWithCoder:decoder];
@@ -1334,7 +1334,7 @@ typedef enum {
     [coder encodeInteger:self.writingOptions forKey:NSStringFromSelector(@selector(writingOptions))];
 }
 
-// MARK: - NSCopying
+#pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFJSONRequestSerializer *serializer = [super copyWithZone:zone];
@@ -1345,7 +1345,7 @@ typedef enum {
 
 @end
 
-// MARK: -
+#pragma mark -
 
 @implementation AFPropertyListRequestSerializer
 
@@ -1363,7 +1363,7 @@ typedef enum {
     return serializer;
 }
 
-// MARK: - AFURLRequestSerializer
+#pragma mark - AFURLRequestSerializer
 
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(id)parameters
@@ -1394,7 +1394,7 @@ typedef enum {
     return mutableRequest;
 }
 
-// MARK: - NSSecureCoding
+#pragma mark - NSSecureCoding
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super initWithCoder:decoder];
@@ -1415,7 +1415,7 @@ typedef enum {
     [coder encodeObject:@(self.writeOptions) forKey:NSStringFromSelector(@selector(writeOptions))];
 }
 
-// MARK: - NSCopying
+#pragma mark - NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
     AFPropertyListRequestSerializer *serializer = [super copyWithZone:zone];

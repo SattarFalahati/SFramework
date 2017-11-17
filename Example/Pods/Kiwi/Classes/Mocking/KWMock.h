@@ -15,7 +15,7 @@
 
 @interface KWMock : NSObject
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initForClass:(Class)aClass;
 - (id)initForProtocol:(Protocol *)aProtocol;
@@ -43,7 +43,7 @@
 + (id)partialMockForObject:(id)object;
 + (id)partialMockWithName:(NSString *)aName forObject:(id)object;
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, assign, readonly) BOOL isNullMock;
 @property (nonatomic, assign, readonly) BOOL isPartialMock;
@@ -52,7 +52,7 @@
 @property (nonatomic, strong, readonly) id mockedObject;
 @property (nonatomic, assign, readonly) Protocol *mockedProtocol;
 
-// MARK: - Stubbing Methods
+#pragma mark - Stubbing Methods
 
 - (void)stub:(SEL)aSelector;
 - (void)stub:(SEL)aSelector withBlock:(id (^)(NSArray *params))block;
@@ -69,13 +69,13 @@
 
 - (void)clearStubs;
 
-// MARK: - Spying on Messages
+#pragma mark - Spying on Messages
 
 - (void)addMessageSpy:(id<KWMessageSpying>)aSpy forMessagePattern:(KWMessagePattern *)aMessagePattern;
 - (void)removeMessageSpy:(id<KWMessageSpying>)aSpy forMessagePattern:(KWMessagePattern *)aMessagePattern;
 
 
-// MARK: - Expecting Messages
+#pragma mark - Expecting Messages
 
 - (void)expect:(SEL)aSelector;
 - (void)expect:(SEL)aSelector withArguments:(id)firstArgument, ...;

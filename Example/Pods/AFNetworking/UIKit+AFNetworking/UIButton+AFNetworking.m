@@ -46,7 +46,7 @@
     return _af_sharedImageRequestOperationQueue;
 }
 
-// MARK: -
+#pragma mark -
 
 static char AFImageRequestOperationNormal;
 static char AFImageRequestOperationHighlighted;
@@ -77,7 +77,7 @@ static const char * af_imageRequestOperationKeyForState(UIControlState state) {
     objc_setAssociatedObject(self, af_imageRequestOperationKeyForState(state), imageRequestOperation, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-// MARK: -
+#pragma mark -
 
 static char AFBackgroundImageRequestOperationNormal;
 static char AFBackgroundImageRequestOperationHighlighted;
@@ -110,7 +110,7 @@ static const char * af_backgroundImageRequestOperationKeyForState(UIControlState
 
 @end
 
-// MARK: -
+#pragma mark -
 
 @implementation UIButton (AFNetworking)
 
@@ -125,7 +125,7 @@ static const char * af_backgroundImageRequestOperationKeyForState(UIControlState
     objc_setAssociatedObject(self, @selector(sharedImageCache), imageCache, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-// MARK: -
+#pragma mark -
 
 - (id <AFURLResponseSerialization>)imageResponseSerializer {
     static id <AFURLResponseSerialization> _af_defaultImageResponseSerializer = nil;
@@ -144,7 +144,7 @@ static const char * af_backgroundImageRequestOperationKeyForState(UIControlState
     objc_setAssociatedObject(self, @selector(imageResponseSerializer), serializer, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-// MARK: -
+#pragma mark -
 
 - (void)setImageForState:(UIControlState)state
                  withURL:(NSURL *)url
@@ -210,7 +210,7 @@ static const char * af_backgroundImageRequestOperationKeyForState(UIControlState
     }
 }
 
-// MARK: -
+#pragma mark -
 
 - (void)setBackgroundImageForState:(UIControlState)state
                            withURL:(NSURL *)url
@@ -276,7 +276,7 @@ static const char * af_backgroundImageRequestOperationKeyForState(UIControlState
     }
 }
 
-// MARK: -
+#pragma mark -
 
 - (void)cancelImageRequestOperationForState:(UIControlState)state {
     [[self af_imageRequestOperationForState:state] cancel];

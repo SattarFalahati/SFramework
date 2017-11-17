@@ -8,7 +8,7 @@
 
 #if KW_TARGET_HAS_INVOCATION_EXCEPTION_BUG
 
-// MARK: - Invocation Exception Bug Workaround
+#pragma mark - Invocation Exception Bug Workaround
 
 // See KiwiConfiguration.h for notes.
 void KWSetExceptionFromAcrossInvocationBoundary(NSException *anException);

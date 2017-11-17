@@ -18,7 +18,7 @@
 
 @protocol KWExampleNodeVisitor<NSObject>
 
-// MARK: - Visiting Nodes
+#pragma mark - Visiting Nodes
 
 @optional
 

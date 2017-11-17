@@ -20,7 +20,7 @@
 
 @property (nonatomic, readonly) NSMutableArray *examples;
 
-// MARK: - Example selector names
+#pragma mark - Example selector names
 
 - (NSString *)nextUniqueSelectorName:(NSString *)name;
 

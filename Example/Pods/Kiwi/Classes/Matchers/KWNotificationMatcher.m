@@ -43,7 +43,7 @@
                                     }];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     [[NSNotificationCenter defaultCenter] removeObserver:self.observer];
@@ -54,13 +54,13 @@
     return YES;
 }
 
-// MARK: - Getting Matcher Compatability
+#pragma mark - Getting Matcher Compatability
 
 + (BOOL)canMatchSubject:(id)anObject {
     return [anObject isKindOfClass:[NSString class]];
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)receiveNotificationMessage {
     NSMutableString *message = [NSMutableString stringWithFormat:@"receive %@ notification", [KWFormatter formatObject:self.subject]];
@@ -88,7 +88,7 @@
     return [NSString stringWithFormat:@"%@ be posted", self.subject];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)bePosted {
     [self addObserver];

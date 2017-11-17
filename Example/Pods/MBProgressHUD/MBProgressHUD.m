@@ -75,7 +75,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 @implementation MBProgressHUD
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @synthesize animationType;
 @synthesize delegate;
@@ -110,7 +110,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 @synthesize completionBlock;
 #endif
 
-// MARK: - Class methods
+#pragma mark - Class methods
 
 + (MB_INSTANCETYPE)showHUDAddedTo:(UIView *)view animated:(BOOL)animated {
 	MBProgressHUD *hud = [[self alloc] initWithView:view];
@@ -160,7 +160,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	return [NSArray arrayWithArray:huds];
 }
 
-// MARK: - Lifecycle
+#pragma mark - Lifecycle
 
 - (id)initWithFrame:(CGRect)frame {
 	self = [super initWithFrame:frame];
@@ -242,7 +242,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 #endif
 }
 
-// MARK: - Show & hide
+#pragma mark - Show & hide
 
 - (void)show:(BOOL)animated {
     NSAssert([NSThread isMainThread], @"MBProgressHUD needs to be accessed on the main thread.");
@@ -284,7 +284,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	[self hide:[animated boolValue]];
 }
 
-// MARK: - Timer callbacks
+#pragma mark - Timer callbacks
 
 - (void)handleGraceTimer:(NSTimer *)theTimer {
 	// Show the HUD only if the task is still running
@@ -297,13 +297,13 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	[self hideUsingAnimation:useAnimation];
 }
 
-// MARK: - View Hierrarchy
+#pragma mark - View Hierrarchy
 
 - (void)didMoveToSuperview {
     [self updateForCurrentOrientationAnimated:NO];
 }
 
-// MARK: - Internal show & hide operations
+#pragma mark - Internal show & hide operations
 
 - (void)showUsingAnimation:(BOOL)animated {
     // Cancel any scheduled hideDelayed: calls
@@ -378,7 +378,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	}
 }
 
-// MARK: - Threading
+#pragma mark - Threading
 
 - (void)showWhileExecuting:(SEL)method onTarget:(id)target withObject:(id)object animated:(BOOL)animated {
 	methodForExecution = method;
@@ -447,7 +447,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	[self hide:useAnimation];
 }
 
-// MARK: - UI
+#pragma mark - UI
 
 - (void)setupLabels {
 	label = [[UILabel alloc] initWithFrame:self.bounds];
@@ -521,7 +521,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	}
 }
 
-// MARK: - Layout
+#pragma mark - Layout
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
@@ -609,7 +609,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	size = totalSize;
 }
 
-// MARK: BG Drawing
+#pragma mark BG Drawing
 
 - (void)drawRect:(CGRect)rect {
 	
@@ -661,7 +661,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	UIGraphicsPopContext();
 }
 
-// MARK: - KVO
+#pragma mark - KVO
 
 - (void)registerForKVO {
 	for (NSString *keyPath in [self observableKeypaths]) {
@@ -714,7 +714,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	[self setNeedsDisplay];
 }
 
-// MARK: - Notifications
+#pragma mark - Notifications
 
 - (void)registerForNotifications {
 #if !TARGET_OS_TV
@@ -786,7 +786,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 @implementation MBRoundProgressView
 
-// MARK: - Lifecycle
+#pragma mark - Lifecycle
 
 - (id)init {
 	return [self initWithFrame:CGRectMake(0.f, 0.f, 37.f, 37.f)];
@@ -815,7 +815,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 #endif
 }
 
-// MARK: - Drawing
+#pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect {
 	
@@ -865,7 +865,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	}
 }
 
-// MARK: - KVO
+#pragma mark - KVO
 
 - (void)registerForKVO {
 	for (NSString *keyPath in [self observableKeypaths]) {
@@ -892,7 +892,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 
 @implementation MBBarProgressView
 
-// MARK: - Lifecycle
+#pragma mark - Lifecycle
 
 - (id)init {
 	return [self initWithFrame:CGRectMake(.0f, .0f, 120.0f, 20.0f)];
@@ -922,7 +922,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 #endif
 }
 
-// MARK: - Drawing
+#pragma mark - Drawing
 
 - (void)drawRect:(CGRect)rect {
 	CGContextRef context = UIGraphicsGetCurrentContext();
@@ -1008,7 +1008,7 @@ static const CGFloat kDetailsLabelFontSize = 12.f;
 	}
 }
 
-// MARK: - KVO
+#pragma mark - KVO
 
 - (void)registerForKVO {
 	for (NSString *keyPath in [self observableKeypaths]) {

@@ -9,7 +9,7 @@
 
 @interface KWBeBetweenMatcher : KWMatcher
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 // TODO: 'and' below is a reserved word in C++
 - (void)beBetween:(id)aLowerEndpoint and:(id)anUpperEndpoint;

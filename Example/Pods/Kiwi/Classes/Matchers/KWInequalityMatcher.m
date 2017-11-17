@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, KWInequalityType) {
 
 @interface KWInequalityMatcher()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, assign) KWInequalityType inequalityType;
 @property (nonatomic, strong) id otherValue;
@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, KWInequalityType) {
 
 @implementation KWInequalityMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beLessThan:",
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger, KWInequalityType) {
                                      @"beGreaterThanOrEqualTo:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     if (![self.subject respondsToSelector:@selector(compare:)])
@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, KWInequalityType) {
     return NO;
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)comparisonPhrase {
     switch (self.inequalityType) {
@@ -84,7 +84,7 @@ typedef NS_ENUM(NSUInteger, KWInequalityType) {
   return [NSString stringWithFormat:@"be %@ %@", [self comparisonPhrase], [KWFormatter formatObject:self.otherValue]];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)beLessThan:(id)aValue {
     self.inequalityType = KWInequalityTypeLessThan;

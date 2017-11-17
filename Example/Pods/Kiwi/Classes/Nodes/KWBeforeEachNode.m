@@ -9,13 +9,13 @@
 
 @implementation KWBeforeEachNode
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 + (id)beforeEachNodeWithCallSite:(KWCallSite *)aCallSite block:(void (^)(void))block {
     return [[self alloc] initWithCallSite:aCallSite description:nil block:block];
 }
 
-// MARK: - Accepting Visitors
+#pragma mark - Accepting Visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor {
     [aVisitor visitBeforeEachNode:self];

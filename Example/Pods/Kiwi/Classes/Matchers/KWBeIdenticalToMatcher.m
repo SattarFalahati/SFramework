@@ -9,7 +9,7 @@
 
 @interface KWBeIdenticalToMatcher()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, readwrite, strong) id otherSubject;
 
@@ -17,19 +17,19 @@
 
 @implementation KWBeIdenticalToMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beIdenticalTo:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     return self.subject == self.otherSubject;
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to be identical to %@ (%p), got %@ (%p)",
@@ -49,7 +49,7 @@
     return [NSString stringWithFormat:@"be identical to %@", self.otherSubject];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)beIdenticalTo:(id)anObject {
     self.otherSubject = anObject;

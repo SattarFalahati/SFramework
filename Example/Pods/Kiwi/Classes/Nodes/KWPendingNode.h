@@ -14,17 +14,17 @@
 
 @property (nonatomic, readonly, strong) KWContextNode *context;
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithCallSite:(KWCallSite *)aCallSite context:(KWContextNode *)context description:(NSString *)aDescription;
 
 + (id)pendingNodeWithCallSite:(KWCallSite *)aCallSite context:(KWContextNode *)context description:(NSString *)aDescription;
 
-// MARK: - Getting Call Sites
+#pragma mark - Getting Call Sites
 
 @property (nonatomic, readonly) KWCallSite *callSite;
 
-// MARK: - Getting Descriptions
+#pragma mark - Getting Descriptions
 
 @property (readonly, copy) NSString *description;
 

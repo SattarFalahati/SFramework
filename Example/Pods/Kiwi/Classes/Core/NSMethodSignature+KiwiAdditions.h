@@ -8,7 +8,7 @@
 
 @interface NSMethodSignature(KiwiAdditions)
 
-// MARK: - Getting Information on Message Arguments
+#pragma mark - Getting Information on Message Arguments
 
 - (NSUInteger)numberOfMessageArguments;
 - (const char *)messageArgumentTypeAtIndex:(NSUInteger)anIndex;

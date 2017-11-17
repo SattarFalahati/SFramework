@@ -22,7 +22,7 @@
 
 @implementation KWExistVerifier
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite reporter:(id<KWReporting>)aReporter {
     self = [super init];
@@ -47,7 +47,7 @@
     return @"should not exist";
 }
 
-// MARK: - Ending Examples
+#pragma mark - Ending Examples
 
 - (void)exampleWillEnd {
     if (self.expectationType == KWExpectationTypeShould && self.subject == nil) {

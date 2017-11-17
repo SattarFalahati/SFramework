@@ -15,19 +15,19 @@
 
 @implementation KWBeKindOfClassMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beKindOfClass:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     return [self.subject isKindOfClass:self.targetClass];
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to be kind of %@, got %@",
@@ -39,7 +39,7 @@
     return [NSString stringWithFormat:@"be kind of %@", NSStringFromClass(self.targetClass)];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)beKindOfClass:(Class)aClass {
     self.targetClass = aClass;

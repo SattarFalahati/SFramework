@@ -17,7 +17,7 @@
 @property (nonatomic, assign) BOOL willEvaluateMultipleTimes;
 @property (nonatomic, assign) BOOL willEvaluateAgainstNegativeExpectation;
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)receive:(SEL)aSelector;
 - (void)receive:(SEL)aSelector withCount:(NSUInteger)aCount;
@@ -36,7 +36,7 @@
 
 @interface KWMatchVerifier(KWReceiveMatcherAdditions)
 
-// MARK: - Verifying
+#pragma mark - Verifying
 
 - (void)receive:(SEL)aSelector withArguments:(id)firstArgument, ...;
 - (void)receive:(SEL)aSelector withCount:(NSUInteger)aCount arguments:(id)firstArgument, ...;
@@ -47,7 +47,7 @@
 - (void)receive:(SEL)aSelector andReturn:(id)aValue withCountAtLeast:(NSUInteger)aCount arguments:(id)firstArgument, ...;
 - (void)receive:(SEL)aSelector andReturn:(id)aValue withCountAtMost:(NSUInteger)aCount arguments:(id)firstArgument, ...;
 
-// MARK: Invocation Capturing Methods
+#pragma mark Invocation Capturing Methods
 
 - (id)receive DEPRECATED_ATTRIBUTE;
 - (id)receiveWithCount:(NSUInteger)aCount DEPRECATED_ATTRIBUTE;

@@ -10,7 +10,7 @@
 
 @interface KWMessageTracker()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, assign) NSUInteger receivedCount;
 
@@ -18,7 +18,7 @@
 
 @implementation KWMessageTracker
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithSubject:(id)anObject messagePattern:(KWMessagePattern *)aMessagePattern countType:(KWCountType)aCountType count:(NSUInteger)aCount {
     self = [super init];
@@ -37,7 +37,7 @@
     return [[self alloc] initWithSubject:anObject messagePattern:aMessagePattern countType:aCountType count:aCount];
 }
 
-// MARK: - Spying on Messages
+#pragma mark - Spying on Messages
 
 - (void)object:(id)anObject didReceiveInvocation:(NSInvocation *)anInvocation {
     if (![self.messagePattern matchesInvocation:anInvocation])
@@ -46,13 +46,13 @@
     ++self.receivedCount;
 }
 
-// MARK: - Stopping Tracking
+#pragma mark - Stopping Tracking
 
 - (void)stopTracking {
     [self.subject removeMessageSpy:self forMessagePattern:self.messagePattern];
 }
 
-// MARK: - Getting Message Tracker Status
+#pragma mark - Getting Message Tracker Status
 
 - (BOOL)succeeded {
     switch (self.countType) {
@@ -70,7 +70,7 @@
     return NO;
 }
 
-// MARK: - Getting Phrases
+#pragma mark - Getting Phrases
 
 - (NSString *)phraseForCount:(NSUInteger)aCount {
     if (aCount == 1)
@@ -101,7 +101,7 @@
     return [self phraseForCount:self.receivedCount];
 }
 
-// MARK: - Debugging
+#pragma mark - Debugging
 
 - (NSString *)modeString {
     switch (self.countType) {

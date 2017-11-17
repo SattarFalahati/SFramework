@@ -53,7 +53,7 @@ NS_SWIFT_NOTHROW
 ;
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
 
@@ -272,7 +272,7 @@ forHTTPHeaderField:(NSString *)field;
 
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
  The `AFMultipartFormData` protocol defines the methods supported by the parameter in the block argument of `AFHTTPRequestSerializer -multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:`.
@@ -372,7 +372,7 @@ forHTTPHeaderField:(NSString *)field;
 
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
  `AFJSONRequestSerializer` is a subclass of `AFHTTPRequestSerializer` that encodes parameters as JSON using `NSJSONSerialization`, setting the `Content-Type` of the encoded request to `application/json`.
@@ -393,7 +393,7 @@ forHTTPHeaderField:(NSString *)field;
 
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
  `AFPropertyListRequestSerializer` is a subclass of `AFHTTPRequestSerializer` that encodes parameters as JSON using `NSPropertyListSerializer`, setting the `Content-Type` of the encoded request to `application/x-plist`.
@@ -423,7 +423,7 @@ forHTTPHeaderField:(NSString *)field;
 
 @end
 
-// MARK: -
+#pragma mark -
 
 ///----------------
 /// @name Constants

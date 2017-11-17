@@ -26,14 +26,14 @@
 
 @end
 
-// MARK: - Support Macros
+#pragma mark - Support Macros
 
 #define KW_THIS_CALLSITE [KWCallSite callSiteWithFilename:@__FILE__ lineNumber:__LINE__]
 #define KW_ADD_EXIST_VERIFIER(expectationType) [KWSpec addExistVerifierWithExpectationType:expectationType callSite:KW_THIS_CALLSITE]
 #define KW_ADD_MATCH_VERIFIER(expectationType) [KWSpec addMatchVerifierWithExpectationType:expectationType callSite:KW_THIS_CALLSITE]
 #define KW_ADD_ASYNC_VERIFIER(expectationType, timeOut, wait) [KWSpec addAsyncVerifierWithExpectationType:expectationType callSite:KW_THIS_CALLSITE timeout:timeOut shouldWait:wait]
 
-// MARK: - Keywords
+#pragma mark - Keywords
 
 // Kiwi macros used in specs for verifying expectations.
 #define should attachToVerifier:KW_ADD_MATCH_VERIFIER(KWExpectationTypeShould)

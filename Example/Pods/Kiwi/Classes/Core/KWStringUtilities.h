@@ -6,13 +6,13 @@
 
 #import "KiwiConfiguration.h"
 
-// MARK: - Checking for Case Separated Words
+#pragma mark - Checking for Case Separated Words
 
 BOOL KWStringHasWordPrefix(NSString *string, NSString *prefix);
 BOOL KWStringHasStrictWordPrefix(NSString *string, NSString *prefix);
 BOOL KWStringHasWord(NSString *string, NSString *word);
 
-// MARK: - Getting Type Encodings
+#pragma mark - Getting Type Encodings
 
 NSString *KWEncodingWithObjCTypes(const char *firstType, ...) NS_REQUIRES_NIL_TERMINATION;
 NSString *KWEncodingForDefaultMethod(void);

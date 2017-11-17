@@ -9,7 +9,7 @@
 
 @interface KWBeBetweenMatcher()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, strong) id lowerEndpoint;
 @property (nonatomic, strong) id upperEndpoint;
@@ -18,13 +18,13 @@
 
 @implementation KWBeBetweenMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"beBetween:and:", @"beInTheIntervalFrom:to:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     if (![self.subject respondsToSelector:@selector(compare:)])
@@ -36,7 +36,7 @@
            (upperResult == NSOrderedAscending || upperResult == NSOrderedSame);
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to be in the interval [%@, %@], got %@",
@@ -49,7 +49,7 @@
     return [NSString stringWithFormat:@"be between %@ and %@", self.lowerEndpoint, self.upperEndpoint];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)beBetween:(id)aLowerEndpoint and:(id)anUpperEndpoint {
     [self beInTheIntervalFrom:aLowerEndpoint to:anUpperEndpoint];

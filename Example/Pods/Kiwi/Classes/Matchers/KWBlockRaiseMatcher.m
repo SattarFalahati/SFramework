@@ -16,7 +16,7 @@
 
 @implementation KWBlockRaiseMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"raise",
@@ -25,7 +25,7 @@
              @"raiseWithName:reason:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     if (![self.subject isKindOfClass:[KWBlock class]])
@@ -48,7 +48,7 @@
     return NO;
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 + (NSString *)exceptionPhraseWithException:(NSException *)anException {
     if (anException == nil)
@@ -78,7 +78,7 @@
                                       [[self class] exceptionPhraseWithException:self.actualException]];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)raise {
     [self raiseWithName:nil reason:nil];

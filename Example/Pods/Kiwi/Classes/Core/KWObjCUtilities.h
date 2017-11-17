@@ -6,7 +6,7 @@
 
 #import "KiwiConfiguration.h"
 
-// MARK: - Objective-C Type Utilities
+#pragma mark - Objective-C Type Utilities
 
 BOOL KWObjCTypeEqualToObjCType(const char *firstObjCType, const char *secondObjCType);
 BOOL KWObjCTypeIsNumeric(const char *objCType);
@@ -26,6 +26,6 @@ BOOL KWObjCTypeIsBlock(const char *objCType);
 
 NSUInteger KWObjCTypeLength(const char *objCType);
 
-// MARK: - Selector Utlities
+#pragma mark - Selector Utlities
 
 NSUInteger KWSelectorParameterCount(SEL selector);

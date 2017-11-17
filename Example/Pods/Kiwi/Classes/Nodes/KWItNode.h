@@ -17,7 +17,7 @@
 @property (nonatomic, strong) KWExample *example;
 @property (nonatomic, weak, readonly) KWContextNode *context;
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 + (id)itNodeWithCallSite:(KWCallSite *)aCallSite 
              description:(NSString *)aDescription 

@@ -6,7 +6,7 @@
 
 #import "KWStringUtilities.h"
 
-// MARK: - Checking for Case Separated Words
+#pragma mark - Checking for Case Separated Words
 
 BOOL KWStringHasWordPrefix(NSString *string, NSString *prefix) {
     return [string isEqualToString:prefix] || KWStringHasStrictWordPrefix(string, prefix);
@@ -63,7 +63,7 @@ BOOL KWStringHasWord(NSString *string, NSString *word) {
     }
 }
 
-// MARK: - Getting Type Encodings
+#pragma mark - Getting Type Encodings
 
 NSString *KWEncodingWithObjCTypes(const char *firstType, ...) {
     if (firstType == nil)

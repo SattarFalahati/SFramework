@@ -14,14 +14,14 @@
 
 @interface KWSpec : XCTestCase<KWExampleDelegate>
 
-// MARK: - Adding Verifiers
+#pragma mark - Adding Verifiers
 
 + (id)addVerifier:(id<KWVerifying>)aVerifier;
 + (id)addExistVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite;
 + (id)addMatchVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite;
 + (id)addAsyncVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite timeout:(NSTimeInterval)timeout shouldWait:(BOOL)shouldWait;
 
-// MARK: - Building Example Groups
+#pragma mark - Building Example Groups
 
 + (NSString *)file;
 + (void)buildExampleGroups;

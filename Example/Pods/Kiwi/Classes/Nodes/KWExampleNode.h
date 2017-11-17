@@ -11,7 +11,7 @@
 
 @protocol KWExampleNode<NSObject>
 
-// MARK: - Accepting Visitors
+#pragma mark - Accepting Visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor;
 

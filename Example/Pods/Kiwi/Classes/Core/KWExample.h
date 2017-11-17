@@ -27,40 +27,40 @@
 
 - (id)initWithExampleNode:(id<KWExampleNode>)node;
 
-// MARK: - Adding Verifiers
+#pragma mark - Adding Verifiers
 
 - (id)addVerifier:(id<KWVerifying>)aVerifier;
 - (id)addExistVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite;
 - (id)addMatchVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite;
 - (id)addAsyncVerifierWithExpectationType:(KWExpectationType)anExpectationType callSite:(KWCallSite *)aCallSite timeout:(NSTimeInterval)timeout shouldWait:(BOOL)shouldWait;
 
-// MARK: - Report failure
+#pragma mark - Report failure
 
 - (void)reportFailure:(KWFailure *)failure;
 
-// MARK: - Running
+#pragma mark - Running
 
 - (void)runWithDelegate:(id<KWExampleDelegate>)delegate;
 
-// MARK: - Anonymous It Node Descriptions
+#pragma mark - Anonymous It Node Descriptions
 
 - (NSString *)generateDescriptionForAnonymousItNode;
 
-// MARK: - Checking if last in context
+#pragma mark - Checking if last in context
 
 - (BOOL)isLastInContext:(KWContextNode *)context;
 
-// MARK: - Full description with context
+#pragma mark - Full description with context
 
 - (NSString *)descriptionWithContext;
 
-// MARK: - Format description as a valid selector
+#pragma mark - Format description as a valid selector
 
 @property (readonly) NSString *selectorName;
 
 @end
 
-// MARK: - Building Example Groups
+#pragma mark - Building Example Groups
 
 void describe(NSString *aDescription, void (^block)(void));
 void context(NSString *aDescription, void (^block)(void));

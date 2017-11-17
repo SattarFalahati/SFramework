@@ -19,7 +19,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
 
 @implementation NSObject(KiwiStubAdditions)
 
-// MARK: - Capturing Invocations
+#pragma mark - Capturing Invocations
 
 - (NSMethodSignature *)invocationCapturer:(KWInvocationCapturer *)anInvocationCapturer methodSignatureForSelector:(SEL)aSelector {
     NSMethodSignature *signature = [self methodSignatureForSelector:aSelector];
@@ -43,7 +43,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
     }
 }
 
-// MARK: - Stubbing Methods
+#pragma mark - Stubbing Methods
 
 - (void)stub:(SEL)aSelector {
     KWMessagePattern *messagePattern = [KWMessagePattern messagePatternWithSelector:aSelector];
@@ -219,7 +219,7 @@ static NSString * const ChangeStubValueAfterTimesKey = @"ChangeStubValueAfterTim
     KWClearObjectStubs(self);
 }
 
-// MARK: - Spying on Messages
+#pragma mark - Spying on Messages
 
 - (void)addMessageSpy:(id<KWMessageSpying>)aSpy forMessagePattern:(KWMessagePattern *)aMessagePattern {
     if ([self methodSignatureForSelector:aMessagePattern.selector] == nil) {

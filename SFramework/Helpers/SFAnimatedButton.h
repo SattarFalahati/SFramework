@@ -1,8 +1,8 @@
 //
-//  SFButton.h
+//  SFAnimatedButton.h
 //  Pods
 //
-//  Created by Mac on 11/11/16.
+//  Created by Sattar Falahati on 11/11/16.
 //
 //
 
@@ -10,14 +10,14 @@
 
 
 
-@interface SFButton : UIButton
+@interface SFAnimatedButton : UIButton
 
 typedef NS_ENUM(NSUInteger, SFButtonOption) {
     SFButtonNormal = 1,
     SFButtonBounce
 };
 
-@property (nonatomic) IBInspectable SFButtonOption option;
+@property (nonatomic) SFButtonOption SFOptions;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @interface KWContainMatcher : KWMatcher
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)contain:(id)anObject;
 - (void)containObjectsInArray:(NSArray *)anArray;
@@ -19,7 +19,7 @@
 
 @interface KWMatchVerifier(KWContainMatcherAdditions)
 
-// MARK: - Verifying
+#pragma mark - Verifying
 
 - (void)containObjects:(id)firstObject, ... NS_REQUIRES_NIL_TERMINATION;
 

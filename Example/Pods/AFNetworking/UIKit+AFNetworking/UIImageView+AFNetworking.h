@@ -115,7 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
  The `AFImageCache` protocol is adopted by an object used to cache images loaded by the AFNetworking category on `UIImageView`.

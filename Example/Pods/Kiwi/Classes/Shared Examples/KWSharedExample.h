@@ -17,7 +17,7 @@ typedef void (^KWSharedExampleBlock)(NSDictionary *data);
 
 @end
 
-// MARK: - Building Shared Example Groups
+#pragma mark - Building Shared Example Groups
 
 void sharedExamplesFor(NSString *name, KWSharedExampleBlock block);
 void itBehavesLike(NSString *name, NSDictionary *data);

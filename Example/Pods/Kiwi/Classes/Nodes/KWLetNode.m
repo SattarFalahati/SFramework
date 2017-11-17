@@ -36,7 +36,7 @@
     return [[self alloc] initWithSymbolName:aSymbolName objectRef:anObjectRef block:block];
 }
 
-// MARK: - Evaluating nodes
+#pragma mark - Evaluating nodes
 
 - (id)evaluate
 {
@@ -58,7 +58,7 @@
     [self.next evaluateTree];
 }
 
-// MARK: - Managing node relationships
+#pragma mark - Managing node relationships
 
 - (void)addLetNode:(KWLetNode *)aNode
 {
@@ -108,14 +108,14 @@
     self.parent = nil;
 }
 
-// MARK: - Accepting visitors
+#pragma mark - Accepting visitors
 
 - (void)acceptExampleNodeVisitor:(id<KWExampleNodeVisitor>)aVisitor
 {
     [aVisitor visitLetNode:self];
 }
 
-// MARK: - Describing nodes
+#pragma mark - Describing nodes
 
 - (NSString *)description
 {

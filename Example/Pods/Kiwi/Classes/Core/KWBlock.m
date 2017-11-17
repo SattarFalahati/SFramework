@@ -8,7 +8,7 @@
 
 @interface KWBlock()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, readonly, copy) void (^block)(void);
 
@@ -16,7 +16,7 @@
 
 @implementation KWBlock
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithBlock:(void (^)(void))block {
     self = [super init];
@@ -31,7 +31,7 @@
     return [[self alloc] initWithBlock:aBlock];
 }
 
-// MARK: - Calling Blocks
+#pragma mark - Calling Blocks
 
 - (void)call {
     self.block();
@@ -39,7 +39,7 @@
 
 @end
 
-// MARK: - Creating Blocks
+#pragma mark - Creating Blocks
 
 KWBlock *theBlock(void (^block)(void)) {
     return lambda(block);

@@ -48,7 +48,7 @@ void afterEachSpec(void (^block)(void));
     INVOKE(self.afterAllSpecsBlock);
 }
 
-// MARK: - Unused methods
+#pragma mark - Unused methods
 
 - (void)setUpSpec:(KWSpec *)spec {
     INVOKE(self.beforeEachSpecBlock);

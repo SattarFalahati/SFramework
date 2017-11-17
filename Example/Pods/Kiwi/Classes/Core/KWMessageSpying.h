@@ -8,7 +8,7 @@
 
 @protocol KWMessageSpying<NSObject>
 
-// MARK: - Spying on Messages
+#pragma mark - Spying on Messages
 
 - (void)object:(id)anObject didReceiveInvocation:(NSInvocation *)anInvocation;
 

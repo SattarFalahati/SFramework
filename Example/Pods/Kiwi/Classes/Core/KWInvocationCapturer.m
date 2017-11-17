@@ -10,7 +10,7 @@
 
 @implementation KWInvocationCapturer
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithDelegate:(id)aDelegate {
     return [self initWithDelegate:aDelegate userInfo:nil];
@@ -31,18 +31,18 @@
 }
 
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @synthesize delegate;
 @synthesize userInfo;
 
-// MARK: - Capturing Invocations
+#pragma mark - Capturing Invocations
 
 - (void)KW_captureInvocation:(NSInvocation *)anInvocation {
     [self.delegate invocationCapturer:self didCaptureInvocation:anInvocation];
 }
 
-// MARK: - Handling Invocations
+#pragma mark - Handling Invocations
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector {
     return [self.delegate invocationCapturer:self methodSignatureForSelector:aSelector];
@@ -62,7 +62,7 @@
 #endif // #if KW_TARGET_HAS_INVOCATION_EXCEPTION_BUG
 }
 
-// MARK: - Whitelisted NSObject Methods
+#pragma mark - Whitelisted NSObject Methods
 
 // The return values from these methods should never be needed, so just call
 // the super implementation after capturing the invocation.

@@ -10,7 +10,7 @@
 
 @interface KWEqualMatcher()
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, readwrite, strong) id otherSubject;
 
@@ -18,20 +18,20 @@
 
 @implementation KWEqualMatcher
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @synthesize otherSubject;
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"equal:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     /** handle this as a special case; KWValue supports NSNumber equality but not vice-versa **/
@@ -41,7 +41,7 @@
     return [self.subject isEqual:self.otherSubject];
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)failureMessageForShould {
     return [NSString stringWithFormat:@"expected subject to equal %@, got %@",
@@ -59,7 +59,7 @@
   return [NSString stringWithFormat:@"equal %@", [KWFormatter formatObjectIncludingClass:self.otherSubject]];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)equal:(id)anObject {
     self.otherSubject = anObject;

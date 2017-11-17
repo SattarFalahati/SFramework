@@ -146,7 +146,7 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
     return [NSArray arrayWithArray:trustChain];
 }
 
-// MARK: -
+#pragma mark -
 
 @interface AFSecurityPolicy()
 @property (readwrite, nonatomic, assign) AFSSLPinningMode SSLPinningMode;
@@ -219,7 +219,7 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
     }
 }
 
-// MARK: -
+#pragma mark -
 
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust {
     return [self evaluateServerTrust:serverTrust forDomain:nil];
@@ -298,13 +298,13 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
     return NO;
 }
 
-// MARK: - NSKeyValueObserving
+#pragma mark - NSKeyValueObserving
 
 + (NSSet *)keyPathsForValuesAffectingPinnedPublicKeys {
     return [NSSet setWithObject:@"pinnedCertificates"];
 }
 
-// MARK: - NSSecureCoding
+#pragma mark - NSSecureCoding
 
 + (BOOL)supportsSecureCoding {
     return YES;
@@ -332,7 +332,7 @@ static NSArray * AFPublicKeyTrustChainForServerTrust(SecTrustRef serverTrust) {
     [coder encodeObject:self.pinnedCertificates forKey:NSStringFromSelector(@selector(pinnedCertificates))];
 }
 
-// MARK: - NSCopying
+#pragma mark - NSCopying
 
 - (instancetype)copyWithZone:(NSZone *)zone {
     AFSecurityPolicy *securityPolicy = [[[self class] allocWithZone:zone] init];

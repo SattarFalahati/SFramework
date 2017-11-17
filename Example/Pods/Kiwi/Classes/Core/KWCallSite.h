@@ -8,18 +8,18 @@
 
 @interface KWCallSite : NSObject
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithFilename:(NSString *)aFilename lineNumber:(NSUInteger)aLineNumber;
 
 + (id)callSiteWithFilename:(NSString *)aFilename lineNumber:(NSUInteger)aLineNumber;
 
-// MARK: - Properties
+#pragma mark - Properties
 
 @property (nonatomic, readonly, copy) NSString *filename;
 @property (nonatomic, readonly) NSUInteger lineNumber;
 
-// MARK: - Identifying and Comparing
+#pragma mark - Identifying and Comparing
 
 - (BOOL)isEqualToCallSite:(KWCallSite *)aCallSite;
 

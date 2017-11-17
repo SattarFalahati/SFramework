@@ -8,7 +8,7 @@
 
 @implementation KWCallSite
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 - (id)initWithFilename:(NSString *)aFilename lineNumber:(NSUInteger)aLineNumber {
     self = [super init];
@@ -24,7 +24,7 @@
     return [[self alloc] initWithFilename:aFilename lineNumber:aLineNumber];
 }
 
-// MARK: - Identifying and Comparing
+#pragma mark - Identifying and Comparing
 
 - (NSUInteger)hash {
     return [[NSString stringWithFormat:@"%@%u", self.filename, (unsigned)self.lineNumber] hash];

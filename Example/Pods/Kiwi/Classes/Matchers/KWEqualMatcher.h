@@ -9,7 +9,7 @@
 
 @interface KWEqualMatcher : KWMatcher
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)equal:(id)anObject;
 

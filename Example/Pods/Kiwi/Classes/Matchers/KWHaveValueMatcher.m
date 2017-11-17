@@ -21,7 +21,7 @@
 
 @implementation KWHaveValueMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"haveValue:forKey:",
@@ -30,7 +30,7 @@
              @"haveValueForKeyPath:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     BOOL matched = NO;
@@ -103,7 +103,7 @@
     return [NSString stringWithFormat:@"have %@ for %@", valueDescription, keyDescription];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)haveValue:(id)value forKey:(NSString *)key {
     self.expectedKey = key;

@@ -50,7 +50,7 @@ NS_SWIFT_NOTHROW
 
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
  `AFHTTPResponseSerializer` conforms to the `AFURLRequestSerialization` & `AFURLResponseSerialization` protocols, offering a concrete base implementation of query string / URL form-encoded parameter serialization and default request headers, as well as response status code and content type validation.
@@ -104,7 +104,7 @@ NS_SWIFT_NOTHROW
 
 @end
 
-// MARK: -
+#pragma mark -
 
 
 /**
@@ -139,7 +139,7 @@ NS_SWIFT_NOTHROW
 
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
  `AFXMLParserResponseSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes XML responses as an `NSXMLParser` objects.
@@ -153,7 +153,7 @@ NS_SWIFT_NOTHROW
 
 @end
 
-// MARK: -
+#pragma mark -
 
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 
@@ -185,7 +185,7 @@ NS_SWIFT_NOTHROW
 
 #endif
 
-// MARK: -
+#pragma mark -
 
 /**
  `AFPropertyListResponseSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes XML responses as an `NSXMLDocument` objects.
@@ -219,7 +219,7 @@ NS_SWIFT_NOTHROW
 
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
  `AFImageResponseSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes image responses.
@@ -253,7 +253,7 @@ NS_SWIFT_NOTHROW
 
 @end
 
-// MARK: -
+#pragma mark -
 
 /**
  `AFCompoundSerializer` is a subclass of `AFHTTPResponseSerializer` that delegates the response serialization to the first `AFHTTPResponseSerializer` object that returns an object for `responseObjectForResponse:data:error:`, falling back on the default behavior of `AFHTTPResponseSerializer`. This is useful for supporting multiple potential types and structures of server responses with a single serializer.

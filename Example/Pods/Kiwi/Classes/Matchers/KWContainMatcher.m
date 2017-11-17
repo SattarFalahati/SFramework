@@ -16,13 +16,13 @@
 
 @implementation KWContainMatcher
 
-// MARK: - Getting Matcher Strings
+#pragma mark - Getting Matcher Strings
 
 + (NSArray *)matcherStrings {
     return @[@"contain:", @"containObjectsInArray:"];
 }
 
-// MARK: - Matching
+#pragma mark - Matching
 
 - (BOOL)evaluate {
     if (![self.subject respondsToSelector:@selector(containsObjectEqualToOrMatching:)])
@@ -36,7 +36,7 @@
     return YES;
 }
 
-// MARK: - Getting Failure Messages
+#pragma mark - Getting Failure Messages
 
 - (NSString *)objectsPhrase {
     if ([self.objects count] == 1)
@@ -53,7 +53,7 @@
     return [NSString stringWithFormat:@"contain %@", [self objectsPhrase]];
 }
 
-// MARK: - Configuring Matchers
+#pragma mark - Configuring Matchers
 
 - (void)contain:(id)anObject {
     self.objects = @[anObject];
@@ -67,7 +67,7 @@
 
 @implementation KWMatchVerifier(KWContainMatcherAdditions)
 
-// MARK: - Verifying
+#pragma mark - Verifying
 
 - (void)containObjects:(id)firstObject, ... {
     NSMutableArray *objects = [NSMutableArray array];

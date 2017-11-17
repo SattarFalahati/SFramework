@@ -9,7 +9,7 @@
 
 @implementation NSObject(KiwiMockAdditions)
 
-// MARK: - Creating Mocks
+#pragma mark - Creating Mocks
 
 + (id)mock {
     return [KWMock mockForClass:[self class]];

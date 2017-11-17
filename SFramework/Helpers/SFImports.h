@@ -29,7 +29,7 @@
 #import "SFImage.h"
 #import "SFView.h"
 #import "SFLocationManager.h"
-#import "SFButton.h"
+#import "SFAnimatedButton.h"
 #import "SFProgressHUD.h"
 #import "SFInAppNotification.h"
 #import "SFDate.h"

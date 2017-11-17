@@ -38,7 +38,7 @@
     return [NSString stringWithFormat:@"-[%@ %@]", NSStringFromClass([self class]), currentExample.selectorName];
 }
 
-// MARK: - Getting Invocations
+#pragma mark - Getting Invocations
 
 /* Called by the XCTest to get an array of invocations that
    should be run on instances of test cases. */
@@ -81,7 +81,7 @@
     return invocation;
 }
 
-// MARK: - Running Specs
+#pragma mark - Running Specs
 
 - (void)runExample {
     self.currentExample = self.invocation.kw_example;
@@ -97,7 +97,7 @@
     }
 }
 
-// MARK: - KWExampleGroupDelegate methods
+#pragma mark - KWExampleGroupDelegate methods
 
 - (void)example:(KWExample *)example didFailWithFailure:(KWFailure *)failure {
     [self recordFailureWithDescription:failure.message
@@ -106,7 +106,7 @@
                               expected:NO];
 }
 
-// MARK: - Verification proxies
+#pragma mark - Verification proxies
 
 + (id)addVerifier:(id<KWVerifying>)aVerifier {
     return [[[KWExampleSuiteBuilder sharedExampleSuiteBuilder] currentExample] addVerifier:aVerifier];

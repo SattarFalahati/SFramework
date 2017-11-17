@@ -23,7 +23,7 @@ typedef BOOL (^KWUserDefinedMatcherBlock)();
 - (id)initWithSubject:(id)aSubject block:(KWUserDefinedMatcherBlock)aBlock;
 @end
 
-// MARK: -
+#pragma mark -
 
 typedef NSString * (^KWUserDefinedMatcherMessageBlock)(id);
 
@@ -40,14 +40,14 @@ typedef NSString * (^KWUserDefinedMatcherMessageBlock)(id);
 + (id)builderForSelector:(SEL)aSelector;
 - (id)initWithSelector:(SEL)aSelector;
 
-// MARK: - Configuring The Matcher
+#pragma mark - Configuring The Matcher
 
 - (void)match:(KWUserDefinedMatcherBlock)block;
 - (void)failureMessageForShould:(KWUserDefinedMatcherMessageBlock)block;
 - (void)failureMessageForShouldNot:(KWUserDefinedMatcherMessageBlock)block;
 - (void)description:(NSString *)description;
 
-// MARK: - Buiding The Matcher
+#pragma mark - Buiding The Matcher
 
 - (KWUserDefinedMatcher *)buildMatcherWithSubject:(id)subject;
 @end

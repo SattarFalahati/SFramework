@@ -16,7 +16,7 @@
 
 @implementation KWMatchers
 
-// MARK: - Singleton implementation
+#pragma mark - Singleton implementation
 
 static id sharedMatchers = nil;
 
@@ -38,7 +38,7 @@ static id sharedMatchers = nil;
     return self;
 }
 
-// MARK: - Defining Matchers
+#pragma mark - Defining Matchers
 
 + (void)defineMatcher:(NSString *)selectorString as:(KWMatchersBuildingBlock)block {
     [[self matchers] defineMatcher:selectorString as:block];
@@ -54,7 +54,7 @@ static id sharedMatchers = nil;
     userDefinedMatchers[builder.key] = builder;
 }
 
-// MARK: - Building Matchers
+#pragma mark - Building Matchers
 
 - (KWUserDefinedMatcher *)matcherForSelector:(SEL)selector subject:(id)subject {
     KWUserDefinedMatcherBuilder *builder = userDefinedMatchers[NSStringFromSelector(selector)];

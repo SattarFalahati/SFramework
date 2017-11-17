@@ -8,7 +8,7 @@
 
 @interface NSValue(KiwiAdditions)
 
-// MARK: - Accessing Data
+#pragma mark - Accessing Data
 
 - (NSData *)dataValue;
 

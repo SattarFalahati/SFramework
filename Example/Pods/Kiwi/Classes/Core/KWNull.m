@@ -8,7 +8,7 @@
 
 @implementation KWNull
 
-// MARK: - Initializing
+#pragma mark - Initializing
 
 
 + (id)null {

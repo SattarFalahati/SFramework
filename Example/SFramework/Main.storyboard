@@ -30,12 +30,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvO-T0-QfE" customClass="SFButton" customModule="SFButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OvO-T0-QfE" customClass="SFAnimatedButton">
                                 <rect key="frame" x="20" y="607" width="335" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="IyA-ur-LQj"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="SFOptions">
+                                        <integer key="value" value="0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="selectorBtnActionSheetDidSelect:" destination="whP-gf-Uak" eventType="touchUpInside" id="8M8-NT-Lqk"/>
                                 </connections>

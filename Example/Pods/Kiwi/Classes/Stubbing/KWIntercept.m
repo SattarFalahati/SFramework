@@ -31,14 +31,14 @@ typedef id (^KWInterceptedObjectBlock)(void);
 // loop when the object is hashed.
 KWInterceptedObjectBlock KWInterceptedObjectKey(id anObject);
 
-// MARK: - Intercept Enabled Method Implementations
+#pragma mark - Intercept Enabled Method Implementations
 
 void KWInterceptedForwardInvocation(id anObject, SEL aSelector, NSInvocation* anInvocation);
 void KWInterceptedDealloc(id anObject, SEL aSelector);
 Class KWInterceptedClass(id anObject, SEL aSelector);
 Class KWInterceptedSuperclass(id anObject, SEL aSelector);
 
-// MARK: - Getting Forwarding Implementations
+#pragma mark - Getting Forwarding Implementations
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
@@ -78,7 +78,7 @@ IMP KWForwardingImplementationForMethodEncoding(const char* encoding) {
     }
 }
 
-// MARK: - Getting Intercept Class Information
+#pragma mark - Getting Intercept Class Information
 
 BOOL KWObjectIsClass(id anObject) {
     return class_isMetaClass(object_getClass(anObject));
@@ -128,7 +128,7 @@ Class KWRealClassForClass(Class aClass) {
     return aClass;
 }
 
-// MARK: - Enabling Intercepting
+#pragma mark - Enabling Intercepting
 
 static BOOL IsTollFreeBridged(Class class, id obj)
 {
@@ -177,7 +177,7 @@ void KWSetupMethodInterceptSupport(Class interceptClass, SEL aSelector) {
     class_addMethod(interceptClass, aSelector, forwardingImplementation, encoding);
 }
 
-// MARK: - Intercept Enabled Method Implementations
+#pragma mark - Intercept Enabled Method Implementations
 
 void KWInterceptedForwardInvocation(id anObject, SEL aSelector, NSInvocation* anInvocation) {
     NSMapTable *spiesMap = KWMessageSpiesForObject(anObject);
@@ -221,7 +221,7 @@ Class KWInterceptedSuperclass(id anObject, SEL aSelector) {
     return originalSuperclass;
 }
 
-// MARK: - Managing Objects Stubs
+#pragma mark - Managing Objects Stubs
 
 void KWAssociateObjectStub(id anObject, KWStub *aStub, BOOL overrideExisting) {
     KWObjectStubsInit();
@@ -250,7 +250,7 @@ void KWAssociateObjectStub(id anObject, KWStub *aStub, BOOL overrideExisting) {
     [stubs addObject:aStub];
 }
 
-// MARK: - Managing Message Spies
+#pragma mark - Managing Message Spies
 
 void KWAssociateMessageSpy(id anObject, id aSpy, KWMessagePattern *aMessagePattern) {
     KWMessageSpiesInit();
@@ -274,7 +274,7 @@ void KWAssociateMessageSpy(id anObject, id aSpy, KWMessagePattern *aMessagePatte
     [messagePatternSpies addObject:aSpy];
 }
 
-// MARK: - KWMessageSpies
+#pragma mark - KWMessageSpies
 
 static NSMapTable *KWMessageSpies = nil;
 
@@ -314,7 +314,7 @@ void KWClearAllMessageSpies(void) {
 }
 
 
-// MARK: KWObjectStubs
+#pragma mark KWObjectStubs
 
 static NSMapTable *KWObjectStubs = nil;
 
@@ -347,7 +347,7 @@ void KWClearAllObjectStubs(void) {
     [KWObjectStubs removeAllObjects];
 }
 
-// MARK: KWRestoredObjects
+#pragma mark KWRestoredObjects
 
 static NSMutableArray *KWRestoredObjects = nil;
 
@@ -367,7 +367,7 @@ Class KWRestoreOriginalClass(id anObject) {
     return interceptClass;
 }
 
-// MARK: KWInterceptedObjectKey
+#pragma mark KWInterceptedObjectKey
 
 static void *kKWInterceptedObjectKey = &kKWInterceptedObjectKey;
 
@@ -381,7 +381,7 @@ KWInterceptedObjectBlock KWInterceptedObjectKey(id anObject) {
     return key;
 }
 
-// MARK: - Managing Stubs & Spies
+#pragma mark - Managing Stubs & Spies
 
 void KWClearStubsAndSpies(void) {
     KWRestoredObjects = [NSMutableArray array];

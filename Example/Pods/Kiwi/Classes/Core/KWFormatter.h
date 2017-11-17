@@ -8,7 +8,7 @@
 
 @interface KWFormatter : NSObject
 
-// MARK: - Getting Descriptions
+#pragma mark - Getting Descriptions
 
 + (NSString *)formatObject:(id)anObject;
 + (NSString *)formatObjectIncludingClass:(id)anObject;
