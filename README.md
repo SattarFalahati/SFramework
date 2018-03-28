@@ -2,7 +2,7 @@
 
 Sattar Falahati personal helper framework (Objective-C)
 
-Version 0.4.1
+Version 1.0
 
 <!--[![CI Status](http://img.shields.io/travis/sattar_falahati/SFramework.svg?style=flat)](https://travis-ci.org/sattar_falahati/SFramework) -->
 [![Version](https://img.shields.io/cocoapods/v/SFramework.svg?style=flat)](http://cocoapods.org/pods/SFramework)
@@ -24,7 +24,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 
-pod 'SFramework', :git => 'https://github.com/SattarFalahati/SFramework.git'
+pod 'SFramework'
 
 ```
 

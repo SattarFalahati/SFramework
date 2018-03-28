@@ -11,7 +11,7 @@
 #endif
 
 #import "SFAlertController.h"
-#import "SFButton.h"
+#import "SFAnimatedButton.h"
 #import "SFCarousel.h"
 #import "SFColor.h"
 #import "SFConstants.h"
