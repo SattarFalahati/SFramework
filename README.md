@@ -24,7 +24,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 
-pod 'SFramework'
+pod 'SFramework' , :git => 'https://github.com/SattarFalahati/SFramework.git'
 
 ```
 
