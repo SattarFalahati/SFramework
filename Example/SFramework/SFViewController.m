@@ -86,7 +86,7 @@
 - (void)applyCustomGraphic
 {
     // SFColor (ways to set color)
-    [self.view setBackgroundColor:RGB(151, 127, 45)];
+//    [self.view setBackgroundColor:RGB(151, 127, 45)];
     //    [self.view setBackgroundColor:[UIColor colorWithHexString:@"#afeeee" withAlpha:0.5F]];
     
     // SFLable
@@ -99,7 +99,11 @@
     
     [self.btnActionSheet setAttributedTitleWithString:@"  Open SFActionSheet  " withBaseFont:[UIFont systemFontOfSize:13] andBaseColor:RGB(151, 127, 45) withAttributedString:@"SFActionSheet" withAttributedFont:[UIFont boldSystemFontOfSize:15] andAttributedColor:[UIColor colorWithHexString:@"#afeeee"] forState:UIControlStateNormal];
     
-    [self.btnActionSheet setBackgroundColor:[UIColor colorWithHexString:@"#000000" withAlpha:.7]];
+//    [self.btnActionSheet setBackgroundColor:[UIColor colorWithHexString:@"#000000" withAlpha:.7]];
+    
+    [self.btnActionSheet setBackgroundColor:[UIColor colorWithHexString:@"#4C48A0D7" withAlpha:1]];
+    
+    
     [self.btnActionSheet addCornerRadius:5];
     [self.btnActionSheet setSFOptions: SFButtonBounce]; // To animate
 //    self.btnActionSheet.SFOptions = SFButtonBounce;

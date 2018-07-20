@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = 'SFramework'
-s.version          = '1.0'
+s.version          = '1.0.1'
 s.summary          = 'Sattar personal framework.'
 s.description      = <<-DESC
 This framework will be used as a helper to help us make projects faster and easier.

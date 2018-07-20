@@ -25,9 +25,9 @@ PODS:
   - FBSnapshotTestCase/Core (2.1.4)
   - FBSnapshotTestCase/SwiftSupport (2.1.4):
     - FBSnapshotTestCase/Core
-  - Kiwi (2.4.0)
+  - Kiwi (3.0.0)
   - MBProgressHUD (0.9.2)
-  - SFramework (0.4.1):
+  - SFramework (1.0):
     - AFNetworking (~> 2.6.3)
     - MBProgressHUD (~> 0.9.2)
 
@@ -43,10 +43,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
-  Kiwi: f49c9d54b28917df5928fe44968a39ed198cb8a8
+  Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
-  SFramework: e3ab075f9ab45182f0dd79c24ddc043ea5ee0dde
+  SFramework: 2149492573d5fa665f10e4a087d67b5ce00913a6
 
 PODFILE CHECKSUM: c0693b852e384d3ed4ebb1eb6b21a1cc50eec55b
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.4.0

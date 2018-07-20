@@ -50,6 +50,7 @@
 #define IS_IPHONE_5                                         (IS_IPHONE && SCREEN_MAX_LENGTH == 568.0)
 #define IS_IPHONE_6                                         (IS_IPHONE && SCREEN_MAX_LENGTH == 667.0)
 #define IS_IPHONE_6P                                        (IS_IPHONE && SCREEN_MAX_LENGTH == 736.0)
+#define IS_IPHONE_X                                         (IS_IPHONE && SCREEN_MAX_LENGTH == 812.0)
 
 #define WINDOW                                              [[[UIApplication sharedApplication] delegate] window]
 #define WINDOW_VIEW                                         [[[UIApplication sharedApplication] windows] lastObject]

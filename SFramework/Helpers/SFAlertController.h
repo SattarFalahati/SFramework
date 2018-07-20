@@ -12,7 +12,7 @@
 @interface SFAlertController : NSObject
 
 /// SFAlertView Completion Block
-typedef void (^SFAlertControllerCompletionBlock)();
+typedef void (^SFAlertControllerCompletionBlock)(void);
 
 // MARK: - ALERT VIEW
 

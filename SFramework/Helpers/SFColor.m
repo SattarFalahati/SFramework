@@ -40,6 +40,7 @@
             
         case 4:
             // #ARGB
+            alpha = [self colorComponentFrom:strColor start:0 length:1];
             red   = [self colorComponentFrom:strColor start:1 length:1];
             green = [self colorComponentFrom:strColor start:2 length:1];
             blue  = [self colorComponentFrom:strColor start:3 length:1];
@@ -54,6 +55,7 @@
             
         case 8:
             // #AARRGGBB
+            alpha = [self colorComponentFrom:strColor start:0 length:2];
             red   = [self colorComponentFrom:strColor start:2 length:2];
             green = [self colorComponentFrom:strColor start:4 length:2];
             blue  = [self colorComponentFrom:strColor start:6 length:2];

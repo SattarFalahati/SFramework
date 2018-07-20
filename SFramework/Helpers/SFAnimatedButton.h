@@ -50,7 +50,7 @@ typedef NS_ENUM(NSUInteger, SFButtonOption) {
 
 /**
  * Rotate button
- * This function will rotate buton 180 Degree and if yiu call it twice the second time button will rotate to the orginal position.
+ * This function will rotate buton 180 Degree and if you call it twice the second time button will rotate to the orginal position.
  */
 - (void)rotateButton;
 
